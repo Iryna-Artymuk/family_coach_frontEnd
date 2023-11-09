@@ -19,6 +19,13 @@
   font-style: normal;
   font-display: swap;
 }
+@font-face {
+  font-family: 'MontserratBold';
+  src: url('./fonts/Montserrat-VariableFont_wght.ttf') format('truetype');
+  font-weight: 500; /* Adjust the font-weight accordingly */
+  font-style: normal;
+  font-display: swap;
+}
 
 * {
   padding: 0;

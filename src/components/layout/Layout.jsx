@@ -1,17 +1,15 @@
 import { Outlet } from 'react-router-dom';
+import Header from '../Icons/Header/Header';
+import Footer from '../Footer/Footer';
 
 const Layout = () => {
   return (
     <div className="app">
-      <header> header</header>
+      <Header />
       <main>
         <Outlet />
       </main>
-      <footer>
-        <div>
-          <span>&#169; 2023 Жанна Барищук - всі права захищено </span>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 };
