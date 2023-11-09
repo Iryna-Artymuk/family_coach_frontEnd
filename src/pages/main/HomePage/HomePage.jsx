@@ -2,7 +2,7 @@ import Container from '@/components/Container/Container';
 import style from './HomePage.module.scss';
 import { Link } from 'react-router-dom/dist';
 
-import Instagram from '@/components/Icons/instagram';
+import Instagram from '@/components/Icons/Instagram';
 import Phone from '@/components/Icons/Phone';
 import Telegram from '@/components/Icons/Telegram';
 import Arrow from '@/components/Icons/Arrow';
