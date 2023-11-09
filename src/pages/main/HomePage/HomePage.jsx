@@ -1,11 +1,15 @@
+import { useEffect } from 'react';
 import style from './HomePage.module.scss';
 
 import Container from '@/components/Container/Container';
 
 const HomePage = () => {
+   useEffect(() => {
+     window.scrollTo(0, 0);
+   }, []);
   return (
     <Container>
-      <div className={style.pageWrapper}>
+      <div>
         <p className={style.test}> Привіт!Мене звати Жанна Барищук</p>
 
         <p className={style.test1}>

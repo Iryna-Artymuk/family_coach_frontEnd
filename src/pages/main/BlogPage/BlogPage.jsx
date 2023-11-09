@@ -1,6 +1,10 @@
 import Container from '@/components/Container/Container';
+import { useEffect } from 'react';
 
 const BlogPage = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <Container>
       <h1>Blog</h1>

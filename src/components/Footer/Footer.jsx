@@ -5,6 +5,7 @@ import Logo from '../Logo/Logo';
 
 import SocialList from '../SocialList/SocialList';
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
@@ -36,7 +37,9 @@ const Footer = () => {
               <li>Відгуки</li>
             </ul>
             <ul className={styles.navList}>
-              <li>Блог</li>
+              <li>
+                <Link to="blog">Блог</Link>
+              </li>
               <li>Кваліфікація</li>
               <li>Послуги і ціни </li>
             </ul>
