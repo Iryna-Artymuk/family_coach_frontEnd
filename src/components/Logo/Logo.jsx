@@ -1,8 +1,8 @@
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import styles from './Logo.module.scss';
 const Logo = () => {
   return (
-    <Link to="/">
+    <NavLink to="/">
       <svg
         className={styles.logo}
         viewBox="0 0 131 116"
@@ -54,7 +54,7 @@ const Logo = () => {
           </clipPath>
         </defs>
       </svg>
-    </Link>
+    </NavLink>
   );
 };
 

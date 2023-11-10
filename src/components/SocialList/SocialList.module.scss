@@ -1,4 +1,16 @@
 .socialList {
   @extend%aligncenter;
   gap: 12px;
+
+  li {
+    width: 24px;
+    height: 24px;
+    @extend%aligncenter;
+
+    a {
+      @extend%aligncenter;
+      width: 100%;
+      height: 100%;
+    }
+  }
 }

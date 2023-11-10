@@ -4,7 +4,7 @@
 
 body {
   overflow-x: hidden;
-max-width: 100%;
+  max-width: 100%;
   min-height: 100vh;
 }
 main {
@@ -28,8 +28,6 @@ header,
 footer {
   width: 100vw;
   background: $headerBG;
-  padding-top: 7px;
-  padding-bottom: 7px;
 }
 
 header {
