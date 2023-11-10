@@ -6,6 +6,7 @@ import Logo from '../Logo/Logo';
 import SocialList from '../SocialList/SocialList';
 import { useEffect, useState } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
+import { HashLink } from 'react-router-hash-link';
 import clsx from 'clsx';
 
 const Footer = () => {
@@ -36,9 +37,34 @@ const Footer = () => {
           {windowWidth >= 768 && <Logo />}
           <nav className={styles.navigationWrapper}>
             <ul className={styles.navList}>
-              <li className={styles.navListLink}>Про мене</li>
-              <li className={styles.navListLink}>Напрямки роботи</li>
-              <li className={styles.navListLink}>Відгуки</li>
+              <li className={styles.navListLink}>
+                <HashLink
+                  scroll={el =>
+                    el.scrollIntoView({ behavior: 'smooth', block: 'end' })
+                  }
+                  to="/#about"
+                >
+                  Про мене
+                </HashLink>
+              </li>
+              <li className={styles.navListLink}>
+                <HashLink
+                  scroll={el =>
+                    el.scrollIntoView({ behavior: 'smooth', block: 'end' })
+                  }
+                  to="#workAreas"
+                >
+                  Напрямки роботи
+                </HashLink>
+              </li>
+              <li className={styles.navListLink}>
+                <HashLink
+                  scroll={el => el.scrollIntoView({ behavior: 'smooth' })}
+                  to="#feedback"
+                >
+                  Відгуки
+                </HashLink>
+              </li>
             </ul>
             <ul className={styles.navList}>
               <li>

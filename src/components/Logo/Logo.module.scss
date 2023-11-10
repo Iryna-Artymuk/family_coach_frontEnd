@@ -1,6 +1,13 @@
 .logo {
   width: 61px;
   height: 50px;
+  transition: $transition;
+  &:hover,
+  &:focus {
+    .logoText {
+      fill: $red;
+    }
+  }
 
   @media screen and (min-width: 768px) {
     width: 104px;
@@ -10,4 +17,9 @@
     width: 130px;
     height: 116px;
   }
+}
+
+.logoText {
+  transition: $transition;
+  fill: #fffbf8;
 }
