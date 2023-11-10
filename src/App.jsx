@@ -5,6 +5,7 @@ import BlogPage from '@/pages/main/BlogPage/BlogPage';
 import Layout from './components/layout/Layout';
 import QualificationPage from './pages/main/QualificationPage/QualificationPage';
 import PricePage from './pages/main/PricePage/PricePage';
+import Article from './pages/main/Article/Article';
 
 
 const App = () => {
@@ -14,7 +15,7 @@ const App = () => {
         <Route path="/" element={<Layout />}>
           <Route index element={<HomePage />} />
           <Route path="/blog" element={<BlogPage />} />
-          {/* <Route path="/blog:id" element={<Article />} /> */}
+          <Route path="/blog/:articleId" element={<Article/>} />
           <Route path="/qualification" element={<QualificationPage />} />
           <Route path="/price" element={<PricePage />} />
           {/* <Route path="*" element={<Page404 />} />

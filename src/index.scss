@@ -5,6 +5,7 @@
   font-style: normal;
   font-display: swap;
 }
+
 @font-face {
   font-family: 'Lora';
   src: url('./fonts/Lora-VariableFont_wght.ttf') format('truetype');
@@ -38,6 +39,7 @@ body {
   min-width: 320px;
   font-family: 'Lora', sans-serif;
   background: $white;
+  color: $textColor;
 }
 
 h1,

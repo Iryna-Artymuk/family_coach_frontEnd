@@ -9,17 +9,20 @@
 }
 .test1 {
   font-size: 18px;
-  font-family: 'Lora', sans-serif;
+  font-family: 'Script', sans-serif;
+  font-weight: 400;
 }
 .test2 {
   font-size: 18px;
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Script', sans-serif;
+  font-weight: 600;
   color: blue;
 }
 .test3 {
   font-size: 18px;
-  font-family: 'MontserratMedium', sans-serif;
-  color: $red;
+  font-family: 'Script', sans-serif;
+  font-weight: 800;
+  color: $textColor;
 }
 
 .sosialList {

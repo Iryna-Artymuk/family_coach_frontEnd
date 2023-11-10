@@ -73,7 +73,6 @@ const HomePage = () => {
           pariatur est veritatis cupiditate, fugiat quaerat omnis asperiores
           dolore quia sunt odit qui ut? Tenetur harum ut itaque eius esse
           aspernatur rerum recusandae veniam vel ducimus reiciendis magnam, bo{' '}
-          <porro className=""></porro>
         </p>
         <p id="feedBack" className={style.test3}>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti

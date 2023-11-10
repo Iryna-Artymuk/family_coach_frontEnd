@@ -1,4 +1,4 @@
-import Logo from '../../Logo/Logo';
+import Logo from '../Logo/Logo';
 import Container from '@/components/Container/Container';
 
 const Header = () => {
