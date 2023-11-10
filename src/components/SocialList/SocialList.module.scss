@@ -11,6 +11,13 @@
       @extend%aligncenter;
       width: 100%;
       height: 100%;
+      transition: $transition;
+      &:hover,
+      &:focus {
+        svg path {
+          fill: $navLinkHover;
+        }
+      }
     }
   }
 }
