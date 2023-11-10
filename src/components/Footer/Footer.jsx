@@ -1,13 +1,13 @@
-import styles from './Footer.module.scss';
-
-import Container from '../Container/Container';
-import Logo from '../Logo/Logo';
-
-import SocialList from '../SocialList/SocialList';
 import { useEffect, useState } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
 import { HashLink } from 'react-router-hash-link';
 import clsx from 'clsx';
+
+import styles from './Footer.module.scss';
+
+import Container from '../Container/Container';
+import Logo from '../Logo/Logo';
+import SocialList from '../SocialList/SocialList';
 
 const Footer = () => {
   const location = useLocation();
@@ -52,7 +52,7 @@ const Footer = () => {
                   scroll={el =>
                     el.scrollIntoView({ behavior: 'smooth', block: 'end' })
                   }
-                  to="#workAreas"
+                  to="/#workAreas"
                 >
                   Напрямки роботи
                 </HashLink>
@@ -60,7 +60,7 @@ const Footer = () => {
               <li className={styles.navListLink}>
                 <HashLink
                   scroll={el => el.scrollIntoView({ behavior: 'smooth' })}
-                  to="#feedback"
+                  to="/#feedback"
                 >
                   Відгуки
                 </HashLink>

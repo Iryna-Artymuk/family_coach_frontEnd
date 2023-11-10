@@ -1,0 +1,104 @@
+.contentWrapper {
+  @extend%aligncenter;
+  justify-content: space-between;
+  padding: 5px 18px 5px 24px;
+
+  @media screen and (min-width: 768px) {
+    padding: 4px 38px 4px 18px;
+  }
+  @media screen and (min-width: 1240px) {
+    justify-content: center;
+    gap: 100px;
+  }
+}
+
+//---burgerMenu---
+
+.burgerMenuWrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 999;
+
+  width: 100vw;
+  height: 100vh;
+  @extend%aligncenter;
+  flex-direction: column;
+  gap: 50px;
+  background: $headerBG;
+
+  opacity: 1;
+  pointer-events: all;
+  transition: $transition;
+}
+
+.burgerMenuWrapper.hidden {
+  pointer-events: none;
+  opacity: 0;
+}
+
+// navigation
+
+.navigationWrapper {
+  @extend%aligncenter;
+  flex-direction: column;
+  @media screen and (min-width: 1240px) {
+    flex-direction: row;
+  }
+}
+
+.navList {
+  @extend%aligncenter;
+  flex-direction: column;
+  @media screen and (min-width: 1240px) {
+    flex-direction: row;
+    gap: 14px;
+  }
+  li {
+  }
+}
+
+.navListLink {
+  padding: 11px 2px;
+  text-align: center;
+
+  font-family: 'MontserratMedium';
+  font-size: 16px;
+
+  line-height: 1.2;
+  letter-spacing: 0em;
+  color: $navLinkColor;
+
+  transition: $transition;
+  &:hover,
+  &:focus {
+    color: $navLinkHover;
+  }
+
+  @media screen and (min-width: 1240px) {
+    font-size: 20px;
+    padding: 10px 14px;
+  }
+}
+
+.active {
+  background: $navLinkHover;
+  border-radius: 10px;
+  &:hover,
+  &:focus {
+    color: $navLinkColor;
+  }
+}
+
+.writeMeLink {
+  @extend%aligncenter;
+  padding: 7.5px 28.5px;
+  border-radius: 5px;
+  font-family: 'Montserrat';
+  font-size: 14px;
+  background: $buttonBurgerMenuBG;
+  color: $navLinkColor;
+  &:hover {
+    background: $buttonBurgerMenuHover;
+  }
+}

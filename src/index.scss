@@ -2,16 +2,16 @@
   font-family: 'Script';
   src: url('./fonts/BrushScript.ttf') format('truetype');
   font-weight: 400; /* Adjust the font-weight accordingly */
-  font-style: normal;
+  font-style: italic;
   font-display: swap;
 }
 
 @font-face {
   font-family: 'Lora';
   src: url('./fonts/Lora-VariableFont_wght.ttf') format('truetype');
-  font-weight: 400; /* Adjust the font-weight accordingly */
+  // font-weight: 400; /* Adjust the font-weight accordingly */
   font-style: normal;
-  font-display: swap;
+  // font-display: swap;
 }
 @font-face {
   font-family: 'Montserrat';

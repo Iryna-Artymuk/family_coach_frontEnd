@@ -1,16 +1,14 @@
-
-
 const BurgerIcon = () => {
   return (
     <svg
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
+      width="20"
+      height="14"
+      viewBox="0 0 20 14"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
       <path
-        d="M3 6H21M3 12H21M3 18H21"
+        d="M1 1H19M1 7H19M1 13H19"
         stroke="#BC0000"
         strokeWidth="2"
         strokeLinecap="round"
@@ -18,6 +16,6 @@ const BurgerIcon = () => {
       />
     </svg>
   );
-}
+};
 
-export default BurgerIcon
+export default BurgerIcon;
