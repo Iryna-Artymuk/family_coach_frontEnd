@@ -5,10 +5,13 @@ import Logo from '../Logo/Logo';
 
 import SocialList from '../SocialList/SocialList';
 import { useEffect, useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useLocation } from 'react-router-dom';
 import clsx from 'clsx';
 
 const Footer = () => {
+  const location = useLocation();
+
+  const backLinkHref = location.state?.from ?? '/';
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   useEffect(() => {
     function handleResize() {
@@ -41,6 +44,7 @@ const Footer = () => {
               <li>
                 <NavLink
                   to="blog"
+                  state={{ from: backLinkHref }}
                   className={({ isActive }) => {
                     return clsx(
                       styles.navListLink,
@@ -55,6 +59,7 @@ const Footer = () => {
               <li>
                 <NavLink
                   to="/qualification"
+                  state={{ from: backLinkHref }}
                   className={({ isActive }) => {
                     return clsx(
                       styles.navListLink,
@@ -68,6 +73,7 @@ const Footer = () => {
               <li>
                 <NavLink
                   to="/price"
+                  state={{ from: backLinkHref }}
                   className={({ isActive }) => {
                     return clsx(
                       styles.navListLink,
