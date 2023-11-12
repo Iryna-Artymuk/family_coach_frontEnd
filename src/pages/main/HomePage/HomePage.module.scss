@@ -1,3 +1,24 @@
+//commpon
+.title {
+  width: 100%;
+  font-family: 'Lora', serif;
+  font-weight: 500;
+  font-size: 16px;
+
+  text-align: center;
+  color: $titleColor;
+
+  @media screen and (min-width: 768px) {
+    text-align: left;
+    font-size: 24px;
+    margin-bottom: 24px;
+  }
+  @media screen and (min-width: 1240px) {
+    font-size: 32px;
+    margin-bottom: 42px;
+  }
+}
+
 ///----section hero---
 .hero {
   @extend%aligncenter;
@@ -84,9 +105,9 @@
 }
 
 .aboutJob {
-  font-family: 'Lora';
-  font-size: 16px;
+  font-family: 'Lora', serif;
   font-weight: 400;
+  font-size: 16px;
 
   letter-spacing: 0em;
   text-align: center;
@@ -101,7 +122,7 @@
   }
 }
 .aboutContent {
-  font-family: 'Lora';
+  font-family: 'Lora', serif;
   font-size: 12px;
   font-weight: 400;
   line-height: 1.25;
@@ -148,7 +169,7 @@
   }
 
   p {
-    font-family: 'Lora';
+    font-family: 'Lora', serif;
     font-size: 14px;
     font-weight: 400;
     line-height: 1.28;
@@ -167,15 +188,12 @@
   background: $sectionBG;
 }
 
-.whyMe_contentWrapper {
+.whyMe_wrapper {
   outline: 1px solid blue;
-  width: 100%;
-  padding: 20px 12px;
-
   @extend%aligncenter;
   flex-direction: column;
   gap: 14px;
-
+  padding: 20px 0px;
   @media screen and (min-width: 768px) {
     flex-direction: row;
 
@@ -186,7 +204,36 @@
     gap: 71px;
   }
 }
+.whyMe_contentWrapper {
+  @extend%aligncenter;
+  align-items: flex-start;
+  gap: 8px;
+  justify-content: left;
 
+  @media screen and (min-width: 768px) {
+    align-items: center;
+
+    gap: 20px;
+  }
+  @media screen and (min-width: 1240px) {
+    align-items: center;
+
+    gap: 20px;
+  }
+}
+
+.whyMe_textWrapper {
+  width: 204px;
+  h2 {
+    margin-bottom: 14px;
+  }
+  @media screen and (min-width: 768px) {
+    width: 342px;
+  }
+  @media screen and (min-width: 1240px) {
+    width: 648px;
+  }
+}
 .whyMeImg {
   width: 138px;
   height: 205px;
@@ -206,25 +253,16 @@
     height: 680px;
   }
 }
-
-.whyMeContent {
-  width: 150px;
-  height: 105px;
-
+.whyMe_text {
   font-size: 12px;
   line-height: 1.5;
-  text-align: center;
 
   @media screen and (min-width: 768px) {
-    width: 342px;
-    height: 203px;
     font-size: 14px;
     line-height: 1.5;
     text-align: left;
   }
   @media screen and (min-width: 1240px) {
-    width: 648px;
-    height: 306px;
     font-size: 24px;
   }
 }
@@ -237,35 +275,122 @@
   line-height: 1.5;
   text-align: left;
 }
-.whyMeTitle {
-  width: 100%;
-  font-family: 'Lora';
-  font-size: 16px;
-
-  text-align: center;
-  color: $titleColor;
-
-  @media screen and (min-width: 768px) {
-    text-align: left;
-    font-size: 24px;
-    margin-bottom: 24px;
-  }
-  @media screen and (min-width: 1240px) {
-    font-size: 32px;
-    margin-bottom: 42px;
-  }
-}
 
 .whyMeImgWrapper {
   @extend%aligncenter;
   gap: 8px;
 }
-// .whyMeText2 {
-//   width: 296px;
-//   height: 72px;
 
-//   font-size: 12px;
-//   font-weight: 400;
-//   line-height: 1.5;
-//   text-align: left;
+////---My principles ---
+
+// .myPrinciples {
 // }
+
+.myPrinciples_ContentWrapper {
+  outline: 1px solid blue;
+  width: 100%;
+  @extend%aligncenter;
+
+  gap: 14px;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  align-items: flex-start;
+  @media screen and (min-width: 768px) {
+    gap: 10px;
+  }
+  @media screen and (min-width: 1240px) {
+    gap: 50px;
+  }
+}
+
+.myPrinciples_ListWrapper {
+  h2 {
+    margin-bottom: 8px;
+    text-align: center;
+  }
+  @media screen and (min-width: 1240px) {
+    h2 {
+      margin-bottom: 16px;
+    }
+  }
+}
+.myPrinciples_List {
+  @extend%aligncenter;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 4px;
+
+  font-size: 10px;
+  line-height: 1.5;
+  @media screen and (min-width: 768px) {
+    font-size: 14px;
+    gap: 8px;
+  }
+  @media screen and (min-width: 1240px) {
+    gap: 24px;
+  }
+}
+.myPrinciples_List_Item {
+  @extend%aligncenter;
+  align-items: flex-start;
+  gap: 5px;
+  @media screen and (min-width: 768px) {
+    gap: 7px;
+  }
+  @media screen and (min-width: 1240px) {
+    gap: 15px;
+  }
+}
+
+.myPrinciples_List_ItemText {
+  width: 131px;
+  font-size: 10px;
+  line-height: 1.5;
+
+  @media screen and (min-width: 768px) {
+    width: 319px;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+  @media screen and (min-width: 1240px) {
+    width: 646px;
+    font-size: 18px;
+    line-height: 1.77;
+  }
+}
+.myPrinciples_List_Item::before {
+  content: '';
+  display: block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: $red;
+  margin-top: 4px;
+  @media screen and (min-width: 768px) {
+    width: 7px;
+    height: 7px;
+  }
+  @media screen and (min-width: 1240px) {
+    width: 10px;
+    height: 10px;
+  }
+}
+.myPrinciplesImg {
+  width: 138px;
+  height: 205px;
+  border-radius: 15px;
+  background-image: url('/public/images/heroPhoto.jpg');
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  @media screen and (min-width: 768px) {
+    width: 342px;
+    height: 430px;
+    border-radius: 30px;
+    background-size: cover;
+  }
+  @media screen and (min-width: 1240px) {
+    width: 540px;
+    height: 680px;
+  }
+}
