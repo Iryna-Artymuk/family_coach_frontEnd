@@ -2,39 +2,34 @@
 @import '_mixins';
 @import '_placeholders';
 
-body {
-  overflow-x: hidden;
-  max-width: 100%;
-  min-height: 100vh;
-}
-main {
-  min-height: 100vh;
-  display: flex;
 
-  align-items: center;
-  flex-direction: column;
 
-  margin-top: 68px;
 
-  @media screen and (min-width: 768px) {
-    margin-top: 110px;
-  }
-  @media screen and (min-width: 1240px) {
-    margin-top: 134px;
-  }
-}
+// .swiper-pagination-bullet {
+//   width: 8px;
+//   height: 8px;
+//   background-color: $white;
+//   border: 1px solid $lightblue;
+//   opacity: 1;
+// }
 
-header,
-footer {
-  width: 100vw;
-  background: $headerBG;
-}
+// .swiper-pagination-bullet-active {
+//   width: 9px;
+//   height: 9px;
+//   color: $accent;
+//   background: $accent;
+//   border: none;
+// }
 
-header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
+// .sectionTitle {
+//   color: $black;
+//   font-size: 1.125rem; //18px
+//   font-style: normal;
+//   font-weight: 700;
+//   line-height: 140%;
+//   @media screen and (min-width: 768px) {
+//     font-size: 2rem; //32px
+//   }
+// }
 
-  z-index: 9999;
-}
+

@@ -9,9 +9,9 @@
 @font-face {
   font-family: 'Lora';
   src: url('./fonts/Lora-VariableFont_wght.ttf') format('truetype');
-  font-weight: 500; /* Adjust the font-weight accordingly */
+  // font-weight: 500; /* Adjust the font-weight accordingly */
   font-style: normal;
-  // font-display: swap;
+  font-display: swap;
 }
 @font-face {
   font-family: 'Montserrat';
@@ -37,9 +37,45 @@
 body {
   min-height: 100vh;
   min-width: 320px;
-  font-family: 'Lora', sans-serif;
+  max-width: 100%;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
   background: $white;
   color: $textColor;
+
+  overflow-x: hidden;
+}
+
+main {
+  min-height: 100vh;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+
+  margin-top: 68px;
+
+  @media screen and (min-width: 768px) {
+    margin-top: 110px;
+  }
+  @media screen and (min-width: 1240px) {
+    margin-top: 134px;
+  }
+}
+
+header,
+footer {
+  width: 100vw;
+  background: $headerBG;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+
+  z-index: 9999;
 }
 
 h1,
@@ -93,29 +129,29 @@ iframe {
   border: none;
 }
 
-// .swiper-pagination-bullet {
-//   width: 8px;
-//   height: 8px;
-//   background-color: $white;
-//   border: 1px solid $lightblue;
-//   opacity: 1;
-// }
+// // .swiper-pagination-bullet {
+// //   width: 8px;
+// //   height: 8px;
+// //   background-color: $white;
+// //   border: 1px solid $lightblue;
+// //   opacity: 1;
+// // }
 
-// .swiper-pagination-bullet-active {
-//   width: 9px;
-//   height: 9px;
-//   color: $accent;
-//   background: $accent;
-//   border: none;
-// }
+// // .swiper-pagination-bullet-active {
+// //   width: 9px;
+// //   height: 9px;
+// //   color: $accent;
+// //   background: $accent;
+// //   border: none;
+// // }
 
-// .sectionTitle {
-//   color: $black;
-//   font-size: 1.125rem; //18px
-//   font-style: normal;
-//   font-weight: 700;
-//   line-height: 140%;
-//   @media screen and (min-width: 768px) {
-//     font-size: 2rem; //32px
-//   }
-// }
+// // .sectionTitle {
+// //   color: $black;
+// //   font-size: 1.125rem; //18px
+// //   font-style: normal;
+// //   font-weight: 700;
+// //   line-height: 140%;
+// //   @media screen and (min-width: 768px) {
+// //     font-size: 2rem; //32px
+// //   }
+// // }

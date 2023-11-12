@@ -1,21 +1,18 @@
+///----section hero---
 .hero {
   @extend%aligncenter;
 
-  padding-top: 10px;
-  padding-bottom: 40px;
   @media screen and (min-width: 768px) {
-    padding-top: 24px;
-    padding-bottom: 60px;
   }
   @media screen and (min-width: 1240px) {
     flex-direction: row;
-    padding-top: 50px;
-    padding-bottom: 120px;
   }
 }
 .contentWrapper {
+  outline: 1px solid blue;
   width: 100%;
-
+  padding-top: 10px;
+  padding-bottom: 40px;
   @extend%aligncenter;
   flex-direction: column;
   gap: 10px;
@@ -24,11 +21,15 @@
     flex-direction: row;
     align-items: flex-start;
     gap: 20px;
+    padding-top: 24px;
+    padding-bottom: 60px;
   }
 
   @media screen and (min-width: 1240px) {
     flex-direction: row;
     gap: 60px;
+    padding-top: 50px;
+    padding-bottom: 120px;
   }
 }
 .heroImage {
@@ -120,9 +121,7 @@
 
 .quote {
   position: absolute;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  @extend%aligncenter;
   bottom: -18px;
   left: 86px;
   width: 190px;
@@ -161,3 +160,112 @@
     }
   }
 }
+
+///----section WhyMe---
+
+.whyMe {
+  background: $sectionBG;
+}
+
+.whyMe_contentWrapper {
+  outline: 1px solid blue;
+  width: 100%;
+  padding: 20px 12px;
+
+  @extend%aligncenter;
+  flex-direction: column;
+  gap: 14px;
+
+  @media screen and (min-width: 768px) {
+    flex-direction: row;
+
+    gap: 20px;
+  }
+
+  @media screen and (min-width: 1240px) {
+    gap: 71px;
+  }
+}
+
+.whyMeImg {
+  width: 138px;
+  height: 205px;
+  border-radius: 15px;
+  background-image: url('/public/images/heroPhoto.jpg');
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  @media screen and (min-width: 768px) {
+    width: 342px;
+    height: 430px;
+    border-radius: 30px;
+    background-size: cover;
+  }
+  @media screen and (min-width: 1240px) {
+    width: 540px;
+    height: 680px;
+  }
+}
+
+.whyMeContent {
+  width: 150px;
+  height: 105px;
+
+  font-size: 12px;
+  line-height: 1.5;
+  text-align: center;
+
+  @media screen and (min-width: 768px) {
+    width: 342px;
+    height: 203px;
+    font-size: 14px;
+    line-height: 1.5;
+    text-align: left;
+  }
+  @media screen and (min-width: 1240px) {
+    width: 648px;
+    height: 306px;
+    font-size: 24px;
+  }
+}
+
+.whyMeContentSecondText {
+  width: 296px;
+  height: 72px;
+
+  font-size: 12px;
+  line-height: 1.5;
+  text-align: left;
+}
+.whyMeTitle {
+  width: 100%;
+  font-family: 'Lora';
+  font-size: 16px;
+
+  text-align: center;
+  color: $titleColor;
+
+  @media screen and (min-width: 768px) {
+    text-align: left;
+    font-size: 24px;
+    margin-bottom: 24px;
+  }
+  @media screen and (min-width: 1240px) {
+    font-size: 32px;
+    margin-bottom: 42px;
+  }
+}
+
+.whyMeImgWrapper {
+  @extend%aligncenter;
+  gap: 8px;
+}
+// .whyMeText2 {
+//   width: 296px;
+//   height: 72px;
+
+//   font-size: 12px;
+//   font-weight: 400;
+//   line-height: 1.5;
+//   text-align: left;
+// }

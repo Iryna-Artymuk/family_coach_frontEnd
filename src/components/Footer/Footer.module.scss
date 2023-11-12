@@ -16,9 +16,6 @@ footer {
     flex-direction: row;
     gap: 60px;
   }
- 
-
-  outline: 2px solid blue;
 }
 
 .logoWrapper {
@@ -29,8 +26,7 @@ footer {
   justify-content: center;
 }
 
-
-// footer Navigation 
+// footer Navigation
 .navigationWrapper {
   @extend%aligncenter;
 
