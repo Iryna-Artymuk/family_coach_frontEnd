@@ -6,13 +6,15 @@ const Button = ({
   children,
   burgerButton,
   burgerMenuCloseButton,
+  buttonAddMore,
 }) => {
   return (
     <button
       className={clsx(
         styles.button,
         burgerButton && styles.burgerButton,
-        burgerMenuCloseButton && styles.burgerMenuCloseButton
+        burgerMenuCloseButton && styles.burgerMenuCloseButton,
+        buttonAddMore && styles.buttonAddMore
       )}
       type={type}
       onClick={onClick}
