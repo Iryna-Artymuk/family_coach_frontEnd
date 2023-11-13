@@ -31,7 +31,7 @@ const HomePage = () => {
   }, []);
   return (
     <>
-      {/* <section id="about" className={styles.hero}>
+      <section id="about" className={styles.hero}>
         <Container>
           <div className={styles.contentWrapper}>
             {isDesktop && (
@@ -177,7 +177,7 @@ const HomePage = () => {
             </ul>
           </div>
         </Container>
-      </section> */}
+      </section>
       <section className="feedBack" id="feedBack">
         <Container>
           <div className={styles.feedBack_contentWrapper}>
