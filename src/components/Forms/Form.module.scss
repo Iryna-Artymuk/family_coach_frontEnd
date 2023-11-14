@@ -1,0 +1,54 @@
+.formTitle {
+  font-family: 'Lora', serif;
+  font-size: 16px;
+  line-height: 1.25;
+  text-align: center;
+  width: 232px;
+  margin-bottom: 16px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+}
+
+.form input[type='text'] {
+  width: 100%;
+  height: 42px;
+
+  padding: 24px 10px 17px 10px;
+  border-radius: 15px;
+  border: 1px solid $formBorderColor;
+  margin-bottom: 8px;
+
+  background-color: $formBG;
+  color: $formTextColor;
+  &:focus {
+    outline: 1px solid $red;
+    border: none;
+  }
+}
+.form textarea {
+  width: 100%;
+  flex-grow: 1;
+
+  padding: 16px 14px;
+  border-radius: 15px;
+  border: 1px solid $formBorderColor;
+  margin-bottom: 20px;
+
+  background-color: $formBG;
+  color: $formTextColor;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.33;
+
+  text-align: left;
+
+  &:focus {
+    outline: 1px solid $red;
+    border: none;
+  }
+}

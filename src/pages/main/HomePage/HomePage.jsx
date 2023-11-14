@@ -1,33 +1,53 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useState } from 'react';
 // import clsx from 'clsx';
 // Import Swiper React components
-import { Swiper, SwiperSlide } from 'swiper/react';
-
-// Import Swiper styles
-import 'swiper/css';
-import 'swiper/css/navigation';
-
-// import required modules
-import { Navigation } from 'swiper/modules';
-
-import styles from './HomePage.module.scss';
 
 import Container from '@/components/Container/Container';
 import { useMediaQuery } from 'react-responsive';
 import Button from '@/components/Button/Button';
 import Arrow from '@/components/Icons/Arrow';
+import MySwiper from '@/components/Swiper/MySwiper';
+
+import feedbacks from '@/api/api';
+
+import styles from './HomePage.module.scss';
+import Modal from './Modal/Modal';
+import AddForm from '@/components/Forms/FormAddFeedback';
+
 const HomePage = () => {
+  const [allfeedbacks, setAllfeedbacks] = useState([]);
+  // const [error, setError] = useState(null);
+  const [isOpenModal, setIsOpenModal] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
+
   const isDesktop = useMediaQuery({ minWidth: 768 });
   const isMobile = useMediaQuery({ maxWidth: 767 });
-  const swiperRef = useRef();
-  // const date = new Date();
-  // const day = date.getDate();
-  // const month = date.getMonth() + 1;
-  // const year = date.getFullYear();
-  // const  = `${day}.${month}.${year}`;
 
+  const closeModal = () => {
+    setIsOpenModal(false);
+    setIsSubmitted();
+  };
+  const openModal = () => {
+    setIsOpenModal(true);
+  };
   useEffect(() => {
     window.scrollTo(0, 0);
+  }, []);
+
+  useEffect(() => {
+    const getAllFeedbacks = async () => {
+      try {
+        const feedbackData = await feedbacks.getFeedbacks();
+
+        setAllfeedbacks(feedbackData);
+      } catch (Error) {
+        // setError(Error.message);
+        console.log(Error.message);
+      } finally {
+        // setLoading(false);
+      }
+    };
+    getAllFeedbacks();
   }, []);
   return (
     <>
@@ -183,188 +203,29 @@ const HomePage = () => {
           <div className={styles.feedBack_contentWrapper}>
             <h2 className={styles.title}>Відгуки</h2>
 
-            <div className={styles.swiperwrapper}>
-              <Button buttonAddMore type="button">
-                Додати відгук
-              </Button>
-
-              <Swiper
-                className={styles.slider}
-                slidesPerView={1}
-                loop={true}
-                onSwiper={swiper => {
-                  swiperRef.current = swiper;
-                }}
-                breakpoints={{
-                  1240: {
-                    slidesPerView: 3,
-                  },
-                  768: {
-                    slidesPerView: 2,
-                  },
-                }}
-              >
-                <SwiperSlide className={styles.slide}>
-                  <div className={styles.feedBack_wrapper}>
-                    <div className={styles.feedBack_titleWrapper}>
-                      <p className={styles.feedBack_name}>Name</p>
-                      <p className={styles.feedBack_date}>feedbackDate</p>
-                    </div>
-                    <div className={styles.feedBack_textWrapper}>
-                      <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Iste aperiam sunt nobis officia quidem natus. Nulla ipsa
-                        earum amet qui, ex minima sit laboriosam quidem saepe,
-                        aliquid veniam quisquam atque quae aspernatur obcaecati.
-                        Sapiente nesciunt facilis placeat consequuntur dolore
-                        dolores quibusdam ipsum in debitis quia quos, odit
-                        voluptate? Expedita autem, atque magnam blanditiis nobis
-                        quis? Aut non perferendis quo ullam provident saepe quas
-                        excepturi, esse minus eius, sunt nostrum pariatur odio
-                        eligendi culpa, sint veritatis in repudiandae placeat
-                        labore. Dicta maxime doloremque necessitatibus inventore
-                        molestias deleniti, ullam possimus nobis nihil voluptate
-                        doloribus autem at explicabo adipisci esse!
-                        Consequuntur, accusamus soluta.
-                      </p>
-                    </div>
-                  </div>
-                </SwiperSlide>
-                <SwiperSlide className={styles.slide}>
-                  <div className={styles.feedBack_wrapper}>
-                    <div className={styles.feedBack_titleWrapper}>
-                      <p className={styles.feedBack_name}>Name</p>
-                      <p className={styles.feedBack_date}>feedbackDate</p>
-                    </div>
-                    <div className={styles.feedBack_textWrapper}>
-                      <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Iste aperiam sunt nobis officia quidem natus. Nulla ipsa
-                        earum amet qui, ex minima sit laboriosam quidem saepe,
-                        aliquid veniam quisquam atque quae aspernatur obcaecati.
-                        Sapiente nesciunt facilis placeat consequuntur dolore
-                        dolores quibusdam ipsum in debitis quia quos, odit
-                        voluptate? Expedita autem, atque magnam blanditiis nobis
-                        quis? Aut non perferendis quo ullam provident saepe quas
-                        excepturi, esse minus eius, sunt nostrum pariatur odio
-                        eligendi culpa, sint veritatis in repudiandae placeat
-                        labore. Dicta maxime doloremque necessitatibus inventore
-                        molestias deleniti, ullam possimus nobis nihil voluptate
-                        doloribus autem at explicabo adipisci esse!
-                        Consequuntur, accusamus soluta.
-                      </p>
-                    </div>
-                  </div>
-                </SwiperSlide>
-                <SwiperSlide className={styles.slide}>
-                  <div className={styles.feedBack_wrapper}>
-                    <div className={styles.feedBack_titleWrapper}>
-                      <p className={styles.feedBack_name}>Name</p>
-                      <p className={styles.feedBack_date}>feedbackDate</p>
-                    </div>
-                    <div className={styles.feedBack_textWrapper}>
-                      <p>
-                        molestias deleniti, ullam possimus nobis nihil voluptate
-                        doloribus autem at explicabo adipisci esse!
-                        Consequuntur, accusamus soluta.
-                      </p>
-                    </div>
-                  </div>
-                </SwiperSlide>
-                <SwiperSlide className={styles.slide}>
-                  <div className={styles.feedBack_wrapper}>
-                    <div className={styles.feedBack_titleWrapper}>
-                      <p className={styles.feedBack_name}>Name</p>
-                      <p className={styles.feedBack_date}>feedbackDate</p>
-                    </div>
-                    <div className={styles.feedBack_textWrapper}>
-                      <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Iste aperiam sunt nobis officia quidem natus. Nulla ipsa
-                        earum amet qui, ex minima sit laboriosam quidem saepe,
-                        aliquid veniam quisquam atque quae aspernatur obcaecati.
-                        Sapiente nesciunt facilis placeat consequuntur dolore
-                        dolores quibusdam ipsum in debitis quia quos, odit
-                        voluptate? Expedita autem, atque magnam blanditiis nobis
-                        quis? Aut non perferendis quo ullam provident saepe quas
-                        excepturi, esse minus eius, sunt nostrum pariatur odio
-                        eligendi culpa, sint veritatis in repudiandae placeat
-                        labore. Dicta maxime doloremque necessitatibus inventore
-                        molestias deleniti, ullam possimus nobis nihil voluptate
-                        doloribus autem at explicabo adipisci esse!
-                        Consequuntur, accusamus soluta.
-                      </p>
-                    </div>
-                  </div>
-                </SwiperSlide>
-                <SwiperSlide className={styles.slide}>
-                  <div className={styles.feedBack_wrapper}>
-                    <div className={styles.feedBack_titleWrapper}>
-                      <p className={styles.feedBack_name}>Name</p>
-                      <p className={styles.feedBack_date}>feedbackDate</p>
-                    </div>
-                    <div className={styles.feedBack_textWrapper}>
-                      <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Iste aperiam sunt nobis officia quidem natus. Nulla ipsa
-                        earum amet qui, ex minima sit laboriosam quidem saepe,
-                        aliquid veniam quisquam atque quae aspernatur obcaecati.
-                        Sapiente nesciunt facilis placeat consequuntur dolore
-                        dolores quibusdam ipsum in debitis quia quos, odit
-                        voluptate? Expedita autem, atque magnam blanditiis nobis
-                        quis? Aut non perferendis quo ullam provident saepe quas
-                        excepturi, esse minus eius, sunt nostrum pariatur odio
-                        eligendi culpa, sint veritatis in repudiandae placeat
-                        labore. Dicta maxime doloremque necessitatibus inventore
-                        molestias deleniti, ullam possimus nobis nihil voluptate
-                        doloribus autem at explicabo adipisci esse!
-                        Consequuntur, accusamus soluta.
-                      </p>
-                    </div>
-                  </div>
-                </SwiperSlide>
-                <SwiperSlide className={styles.slide}>
-                  <div className={styles.feedBack_wrapper}>
-                    <div className={styles.feedBack_titleWrapper}>
-                      <p className={styles.feedBack_name}>Name</p>
-                      <p className={styles.feedBack_date}>feedbackDate</p>
-                    </div>
-                    <div className={styles.feedBack_textWrapper}>
-                      <p>
-                        molestias deleniti, ullam possimus nobis nihil voluptate
-                        doloribus autem at explicabo adipisci esse!
-                        Consequuntur, accusamus soluta.
-                      </p>
-                    </div>
-                  </div>
-                </SwiperSlide>
-              </Swiper>
-              <button
-                className={styles.prevSlide}
-                onClick={() => swiperRef.current.slidePrev()}
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  height="1em"
-                  viewBox="0 0 320 512"
-                >
-                  <path d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l192 192c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256 246.6 86.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-192 192z" />
-                </svg>
-              </button>
-              <button
-                className={styles.nextSlide}
-                onClick={() => swiperRef.current.slideNext()}
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  height="1em"
-                  viewBox="0 0 320 512"
-                >
-                  <path d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l192 192c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256 246.6 86.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-192 192z" />
-                </svg>
-              </button>
-            </div>
+            <Button buttonAddMore type="button" onClick={openModal}>
+              Додати відгук
+            </Button>
+            <MySwiper feedbacks={allfeedbacks} />
           </div>
+          {isOpenModal && (
+            <Modal
+              type="modal"
+              closeModal={closeModal}
+              isSubmitted={isSubmitted}
+            >
+              <AddForm
+                closeModal={closeModal}
+                isSubmitted={isSubmitted}
+                setIsSubmitted={setIsSubmitted}
+              />
+            </Modal>
+          )}
+          {isSubmitted && (
+            <Modal type="thanksModal" closeModal={closeModal}>
+              <div className={styles.thanksMessage}>Дякую за відгук</div>
+            </Modal>
+          )}
         </Container>
       </section>
       <section className="blog">

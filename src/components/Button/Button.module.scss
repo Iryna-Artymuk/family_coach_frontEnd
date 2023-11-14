@@ -12,24 +12,36 @@
 
 .burgerMenuCloseButton {
   position: absolute;
-  top: 32px;
-  right: 32px;
+  top: 16px;
+  right: 16px;
   z-index: 9999;
   width: 32px;
   height: 32px;
   padding: 5.5px;
   border-radius: 5px;
   background-color: $buttonBG;
+
+  @media screen and (min-width: 768px) {
+    top: 32px;
+    right: 32px;
+  }
 }
 
 .buttonAddMore {
-  width: 241px;
-  height: 42px;
+  // width: 120px;
+  height: 32px;
   @extend%aligncenter;
   border-radius: 15px;
   background-color: $buttonBG;
   color: $buttonTextColor;
-  margin: 0 33px 24px auto;
+  margin-left: auto;
+  font-size: 12px;
+  padding: 8.5px 19.5px;
+  @media screen and (min-width: 768px) {
+    width: 241px;
+    height: 42px;
+    font-size: 16px;
+  }
   &:hover,
   &:focus {
     background-color: $buttonBG;
