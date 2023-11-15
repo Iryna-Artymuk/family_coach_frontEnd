@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 
 import Button from '../Button/Button';
 import BurgerIcon from '../Icons/BurgerIcon';
-import Logo from '../Logo/Logo';
+import Logo from '../Icons/Logo/Logo';
 import Container from '@/components/Container/Container';
 import BurgerMenu from './BurgerMenu';
 

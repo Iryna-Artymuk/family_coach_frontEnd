@@ -1,72 +1,58 @@
-import { Swiper, SwiperSlide } from 'swiper/react';
-
-// Import Swiper styles
+// import Swiper JS
+import { useRef, useState } from 'react';
+import Swiper from 'swiper';
+// import Swiper styles
 import 'swiper/css';
-import 'swiper/css/navigation';
+import { useSwiper } from 'swiper/react';
 
-import styles from './MySwiper.module.scss';
-import { useRef } from 'react';
+// export function MySwiper(props) {
+//   const swiperRef = useRef();
+//   const prevRef = useRef < HTMLDivElement > null;
+//   const nextRef = useRef < HTMLDivElement > null;
+//   const { children, ...rest } = props;
 
-import SliderArrowNext from '@/components/Icons/SliderArrowNext ';
-import { formatDate } from '@/services/formatDate';
-// import { useMediaQuery } from 'react-responsive';
+//   register();
+//   useEffect(() => {
+//     // Register Swiper web component
+//     register();
+//     const params = {
+//       ...rest,
+//     };
 
-const MySwiper = ({ feedbacks }) => {
-  //   console.log('feedbacks: ', feedbacks);
-  //   const isDesktop = useMediaQuery({ minWidth: 768 });
-  //   const isMobile = useMediaQuery({ maxWidth: 767 });
+//     // Assign it to swiper element
+//     Object.assign(swiperRef.current, params);
 
+//     // initialize swiper
+//     swiperRef.current.initialize();
+//   }, [rest]);
+
+//   return (
+//     <>
+//       <swiper-container init="false" ref={swiperRef}>
+//         {children}
+//       </swiper-container>
+//     </>
+//   );
+// }
+
+// export function SwiperSlide(props) {
+//   const { children, ...rest } = props;
+
+//   return <swiper-slide {...rest}>{children}</swiper-slide>;
+// }
+
+export function MySwiper(props) {
   const swiperRef = useRef();
 
   return (
-    <div className={styles.swiperwrapper}>
-      <Swiper
-        className={styles.slider}
-        slidesPerView={1}
-        loop={true}
-        onSwiper={swiper => {
-          swiperRef.current = swiper;
-        }}
-        breakpoints={{
-          1240: {
-            slidesPerView: 3,
-          },
-          768: {
-            slidesPerView: 2,
-          },
-        }}
-      >
-        {feedbacks.map(feedback => (
-          <SwiperSlide key={feedback.id} className={styles.slide}>
-            <div className={styles.feedBack_wrapper}>
-              <div className={styles.feedBack_titleWrapper}>
-                <p className={styles.feedBack_name}>{feedback.name}</p>
-                <p className={styles.feedBack_date}>
-                  {formatDate(feedback.date)}
-                </p>
-              </div>
-              <div className={styles.feedBack_textWrapper}>
-                <p>{feedback.body}</p>
-              </div>
-            </div>
-          </SwiperSlide>
-        ))}
-      </Swiper>
-
-      <button
-        className={styles.prevSlide}
-        onClick={() => swiperRef.current.slidePrev()}
-      >
-        <SliderArrowNext />
-      </button>
-      <button
-        className={styles.nextSlide}
-        onClick={() => swiperRef.current.slideNext()}
-      >
-        <SliderArrowNext />
-      </button>
-    </div>
+    <>
+     
+    </>
   );
-};
+}
 
-export default MySwiper;
+export function SwiperSlide(props) {
+  const { children, ...rest } = props;
+
+  return <swiper-slide {...rest}>{children}</swiper-slide>;
+}

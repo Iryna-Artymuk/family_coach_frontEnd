@@ -1,28 +1,33 @@
-import { useEffect, useState } from 'react';
-// import clsx from 'clsx';
-// Import Swiper React components
+import { useEffect, useRef, useState } from 'react';
 
-import Container from '@/components/Container/Container';
 import { useMediaQuery } from 'react-responsive';
-import Button from '@/components/Button/Button';
-import Arrow from '@/components/Icons/Arrow';
-import MySwiper from '@/components/Swiper/MySwiper';
 
 import feedbacks from '@/api/api';
-
 import styles from './HomePage.module.scss';
-import Modal from './Modal/Modal';
+
+import Container from '@/components/Container/Container';
+import Modal from '../../../components/Modal/Modal';
 import AddForm from '@/components/Forms/FormAddFeedback';
+import Button from '@/components/Button/Button';
+import Arrow from '@/components/Icons/Arrow';
+import FeedbackCard from '@/components/FeedbackCard/FeedbackCard';
+
+import { Swiper, SwiperSlide } from 'swiper/react';
+import SliderArrowNext from '@/components/Icons/SliderArrowNext';
+import SliderArrowPrev from '@/components/Icons/SliderArrowPrev';
+import 'swiper/css';
 
 const HomePage = () => {
   const [allfeedbacks, setAllfeedbacks] = useState([]);
   // const [error, setError] = useState(null);
   const [isOpenModal, setIsOpenModal] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
-
+  const swiperRef = useRef();
   const isDesktop = useMediaQuery({ minWidth: 768 });
   const isMobile = useMediaQuery({ maxWidth: 767 });
-
+  // const swiperEl = document.querySelector('swiper-container');
+  // const buttonNext = document.querySelector('#buttonNext');
+  // const buttonPrev = document.querySelector('#buttonPrev');
   const closeModal = () => {
     setIsOpenModal(false);
     setIsSubmitted();
@@ -33,6 +38,17 @@ const HomePage = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+
+  const handleSubmitForm = async value => {
+    const newFeedback = await feedbacks.addFeedbacks(value);
+    console.log('newFeedback : ', newFeedback);
+    setAllfeedbacks(prev => [...prev, newFeedback]);
+    closeModal();
+    setIsSubmitted(!isSubmitted);
+    setTimeout(() => {
+      setIsSubmitted(false);
+    }, 1000);
+  };
 
   useEffect(() => {
     const getAllFeedbacks = async () => {
@@ -49,6 +65,7 @@ const HomePage = () => {
     };
     getAllFeedbacks();
   }, []);
+
   return (
     <>
       <section id="about" className={styles.hero}>
@@ -202,11 +219,51 @@ const HomePage = () => {
         <Container>
           <div className={styles.feedBack_contentWrapper}>
             <h2 className={styles.title}>Відгуки</h2>
-
             <Button buttonAddMore type="button" onClick={openModal}>
               Додати відгук
             </Button>
-            <MySwiper feedbacks={allfeedbacks} />
+
+            <div className={styles.swiperwrapper}>
+              <Swiper
+                onSwiper={swiper => {
+                  swiperRef.current = swiper;
+                }}
+                id="feedbackSwiper"
+                loop={true}
+                breakpoints={{
+                  1240: {
+                    slidesPerView: 3,
+                  },
+                  768: {
+                    slidesPerView: 2,
+                  },
+                  320: {
+                    slidesPerView: 1,
+                  },
+                }}
+              >
+                {allfeedbacks?.map(feedback => {
+                  return (
+                    <SwiperSlide key={feedback.id}>
+                      <FeedbackCard feedback={feedback} />
+                    </SwiperSlide>
+                  );
+                })}
+              </Swiper>
+
+              <button
+                className={styles.buttonPrev}
+                onClick={() => swiperRef.current.slidePrev()}
+              >
+                <SliderArrowPrev />
+              </button>
+              <button
+                className={styles.buttonNext}
+                onClick={() => swiperRef.current.slideNext()}
+              >
+                <SliderArrowNext />
+              </button>
+            </div>
           </div>
           {isOpenModal && (
             <Modal
@@ -214,11 +271,7 @@ const HomePage = () => {
               closeModal={closeModal}
               isSubmitted={isSubmitted}
             >
-              <AddForm
-                closeModal={closeModal}
-                isSubmitted={isSubmitted}
-                setIsSubmitted={setIsSubmitted}
-              />
+              <AddForm handleSubmitForm={handleSubmitForm} />
             </Modal>
           )}
           {isSubmitted && (
@@ -230,8 +283,42 @@ const HomePage = () => {
       </section>
       <section className="blog">
         <Container>
-          <div>
+          <div className={styles.feedBack_contentWrapper}>
             <h2 className={styles.title}>Cтатті</h2>
+            <div className={styles.blog_swiperwrapper}>
+              <Swiper
+                onSwiper={swiper => {
+                  swiperRef.current = swiper;
+                }}
+                id="feedbackSwiper"
+                loop={true}
+                breakpoints={{
+                  1240: {
+                    slidesPerView: 3,
+                  },
+                  768: {
+                    slidesPerView: 2,
+                  },
+                  320: {
+                    slidesPerView: 1,
+                  },
+                }}
+              >
+                <SwiperSlide>
+                  <div className={styles.blog_post}>Slide1</div>
+                </SwiperSlide>
+                <SwiperSlide>
+                  <div className={styles.blog_post}>Slide2</div>
+                </SwiperSlide>
+                <SwiperSlide>
+                  <div className={styles.blog_post}>Slide3</div>
+                </SwiperSlide>
+                <SwiperSlide>
+                  <div className={styles.blog_post}>Slide4</div>
+                </SwiperSlide>
+              </Swiper>
+            </div>
+
             <Button buttonAddMore type="button">
               Дивитися усі статті
             </Button>

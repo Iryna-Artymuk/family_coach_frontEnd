@@ -1,28 +1,16 @@
 import { ErrorMessage, Formik, Field, Form } from 'formik';
 import * as Yup from 'yup';
 
-import { formatDate } from '@/services/formatDate';
+import { formatDate } from '@/helpers/formatDate';
 
 import Button from '../Button/Button';
 
 import styles from './Form.module.scss';
-export default function AddForm({ closeModal, isSubmitted, setIsSubmitted }) {
+export default function AddForm({ handleSubmitForm }) {
   const ValidationSchema = Yup.object().shape({
-    name: Yup.string().required('Name is  required'),
-    body: Yup.string().required('Text is  required'),
+    name: Yup.string().required('Представтесь будь-ласка'),
+    body: Yup.string().required('Залиште ваші враження про мене'),
   });
-
-  const handleSubmit = value => {
-    console.log(value);
-
-    // dispatch(addContact(value));
-
-    closeModal();
-    setIsSubmitted(!isSubmitted);
-    setTimeout(() => {
-      setIsSubmitted(false);
-    }, 1000);
-  };
 
   return (
     <Formik
@@ -31,45 +19,44 @@ export default function AddForm({ closeModal, isSubmitted, setIsSubmitted }) {
         body: '',
         date: '',
       }}
-      onSubmit={(value, action) => {
-        handleSubmit({ ...value, date: formatDate(Date.now()) });
+      onSubmit={async (value, action) => {
+        handleSubmitForm({ ...value, date: formatDate(Date.now()) });
 
         action.resetForm();
       }}
       validationSchema={ValidationSchema}
     >
-      <Form className={styles.form}>
-        <h2 className={styles.formTitle}>Щоб додати відгук заповніть форму </h2>
-        <Field
-          // className={css.input}
-          type="text"
-          name="name"
-          placeholder="Ваше імʼя"
-          autoFocus
-        />
+      {props => {
+        const { handleSubmit } = props;
+        return (
+          <Form className={styles.form} onSubmit={handleSubmit}>
+            <h2 className={styles.formTitle}>
+              Щоб додати відгук заповніть форму
+            </h2>
+            <Field type="text" name="name" placeholder="Ваше імʼя" />
+            <ErrorMessage
+              className={styles.inputError}
+              name="name"
+              component="div"
+            />
 
-        <ErrorMessage
-          // className={css.error}
-          name="name"
-          component="div"
-        />
+            <Field
+              as="textarea"
+              name="body"
+              placeholder="Залиште свій відгук"
+            />
+            <ErrorMessage
+              className={styles.inputError}
+              name="body"
+              component="div"
+            />
 
-        <Field
-          // className={css.input}
-          as="textarea"
-          name="body"
-          placeholder="Enter feedback"
-        />
-
-        <ErrorMessage
-          //   className={css.error}
-          name="body"
-          component="div"
-        />
-        <Button buttonAddMore type="submit">
-          Додати відгук
-        </Button>
-      </Form>
+            <Button buttonAddMore type="submit">
+              Додати відгук
+            </Button>
+          </Form>
+        );
+      }}
     </Formik>
   );
 }

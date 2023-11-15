@@ -511,6 +511,16 @@
 
 //-----FEEDBACK SECTION ----
 
+.swiperwrapper {
+  width: 320px;
+  @media screen and (min-width: 768px) {
+    width: 730px;
+  }
+  @media screen and (min-width: 1240px) {
+    width: 1130px;
+  }
+}
+
 .feedBack_contentWrapper {
   outline: 1px solid blue;
   @extend%aligncenter;
@@ -529,7 +539,10 @@
     padding-bottom: 60px;
   }
 }
-
+.swiperwrapper {
+  position: relative;
+  outline: 1px solid blue;
+}
 .thanksMessage {
   font-family: 'Script';
   font-size: 28px;
@@ -537,4 +550,63 @@
   letter-spacing: 0em;
   text-align: center;
   color: $red;
+}
+
+.buttonPrev {
+  width: 40px;
+  height: 40px;
+
+  position: absolute;
+  z-index: 100;
+  top: 45%;
+  left: 0px;
+  z-index: 100;
+  svg {
+    width: 20px;
+    height: 20px;
+  }
+  @media screen and (min-width: 768px) {
+    top: 45%;
+    left: -35px;
+    svg {
+      width: 33px;
+      height: 33px;
+    }
+  }
+}
+.buttonNext {
+  width: 40px;
+  height: 40px;
+
+  position: absolute;
+  z-index: 100;
+  top: 50%;
+  right: 0px;
+  svg {
+    width: 20px;
+    height: 20px;
+  }
+  @media screen and (min-width: 768px) {
+    top: 45%;
+    right: -35px;
+    svg {
+      width: 33px;
+      height: 33px;
+    }
+  }
+}
+.blog_swiperwrapper{
+ width: 320px;
+  @media screen and (min-width: 768px) {
+    width: 730px;
+  }
+  @media screen and (min-width: 1240px) {
+    width: 1130px;
+  }
+
+}
+.blog_post {
+  width: 300px;
+  height: 400px;
+  background: plum;
 }

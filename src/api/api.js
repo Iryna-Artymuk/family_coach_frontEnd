@@ -16,6 +16,11 @@ const feedbacks = {
 
     return data;
   },
+  addFeedbacks: async function (newFeedBack) {
+    const { data } = await axios_instance.post(`/feedback`, newFeedBack);
+
+    return data;
+  },
 };
 
 export default feedbacks;
