@@ -237,13 +237,13 @@ const HomePage = () => {
                 effect={'coverflow'}
                 grabCursor={true}
                 centeredSlides={true}
-                slidesPerView={'auto'}
+                // slidesPerView={'auto'}
                 coverflowEffect={{
                   rotate: 50,
                   stretch: 0,
                   depth: 100,
                   modifier: 1,
-                  slideShadows: false,
+                  slideShadows: true,
                 }}
                 modules={[EffectCoverflow]}
                 breakpoints={{
@@ -260,7 +260,10 @@ const HomePage = () => {
               >
                 {allfeedbacks?.map(feedback => {
                   return (
-                    <SwiperSlide key={feedback.id}>
+                    <SwiperSlide
+                      className={styles.slideFeedback}
+                      key={feedback.id}
+                    >
                       <FeedbackCard feedback={feedback} />
                     </SwiperSlide>
                   );

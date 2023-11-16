@@ -512,6 +512,8 @@
 //-----FEEDBACK SECTION ----
 
 .swiperwrapper {
+  outline: 1px solid blue;
+  position: relative;
   width: 320px;
   @media screen and (min-width: 768px) {
     width: 730px;
@@ -520,9 +522,20 @@
     width: 1130px;
   }
 }
+.slideFeedback {
+  @extend%aligncenter;
+  // width: 320px !important;
+  // @media screen and (min-width: 768px) {
+  //   width: 300px !important;
+  //   height: 300px !important;
+  // }
+  // @media screen and (min-width: 1240px) {
+  //   width: 350px !important;
+  //   height: 350px !important;
+  // }
+}
 
 .feedBack_contentWrapper {
-  outline: 1px solid blue;
   @extend%aligncenter;
   flex-direction: column;
   gap: 12px;
@@ -539,10 +552,7 @@
     padding-bottom: 60px;
   }
 }
-.swiperwrapper {
-  position: relative;
-  outline: 1px solid blue;
-}
+
 .thanksMessage {
   font-family: 'Script';
   font-size: 28px;
