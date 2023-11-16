@@ -595,15 +595,15 @@
     }
   }
 }
-.blog_swiperwrapper{
- width: 320px;
+.blog_swiperwrapper {
+  width: 320px;
+  position: relative;
   @media screen and (min-width: 768px) {
     width: 730px;
   }
   @media screen and (min-width: 1240px) {
     width: 1130px;
   }
-
 }
 .blog_post {
   width: 300px;

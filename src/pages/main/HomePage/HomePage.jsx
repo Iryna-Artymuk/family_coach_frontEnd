@@ -1,4 +1,9 @@
 import { useEffect, useRef, useState } from 'react';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { EffectCoverflow } from 'swiper/modules';
+
+import 'swiper/css';
+import 'swiper/css/effect-fade';
 
 import { useMediaQuery } from 'react-responsive';
 
@@ -12,10 +17,8 @@ import Button from '@/components/Button/Button';
 import Arrow from '@/components/Icons/Arrow';
 import FeedbackCard from '@/components/FeedbackCard/FeedbackCard';
 
-import { Swiper, SwiperSlide } from 'swiper/react';
 import SliderArrowNext from '@/components/Icons/SliderArrowNext';
 import SliderArrowPrev from '@/components/Icons/SliderArrowPrev';
-import 'swiper/css';
 
 const HomePage = () => {
   const [allfeedbacks, setAllfeedbacks] = useState([]);
@@ -23,6 +26,7 @@ const HomePage = () => {
   const [isOpenModal, setIsOpenModal] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const swiperRef = useRef();
+  const swiperRef2 = useRef();
   const isDesktop = useMediaQuery({ minWidth: 768 });
   const isMobile = useMediaQuery({ maxWidth: 767 });
   // const swiperEl = document.querySelector('swiper-container');
@@ -230,6 +234,18 @@ const HomePage = () => {
                 }}
                 id="feedbackSwiper"
                 loop={true}
+                effect={'coverflow'}
+                grabCursor={true}
+                centeredSlides={true}
+                slidesPerView={'auto'}
+                coverflowEffect={{
+                  rotate: 50,
+                  stretch: 0,
+                  depth: 100,
+                  modifier: 1,
+                  slideShadows: false,
+                }}
+                modules={[EffectCoverflow]}
                 breakpoints={{
                   1240: {
                     slidesPerView: 3,
@@ -286,9 +302,21 @@ const HomePage = () => {
           <div className={styles.feedBack_contentWrapper}>
             <h2 className={styles.title}>Cтатті</h2>
             <div className={styles.blog_swiperwrapper}>
+              <button
+                className={styles.buttonPrev}
+                onClick={() => swiperRef2.current.slidePrev()}
+              >
+                <SliderArrowPrev />
+              </button>
+              <button
+                className={styles.buttonNext}
+                onClick={() => swiperRef2.current.slideNext()}
+              >
+                <SliderArrowNext />
+              </button>
               <Swiper
                 onSwiper={swiper => {
-                  swiperRef.current = swiper;
+                  swiperRef2.current = swiper;
                 }}
                 id="feedbackSwiper"
                 loop={true}
