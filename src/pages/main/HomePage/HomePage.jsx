@@ -232,20 +232,10 @@ const HomePage = () => {
                 onSwiper={swiper => {
                   swiperRef.current = swiper;
                 }}
-                id="feedbackSwiper"
                 loop={true}
-                effect={'coverflow'}
+                spaceBetween={30}
                 grabCursor={true}
                 centeredSlides={true}
-                // slidesPerView={'auto'}
-                coverflowEffect={{
-                  rotate: 50,
-                  stretch: 0,
-                  depth: 100,
-                  modifier: 1,
-                  slideShadows: true,
-                }}
-                modules={[EffectCoverflow]}
                 breakpoints={{
                   1240: {
                     slidesPerView: 3,

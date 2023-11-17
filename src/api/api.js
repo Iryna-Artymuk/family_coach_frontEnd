@@ -12,7 +12,7 @@ const axios_instance = axios.create({
 
 const feedbacks = {
   getFeedbacks: async function () {
-    const { data } = await axios_instance.get(`/feedback`);
+    const { data } = await axios_instance.get(`/feeedback`);
 
     return data;
   },
