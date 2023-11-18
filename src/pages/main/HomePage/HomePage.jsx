@@ -30,7 +30,8 @@ const HomePage = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const swiperRef = useRef();
   const swiperRef2 = useRef();
-  const isDesktop = useMediaQuery({ minWidth: 768 });
+  const isDesktop = useMediaQuery({ minWidth: 1240 });
+  const isTablet = useMediaQuery({ minWidth: 768 });
 
   const isMobile = useMediaQuery({ maxWidth: 767 });
   // const swiperEl = document.querySelector('swiper-container');
@@ -86,19 +87,21 @@ const HomePage = () => {
                 Мене звати Жанна Барищук
               </p>
             )}
-            {!isDesktop && (
-              <div className={styles.heroImage}>
-                <div className={styles.quote}>
-                  <p>Як мало нам потрібно для щастя - трохи знань про себе.</p>
-                </div>
+
+            <div className={styles.heroImage}>
+              <div className={styles.quote}>
+                <p>Як мало нам потрібно для щастя - трохи знань про себе.</p>
               </div>
-            )}
+            </div>
             <div className={styles.about}>
-              <p className={styles.aboutName}>
-                Привіт!
-                <br />
-                Мене звати Жанна Барищук
-              </p>
+              {isDesktop ||
+                (isTablet && (
+                  <p className={styles.aboutName}>
+                    Привіт!
+                    <br />
+                    Мене звати Жанна Барищук
+                  </p>
+                ))}
 
               <h2 className={styles.aboutJob}>Практикуючий психолог</h2>
               <h2 className={styles.aboutContent}>
@@ -106,17 +109,6 @@ const HomePage = () => {
                 щасливих дітей♡
               </h2>
             </div>
-            {isMobile && (
-              <div className={styles.heroImage}>
-                <div className={styles.heroImage}>
-                  <div className={styles.quote}>
-                    <p>
-                      Як мало нам потрібно для щастя - трохи знань про себе.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            )}
           </div>
         </Container>
       </section>
@@ -278,7 +270,6 @@ const HomePage = () => {
 
                 {isDesktop && (
                   <>
-                    {' '}
                     <button
                       className={styles.buttonPrev}
                       onClick={() => swiperRef.current.slidePrev()}
