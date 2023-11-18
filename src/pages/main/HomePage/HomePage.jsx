@@ -1,6 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { EffectCoverflow } from 'swiper/modules';
 
 import 'swiper/css';
 import 'swiper/css/effect-fade';
@@ -15,10 +14,14 @@ import Modal from '../../../components/Modal/Modal';
 import AddForm from '@/components/Forms/FormAddFeedback';
 import Button from '@/components/Button/Button';
 import Arrow from '@/components/Icons/Arrow';
-import FeedbackCard from '@/components/FeedbackCard/FeedbackCard';
+import FeedbackCard from '@/components/Swiper/FeedbackCard/FeedbackCard';
+import ArticleCard from '@/components/Swiper/ArticleCard/ArticleCard';
 
 import SliderArrowNext from '@/components/Icons/SliderArrowNext';
 import SliderArrowPrev from '@/components/Icons/SliderArrowPrev';
+
+import { blogData } from '@/data/blogData.js';
+import { Link } from 'react-router-dom';
 
 const HomePage = () => {
   const [allfeedbacks, setAllfeedbacks] = useState([]);
@@ -28,6 +31,7 @@ const HomePage = () => {
   const swiperRef = useRef();
   const swiperRef2 = useRef();
   const isDesktop = useMediaQuery({ minWidth: 768 });
+
   const isMobile = useMediaQuery({ maxWidth: 767 });
   // const swiperEl = document.querySelector('swiper-container');
   // const buttonNext = document.querySelector('#buttonNext');
@@ -75,7 +79,14 @@ const HomePage = () => {
       <section id="about" className={styles.hero}>
         <Container>
           <div className={styles.contentWrapper}>
-            {isDesktop && (
+            {isMobile && (
+              <p className={styles.aboutName}>
+                Привіт!
+                <br />
+                Мене звати Жанна Барищук
+              </p>
+            )}
+            {!isDesktop && (
               <div className={styles.heroImage}>
                 <div className={styles.quote}>
                   <p>Як мало нам потрібно для щастя - трохи знань про себе.</p>
@@ -88,6 +99,7 @@ const HomePage = () => {
                 <br />
                 Мене звати Жанна Барищук
               </p>
+
               <h2 className={styles.aboutJob}>Практикуючий психолог</h2>
               <h2 className={styles.aboutContent}>
                 Тут про любов до себе, здорові сімейні стосунки та виховання
@@ -219,130 +231,150 @@ const HomePage = () => {
           </div>
         </Container>
       </section>
+
       <section className="feedBack" id="feedBack">
         <Container>
           <div className={styles.feedBack_contentWrapper}>
             <h2 className={styles.title}>Відгуки</h2>
-            <Button buttonAddMore type="button" onClick={openModal}>
-              Додати відгук
-            </Button>
 
-            <div className={styles.swiperwrapper}>
-              <Swiper
-                onSwiper={swiper => {
-                  swiperRef.current = swiper;
-                }}
-                loop={true}
-                spaceBetween={30}
-                grabCursor={true}
-                centeredSlides={true}
-                breakpoints={{
-                  1240: {
-                    slidesPerView: 3,
-                  },
-                  768: {
-                    slidesPerView: 2,
-                  },
-                  320: {
-                    slidesPerView: 1,
-                  },
-                }}
-              >
-                {allfeedbacks?.map(feedback => {
-                  return (
-                    <SwiperSlide
-                      className={styles.slideFeedback}
-                      key={feedback.id}
+            {allfeedbacks.length > 0 ? (
+              <div className={styles.feedbakSwiperWrapper}>
+                <Button buttonAddMore type="button" onClick={openModal}>
+                  Додати відгук
+                </Button>
+                <Swiper
+                  onSwiper={swiper => {
+                    swiperRef.current = swiper;
+                  }}
+                  loop={true}
+                  spaceBetween={12}
+                  slidesPerView={1.2}
+                  // centeredSlides={true}
+                  breakpoints={{
+                    1240: {
+                      slidesPerView: 3,
+                      spaceBetween: 40,
+                    },
+                    768: {
+                      slidesPerView: 2.2,
+                      spaceBetween: 12,
+                    },
+                    500: {
+                      slidesPerView: 1.5,
+                    },
+                  }}
+                >
+                  {allfeedbacks?.map(feedback => {
+                    return (
+                      <SwiperSlide
+                        className={styles.slideFeedback}
+                        key={feedback.id}
+                      >
+                        <FeedbackCard feedback={feedback} />
+                      </SwiperSlide>
+                    );
+                  })}
+                </Swiper>
+
+                {isDesktop && (
+                  <>
+                    {' '}
+                    <button
+                      className={styles.buttonPrev}
+                      onClick={() => swiperRef.current.slidePrev()}
                     >
-                      <FeedbackCard feedback={feedback} />
-                    </SwiperSlide>
-                  );
-                })}
-              </Swiper>
-
-              <button
-                className={styles.buttonPrev}
-                onClick={() => swiperRef.current.slidePrev()}
+                      <SliderArrowPrev />
+                    </button>
+                    <button
+                      className={styles.buttonNext}
+                      onClick={() => swiperRef.current.slideNext()}
+                    >
+                      <SliderArrowNext />
+                    </button>
+                  </>
+                )}
+              </div>
+            ) : (
+              <p>Будьте перштм хто додасть відгук</p>
+            )}
+            {isOpenModal && (
+              <Modal
+                type="modal"
+                closeModal={closeModal}
+                isSubmitted={isSubmitted}
               >
-                <SliderArrowPrev />
-              </button>
-              <button
-                className={styles.buttonNext}
-                onClick={() => swiperRef.current.slideNext()}
-              >
-                <SliderArrowNext />
-              </button>
-            </div>
+                <AddForm handleSubmitForm={handleSubmitForm} />
+              </Modal>
+            )}
+            {isSubmitted && (
+              <Modal type="thanksModal" closeModal={closeModal}>
+                <div className={styles.thanksMessage}>Дякую за відгук</div>
+              </Modal>
+            )}
           </div>
-          {isOpenModal && (
-            <Modal
-              type="modal"
-              closeModal={closeModal}
-              isSubmitted={isSubmitted}
-            >
-              <AddForm handleSubmitForm={handleSubmitForm} />
-            </Modal>
-          )}
-          {isSubmitted && (
-            <Modal type="thanksModal" closeModal={closeModal}>
-              <div className={styles.thanksMessage}>Дякую за відгук</div>
-            </Modal>
-          )}
         </Container>
       </section>
+
       <section className="blog">
         <Container>
-          <div className={styles.feedBack_contentWrapper}>
+          <div className={styles.blog_contentWrapper}>
             <h2 className={styles.title}>Cтатті</h2>
+
             <div className={styles.blog_swiperwrapper}>
-              <button
-                className={styles.buttonPrev}
-                onClick={() => swiperRef2.current.slidePrev()}
+              <Link
+                className={styles.blog_Link}
+                to="/blog"
+                buttonAddMore
+                type="button"
               >
-                <SliderArrowPrev />
-              </button>
-              <button
-                className={styles.buttonNext}
-                onClick={() => swiperRef2.current.slideNext()}
-              >
-                <SliderArrowNext />
-              </button>
+                Дивитися усі статті
+              </Link>
+              {isDesktop && (
+                <>
+                  <button
+                    className={styles.buttonPrev}
+                    onClick={() => swiperRef2.current.slidePrev()}
+                  >
+                    <SliderArrowPrev />
+                  </button>
+                  <button
+                    className={styles.buttonNext}
+                    onClick={() => swiperRef2.current.slideNext()}
+                  >
+                    <SliderArrowNext />
+                  </button>{' '}
+                </>
+              )}
               <Swiper
                 onSwiper={swiper => {
                   swiperRef2.current = swiper;
                 }}
                 id="feedbackSwiper"
                 loop={true}
+                spaceBetween={12}
+                slidesPerView={1.2}
+                // centeredSlides={true}
                 breakpoints={{
                   1240: {
                     slidesPerView: 3,
+                    spaceBetween: 27,
                   },
                   768: {
-                    slidesPerView: 2,
+                    slidesPerView: 2.2,
+                    spaceBetween: 12,
                   },
-                  320: {
-                    slidesPerView: 1,
+                  500: {
+                    slidesPerView: 1.5,
                   },
                 }}
               >
-                <SwiperSlide>
-                  <div className={styles.blog_post}>Slide1</div>
-                </SwiperSlide>
-                <SwiperSlide>
-                  <div className={styles.blog_post}>Slide2</div>
-                </SwiperSlide>
-                <SwiperSlide>
-                  <div className={styles.blog_post}>Slide3</div>
-                </SwiperSlide>
-                <SwiperSlide>
-                  <div className={styles.blog_post}>Slide4</div>
-                </SwiperSlide>
+                {blogData.map(article => (
+                  <SwiperSlide key={article.id}>
+                    <ArticleCard article={article} />
+                  </SwiperSlide>
+                ))}
               </Swiper>
             </div>
-
-            <Button buttonAddMore type="button">
-              Дивитися усі статті
-            </Button>
           </div>
         </Container>
       </section>

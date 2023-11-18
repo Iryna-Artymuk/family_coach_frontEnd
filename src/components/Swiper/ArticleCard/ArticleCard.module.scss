@@ -1,0 +1,82 @@
+/// swiper content
+
+.articleWrapper {
+  width: 100%;
+  height: 454px;
+  @extend%aligncenter;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+
+  overflow: hidden;
+
+  @media screen and (min-width: 1240px) {
+    width: 350px;
+    height: 650px;
+    gap: 14px;
+  }
+}
+
+.articleContentWrapper {
+  width: 250px;
+
+  @extend%aligncenter;
+  flex-direction: column;
+  gap: 4px;
+
+  @media screen and (min-width: 768px) {
+    width: 300px;
+  }
+  @media screen and (min-width: 1240px) {
+    width: 350px;
+    gap: 4px;
+  }
+}
+
+.articleImg {
+  width: 250px;
+  height: 250px;
+  border-radius: 15px;
+  object-fit: cover;
+  object-position: top;
+  @media screen and (min-width: 768px) {
+    width: 350px;
+    height: 350px;
+  }
+}
+.articleTitle {
+  font-family: 'Lora', serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.29;
+  letter-spacing: 0em;
+  text-align: left;
+
+  @media screen and (min-width: 1240px) {
+    font-size: 24px;
+  }
+}
+.articleText {
+  @extend%aligncenter;
+
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 26px;
+  letter-spacing: 0em;
+  text-align: left;
+  @media screen and (min-width: 1240px) {
+    font-size: 24px;
+  }
+}
+.articleLink {
+  @extend%aligncenter;
+
+  gap: 8px;
+  font-family: 'MontserratMedium';
+  color: $red;
+
+  svg {
+    width: 24px;
+    height: 24px;
+  }
+}

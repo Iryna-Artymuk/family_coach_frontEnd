@@ -17,7 +17,7 @@ const feedbacks = {
     return data;
   },
   addFeedbacks: async function (newFeedBack) {
-    const { data } = await axios_instance.post(`/feedback`, newFeedBack);
+    const { data } = await axios_instance.post(`/feeedback`, newFeedBack);
 
     return data;
   },

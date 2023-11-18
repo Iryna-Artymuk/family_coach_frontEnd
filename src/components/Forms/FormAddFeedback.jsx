@@ -20,6 +20,7 @@ export default function AddForm({ handleSubmitForm }) {
         date: '',
       }}
       onSubmit={async (value, action) => {
+        console.log('value,: ', value);
         handleSubmitForm({ ...value, date: formatDate(Date.now()) });
 
         action.resetForm();
