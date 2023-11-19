@@ -94,14 +94,13 @@ const HomePage = () => {
               </div>
             </div>
             <div className={styles.about}>
-              {isDesktop ||
-                (isTablet && (
-                  <p className={styles.aboutName}>
-                    Привіт!
-                    <br />
-                    Мене звати Жанна Барищук
-                  </p>
-                ))}
+              {(isDesktop || isTablet) && (
+                <p className={styles.aboutName}>
+                  Привіт!
+                  <br />
+                  Мене звати Жанна Барищук
+                </p>
+              )}
 
               <h2 className={styles.aboutJob}>Практикуючий психолог</h2>
               <h2 className={styles.aboutContent}>
@@ -116,17 +115,39 @@ const HomePage = () => {
         <Container>
           <div className={styles.whyMe_wrapper}>
             <div className={styles.whyMe_contentWrapper}>
-              <div className={styles.whyMe_textWrapper}>
-                <h2 className={styles.title}>В чому моя унікальність?</h2>
-                <p className={styles.whyMe_text}>
-                  Я реалізована особистість. Я кваліфікований спеціаліст,
-                  кохана, мама, дочка, сестра та подруга. Працюю в морі, і
-                  будучи 50/50 свого часу та, я не втратила контакт зі своїм
-                  оточенням. Я знаю, що таке баланс між особистим життям,
-                  саморозвитком, роботою та відпочинком.
-                </p>
-              </div>
-              <div className={styles.whyMeImg}></div>
+              {isMobile && (
+                <div className={styles.whyMe_textWrapper}>
+                  <h2 className={styles.title}>В чому моя унікальність?</h2>
+                  <div className={styles.whyMe_imgWrapper}>
+                    <div className={styles.whyMe_img}></div>
+                    <p className={styles.whyMe_text}>
+                      Я реалізована особистість. Я кваліфікований спеціаліст,
+                      кохана, мама, дочка, сестра та подруга.
+                    </p>
+                  </div>
+                  <p className={styles.whyMe_secondText}>
+                    Працюю в морі, і будучи 50/50 свого часу та, я не втратила
+                    контакт зі своїм оточенням. Я знаю, що таке баланс між
+                    особистим життям, саморозвитком, роботою та відпочинком.
+                  </p>
+                </div>
+              )}
+              {(isDesktop || isTablet) && (
+                <>
+                  <div className={styles.whyMe_img}></div>
+                  <div className={styles.whyMe_textWrapper}>
+                    <h2 className={styles.title}>В чому моя унікальність?</h2>
+
+                    <p className={styles.whyMe_text}>
+                      Я реалізована особистість. Я кваліфікований спеціаліст,
+                      кохана, мама, дочка, сестра та подруга. Працюю в морі, і
+                      будучи 50/50 свого часу та, я не втратила контакт зі своїм
+                      оточенням. Я знаю, що таке баланс між особистим життям,
+                      саморозвитком, роботою та відпочинком.
+                    </p>
+                  </div>
+                </>
+              )}
             </div>
           </div>
         </Container>

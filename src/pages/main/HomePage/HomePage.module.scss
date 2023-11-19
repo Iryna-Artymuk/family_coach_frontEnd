@@ -202,36 +202,30 @@
 }
 .whyMe_contentWrapper {
   @extend%aligncenter;
-  align-items: flex-start;
-  gap: 8px;
-  justify-content: left;
-  flex-direction: row-reverse;
+
   @media screen and (min-width: 768px) {
     align-items: center;
-    flex-direction: row;
+    flex-direction: row-reverse;
+
     gap: 20px;
   }
   @media screen and (min-width: 1240px) {
-    align-items: center;
-
     gap: 20px;
   }
 }
 
 .whyMe_textWrapper {
-  width: 150px;
-  h2 {
-    margin-bottom: 14px;
-    text-align: left;
-  }
+  @extend%aligncenter;
+  flex-direction: column;
+  gap: 14px;
   @media screen and (min-width: 768px) {
-    width: 342px;
+    gap: 24px;
   }
-  @media screen and (min-width: 1240px) {
-    width: 648px;
+  h2 {
+    text-align: center;
   }
 }
-.whyMeImg {
+.whyMe_img {
   width: 138px;
   height: 205px;
   border-radius: 15px;
@@ -251,37 +245,37 @@
   }
 }
 .whyMe_text {
+  width: 150px;
   font-size: 12px;
   line-height: 1.5;
-
+  text-align: center;
   @media screen and (min-width: 768px) {
+    width: 342px;
     font-size: 14px;
     line-height: 1.5;
     text-align: left;
   }
   @media screen and (min-width: 1240px) {
+    width: 648px;
     font-size: 24px;
   }
 }
 
-.whyMeContentSecondText {
+.whyMe_secondText {
   width: 296px;
-  height: 72px;
-
   font-size: 12px;
+  font-weight: 400;
   line-height: 1.5;
+
   text-align: left;
 }
 
-.whyMeImgWrapper {
+.whyMe_imgWrapper {
   @extend%aligncenter;
   gap: 8px;
 }
 
 ////---My principles ---
-
-// .myPrinciples {
-// }
 
 .myPrinciples_ContentWrapper {
   width: 100%;
@@ -304,7 +298,7 @@
   flex-direction: column;
   gap: 14px;
   h2 {
-    text-align: left;
+    text-align: center;
   }
 }
 .myPrinciples_List {
