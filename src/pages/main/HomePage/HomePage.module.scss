@@ -535,9 +535,7 @@
   width: 100%;
   position: relative;
   padding-top: 58px;
-  @media screen and (min-width: 768px) {
-    width: 730px;
-  }
+
   @media screen and (min-width: 1240px) {
     padding-top: 92px;
     width: 1130px;
@@ -617,9 +615,7 @@
   width: 100%;
   position: relative;
   padding-top: 58px;
-  @media screen and (min-width: 768px) {
-    width: 730px;
-  }
+
   @media screen and (min-width: 1240px) {
     padding-top: 92px;
     width: 1130px;
@@ -671,4 +667,23 @@
   width: 300px;
   height: 400px;
   background: plum;
+}
+
+.writemeLink {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  z-index: 999;
+  @extend%aligncenter;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background: $writeMeLinkBG;
+  font-size: 24px;
+  line-height: 29px;
+  color: $navLinkColor;
+
+  &:hover {
+    color: $navLinkHover;
+  }
 }

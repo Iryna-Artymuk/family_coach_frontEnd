@@ -330,16 +330,17 @@ const HomePage = () => {
                   slidesPerView={1.2}
                   // centeredSlides={true}
                   breakpoints={{
+                    425: {
+                      slidesPerView: 1.5,
+                    },
+                    768: {
+                      slidesPerView: 2.5,
+                      spaceBetween: 12,
+                    },
+
                     1240: {
                       slidesPerView: 3,
                       spaceBetween: 40,
-                    },
-                    768: {
-                      slidesPerView: 2.2,
-                      spaceBetween: 12,
-                    },
-                    500: {
-                      slidesPerView: 1.5,
                     },
                   }}
                 >
@@ -433,16 +434,17 @@ const HomePage = () => {
                 slidesPerView={1.2}
                 // centeredSlides={true}
                 breakpoints={{
+                  425: {
+                    slidesPerView: 1.5,
+                  },
+                  768: {
+                    slidesPerView: 2.5,
+                    spaceBetween: 12,
+                  },
+
                   1240: {
                     slidesPerView: 3,
                     spaceBetween: 27,
-                  },
-                  768: {
-                    slidesPerView: 2.2,
-                    spaceBetween: 12,
-                  },
-                  500: {
-                    slidesPerView: 1.5,
                   },
                 }}
               >
@@ -456,6 +458,15 @@ const HomePage = () => {
           </div>
         </Container>
       </section>
+
+      <a
+        className={styles.writemeLink}
+        href="https://t.me/Zh_Bshch"
+        target="_blank"
+        rel="noopener noreferrer nofollow"
+      >
+        Напиши мені
+      </a>
     </>
   );
 };
