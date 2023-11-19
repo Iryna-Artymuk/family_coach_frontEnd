@@ -81,11 +81,18 @@ const HomePage = () => {
         <Container>
           <div className={styles.contentWrapper}>
             {isMobile && (
-              <p className={styles.aboutName}>
-                Привіт!
-                <br />
-                Мене звати Жанна Барищук
-              </p>
+              <>
+                <p className={styles.aboutName}>
+                  Привіт!
+                  <br />
+                  Мене звати Жанна Барищук
+                </p>
+                <h2 className={styles.aboutJob}>Практикуючий психолог</h2>
+                <h2 className={styles.aboutContent}>
+                  Тут про любов до себе, здорові сімейні стосунки та виховання
+                  щасливих дітей
+                </h2>
+              </>
             )}
 
             <div className={styles.heroImage}>
@@ -95,18 +102,19 @@ const HomePage = () => {
             </div>
             <div className={styles.about}>
               {(isDesktop || isTablet) && (
-                <p className={styles.aboutName}>
-                  Привіт!
-                  <br />
-                  Мене звати Жанна Барищук
-                </p>
+                <>
+                  <p className={styles.aboutName}>
+                    Привіт!
+                    <br />
+                    Мене звати Жанна Барищук
+                  </p>
+                  <h2 className={styles.aboutJob}>Практикуючий психолог</h2>
+                  <h2 className={styles.aboutContent}>
+                    Тут про любов до себе, здорові сімейні стосунки та виховання
+                    щасливих дітей
+                  </h2>
+                </>
               )}
-
-              <h2 className={styles.aboutJob}>Практикуючий психолог</h2>
-              <h2 className={styles.aboutContent}>
-                Тут про любов до себе, здорові сімейні стосунки та виховання
-                щасливих дітей♡
-              </h2>
             </div>
           </div>
         </Container>
@@ -156,52 +164,110 @@ const HomePage = () => {
       <section className={styles.myPrinciples}>
         <Container>
           <div className={styles.myPrinciples_ContentWrapper}>
-            <div className={styles.myPrinciples_ListWrapper}>
-              <h2 className={styles.title}>Мої принципи роботи:</h2>
-              <ul className={styles.myPrinciples_List}>
-                <li className={styles.myPrinciples_List_Item}>
-                  <p className={styles.myPrinciples_List_ItemText}>
-                    Тривалість консультації: діти від 4-х років 30-45 хв.,
-                    підлітки 45-50 хв., дорослі 50-70 хв.
-                  </p>
-                </li>
-                <li className={styles.myPrinciples_List_Item}>
-                  <p className={styles.myPrinciples_List_ItemText}>
-                    Робота з дітьми починається з роботи з батьками
-                  </p>
-                </li>
-                <li className={styles.myPrinciples_List_Item}>
-                  <p className={styles.myPrinciples_List_ItemText}>
-                    Конфіденційність
-                  </p>
-                </li>
-                <li className={styles.myPrinciples_List_Item}>
-                  <p className={styles.myPrinciples_List_ItemText}>
-                    Індивідуальний підхід
-                  </p>
-                </li>
-                <li className={styles.myPrinciples_List_Item}>
-                  <p className={styles.myPrinciples_List_ItemText}>
-                    Відповідальність 50/50 – я не можу змінити ваше життя. Треба
-                    змінювати свою поведінку, звички, установки, думки. Це не
-                    просто і не швидко.
-                  </p>
-                </li>
-                <li className={styles.myPrinciples_List_Item}>
-                  <p className={styles.myPrinciples_List_ItemText}>
-                    Не проводжу консультації в поганому самопочутті,аби це не
-                    впливало на ефективність роботи
-                  </p>
-                </li>
-                <li className={styles.myPrinciples_List_Item}>
-                  <p className={styles.myPrinciples_List_ItemText}>
-                    Не беру більше 3-х клієнтів в день. Субота та неділя працюю
-                    лише з клієнтами з супроводом*
-                  </p>
-                </li>
-              </ul>
-            </div>
-            <div className={styles.myPrinciplesImg}></div>
+            {(isDesktop || isTablet) && (
+              <>
+                <div className={styles.myPrinciples_ListWrapper}>
+                  <h2 className={styles.title}>Мої принципи роботи:</h2>
+                  <ul className={styles.myPrinciples_List}>
+                    <li className={styles.myPrinciples_List_Item}>
+                      <p className={styles.myPrinciples_List_ItemText}>
+                        Тривалість консультації: діти від 4-х років 30-45 хв.,
+                        підлітки 45-50 хв., дорослі 50-70 хв.
+                      </p>
+                    </li>
+                    <li className={styles.myPrinciples_List_Item}>
+                      <p className={styles.myPrinciples_List_ItemText}>
+                        Робота з дітьми починається з роботи з батьками
+                      </p>
+                    </li>
+                    <li className={styles.myPrinciples_List_Item}>
+                      <p className={styles.myPrinciples_List_ItemText}>
+                        Конфіденційність
+                      </p>
+                    </li>
+                    <li className={styles.myPrinciples_List_Item}>
+                      <p className={styles.myPrinciples_List_ItemText}>
+                        Індивідуальний підхід
+                      </p>
+                    </li>
+                    <li className={styles.myPrinciples_List_Item}>
+                      <p className={styles.myPrinciples_List_ItemText}>
+                        Відповідальність 50/50 – я не можу змінити ваше життя.
+                        Треба змінювати свою поведінку, звички, установки,
+                        думки. Це не просто і не швидко.
+                      </p>
+                    </li>
+                    <li className={styles.myPrinciples_List_Item}>
+                      <p className={styles.myPrinciples_List_ItemText}>
+                        Не проводжу консультації в поганому самопочутті,аби це
+                        не впливало на ефективність роботи
+                      </p>
+                    </li>
+                    <li className={styles.myPrinciples_List_Item}>
+                      <p className={styles.myPrinciples_List_ItemText}>
+                        Не беру більше 3-х клієнтів в день. Субота та неділя
+                        працюю лише з клієнтами з супроводом*
+                      </p>
+                    </li>
+                  </ul>
+                </div>
+                <div className={styles.myPrinciplesImg}></div>
+              </>
+            )}
+
+            {isMobile && (
+              <>
+                <div className={styles.myPrinciplesImgWrapper}>
+                  <h2 className={styles.title}>Мої принципи роботи:</h2>
+                  <ul className={styles.myPrinciples_List1}>
+                    <li className={styles.myPrinciples_List_Item}>
+                      <p className={styles.myPrinciples_List_ItemText}>
+                        Тривалість консультації: діти від 4-х років 30-45 хв.,
+                        підлітки 45-50 хв., дорослі 50-70 хв.
+                      </p>
+                    </li>
+                    <li className={styles.myPrinciples_List_Item}>
+                      <p className={styles.myPrinciples_List_ItemText}>
+                        Робота з дітьми починається з роботи з батьками
+                      </p>
+                    </li>
+                    <li className={styles.myPrinciples_List_Item}>
+                      <p className={styles.myPrinciples_List_ItemText}>
+                        Конфіденційність
+                      </p>
+                    </li>
+                    <li className={styles.myPrinciples_List_Item}>
+                      <p className={styles.myPrinciples_List_ItemText}>
+                        Індивідуальний підхід
+                      </p>
+                    </li>
+                  </ul>
+                  <div className={styles.myPrinciplesImg}></div>
+                </div>
+
+                <ul className={styles.myPrinciples_List2}>
+                  <li className={styles.myPrinciples_List_Item}>
+                    <p>
+                      Відповідальність 50/50 – я не можу змінити ваше життя.
+                      Треба змінювати свою поведінку, звички, установки, думки.
+                      Це не просто і не швидко.
+                    </p>
+                  </li>
+                  <li className={styles.myPrinciples_List_Item}>
+                    <p>
+                      Не проводжу консультації в поганому самопочутті,аби це не
+                      впливало на ефективність роботи
+                    </p>
+                  </li>
+                  <li className={styles.myPrinciples_List_Item}>
+                    <p>
+                      Не беру більше 3-х клієнтів в день. Субота та неділя
+                      працюю лише з клієнтами з супроводом*
+                    </p>
+                  </li>
+                </ul>
+              </>
+            )}
           </div>
         </Container>
       </section>
@@ -245,7 +311,7 @@ const HomePage = () => {
         </Container>
       </section>
 
-      <section className="feedBack" id="feedBack">
+      <section className="feedBack" id="feedback">
         <Container>
           <div className={styles.feedBack_contentWrapper}>
             <h2 className={styles.title}>Відгуки</h2>

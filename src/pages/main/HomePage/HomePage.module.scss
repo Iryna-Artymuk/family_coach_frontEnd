@@ -182,6 +182,7 @@
 ///----section WhyMe---
 
 .whyMe {
+  width: 100vw;
   background: $sectionBG;
 }
 
@@ -280,10 +281,13 @@
 .myPrinciples_ContentWrapper {
   width: 100%;
   @extend%aligncenter;
-  gap: 16px;
+  flex-direction: column;
+
   padding-top: 40px;
   padding-bottom: 40px;
-  align-items: flex-start;
+  @media screen and (max-width: 768px) {
+    gap: 4px;
+  }
   @media screen and (min-width: 768px) {
     flex-direction: row-reverse;
     gap: 10px;
@@ -292,24 +296,75 @@
     gap: 50px;
   }
 }
-
-.myPrinciples_ListWrapper {
-  @extend%aligncenter;
-  flex-direction: column;
-  gap: 14px;
+//  myPrinciplesImgWrapper mobile only
+.myPrinciplesImgWrapper {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 16px;
   h2 {
-    text-align: center;
+    position: absolute;
+    left: 0;
+    top: 12px;
+    font-size: 14px;
+    text-align: left;
   }
 }
-.myPrinciples_List {
+.myPrinciplesImg {
+  width: 138px;
+  height: 205px;
+  border-radius: 15px;
+  background-image: url('/public/images/heroPhoto.jpg');
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  @media screen and (min-width: 768px) {
+    width: 342px;
+    height: 430px;
+    border-radius: 30px;
+    background-size: cover;
+  }
+  @media screen and (min-width: 1240px) {
+    width: 540px;
+    height: 680px;
+  }
+}
+
+.myPrinciples_List1 {
+  width: 142px;
   @extend%aligncenter;
   flex-direction: column;
   justify-content: space-evenly;
   align-items: flex-start;
-  // gap: 4px;
+  gap: 4px;
   height: 100%;
   font-size: 10px;
   line-height: 1.5;
+  @media screen and (min-width: 768px) {
+    font-size: 14px;
+    gap: 8px;
+  }
+  @media screen and (min-width: 1240px) {
+    gap: 24px;
+  }
+}
+.myPrinciples_List2 {
+  width: 296px;
+  @extend%aligncenter;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: flex-start;
+  gap: 4px;
+  height: 100%;
+  font-size: 10px;
+  line-height: 1.5;
+
+  p {
+    width: 280px;
+    font-size: 10px;
+    line-height: 1.5;
+  }
   @media screen and (min-width: 768px) {
     font-size: 14px;
     gap: 8px;
@@ -347,9 +402,6 @@
   }
 }
 
-.myPrinciples_List_ItemTextlong {
-  width: 280px;
-}
 .myPrinciples_List_Item::before {
   content: '';
   display: block;
@@ -367,29 +419,8 @@
     height: 10px;
   }
 }
-.myPrinciplesImg {
-  // position: absolute;
-  // top: 0;
-  // right: 0;
-  width: 138px;
-  height: 205px;
-  border-radius: 15px;
-  background-image: url('/public/images/heroPhoto.jpg');
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: center;
-  @media screen and (min-width: 768px) {
-    width: 342px;
-    height: 430px;
-    border-radius: 30px;
-    background-size: cover;
-  }
-  @media screen and (min-width: 1240px) {
-    width: 540px;
-    height: 680px;
-  }
-}
 
+//---WORK AREA
 .workAreas_ContentWrapper {
   display: flex;
   flex-direction: column;
@@ -550,9 +581,15 @@
   top: 50%;
   left: -45px;
   z-index: 100;
-  svg {
-    width: 20px;
-    height: 20px;
+
+  svg path {
+    fill: #e4c3ba;
+  }
+
+  &:hover {
+    svg path {
+      fill: $red;
+    }
   }
 }
 .buttonNext {
@@ -563,9 +600,14 @@
   z-index: 100;
   top: 50%;
   right: -45px;
-  svg {
-    width: 20px;
-    height: 20px;
+  svg path {
+    fill: #e4c3ba;
+  }
+
+  &:hover {
+    svg path {
+      fill: $red;
+    }
   }
 }
 

@@ -8,13 +8,12 @@ const ArticleCard = ({ article }) => {
         <img className={styles.articleImg} src={article.url} alt="" />
         <div>
           <h3 className={styles.articleTitle}>{article.title}</h3>
-          <p className={styles.articleText}>{article.body.slice(0, 160)}...</p>
+          <p className={styles.articleDescription}>{article.description}</p>
         </div>
+        <Link className={styles.articleLink} to={`/blog/${article.id}`}>
+          читати далі <Arrow />
+        </Link>
       </div>
-
-      <Link className={styles.articleLink} to={`/blog/${article.id}`}>
-        читати далі <Arrow />
-      </Link>
     </div>
   );
 };
