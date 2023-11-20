@@ -459,14 +459,16 @@ const HomePage = () => {
         </Container>
       </section>
 
-      <a
-        className={styles.writemeLink}
-        href="https://t.me/Zh_Bshch"
-        target="_blank"
-        rel="noopener noreferrer nofollow"
-      >
-        Напиши мені
-      </a>
+      {isDesktop && (
+        <a
+          className={styles.writemeLink}
+          href="https://t.me/Zh_Bshch"
+          target="_blank"
+          rel="noopener noreferrer nofollow"
+        >
+          Напиши мені
+        </a>
+      )}
     </>
   );
 };

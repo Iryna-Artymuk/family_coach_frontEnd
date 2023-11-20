@@ -53,4 +53,77 @@ export const blogData = [
       'Говорити і адекватно реагувати на сказане -є дуже важливим аспектом в спілкуванні,Критика ,або ж зауваження це нормально,Непотрібно все сприймати в свою сторону ,як це роблять маленькі діти.Потрібно розмежовувати зауваження до дій та особистості',
     body: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Delectus dolor reprehenderit eaque explicabo dolore, nesciunt sit est deserunt cumque assumenda minus hic totam ipsum laborum temporibus repellendus modi quas officiis expedita? Impedit ab mollitia perspiciatis esse recusandae commodi molestiae minima reprehenderit similique quasi sequi necessitatibus ea nihil, accusamus voluptates, nobis voluptatem harum ullam, optio reiciendis. Totam maxime iusto consequuntur, laborum nulla et quisquam obcaecati eum reiciendis vitae libero! Quae inventore a iusto odit aliquid quod nesciunt nisi ullam porro facilis, cupiditate nihil corporis tenetur perspiciatis! Veritatis consequatur alias asperiores voluptates. Impedit eveniet vitae accusantium pariatur, soluta sit maxime similique, facere incidunt, odio dolorem maiores odit! Hic cumque voluptas ipsam tempora in ut itaque omnis dolorem illum reiciendis quos cum consectetur temporibus, saepe eligendi dolor corrupti quisquam architecto harum, quae labore. Tenetur maiores velit odio architecto ut eos deleniti quis praesentium impedit repellendus beatae saepe non, minus consequuntur voluptates, iusto numquam autem id accusantium! Unde repudiandae maxime inventore possimus quae ipsam, aliquid consectetur cumque et, ab blanditiis nobis obcaecati suscipit pariatur eum, officia natus repellendus quas ullam veritatis similique provident sit cupiditate. Temporibus deleniti ex exercitationem non eum aliquam necessitatibus obcaecati dignissimos autem ea sit minima iure dolore reprehenderit quisquam aspernatur quas qui sed iste ducimus et, ad, itaque cupiditate. Consequatur rem enim culpa sed, laboriosam repellendus ab nemo modi adipisci dolor expedita? Voluptates repellendus alias, modi harum fugiat, consequuntur aspernatur placeat iure eveniet sapiente animi officiis ducimus libero? Quis laborum doloribus repellendus deleniti, aperiam ab perferendis sint dolores porro officia quisquam expedita quibusdam voluptates quos dicta similique perspiciatis aliquam. Officiis debitis quidem sapiente ipsam sunt totam ducimus quaerat vel cum nobis, ipsum, quam consequatur deserunt id officia impedit beatae! Consequuntur consequatur amet, aliquam ex, atque eligendi eum eos non perspiciatis nesciunt blanditiis mollitia molestiae totam illo qui. Tempore culpa, similique, sunt ducimus deserunt vero, ipsam optio repellat quas eveniet dolore rem debitis consequuntur. Sit ut laudantium labore aperiam esse provident dolore, eius cum quos non modi consequatur a sequi eum cupiditate beatae harum odit. Totam repellat dolores aspernatur quas optio, ipsa, laborum ducimus nemo illum hic alias. Aperiam voluptatibus repellendus quibusdam illum distinctio ex deleniti asperiores nihil nisi nesciunt nostrum, excepturi praesentium sint corrupti ea delectus eum sapiente amet. Voluptatibus sequi voluptas mollitia iste repudiandae, sapiente quibusdam atque magni eaque vitae dolorem, impedit sed. Sunt sequi autem omnis, nesciunt eveniet porro iure laborum quidem quae sapiente nihil mollitia aut. Iusto laborum quasi obcaecati praesentium nulla, asperiores repellat inventore placeat quidem porro ducimus voluptates sit distinctio blanditiis itaque. Voluptas mollitia deserunt, debitis eos modi magnam nemo atque nihil quasi fugit vitae excepturi, accusamus impedit! Iure doloribus officiis possimus quos amet, quaerat dolor a alias inventore laborum ex corporis dolorem mollitia sint culpa repellat fugiat fugit nobis sunt quasi veniam. Nobis fugiat odio nulla amet dolorem odit commodi perferendis error exercitationem recusandae accusantium atque dignissimos placeat adipisci culpa aliquam voluptate libero dolores, possimus eos, ipsam et reprehenderit labore? Quasi distinctio dolorum voluptatibus est maxime corporis quis vitae vero, maiores repellendus fugiat libero sit sunt expedita impedit nostrum magni necessitatibus nemo quas iste! Modi, illum. Quibusdam aut repellat modi, sit qui suscipit. Voluptatibus voluptate mollitia dolorum unde reprehenderit esse praesentium quo officia tenetur ullam? Eligendi ducimus doloribus optio molestias est itaque commodi sit vero obcaecati consequuntur exercitationem vitae delectus ullam accusamus ipsum excepturi, reprehenderit quis deleniti illo eveniet perspiciatis culpa iusto fugit consequatur! Odio, mollitia obcaecati aliquid saepe quis debitis labore, a autem ducimus ad ea optio consequuntur, consequatur iusto inventore eaque soluta alias? Totam impedit natus provident vitae perspiciatis dolore ratione unde velit numquam eius. Maiores est doloribus, dicta perferendis autem laudantium accusamus dolorum voluptas iste quasi dolores pariatur. Similique voluptatem earum atque voluptate, ut a unde. Temporibus architecto deleniti corrupti necessitatibus, asperiores laudantium nulla quae, pariatur neque, eligendi tempora modi accusamus amet? Nobis eligendi explicabo aspernatur doloribus quasi, odio dolores odit. A commodi est illo laboriosam dolores consectetur. Quidem sed neque magni vel velit aliquam sint cum laudantium libero eaque, veritatis sit. Quisquam nemo error in accusamus, architecto iusto repellat blanditiis quo aliquid repellendus explicabo dolorem. Unde id aut illum porro enim. Illo tenetur sed perspiciatis quae. Officia repellendus repudiandae voluptatum, ea veritatis nostrum excepturi odit adipisci magnam ipsum magni quaerat a laudantium maxime! Possimus dignissimos sed ea, excepturi iste natus, provident reiciendis quasi error enim ad magni numquam itaque ipsam assumenda corrupti soluta ducimus a est consequuntur quidem reprehenderit explicabo inventore esse. Officiis, ab! Magni deserunt nobis possimus impedit aperiam sed ab nesciunt facere natus dolor nulla illum amet, necessitatibus odio repellendus doloremque fugit nisi tempora odit fuga perferendis dicta voluptatem cumque libero. Possimus excepturi quam suscipit, id optio quod. Sequi ratione vitae, dolores magni magnam qui numquam ea, excepturi maxime architecto similique perferendis omnis ut doloremque quas voluptatem distinctio eveniet molestias ducimus voluptates deleniti est aut! Officiis hic ut quasi nostrum inventore porro reprehenderit delectus excepturi? Rem ab quasi quo, dolores accusamus incidunt tempora numquam beatae velit, quos, adipisci eligendi debitis fugiat eaque vitae ex quibusdam vero molestias voluptate ipsam corrupti sit impedit placeat. Dignissimos quam, eligendi vel suscipit id mollitia alias non minus provident, sunt rem ad deserunt nostrum totam autem ullam atque laudantium corrupti esse? Repellat corrupti suscipit fuga numquam nisi, molestias recusandae voluptates cumque dolorem totam, possimus soluta? Qui, quia. Quis est ipsam ratione iste ea mollitia dignissimos voluptas cumque tenetur quos, alias numquam, esse assumenda ab labore exercitationem ducimus, rerum deleniti suscipit omnis! Culpa labore velit aliquid doloremque eaque minus illo perferendis voluptatum, vel asperiores beatae? Vitae animi error, placeat atque in nulla. Iste, nisi. Iure ipsum placeat suscipit ea! Ipsa, incidunt veniam ducimus eius ea odit tempora nobis aut earum nulla autem obcaecati quia dignissimos fugit adipisci qui? Tenetur exercitationem maxime aliquid fugiat repellendus architecto animi quibusdam ipsum dolore eaque veniam asperiores recusandae in praesentium, aspernatur quis. Nemo quaerat officia, sequi, hic pariatur quam rerum eos asperiores inventore minima dignissimos ratione numquam omnis accusamus quidem tempora perspiciatis ex dicta facilis laudantium? Tenetur aspernatur dignissimos quaerat sunt veniam, quae, doloremque a praesentium rerum temporibus atque!',
   },
+
+  {
+    id: 7,
+    url: 'images/heroPhoto.jpg',
+    category: 'Сімя',
+    title: 'Стресостійкість',
+    description:
+      'З гострою реакцією на стрес ,посилюється інтуїція та сприйняття,збільшується можливість піддаватися позитивному впливу небайдужих , значущих людей, що дає великі шанси мати благополучне майбутнє.',
+    body: 'З гострою реакцією на стрес ,посилюється інтуїція та сприйняття,збільшується можливість піддаватися позитивному впливу небайдужих , значущих людей, що дає великі шанси мати благополучне майбутнє.',
+  },
+  {
+    id: 8,
+    url: 'images/heroPhoto.jpg',
+    category: 'Сімя',
+    title: 'Стресостійкість',
+    description:
+      'З гострою реакцією на стрес ,посилюється інтуїція та сприйняття,збільшується можливість піддаватися позитивному впливу небайдужих , значущих людей, що дає великі шанси мати благополучне майбутнє.',
+    body: 'З гострою реакцією на стрес ,посилюється інтуїція та сприйняття,збільшується можливість піддаватися позитивному впливу небайдужих , значущих людей, що дає великі шанси мати благополучне майбутнє.',
+  },
+  {
+    id: 9,
+    url: 'images/heroPhoto.jpg',
+    category: 'Сімя',
+    title: 'Стресостійкість',
+    description:
+      'З гострою реакцією на стрес ,посилюється інтуїція та сприйняття,збільшується можливість піддаватися позитивному впливу небайдужих , значущих людей, що дає великі шанси мати благополучне майбутнє.',
+    body: 'З гострою реакцією на стрес ,посилюється інтуїція та сприйняття,збільшується можливість піддаватися позитивному впливу небайдужих , значущих людей, що дає великі шанси мати благополучне майбутнє.',
+  },
+  {
+    id: 10,
+    url: 'images/heroPhoto.jpg',
+    category: 'Сімя',
+    title: 'Стресостійкість',
+    description:
+      'З гострою реакцією на стрес ,посилюється інтуїція та сприйняття,збільшується можливість піддаватися позитивному впливу небайдужих , значущих людей, що дає великі шанси мати благополучне майбутнє.',
+    body: 'З гострою реакцією на стрес ,посилюється інтуїція та сприйняття,збільшується можливість піддаватися позитивному впливу небайдужих , значущих людей, що дає великі шанси мати благополучне майбутнє.',
+  },
+  {
+    id: 11,
+    url: 'images/heroPhoto.jpg',
+    category: 'Сімя',
+    title: 'Стресостійкість',
+    description:
+      'З гострою реакцією на стрес ,посилюється інтуїція та сприйняття,збільшується можливість піддаватися позитивному впливу небайдужих , значущих людей, що дає великі шанси мати благополучне майбутнє.',
+    body: 'З гострою реакцією на стрес ,посилюється інтуїція та сприйняття,збільшується можливість піддаватися позитивному впливу небайдужих , значущих людей, що дає великі шанси мати благополучне майбутнє.',
+  },
+  {
+    id: 12,
+    url: 'images/heroPhoto.jpg',
+    category: 'Сімя',
+    title: 'Стресостійкість',
+    description:
+      'З гострою реакцією на стрес ,посилюється інтуїція та сприйняття,збільшується можливість піддаватися позитивному впливу небайдужих , значущих людей, що дає великі шанси мати благополучне майбутнє.',
+    body: 'З гострою реакцією на стрес ,посилюється інтуїція та сприйняття,збільшується можливість піддаватися позитивному впливу небайдужих , значущих людей, що дає великі шанси мати благополучне майбутнє.',
+  },
+  {
+    id: 13,
+    url: 'images/heroPhoto.jpg',
+    category: 'Сімя',
+    title: 'Стресостійкість',
+    description:
+      'З гострою реакцією на стрес ,посилюється інтуїція та сприйняття,збільшується можливість піддаватися позитивному впливу небайдужих , значущих людей, що дає великі шанси мати благополучне майбутнє.',
+    body: 'З гострою реакцією на стрес ,посилюється інтуїція та сприйняття,збільшується можливість піддаватися позитивному впливу небайдужих , значущих людей, що дає великі шанси мати благополучне майбутнє.',
+  },
+  {
+    id: 14,
+    url: 'images/heroPhoto.jpg',
+    category: 'Сімя',
+    title: 'Стресостійкість',
+    description:
+      'З гострою реакцією на стрес ,посилюється інтуїція та сприйняття,збільшується можливість піддаватися позитивному впливу небайдужих , значущих людей, що дає великі шанси мати благополучне майбутнє.',
+    body: 'З гострою реакцією на стрес ,посилюється інтуїція та сприйняття,збільшується можливість піддаватися позитивному впливу небайдужих , значущих людей, що дає великі шанси мати благополучне майбутнє.',
+  },
 ];

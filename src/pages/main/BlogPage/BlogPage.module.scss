@@ -1,24 +1,66 @@
 .blog_wrapper {
+  outline: 1px solid blue;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  @extend%aligncenter;
+  flex-direction: column;
+  gap: 70px;
+
+  @include desktop {
+    padding-top: 80px;
+    padding-bottom: 80px;
+  }
 }
 
 .blog_list {
   width: 100%;
   @extend%aligncenter;
+  gap: 24px;
   flex-wrap: wrap;
-  gap: 30px;
+  @include tablet {
+    gap: 40px;
+  }
+  @include desktop {
+    row-gap: 80px;
+    column-gap: 66px;
+  }
 }
-.blog_listItem {
-}
+// .blog_listItem {
+// }
 .blog_content {
-  width: 350px;
-  height: 401px;
+  outline: 1px solid red;
+  @extend%aligncenter;
+  flex-direction: column;
+  width: 250px;
+  gap: 10px;
+  @include tablet {
+    width: 300px;
+    gap: 12px;
+    justify-content: flex-start;
+  }
+  @include desktop {
+    width: 350px;
+    gap: 20px;
+  }
+  h2 {
+    font-size: 24px;
+  }
 }
 .blog_contentImgwrapper {
   position: relative;
-  width: 350px;
-  height: 350px;
+  width: 250px;
+  height: 250px;
   border-radius: 15px;
   overflow: hidden;
+
+  @include tablet {
+    width: 300px;
+    height: 300px;
+  }
+  @include desktop {
+    width: 350px;
+    height: 350px;
+  }
   img {
     width: 100%;
     height: 100%;
@@ -30,6 +72,8 @@
     }
   }
 }
+// only desktop
+
 .blog_contentOverlay {
   width: 100%;
   height: 100%;
@@ -46,7 +90,74 @@
 
   background: $accent;
 }
+
+// only mobile+tablet
+.blog_contentReadMore {
+  position: absolute;
+  bottom: 18px;
+  right: 18px;
+  width: 142px;
+  height: 32px;
+  @extend%aligncenter;
+  gap: 4px;
+  border-radius: 15px;
+
+  font-family: 'MontserratMedium';
+  font-size: 14px;
+
+  line-height: 1.21;
+
+  background: white;
+  color: $red;
+
+  svg {
+    width: 20px;
+    height: 20px;
+  }
+}
 .blog_contentText {
   padding: 10px;
   line-height: 2;
+}
+
+.blog_contentTextWrapper {
+  font-size: 12px;
+  line-height: 24px;
+  text-align: left;
+  h2 {
+    font-size: 16px;
+    text-align: left;
+  }
+}
+.buttonViewMore {
+  @extend%aligncenter;
+  gap: 8px;
+
+  font-family: 'Lora', serif;
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 1.29;
+
+  &:hover .iconMore span {
+    border-top: 2px solid $accent;
+    border-right: 2px solid $accent;
+  }
+
+  @media screen and (min-width: 768px) {
+    gap: 12px;
+  }
+}
+
+.iconMore {
+  width: 24px;
+  height: 24px;
+  @extend%aligncenter;
+
+  span {
+    width: 10px;
+    height: 10px;
+    border-top: 2px solid black;
+    border-right: 2px solid black;
+    transform: rotate(135deg);
+  }
 }
