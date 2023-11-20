@@ -7,6 +7,7 @@ import { blogData } from '@/data/blogData.js';
 import styles from './BlogPage.module.scss';
 import { useMediaQuery } from 'react-responsive';
 import Arrow from '@/components/Icons/Arrow';
+import IconMore from '@/components/Icons/IconMore';
 
 const BlogPage = () => {
   const location = useLocation();
@@ -108,9 +109,7 @@ const BlogPage = () => {
           {!isMaxAmount && (
             <button className={styles.buttonViewMore} onClick={viewMore}>
               Дивитися Більше
-              <div className={styles.iconMore}>
-                <span></span>
-              </div>
+              <IconMore />
             </button>
           )}
         </div>

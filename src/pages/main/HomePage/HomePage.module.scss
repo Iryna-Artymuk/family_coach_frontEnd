@@ -1,12 +1,10 @@
-
-
 ///----section hero---
 .hero {
   @extend%aligncenter;
 
-  @media screen and (min-width: 768px) {
+  @include tablet {
   }
-  @media screen and (min-width: 1240px) {
+  @include desktop {
     flex-direction: row;
   }
 }
@@ -18,7 +16,7 @@
   flex-direction: column;
   gap: 10px;
 
-  @media screen and (min-width: 768px) {
+  @include tablet {
     flex-direction: row;
     align-items: flex-start;
     gap: 20px;
@@ -26,7 +24,7 @@
     padding-bottom: 60px;
   }
 
-  @media screen and (min-width: 1240px) {
+  @include desktop {
     flex-direction: row;
     gap: 60px;
     padding-top: 50px;
@@ -43,11 +41,11 @@
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  @media screen and (min-width: 768px) {
+  @include tablet {
     width: 342px;
     height: 430px;
   }
-  @media screen and (min-width: 1240px) {
+  @include desktop {
     border-radius: 60px;
     width: 540px;
     height: 680px;
@@ -58,11 +56,11 @@
   flex-direction: column;
   width: 296px;
 
-  @media screen and (min-width: 768px) {
+  @include tablet {
     width: 342px;
     margin-top: 109px;
   }
-  @media screen and (min-width: 1240px) {
+  @include desktop {
     width: 640px;
     margin-top: 120px;
   }
@@ -74,11 +72,11 @@
   text-align: center;
   color: $red;
   margin-bottom: 4px;
-  @media screen and (min-width: 768px) {
+  @include tablet {
     font-size: 32px;
     margin-bottom: 8px;
   }
-  @media screen and (min-width: 1240px) {
+  @include desktop {
     font-size: 60px;
     margin-bottom: 20px;
   }
@@ -92,11 +90,11 @@
   letter-spacing: 0em;
   text-align: center;
   margin-bottom: 4px;
-  @media screen and (min-width: 768px) {
+  @include tablet {
     font-size: 18px;
     margin-bottom: 8px;
   }
-  @media screen and (min-width: 1240px) {
+  @include desktop {
     font-size: 32px;
     margin-bottom: 12px;
   }
@@ -109,11 +107,11 @@
   letter-spacing: 0em;
   text-align: center;
 
-  @media screen and (min-width: 768px) {
+  @include tablet {
     font-size: 14px;
     line-height: 1.28;
   }
-  @media screen and (min-width: 1240px) {
+  @include desktop {
     font-size: 24px;
 
     line-height: 1.3;
@@ -131,7 +129,7 @@
   background: $quoteBG;
   border-radius: 15px;
 
-  @media screen and (min-width: 768px) {
+  @include tablet {
     width: 254px;
     height: 93px;
     padding: 24px;
@@ -140,7 +138,7 @@
 
     border-radius: 30px;
   }
-  @media screen and (min-width: 1240px) {
+  @include desktop {
     width: 434px;
     height: 170px;
     padding: 48px 34.5px;
@@ -156,7 +154,7 @@
     letter-spacing: 0em;
     text-align: left;
 
-    @media screen and (min-width: 1240px) {
+    @include desktop {
       font-size: 24px;
     }
   }
@@ -174,26 +172,26 @@
   flex-direction: column;
   gap: 14px;
   padding: 20px 0px;
-  @media screen and (min-width: 768px) {
+  @include tablet {
     flex-direction: row;
 
     gap: 20px;
   }
 
-  @media screen and (min-width: 1240px) {
+  @include desktop {
     gap: 71px;
   }
 }
 .whyMe_contentWrapper {
   @extend%aligncenter;
 
-  @media screen and (min-width: 768px) {
+  @include tablet {
     align-items: center;
     flex-direction: row-reverse;
 
     gap: 20px;
   }
-  @media screen and (min-width: 1240px) {
+  @include desktop {
     gap: 20px;
   }
 }
@@ -202,7 +200,7 @@
   @extend%aligncenter;
   flex-direction: column;
   gap: 14px;
-  @media screen and (min-width: 768px) {
+  @include tablet {
     gap: 24px;
   }
   h2 {
@@ -217,13 +215,13 @@
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;
-  @media screen and (min-width: 768px) {
+  @include tablet {
     width: 342px;
     height: 430px;
     border-radius: 30px;
     background-size: cover;
   }
-  @media screen and (min-width: 1240px) {
+  @include desktop {
     width: 540px;
     height: 680px;
   }
@@ -233,13 +231,13 @@
   font-size: 12px;
   line-height: 1.5;
   text-align: center;
-  @media screen and (min-width: 768px) {
+  @include tablet {
     width: 342px;
     font-size: 14px;
     line-height: 1.5;
     text-align: left;
   }
-  @media screen and (min-width: 1240px) {
+  @include desktop {
     width: 648px;
     font-size: 24px;
   }
@@ -271,11 +269,11 @@
   @media screen and (max-width: 768px) {
     gap: 4px;
   }
-  @media screen and (min-width: 768px) {
+  @include tablet {
     flex-direction: row-reverse;
     gap: 10px;
   }
-  @media screen and (min-width: 1240px) {
+  @include desktop {
     gap: 50px;
   }
 }
@@ -302,13 +300,13 @@
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;
-  @media screen and (min-width: 768px) {
+  @include tablet {
     width: 342px;
     height: 430px;
     border-radius: 30px;
     background-size: cover;
   }
-  @media screen and (min-width: 1240px) {
+  @include desktop {
     width: 540px;
     height: 680px;
   }
@@ -324,11 +322,11 @@
   height: 100%;
   font-size: 10px;
   line-height: 1.5;
-  @media screen and (min-width: 768px) {
+  @include tablet {
     font-size: 14px;
     gap: 8px;
   }
-  @media screen and (min-width: 1240px) {
+  @include desktop {
     gap: 24px;
   }
 }
@@ -348,11 +346,11 @@
     font-size: 10px;
     line-height: 1.5;
   }
-  @media screen and (min-width: 768px) {
+  @include tablet {
     font-size: 14px;
     gap: 8px;
   }
-  @media screen and (min-width: 1240px) {
+  @include desktop {
     gap: 24px;
   }
 }
@@ -360,10 +358,10 @@
   @extend%aligncenter;
   align-items: flex-start;
   gap: 5px;
-  @media screen and (min-width: 768px) {
+  @include tablet {
     gap: 7px;
   }
-  @media screen and (min-width: 1240px) {
+  @include desktop {
     gap: 15px;
   }
 }
@@ -373,12 +371,12 @@
   font-size: 10px;
   line-height: 1.5;
 
-  @media screen and (min-width: 768px) {
+  @include tablet {
     width: 319px;
     font-size: 14px;
     line-height: 1.5;
   }
-  @media screen and (min-width: 1240px) {
+  @include desktop {
     width: 646px;
     font-size: 18px;
     line-height: 1.77;
@@ -393,11 +391,11 @@
   border-radius: 50%;
   background: $red;
   margin-top: 4px;
-  @media screen and (min-width: 768px) {
+  @include tablet {
     width: 7px;
     height: 7px;
   }
-  @media screen and (min-width: 1240px) {
+  @include desktop {
     width: 10px;
     height: 10px;
   }
@@ -411,10 +409,10 @@
   h2 {
     text-align: center;
   }
-  @media screen and (min-width: 768px) {
+  @include tablet {
     gap: 24px;
   }
-  @media screen and (min-width: 1240px) {
+  @include desktop {
     gap: 40px;
   }
 }
@@ -424,18 +422,18 @@
   flex-direction: column;
   align-items: center;
   gap: 12px;
-  @media screen and (min-width: 768px) {
+  @include tablet {
     gap: 20px;
   }
-  @media screen and (min-width: 1240px) {
+  @include desktop {
     gap: 40px;
   }
 }
 .workAreas_List li:nth-child(2) {
-  @media screen and (min-width: 768px) {
+  @include tablet {
     margin-left: 85px;
   }
-  @media screen and (min-width: 1240px) {
+  @include desktop {
     margin-left: 108px;
   }
 }
@@ -445,10 +443,10 @@
   align-items: flex-start;
   gap: 8px;
 
-  @media screen and (min-width: 768px) {
+  @include tablet {
     gap: 20px;
   }
-  @media screen and (min-width: 1240px) {
+  @include desktop {
     gap: 60px;
   }
 }
@@ -463,7 +461,7 @@
     width: 24px;
     height: 24px;
   }
-  @media screen and (min-width: 768px) {
+  @include tablet {
     width: 80px;
     height: 80px;
     svg {
@@ -478,7 +476,7 @@
   flex-direction: column;
   align-items: flex-start;
   gap: 5px;
-  @media screen and (min-width: 768px) {
+  @include tablet {
     gap: 8px;
   }
 }
@@ -488,10 +486,10 @@
   font-size: 16px;
   line-height: 1.25;
   letter-spacing: 0em;
-  @media screen and (min-width: 768px) {
+  @include tablet {
     font-size: 24px;
   }
-  @media screen and (min-width: 1240px) {
+  @include desktop {
     font-size: 32px;
   }
 }
@@ -501,12 +499,12 @@
   line-height: 1.5;
   letter-spacing: 0em;
 
-  @media screen and (min-width: 768px) {
+  @include tablet {
     width: 499px;
     font-size: 18px;
     line-height: 1.33;
   }
-  @media screen and (min-width: 1240px) {
+  @include desktop {
     width: 650px;
     font-size: 18px;
   }
@@ -519,7 +517,7 @@
   position: relative;
   padding-top: 58px;
 
-  @media screen and (min-width: 1240px) {
+  @include desktop {
     padding-top: 92px;
     width: 1130px;
   }
@@ -536,7 +534,7 @@
     text-align: center;
   }
 
-  @media screen and (min-width: 768px) {
+  @include tablet {
     gap: 16px;
     padding-top: 60px;
     padding-bottom: 60px;
@@ -599,7 +597,7 @@
   position: relative;
   padding-top: 58px;
 
-  @media screen and (min-width: 1240px) {
+  @include desktop {
     padding-top: 92px;
     width: 1130px;
   }
@@ -615,7 +613,7 @@
     text-align: center;
   }
 
-  @media screen and (min-width: 768px) {
+  @include tablet {
     gap: 16px;
     padding-top: 60px;
     padding-bottom: 60px;
@@ -634,7 +632,7 @@
   margin-left: auto;
   font-size: 12px;
   padding: 8.5px 19.5px;
-  @media screen and (min-width: 768px) {
+  @include tablet {
     width: 241px;
     height: 42px;
     font-size: 16px;
@@ -645,8 +643,6 @@
     color: $buttonTextColorHover;
   }
 }
-
-
 
 .writemeLink {
   position: fixed;
