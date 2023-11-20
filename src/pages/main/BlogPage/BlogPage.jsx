@@ -95,7 +95,9 @@ const BlogPage = () => {
 
                     <div className={styles.blog_contentTextWrapper}>
                       <h2 className="title"> {article.title} </h2>
-                      <p>{article.description}</p>
+                      <p className={styles.blog_contentText}>
+                        {article.description}
+                      </p>
                     </div>
                   </div>
                 </li>
