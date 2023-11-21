@@ -39,7 +39,7 @@ const QualificationPage = () => {
           <ul className={styles.qualification_list}>
             {sertificatesData.slice(0, serteficatesPerPage).map(item => (
               <li key={item.id} className={styles.qualification_list_item}>
-                <img src={`/public/${item.url}`} alt="" />
+                <img src={`${item.url}`} alt="" />
               </li>
             ))}
           </ul>

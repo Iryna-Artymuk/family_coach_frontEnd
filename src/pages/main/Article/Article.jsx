@@ -108,7 +108,7 @@ const Article = () => {
                       <div className={styles.swiper_content}>
                         <img
                           className={styles.swiperImg}
-                          src={`/public/${article.url}`}
+                          src={`${article.url}`}
                           alt=""
                         />
                         <h2 className="title">{article.title}</h2>
