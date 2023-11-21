@@ -21,6 +21,10 @@ import SliderArrowNext from '@/components/Icons/SliderArrowNext';
 import SliderArrowPrev from '@/components/Icons/SliderArrowPrev';
 
 import { blogData } from '@/data/blogData.js';
+import heroPhoto from '@/assets/images/heroPhoto.jpg';
+import myPricepls from '@/assets/images/myPricepls.jpg';
+import whyMe from '@/assets/images/whyMe.jpg';
+
 import { Link } from 'react-router-dom';
 
 const HomePage = () => {
@@ -95,7 +99,12 @@ const HomePage = () => {
               </>
             )}
 
-            <div className={styles.heroImage}>
+            <div
+              className={styles.heroImage}
+              style={{
+                backgroundImage: `url(${heroPhoto})`,
+              }}
+            >
               <div className={styles.quote}>
                 <p>Як мало нам потрібно для щастя - трохи знань про себе.</p>
               </div>
@@ -127,7 +136,9 @@ const HomePage = () => {
                 <div className={styles.whyMe_textWrapper}>
                   <h2 className={styles.title}>В чому моя унікальність?</h2>
                   <div className={styles.whyMe_imgWrapper}>
-                    <div className={styles.whyMe_img}></div>
+                    <div className={styles.whyMe_img}>
+                      <img src={whyMe} alt="" />
+                    </div>
                     <p className={styles.whyMe_text}>
                       Я реалізована особистість. Я кваліфікований спеціаліст,
                       кохана, мама, дочка, сестра та подруга.
@@ -142,14 +153,16 @@ const HomePage = () => {
               )}
               {(isDesktop || isTablet) && (
                 <>
-                  <div className={styles.whyMe_img}></div>
+                  <div className={styles.whyMe_img}>
+                    <img src={whyMe} alt="Жанна Барищук" />
+                  </div>
                   <div className={styles.whyMe_textWrapper}>
                     <h2 className={styles.title}>В чому моя унікальність?</h2>
 
                     <p className={styles.whyMe_text}>
                       Я реалізована особистість. Я кваліфікований спеціаліст,
                       кохана, мама, дочка, сестра та подруга. Працюю в морі, і
-                      будучи 50/50 свого часу та, я не втратила контакт зі своїм
+                      будучи 50/50 свого часу там я не втратила контакт зі своїм
                       оточенням. Я знаю, що таке баланс між особистим життям,
                       саморозвитком, роботою та відпочинком.
                     </p>
@@ -211,7 +224,9 @@ const HomePage = () => {
                     </li>
                   </ul>
                 </div>
-                <div className={styles.myPrinciplesImg}></div>
+                <div className={styles.myPrinciplesImg}>
+                  <img src={myPricepls} alt="Жанна Барищук" />
+                </div>
               </>
             )}
 
@@ -242,7 +257,9 @@ const HomePage = () => {
                       </p>
                     </li>
                   </ul>
-                  <div className={styles.myPrinciplesImg}></div>
+                  <div className={styles.myPrinciplesImg}>
+                    <img src={myPricepls} alt="Жанна Барищук" />
+                  </div>
                 </div>
 
                 <ul className={styles.myPrinciples_List2}>
@@ -285,9 +302,12 @@ const HomePage = () => {
                     Сімʼя та реалізація
                   </h3>
                   <p className={styles.workAreas_List_ItemText}>
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                    Nulla, dolorum qui. Nesciunt ullam cumque magni mollitia,
-                    soluta id! Illo, accusamus.
+                    СІМЕЙНЕ КОНСУЛЬТУВАННЯ <br />
+                    СПІВЗАЛЕЖНІ СТОСУНКИ
+                    <br />
+                    КОНСУЛЬТУВАННЯ ПІДЛІТКІВ ТА ДІТЕЙ <br />
+                    САМООЦІНКА І САМОЦІННІСТЬ <br />
+                    ПОШУК СЕНСУ ЖИТТЯ
                   </p>
                 </div>
               </li>
@@ -299,10 +319,10 @@ const HomePage = () => {
                   <h3 className={styles.workAreas_List_ItemTitel}>Страхи</h3>
 
                   <p className={styles.workAreas_List_ItemText}>
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                    Nulla, dolorum qui. Nesciunt ullam cumque magni mollitia,
-                    soluta id! Illo, accusamus. Lorem ipsum dolor sit, amet
-                    consectetur adipisicing
+                    СТРАХИ І ТРИВОЖНІСТЬ <br />
+                    ПАНІЧНІ АТАКИ <br /> ТРАВМА <br />
+                    РОБОТА ІЗ ЗЛІСТЮ ТА АГРЕСИВНОЮ ПОВЕДІНКОЮ <br />
+                    ДЕПРЕСІЯ
                   </p>
                 </div>
               </li>
