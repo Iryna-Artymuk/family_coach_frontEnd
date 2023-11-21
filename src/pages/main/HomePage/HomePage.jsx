@@ -318,7 +318,7 @@ const HomePage = () => {
 
             {allfeedbacks.length > 0 ? (
               <div className={styles.feedbakSwiperWrapper}>
-                <Button buttonAddMore type="button" onClick={openModal}>
+                <Button buttonaddmore type="button" onClick={openModal}>
                   Додати відгук
                 </Button>
                 <Swiper

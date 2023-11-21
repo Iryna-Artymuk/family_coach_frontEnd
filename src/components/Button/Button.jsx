@@ -6,7 +6,7 @@ const Button = ({
   children,
   burgerButton,
   burgerMenuCloseButton,
-  buttonAddMore,
+  buttonaddmore,
 }) => {
   return (
     <button
@@ -14,7 +14,7 @@ const Button = ({
         styles.button,
         burgerButton && styles.burgerButton,
         burgerMenuCloseButton && styles.burgerMenuCloseButton,
-        buttonAddMore && styles.buttonAddMore
+        buttonaddmore && styles.buttonAddMore
       )}
       type={type}
       onClick={onClick}

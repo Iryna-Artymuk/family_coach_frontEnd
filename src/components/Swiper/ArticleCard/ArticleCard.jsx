@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import styles from '../ArticleCard/ArticleCard.module.scss';
 import Arrow from '@/components/Icons/Arrow';
 const ArticleCard = ({ article }) => {
+  console.log('article: ', article);
   return (
     <div className={styles.articleWrapper}>
       <div className={styles.articleContentWrapper}>

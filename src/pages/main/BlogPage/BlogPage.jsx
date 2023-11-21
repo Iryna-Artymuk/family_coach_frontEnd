@@ -1,7 +1,7 @@
 import Container from '@/components/Container/Container';
 
 import { useEffect, useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import { blogData } from '@/data/blogData.js';
 import styles from './BlogPage.module.scss';
@@ -10,11 +10,8 @@ import Arrow from '@/components/Icons/Arrow';
 import IconMore from '@/components/Icons/IconMore';
 
 const BlogPage = () => {
-  const location = useLocation();
-  console.log('location: ', location);
-
   const [articlePerPage, setArticlePerPage] = useState(0);
-  console.log('articlePerPage: ', articlePerPage);
+
   const isMaxAmount = articlePerPage >= blogData.length - 1;
   const isDesktop = useMediaQuery({ minWidth: 1240 });
   const isTablet = useMediaQuery({ minWidth: 768 });
@@ -23,9 +20,9 @@ const BlogPage = () => {
 
   const viewMore = () => setArticlePerPage(prev => prev + articlePerPage);
 
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
+  // useEffect(() => {
+  //   window.scrollTo(0, 0);
+  // }, []);
 
   useEffect(() => {
     if (isMobile) {

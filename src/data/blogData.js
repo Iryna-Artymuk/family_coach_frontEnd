@@ -2,6 +2,9 @@ export const blogData = [
   {
     id: 1,
     url: 'images/heroPhoto.jpg',
+    author: 'Жанна Барищук',
+    date: '1986-01-04',
+
     category: 'Сімя',
     title: 'Стресостійкість',
     description:
@@ -11,6 +14,9 @@ export const blogData = [
   {
     id: 2,
     url: 'images/heroPhoto.jpg',
+    author: 'Жанна Барищук',
+    date: '1986-01-04',
+
     category: 'Діти',
     title: 'Чого не потрібно робити з дітьми',
     description:
@@ -19,7 +25,10 @@ export const blogData = [
   },
   {
     id: 3,
+    author: 'Жанна Барищук',
+    date: '1986-01-04',
     url: 'images/defaultImage.png',
+
     category: 'Підлітки',
     title: "Чому в дітей з'являється розсіянність?",
     description:
@@ -28,7 +37,10 @@ export const blogData = [
   },
   {
     id: 4,
+    author: 'Жанна Барищук',
+    date: '1986-01-04',
     url: 'images/defaultImage.png',
+
     category: 'Сімя',
     title: 'Критика чи Зауваження',
     description:
@@ -37,7 +49,10 @@ export const blogData = [
   },
   {
     id: 5,
+    author: 'Жанна Барищук',
+    date: '1986-01-04',
     url: 'images/defaultImage.png',
+
     category: 'Діти',
     title: 'Заголовок5',
     description:
@@ -46,7 +61,10 @@ export const blogData = [
   },
   {
     id: 6,
+    author: 'Жанна Барищук',
+    date: '1986-01-04',
     url: 'images/defaultImage.png',
+
     category: 'Підлітки',
     title: 'Заголовок6',
     description:
@@ -57,6 +75,9 @@ export const blogData = [
   {
     id: 7,
     url: 'images/heroPhoto.jpg',
+    author: 'Жанна Барищук',
+    date: '1986-01-04',
+
     category: 'Сімя',
     title: 'Стресостійкість',
     description:
@@ -66,6 +87,9 @@ export const blogData = [
   {
     id: 8,
     url: 'images/heroPhoto.jpg',
+    author: 'Жанна Барищук',
+    date: '1986-01-04',
+
     category: 'Сімя',
     title: 'Стресостійкість',
     description:
@@ -75,6 +99,9 @@ export const blogData = [
   {
     id: 9,
     url: 'images/heroPhoto.jpg',
+    author: 'Жанна Барищук',
+    date: '1986-01-04',
+
     category: 'Сімя',
     title: 'Стресостійкість',
     description:
@@ -84,6 +111,9 @@ export const blogData = [
   {
     id: 10,
     url: 'images/heroPhoto.jpg',
+    author: 'Жанна Барищук',
+    date: '1986-01-04',
+
     category: 'Сімя',
     title: 'Стресостійкість',
     description:
@@ -93,6 +123,9 @@ export const blogData = [
   {
     id: 11,
     url: 'images/heroPhoto.jpg',
+    author: 'Жанна Барищук',
+    date: '1986-01-04',
+
     category: 'Сімя',
     title: 'Стресостійкість',
     description:
@@ -102,6 +135,9 @@ export const blogData = [
   {
     id: 12,
     url: 'images/heroPhoto.jpg',
+    author: 'Жанна Барищук',
+    date: '1986-01-04',
+
     category: 'Сімя',
     title: 'Стресостійкість',
     description:
@@ -111,6 +147,9 @@ export const blogData = [
   {
     id: 13,
     url: 'images/heroPhoto.jpg',
+    author: 'Жанна Барищук',
+    date: ' "022-03-25',
+
     category: 'Сімя',
     title: 'Стресостійкість',
     description:
@@ -120,6 +159,9 @@ export const blogData = [
   {
     id: 14,
     url: 'images/heroPhoto.jpg',
+    author: 'Жанна Барищук',
+    date: ' 1 січня 2024 ',
+
     category: 'Сімя',
     title: 'Стресостійкість',
     description:

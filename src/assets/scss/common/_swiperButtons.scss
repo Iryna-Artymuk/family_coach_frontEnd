@@ -1,0 +1,38 @@
+.buttonPrev {
+  width: 40px;
+  height: 40px;
+
+  position: absolute;
+  z-index: 100;
+  top: 50%;
+  left: -45px;
+  z-index: 100;
+
+  svg path {
+    fill: #e4c3ba;
+  }
+
+  &:hover {
+    svg path {
+      fill: $red;
+    }
+  }
+}
+.buttonNext {
+  width: 40px;
+  height: 40px;
+
+  position: absolute;
+  z-index: 100;
+  top: 50%;
+  right: -45px;
+  svg path {
+    fill: #e4c3ba;
+  }
+
+  &:hover {
+    svg path {
+      fill: $red;
+    }
+  }
+}
