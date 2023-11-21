@@ -12,7 +12,7 @@ import { useMediaQuery } from 'react-responsive';
 import SliderArrowNext from '@/components/Icons/SliderArrowNext';
 import SliderArrowPrev from '@/components/Icons/SliderArrowPrev';
 import { SwiperSlide, Swiper } from 'swiper/react';
-import heroPhoto from '../../../../public/images/heroPhoto.jpggit ';
+import heroPhoto from '../../../../public/images/heroPhoto.jpg';
 const Article = () => {
   // const location = useLocation();
   const backLinkHref = '/blog';
