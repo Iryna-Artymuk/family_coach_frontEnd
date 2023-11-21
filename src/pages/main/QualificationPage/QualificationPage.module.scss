@@ -1,0 +1,37 @@
+.qualification_contentWrapper {
+  padding: 40px 0;
+  @extend%aligncenter;
+  flex-direction: column;
+  gap: 34px;
+
+  @include tablet {
+    padding: 50px 0;
+  }
+  @include desktop {
+    padding: 80px 0;
+    gap: 80px;
+  }
+}
+
+.qualification_list {
+  @extend%aligncenter;
+  flex-wrap: wrap;
+  gap: 24px;
+
+  @include tablet {
+    gap: 20px;
+  }
+}
+
+.qualification_list_item {
+  width: 320px;
+  height: 230px;
+
+  border-radius: 15px;
+  overflow: hidden;
+
+  @include desktop {
+    width: 600px;
+    height: 450px;
+  }
+}

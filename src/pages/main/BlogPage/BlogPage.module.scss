@@ -130,31 +130,7 @@
   }
 }
 
-.buttonViewMore {
-  @extend%aligncenter;
-  gap: 8px;
 
-
-  
-  font-size: 16px;
-  font-weight: 500;
-  line-height: 1.29;
-  svg {
-    width: 10px;
-    height: 20px;
-  }
-  &:hover svg path {
-    fill: $red;
-  }
-
-  @include tablet {
-    gap: 12px;
-    font-size: 18px;
-  }
-  @include desktop {
-    font-size: 24px;
-  }
-}
 
 // only desktop
 

@@ -20,9 +20,9 @@ const BlogPage = () => {
 
   const viewMore = () => setArticlePerPage(prev => prev + articlePerPage);
 
-  // useEffect(() => {
-  //   window.scrollTo(0, 0);
-  // }, []);
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   useEffect(() => {
     if (isMobile) {
@@ -104,7 +104,7 @@ const BlogPage = () => {
           )}
 
           {!isMaxAmount && (
-            <button className={styles.buttonViewMore} onClick={viewMore}>
+            <button className="buttonLoadMore" onClick={viewMore}>
               Дивитися Більше
               <IconMore />
             </button>
