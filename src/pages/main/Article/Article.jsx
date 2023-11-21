@@ -12,7 +12,7 @@ import { useMediaQuery } from 'react-responsive';
 import SliderArrowNext from '@/components/Icons/SliderArrowNext';
 import SliderArrowPrev from '@/components/Icons/SliderArrowPrev';
 import { SwiperSlide, Swiper } from 'swiper/react';
-
+import heroPhoto from '../../../../public/images/heroPhoto.jpggit ';
 const Article = () => {
   // const location = useLocation();
   const backLinkHref = '/blog';
@@ -108,7 +108,8 @@ const Article = () => {
                       <div className={styles.swiper_content}>
                         <img
                           className={styles.swiperImg}
-                          src={`/public/${article.url}`}
+                          // src={`/public/${article.url}`}
+                          src={heroPhoto}
                           alt=""
                         />
                         <h2 className="title">{article.title}</h2>
