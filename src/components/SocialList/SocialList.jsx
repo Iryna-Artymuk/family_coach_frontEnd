@@ -23,7 +23,7 @@ const SocialList = () => {
       </li>
       <li>
         <a
-          href="https://t.me/Zh_Bshch"
+          href="https://t.me/your_familycoach"
           target="_blank"
           rel="noopener noreferrer nofollow"
         >
