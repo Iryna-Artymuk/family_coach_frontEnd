@@ -34,7 +34,7 @@ export const priceDataAdult = [
   {
     id: 5,
     type: 'Додатково*',
-    amount: 'Текстовий формат',
+    amount: 'Текстовий формат / Дзвінок ',
     duration: '30-45',
     period: null,
     price: '600',

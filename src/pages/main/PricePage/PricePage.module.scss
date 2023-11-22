@@ -1,10 +1,99 @@
+.contentWrapper {
+  width: 100%;
+  padding-top: 24px;
+  padding-bottom: 24px;
+  @extend%aligncenter;
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 80px;
+  h2 {
+    font-size: 18px;
+    margin-bottom: 40px;
+  }
+  div {
+    width: 100%;
+  }
+
+  @include tablet {
+    padding: 80px 120px 120px;
+  }
+  @include desktop {
+    padding: 80px 120px 120px;
+    h2 {
+      font-size: 32px;
+      margin-bottom: 40px;
+    }
+  }
+}
+
+.list {
+  @extend%aligncenter;
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 14px;
+
+  @include tablet {
+  }
+  @include desktop {
+    gap: 24px;
+  }
+}
+
+.list_item {
+  @extend%aligncenter;
+
+  gap: 5px;
+
+  @include tablet {
+    gap: 7px;
+  }
+  @include desktop {
+    gap: 15px;
+  }
+}
+.list_item::before {
+  content: '';
+  display: block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: $red;
+  margin-top: 4px;
+  @include tablet {
+    width: 7px;
+    height: 7px;
+  }
+  @include desktop {
+    width: 10px;
+    height: 10px;
+  }
+}
+
+.list_item_text {
+  width: 100%;
+  font-size: 14px;
+  line-height: 1.25;
+
+  @include tablet {
+    gap: 7px;
+  }
+  @include desktop {
+    line-height: 1.2;
+    font-size: 24px;
+    gap: 15px;
+  }
+}
 .priceList {
   @extend%aligncenter;
   flex-wrap: wrap;
   gap: 40px;
+  li {
+    width: 350px;
+  }
 }
 
 .buttonsWrapper {
+  width: 100%;
   @extend%aligncenter;
   flex-direction: column;
   gap: 10px;
