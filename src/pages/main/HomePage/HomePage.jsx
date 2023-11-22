@@ -319,10 +319,10 @@ const HomePage = () => {
                   <h3 className={styles.workAreas_List_ItemTitel}>Страхи</h3>
 
                   <p className={styles.workAreas_List_ItemText}>
-                    СТРАХИ І ТРИВОЖНІСТЬ <br />
+                    Напружені психоемоційні стани <br />
                     ПАНІЧНІ АТАКИ <br /> ТРАВМА <br />
                     РОБОТА ІЗ ЗЛІСТЮ ТА АГРЕСИВНОЮ ПОВЕДІНКОЮ <br />
-                    ДЕПРЕСІЯ
+                    ДЕПРЕСІЯ*
                   </p>
                 </div>
               </li>
