@@ -288,7 +288,7 @@ const HomePage = () => {
           </div>
         </Container>
       </section>
-      <section id="workAreas">
+      <section id="Напружені психоемоційні стани ">
         <Container>
           <div className={styles.workAreas_ContentWrapper}>
             <h2 className={styles.title}>Напрямки роботи</h2>
@@ -316,13 +316,15 @@ const HomePage = () => {
                   <Arrow />
                 </span>
                 <div className={styles.workAreas_List_Item_contentBox}>
-                  <h3 className={styles.workAreas_List_ItemTitel}>Страхи</h3>
+                  <h3 className={styles.workAreas_List_ItemTitel}>
+                    Напружені психоемоційні стани
+                  </h3>
 
                   <p className={styles.workAreas_List_ItemText}>
-                    Напружені психоемоційні стани <br />
+                    СТРАХИ І ТРИВОЖНІСТЬ <br />
                     ПАНІЧНІ АТАКИ <br /> ТРАВМА <br />
                     РОБОТА ІЗ ЗЛІСТЮ ТА АГРЕСИВНОЮ ПОВЕДІНКОЮ <br />
-                    ДЕПРЕСІЯ*
+                    ДЕПРЕСІЯ
                   </p>
                 </div>
               </li>
