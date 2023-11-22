@@ -79,6 +79,8 @@ const PricePage = () => {
         >
           Лекції та вебінари <IconMore />
         </button>
+
+        {showVebinarPrice && <div>ціна на вебінари </div>}
       </div>
     </Container>
   );
