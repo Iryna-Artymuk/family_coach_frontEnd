@@ -33,7 +33,7 @@ export const priceDataAdult = [
   },
   {
     id: 5,
-    type: 'Консультація',
+    type: 'Додатково*',
     amount: 'Текстовий формат',
     duration: '30-45',
     period: null,
