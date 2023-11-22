@@ -1,0 +1,82 @@
+
+.cardWrapper {
+  @extend%aligncenter;
+  flex-direction: column;
+  width: 351px;
+  min-height: 330px;
+}
+.cardTitle {
+  width: 100%;
+  height: 70px;
+  @extend%aligncenter;
+
+  border-radius: 30px 30px 0 0;
+
+  background-color: $feedBackTitelBG;
+  padding: 15px 30px;
+
+  font-family: 'Lora', serif;
+  font-size: 32px;
+
+  line-height: 41px;
+
+  text-align: left;
+}
+.cardInfoWrapper {
+  width: 100%;
+  flex-grow: 1;
+  @extend%aligncenter;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 24px;
+  border-radius: 0 0 30px 30px;
+  background-color: $feedBackBG;
+  padding: 15px 30px;
+}
+.cardInfo {
+  width: 255px;
+  @extend%aligncenter;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 14px;
+  font-family: 'Montserrat';
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 1.2;
+
+  text-align: left;
+}
+.cardInfo_price {
+  font-family: 'Lora', serif;
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 1.28;
+  letter-spacing: 0em;
+  text-align: left;
+}
+
+//PriceCarKids only
+
+.singleConsultationInfo {
+}
+.singleConsultationTitle {
+  font-family: 'Lora', serif;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.29;
+
+  text-align: center;
+}
+.singleConsultationDuration {
+  font-size: 24px;
+  line-height: 1.29;
+  text-align: center;
+}
+.singleConsultationPrice {
+  font-family: 'Lora', serif;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.2;
+
+  text-align: center;
+}
