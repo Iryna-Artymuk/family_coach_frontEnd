@@ -7,6 +7,7 @@ import { useEffect, useState } from 'react';
 import styles from './PricePage.module.scss';
 import PriceCarKids from '@/components/PriceCards/PriceCardKids';
 import IconMore from '@/components/Icons/IconMore';
+import IconLess from '@/components/Icons/IconLess';
 
 const PricePage = () => {
   const [showAdultPrice, setShowAdultPrice] = useState(false);
@@ -68,23 +69,23 @@ const PricePage = () => {
             <ul className={styles.list}>
               <li className={styles.list_item}>
                 <p className={styles.list_item_text}>
-                  Перша зустріч - це завжди знайомство. Підписання контракту,
-                  встановлення правил На першій зустрічі клієнт озвучує свою
-                  проблему - це те , що потрібно вирішувати, клієнт описує свою
-                  ситуацію.
+                  Перша зустріч- це завжди знайомство. На першій зустрічі клієнт
+                  озвучує свою проблему - це те ,що потрібно вирішувати, клієнт
+                  описує свою ситуацію .
                 </p>
               </li>
               <li className={styles.list_item}>
                 <p className={styles.list_item_text}>
-                  Далі - друга зустріч, разом з психологом клієнт формує скаргу
-                  - що хвилює клієнта, що не подобається, що клієнт хоче
-                  змінити.
+                  Далі перша - друга зустріч, разом з психологом клієнт формує
+                  скаргу- що хвилює клієнта, що не подобається, що клієнт хоче
+                  змінити
                 </p>
               </li>
               <li className={styles.list_item}>
                 <p className={styles.list_item_text}>
-                  На наступній зустрічі клієнт разом з психологом формує “запит”
-                  - те, що клієнт хотів би отримати від роботи з психологом.
+                  І вже лише 2га - наступні, клієнт разом з психологом формує 《
+                  Запит 》- те ,що клієнт хотів би отримати від роботи з
+                  психологом
                 </p>
               </li>
             </ul>
@@ -126,11 +127,7 @@ const PricePage = () => {
               <li className={styles.list_item}>
                 <p className={styles.list_item_text}> Інтервізії, супервізії</p>
               </li>
-              <li className={styles.list_item}>
-                <p className={styles.list_item_text}>
-                  Конфлікти стали екологічними, зʼявився діалог
-                </p>
-              </li>
+
               <li className={styles.list_item}>
                 <p className={styles.list_item_text}> Просування</p>
               </li>
@@ -145,47 +142,58 @@ const PricePage = () => {
 
           <div className={styles.buttonsWrapper}>
             <h2 className="title">Мої послуги</h2>
-            <button
-              onClick={toggleShowAdultPrice}
-              className={styles.showPriceButton}
-            >
-              Консультації для дорослих
-              <IconMore />
-            </button>
+            <div className={styles.priceContentWrapper}>
+              <button
+                onClick={toggleShowAdultPrice}
+                className={styles.showPriceButton}
+              >
+                Консультації для дорослих
+                {!showAdultPrice && <IconMore />}
+                {showAdultPrice && <IconLess />}
+              </button>
 
-            {showAdultPrice && (
-              <ul className={styles.priceList}>
-                {priceDataAdult.map(priceData => (
-                  <li key={priceData.id}>
-                    <PriceCardAdult priceData={priceData} />
-                  </li>
-                ))}
-              </ul>
-            )}
-            <button
-              onClick={toggleShowKidsPrice}
-              className={styles.showPriceButton}
-            >
-              Консультації для дітей та підлітків <IconMore />
-            </button>
+              {showAdultPrice && (
+                <ul className={styles.priceList}>
+                  {priceDataAdult.map(priceData => (
+                    <li key={priceData.id}>
+                      <PriceCardAdult priceData={priceData} />
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </div>
+            <div className={styles.priceContentWrapper}>
+              <button
+                onClick={toggleShowKidsPrice}
+                className={styles.showPriceButton}
+              >
+                Консультації для дітей та підлітків
+                {!showKidsPrice && <IconMore />}
+                {showKidsPrice && <IconLess />}
+              </button>
+              {showKidsPrice && (
+                <ul className={styles.priceList}>
+                  {priceDataKids.map(priceData => (
+                    <li key={priceData.id}>
+                      <PriceCarKids priceData={priceData} />
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </div>
 
-            {showKidsPrice && (
-              <ul className={styles.priceList}>
-                {priceDataKids.map(priceData => (
-                  <li key={priceData.id}>
-                    <PriceCarKids priceData={priceData} />
-                  </li>
-                ))}
-              </ul>
-            )}
-            <button
-              onClick={toggleShowVebinarPrice}
-              className={styles.showPriceButton}
-            >
-              Лекції та вебінари <IconMore />
-            </button>
+            <div className={styles.priceContentWrapper}>
+              <button
+                onClick={toggleShowVebinarPrice}
+                className={styles.showPriceButton}
+              >
+                Лекції та вебінари
+                {!showVebinarPrice && <IconMore />}
+                {showVebinarPrice && <IconLess />}
+              </button>
 
-            {showVebinarPrice && <div> кошторис ще формується ... </div>}
+              {showVebinarPrice && <div> кошторис ще формується ... </div>}
+            </div>
           </div>
         </div>
       </Container>

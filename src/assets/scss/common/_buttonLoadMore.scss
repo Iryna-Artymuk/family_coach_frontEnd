@@ -9,11 +9,11 @@
   -webkit-color: #3c0000;
   -moz-color: #3c0000;
   svg {
-    width: 10px;
-    height: 20px;
+    width: 24px;
+    height: 24px;
   }
-  &:hover svg path {
-    fill: $red;
+  &:hover {
+    border-bottom: 1px solid #3c0000;
   }
 
   @include tablet {

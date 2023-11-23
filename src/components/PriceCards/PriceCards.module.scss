@@ -1,81 +1,98 @@
 .cardWrapper {
+  width: 250px;
+  height: 235px;
   @extend%aligncenter;
   flex-direction: column;
-  width: 351px;
-  min-height: 330px;
+  justify-content: flex-start;
+  background-color: $feedBackBG;
+  border-radius: 30px;
+  overflow: hidden;
+  @include desktop {
+    width: 351px;
+    height: 330px;
+  }
 }
+
 .cardTitle {
   width: 100%;
-  height: 70px;
+  height: 50px;
   @extend%aligncenter;
-
-  border-radius: 30px 30px 0 0;
-
+  justify-content: flex-start;
   background-color: $feedBackTitelBG;
-  padding: 15px 30px;
+  padding: 10px 18px;
 
   font-family: 'Lora', serif;
-  font-size: 32px;
+  font-size: 24px;
 
-  line-height: 41px;
-
-  text-align: left;
+  @include desktop {
+    height: 70px;
+    padding: 15px 29px 14px;
+    font-size: 32px;
+  }
 }
-.cardInfoWrapper {
-  width: 100%;
-  flex-grow: 1;
-  @extend%aligncenter;
-  flex-direction: column;
-  justify-content: space-between;
 
-  border-radius: 0 0 30px 30px;
-  background-color: $feedBackBG;
-  padding: 15px 30px;
-}
 .cardInfo {
-  width: 255px;
+  width: 166px;
+
   @extend%aligncenter;
   flex-direction: column;
   align-items: flex-start;
   gap: 14px;
-  font-family: 'Montserrat';
-  font-size: 24px;
-  font-weight: 400;
+  margin-top: 18px;
+  font-size: 14px;
   line-height: 1.2;
 
-  text-align: left;
+  @include desktop {
+    width: 285px;
+    font-size: 24px;
+    margin-top: 24px;
+  }
 }
 .cardInfo_price {
   font-family: 'Lora', serif;
-  font-size: 32px;
+  font-size: 24px;
   font-weight: 700;
   line-height: 1.28;
   letter-spacing: 0em;
-  text-align: left;
+  margin-top: 4px;
+  align-self: center;
+
+  @include desktop {
+    font-size: 32px;
+    margin-top: 10px;
+  }
 }
 
 //PriceCarKids only
 
-.singleConsultationInfo {
+.cardWrapperKids {
+  @extend%aligncenter;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: 250px;
+  height: 285px;
+  background-color: $feedBackBG;
+  border-radius: 30px;
+  overflow: hidden;
+  @include desktop {
+    width: 350px;
+    min-height: 447px;
+  }
 }
-.singleConsultationTitle {
-  font-family: 'Lora', serif;
-  font-size: 24px;
-  font-weight: 700;
-  line-height: 1.29;
-
-  text-align: center;
-}
-.singleConsultationDuration {
-  font-size: 24px;
-  line-height: 1.29;
-  text-align: center;
-}
-.singleConsultationPrice {
-  font-family: 'Lora', serif;
-  font-size: 24px;
-  font-weight: 700;
+.singleConsultationWrapper {
+  width: 100%;
+  @extend%aligncenter;
+  flex-direction: column;
+  font-size: 14px;
   line-height: 1.2;
+  font-family: 'Lora', serif;
+  font-weight: 700;
+  @include desktop {
+    font-size: 24px;
+  }
+}
 
-  text-align: center;
+.singleConsultationDuration {
+  font-family: 'Montserrat';
+  font-weight: 400;
 }

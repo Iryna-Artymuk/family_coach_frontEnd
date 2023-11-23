@@ -65,7 +65,7 @@
   padding: 11px 2px;
   width: max-content;
   text-align: center;
-  font-family: 'MontserratMedium';
+  font-weight: 500;
   font-size: 16px;
   line-height: 1.2;
   letter-spacing: 0em;
@@ -93,9 +93,9 @@
 
 .writeMeLink {
   @extend%aligncenter;
+
   padding: 7.5px 28.5px;
   border-radius: 5px;
-  font-family: 'Montserrat';
   font-size: 14px;
   background: $buttonBurgerMenuBG;
   color: $navLinkColor;
@@ -103,3 +103,5 @@
     background: $buttonBurgerMenuHover;
   }
 }
+
+
