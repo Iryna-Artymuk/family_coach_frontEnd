@@ -2,7 +2,7 @@ import Container from '@/components/Container/Container';
 
 import PriceCardAdult from '@/components/PriceCards/PriceCardAdult';
 import { priceDataAdult, priceDataKids } from '@/data/priceData';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 import styles from './PricePage.module.scss';
 import PriceCarKids from '@/components/PriceCards/PriceCardKids';
@@ -13,6 +13,12 @@ const PricePage = () => {
   const [showAdultPrice, setShowAdultPrice] = useState(false);
   const [showKidsPrice, setShowKidsPrice] = useState(false);
   const [showVebinarPrice, setShowVebinarPrice] = useState(false);
+  const listRef = useRef(null);
+  const executeScroll = () =>
+    listRef.current.scrollIntoView({
+      behavior: 'smooth',
+      block: 'start',
+    });
 
   const toggleShowAdultPrice = () => {
     setShowAdultPrice(!showAdultPrice);
@@ -140,11 +146,14 @@ const PricePage = () => {
             </ul>
           </div>
 
-          <div className={styles.buttonsWrapper}>
+          <div className={styles.buttonsWrapper} ref={listRef}>
             <h2 className="title">Мої послуги</h2>
             <div className={styles.priceContentWrapper}>
               <button
-                onClick={toggleShowAdultPrice}
+                onClick={() => {
+                  toggleShowAdultPrice();
+                  executeScroll();
+                }}
                 className={styles.showPriceButton}
               >
                 Консультації для дорослих
@@ -164,7 +173,10 @@ const PricePage = () => {
             </div>
             <div className={styles.priceContentWrapper}>
               <button
-                onClick={toggleShowKidsPrice}
+                onClick={() => {
+                  toggleShowKidsPrice();
+                  executeScroll();
+                }}
                 className={styles.showPriceButton}
               >
                 Консультації для дітей та підлітків
@@ -184,7 +196,10 @@ const PricePage = () => {
 
             <div className={styles.priceContentWrapper}>
               <button
-                onClick={toggleShowVebinarPrice}
+                onClick={() => {
+                  toggleShowVebinarPrice();
+                  executeScroll();
+                }}
                 className={styles.showPriceButton}
               >
                 Лекції та вебінари

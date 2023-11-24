@@ -1,6 +1,6 @@
 import Container from '@/components/Container/Container';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import { blogData } from '@/data/blogData.js';
@@ -11,6 +11,7 @@ import IconMore from '@/components/Icons/IconMore';
 
 const BlogPage = () => {
   const [articlePerPage, setArticlePerPage] = useState(0);
+  console.log('articlePerPage: ', articlePerPage);
 
   const isMaxAmount = articlePerPage >= blogData.length - 1;
   const isDesktop = useMediaQuery({ minWidth: 1240 });
@@ -25,6 +26,7 @@ const BlogPage = () => {
   }, []);
 
   useEffect(() => {
+    // do things after first render
     if (isMobile) {
       setArticlePerPage(4);
     }
@@ -35,6 +37,7 @@ const BlogPage = () => {
       setArticlePerPage(12);
     }
   }, [isDesktop, isMobile, isTablet]);
+
   return (
     <section className={styles.blog}>
       <Container>
@@ -70,7 +73,7 @@ const BlogPage = () => {
               ))}
             </ul>
           )}
-          {(isMobile || isTablet) && (
+          {!isDesktop && (
             <ul className={styles.blog_list}>
               {blogData.slice(0, articlePerPage).map(article => (
                 <li key={article.id} className={styles.blog_listItem}>

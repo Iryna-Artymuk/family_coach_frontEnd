@@ -301,29 +301,29 @@ const HomePage = () => {
                   <h3 className={styles.workAreas_List_ItemTitel}>
                     Сімʼя та реалізація
                   </h3>
-                  <ul className={styles.workAreas_List}>
-                    <li>
-                      <p className={styles.workAreas_List_ItemText}>
-                        Сімейне консультування{' '}
+                  <ul className={styles.workAreas_subList}>
+                    <li className={styles.workAreas_subList_item}>
+                      <p className={styles.workAreas_subList_itemText}>
+                        Сімейне консультування
                       </p>
                     </li>
-                    <li>
-                      <p className={styles.workAreas_List_ItemText}>
+                    <li className={styles.workAreas_subList_item}>
+                      <p className={styles.workAreas_subList_itemText}>
                         Співзалежні стосунки{' '}
                       </p>
                     </li>
-                    <li>
-                      <p className={styles.workAreas_List_ItemText}>
+                    <li className={styles.workAreas_subList_item}>
+                      <p className={styles.workAreas_subList_itemText}>
                         Консультування підлітків та дітей
                       </p>
                     </li>
-                    <li>
-                      <p className={styles.workAreas_List_ItemText}>
+                    <li className={styles.workAreas_subList_item}>
+                      <p className={styles.workAreas_subList_itemText}>
                         Самооцінка і самоцінність
                       </p>
                     </li>
-                    <li>
-                      <p className={styles.workAreas_List_ItemText}>
+                    <li className={styles.workAreas_subList_item}>
+                      <p className={styles.workAreas_subList_itemText}>
                         Пошук сенсу життя
                       </p>
                     </li>
@@ -339,28 +339,29 @@ const HomePage = () => {
                     Напружені психоемоційні стани
                   </h3>
 
-                  <ul className={styles.workAreas_List}>
-                    <li>
-                      <p className={styles.workAreas_List_ItemText}>
+                  <ul className={styles.workAreas_subList}>
+                    <li className={styles.workAreas_subList_item}>
+                      <p className={styles.workAreas_subList_itemText}>
                         Страхи і тривожність
                       </p>
                     </li>
-                    <li>
-                      <p className={styles.workAreas_List_ItemText}>
-                        {' '}
+                    <li className={styles.workAreas_subList_item}>
+                      <p className={styles.workAreas_subList_itemText}>
                         Панічні атаки
                       </p>
                     </li>
-                    <li>
-                      <p className={styles.workAreas_List_ItemText}>Травма</p>
+                    <li className={styles.workAreas_subList_item}>
+                      <p className={styles.workAreas_subList_itemText}>
+                        Травма
+                      </p>
                     </li>
-                    <li>
-                      <p className={styles.workAreas_List_ItemText}>
+                    <li className={styles.workAreas_subList_item}>
+                      <p className={styles.workAreas_subList_itemText}>
                         Робота зі злістю та агресивною поведінкою
                       </p>
                     </li>
-                    <li>
-                      <p className={styles.workAreas_List_ItemText}>
+                    <li className={styles.workAreas_subList_item}>
+                      <p className={styles.workAreas_subList_itemText}>
                         Депресія*
                       </p>
                     </li>

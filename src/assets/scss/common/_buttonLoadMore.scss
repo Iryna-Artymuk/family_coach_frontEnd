@@ -8,9 +8,8 @@
   color: #3c0000;
   -webkit-color: #3c0000;
   -moz-color: #3c0000;
-  svg {
-    width: 24px;
-    height: 24px;
+  svg path {
+    fill: #3c0000;
   }
   &:hover {
     border-bottom: 1px solid #3c0000;

@@ -459,6 +459,7 @@
 
 .workAreas_List_Item {
   @extend%aligncenter;
+  width: 100%;
   align-items: flex-start;
   gap: 8px;
 
@@ -494,9 +495,9 @@
   @extend%aligncenter;
   flex-direction: column;
   align-items: flex-start;
-  gap: 5px;
+  gap: 9px;
   @include tablet {
-    gap: 8px;
+    gap: 14px;
   }
 }
 .workAreas_List_ItemTitel {
@@ -529,6 +530,62 @@
   }
 }
 
+.workAreas_subList {
+  @extend%aligncenter;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+  @include tablet {
+    gap: 20px;
+  }
+  @include desktop {
+    gap: 40px;
+  }
+}
+
+.workAreas_subList_item {
+  @extend%aligncenter;
+  justify-content: flex-start;
+  width: 100%;
+  gap: 5px;
+  @include tablet {
+    gap: 7px;
+  }
+  @include desktop {
+    gap: 15px;
+  }
+}
+.workAreas_subList_item::before {
+  content: '';
+  display: block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: $red;
+  margin-top: 4px;
+  @include tablet {
+    width: 7px;
+    height: 7px;
+  }
+  @include desktop {
+    width: 10px;
+    height: 10px;
+  }
+}
+
+.workAreas_subList_itemText {
+  width: 100%;
+  font-size: 12px;
+  line-height: 1.5;
+
+  @include tablet {
+    font-size: 18px;
+    line-height: 1.33;
+  }
+  @include desktop {
+    font-size: 24px;
+  }
+}
 //-----FEEDBACK SECTION ----
 
 .feedbakSwiperWrapper {
