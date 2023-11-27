@@ -1,6 +1,6 @@
 import Container from '@/components/Container/Container';
 
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import { blogData } from '@/data/blogData.js';
