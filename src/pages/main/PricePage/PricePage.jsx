@@ -61,7 +61,7 @@ const PricePage = () => {
               <li className={styles.list_item}>
                 <p className={styles.list_item_text}>
                   {' '}
-                  Працюю в інтегрованому підході (КПТ, Арт Терапія, Психоаналіз)
+                  Працюю в інтегрованому підході 
                 </p>
               </li>
             </ul>

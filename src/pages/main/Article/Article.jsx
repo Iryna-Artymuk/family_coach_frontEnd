@@ -43,7 +43,7 @@ const Article = () => {
               </Link>
               <div className={styles.articletextWrapper}>
                 <h1 className="title">{article.title}</h1>
-                <p className={styles.article_text}>{article.body}</p>
+                <p className={styles.article_text}>{article.post}</p>
               </div>
 
               <div className={styles.article_info}>

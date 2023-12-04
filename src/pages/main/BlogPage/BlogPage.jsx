@@ -55,7 +55,7 @@ const BlogPage = () => {
                     <div className={styles.blog_content}>
                       <div className={styles.blog_contentImgwrapper}>
                         <img
-                          src={article.url}
+                          src={article.postImageUrl}
                           alt=""
                           className={styles.blog_contentImg}
                         />
