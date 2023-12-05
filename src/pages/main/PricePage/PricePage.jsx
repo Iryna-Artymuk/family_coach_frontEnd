@@ -1,13 +1,14 @@
 import Container from '@/components/Container/Container';
 
 import PriceCardAdult from '@/components/PriceCards/PriceCardAdult';
-import { priceDataAdult, priceDataKids } from '@/data/priceData';
+import { priceDataAdult, priceDataKids, lectureData } from '@/data/priceData';
 import { useEffect, useRef, useState } from 'react';
 
 import styles from './PricePage.module.scss';
 import PriceCarKids from '@/components/PriceCards/PriceCardKids';
 import IconMore from '@/components/Icons/IconMore';
 import IconLess from '@/components/Icons/IconLess';
+import PriceCardLecture from '@/components/PriceCards/PriceCardLecture';
 
 const PricePage = () => {
   const [showAdultPrice, setShowAdultPrice] = useState(false);
@@ -61,7 +62,7 @@ const PricePage = () => {
               <li className={styles.list_item}>
                 <p className={styles.list_item_text}>
                   {' '}
-                  Працюю в інтегрованому підході 
+                  Працюю в інтегрованому підході
                 </p>
               </li>
             </ul>
@@ -207,7 +208,15 @@ const PricePage = () => {
                 {showVebinarPrice && <IconLess />}
               </button>
 
-              {showVebinarPrice && <div> кошторис ще формується ... </div>}
+              {showVebinarPrice && (
+                <ul className={styles.priceList}>
+                  {lectureData.map(priceData => (
+                    <li key={priceData.id}>
+                      <PriceCardLecture priceData={priceData} />
+                    </li>
+                  ))}
+                </ul>
+              )}
             </div>
           </div>
         </div>

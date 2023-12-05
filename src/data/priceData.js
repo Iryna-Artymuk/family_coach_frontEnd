@@ -42,7 +42,7 @@ export const priceDataAdult = [
   {
     id: 6,
     type: 'Консультування сімей',
-    amount:'Разова консультація',
+    amount: 'Разова консультація',
     duration: '60-80',
     period: null,
     price: '1800',
@@ -88,5 +88,20 @@ export const priceDataKids = [
       duration: '50-70',
       price: '950',
     },
+  },
+];
+
+export const lectureData = [
+  {
+    id: 1,
+    type: 'Лекція',
+    theme: 'Типи насильства',
+    price: '4000',
+  },
+  {
+    id: 2,
+    type: 'Вебінар',
+    theme: 'Типи насильства',
+    price: '4000',
   },
 ];
