@@ -39,6 +39,14 @@ export const priceDataAdult = [
     period: null,
     price: '600',
   },
+  {
+    id: 6,
+    type: 'Консультування сімей',
+    amount: 'Текстовий формат / Дзвінок ',
+    duration: '60-80',
+    period: null,
+    price: '1800',
+  },
 ];
 export const priceDataKids = [
   {
