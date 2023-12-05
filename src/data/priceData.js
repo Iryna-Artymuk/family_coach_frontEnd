@@ -26,7 +26,7 @@ export const priceDataAdult = [
   {
     id: 4,
     type: 'Консультація',
-    amount: 'Разова консультація ',
+    amount: 'Разова консультація',
     duration: '50-70',
     period: null,
     price: '950',
@@ -42,7 +42,7 @@ export const priceDataAdult = [
   {
     id: 6,
     type: 'Консультування сімей',
-    amount: 'Текстовий формат / Дзвінок ',
+    amount:'Разова консультація',
     duration: '60-80',
     period: null,
     price: '1800',
