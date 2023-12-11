@@ -9,8 +9,8 @@ import styles from './Article.module.scss';
 import { formatDate } from '@/helpers/formatDate';
 import { useMediaQuery } from 'react-responsive';
 
-import SliderArrowNext from '@/components/Icons/SliderArrowNext';
-import SliderArrowPrev from '@/components/Icons/SliderArrowPrev';
+import SliderArrowNext from '@/components/Icons/Main/SliderArrowNext';
+import SliderArrowPrev from '@/components/Icons/Main/SliderArrowPrev';
 import { SwiperSlide, Swiper } from 'swiper/react';
 import heroPhoto from '../../../../public/images/heroPhoto.jpg';
 const Article = () => {

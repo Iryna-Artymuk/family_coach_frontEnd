@@ -1,8 +1,8 @@
 import styles from './SocialList.module.scss';
 
-import Instagram from '../Icons/Instagram';
-import Telegram from '../Icons/Telegram';
-import Phone from '../Icons/Phone';
+import Instagram from '../Icons/Main/Instagram';
+import Telegram from '../Icons/Main/Telegram';
+import Phone from '../Icons/Main/Phone';
 
 const SocialList = () => {
   return (

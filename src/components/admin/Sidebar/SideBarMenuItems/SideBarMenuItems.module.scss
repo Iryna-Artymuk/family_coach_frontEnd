@@ -1,0 +1,48 @@
+.sidebarMenuItem {
+  @extend%aligncenter;
+  gap: 8px;
+  justify-content: flex-start;
+  width: 337px;
+  padding: 14px 16px;
+
+  border-radius: 5px;
+  color: $admin-dark-blue;
+  font-family: 'Montserrat';
+  font-size: 24px;
+  font-weight: 500;
+}
+
+.sidebarMenuItem_active {
+  background: $admin-white;
+}
+
+.subMenuList {
+  @extend%aligncenter;
+  justify-content: flex-start;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.subMenuItem {
+  @extend%aligncenter;
+  justify-content: flex-start;
+  gap: 5px;
+  width: 336px;
+  height: 42px;
+  color: $admin-dark-blue;
+  font-family: 'Montserrat';
+  font-size: 24px;
+  font-weight: 500;
+
+  &::before {
+    content: '';
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: $admin-dark-blue;
+  }
+}
+
+.subMenuItem_active {
+  border-bottom: 1px solid $admin-dark-blue;
+}

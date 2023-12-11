@@ -6,8 +6,8 @@ import { useEffect, useRef, useState } from 'react';
 
 import styles from './PricePage.module.scss';
 import PriceCarKids from '@/components/PriceCards/PriceCardKids';
-import IconMore from '@/components/Icons/IconMore';
-import IconLess from '@/components/Icons/IconLess';
+import IconMore from '@/components/Icons/Main/IconMore';
+import IconLess from '@/components/Icons/Main/IconLess';
 import PriceCardLecture from '@/components/PriceCards/PriceCardLecture';
 
 const PricePage = () => {

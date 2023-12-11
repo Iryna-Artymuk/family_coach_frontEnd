@@ -6,8 +6,17 @@ import Layout from './components/layout/Layout';
 import QualificationPage from './pages/main/QualificationPage/QualificationPage';
 import PricePage from './pages/main/PricePage/PricePage';
 import Article from './pages/main/Article/Article';
-import AdminLayout from './pages/admin-pages/LoginAdmin/AdminLayout/AdminLayout';
-import LoginAdmin from './pages/admin-pages/LoginAdmin/LoginAdmin/LoginAdmin';
+import AdminSharedLayout from './pages/admin-pages/AdminSharedLayout/AdminSharedLayout';
+import AdminDashboard from './components/admin/AdminDashboard/AdminDashboard';
+import FeedbackAdmin from './pages/admin-pages/Feedback/FeedbackAdmin';
+import EditFeedback from './pages/admin-pages/Feedback/EditFeedback';
+import BlogAdmin from './pages/admin-pages/Blog/BlogAdmin';
+import AddBlogPost from './pages/admin-pages/Blog/AddBlogPost';
+import EditBlogPost from './pages/admin-pages/Blog/EditBlogPost';
+import QualificationAdmin from './pages/admin-pages/QualificationAdmin/QualificationAdmin';
+import AdultPriceAdmin from './pages/admin-pages/Price/AdultPriceAdmin';
+import KidsPriceAdmin from './pages/admin-pages/Price/KidsPriceAdmin';
+import LecturePriceAdmin from './pages/admin-pages/Price/LecturePriceAdmin';
 
 const App = () => {
   return (
@@ -23,8 +32,18 @@ const App = () => {
            */}
         </Route>
 
-        <Route path="/admin" element={<AdminLayout />}>
-          <Route index element={<LoginAdmin />} />
+        <Route path="/admin" element={<AdminSharedLayout />}>
+          <Route index element={<AdminDashboard />} />
+          <Route path="feedback" element={<FeedbackAdmin />} />
+          <Route path="feedback/edit/:id" element={<EditFeedback />} />
+          <Route path="blog" element={<BlogAdmin />} />
+          <Route path="blog/add" element={<AddBlogPost />} />
+          <Route path="blog/edit/:id" element={<EditBlogPost />} />
+          <Route path="qualification" element={<QualificationAdmin />} /> 
+           <Route path="price/adult" element={<AdultPriceAdmin />} />
+           <Route path="price/kids" element={<KidsPriceAdmin />} />
+           <Route path="price/lecture" element={<LecturePriceAdmin />} />
+          
         </Route>
       </Routes>
     </Router>

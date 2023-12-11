@@ -1,6 +1,6 @@
 import Container from '@/components/Container/Container';
 
-import IconMore from '@/components/Icons/IconMore';
+import IconMore from '@/components/Icons/Main/IconMore';
 import { sertificatesData } from '@/data/sertificateData';
 import { useEffect, useState } from 'react';
 import { useMediaQuery } from 'react-responsive';

@@ -13,12 +13,12 @@ import Container from '@/components/Container/Container';
 import Modal from '../../../components/Modal/Modal';
 import AddForm from '@/components/Forms/FormAddFeedback';
 import Button from '@/components/Button/Button';
-import Arrow from '@/components/Icons/Arrow';
+import Arrow from '@/components/Icons/Main/Arrow';
 import FeedbackCard from '@/components/Swiper/FeedbackCard/FeedbackCard';
 import ArticleCard from '@/components/Swiper/ArticleCard/ArticleCard';
 
-import SliderArrowNext from '@/components/Icons/SliderArrowNext';
-import SliderArrowPrev from '@/components/Icons/SliderArrowPrev';
+import SliderArrowNext from '@/components/Icons/Main/SliderArrowNext';
+import SliderArrowPrev from '@/components/Icons/Main/SliderArrowPrev';
 
 import { blogData } from '@/data/blogData.js';
 import heroPhoto from '@/assets/images/heroPhoto.jpg';

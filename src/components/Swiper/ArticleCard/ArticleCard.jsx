@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import styles from '../ArticleCard/ArticleCard.module.scss';
-import Arrow from '@/components/Icons/Arrow';
+import Arrow from '@/components/Icons/Main/Arrow';
 const ArticleCard = ({ article }) => {
   return (
     <div className={styles.articleWrapper}>

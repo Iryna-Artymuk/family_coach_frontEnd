@@ -6,8 +6,8 @@ import { Link } from 'react-router-dom';
 import { blogData } from '@/data/blogData.js';
 import styles from './BlogPage.module.scss';
 import { useMediaQuery } from 'react-responsive';
-import Arrow from '@/components/Icons/Arrow';
-import IconMore from '@/components/Icons/IconMore';
+import Arrow from '@/components/Icons/Main/Arrow';
+import IconMore from '@/components/Icons/Main/IconMore';
 
 const BlogPage = () => {
   const [articlePerPage, setArticlePerPage] = useState(0);

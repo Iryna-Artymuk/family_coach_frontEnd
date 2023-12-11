@@ -1,0 +1,17 @@
+.button {
+  width: 206px;
+  height: 16px;
+  border-radius: 5px;
+
+  background: $admin-dark-blue;
+  color: $admin-white;
+
+  font-family: 'Montserrat';
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.button_light{
+  color: $admin-dark-blue;
+  background: $admin-white;
+}
