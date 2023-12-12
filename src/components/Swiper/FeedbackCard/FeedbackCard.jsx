@@ -2,7 +2,6 @@ import { formatDate } from '@/helpers/formatDate';
 import styles from './FeedbackCard.module.scss';
 
 const FeedbackCard = ({ feedback }) => {
-  console.log('feedback : ', feedback.date);
   return (
     <div className={styles.feedBack_wrapper}>
       <div className={styles.feedBack_titleWrapper}>

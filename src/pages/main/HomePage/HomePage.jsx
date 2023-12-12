@@ -380,7 +380,7 @@ const HomePage = () => {
 
             {allfeedbacks.length > 0 ? (
               <div className={styles.feedbakSwiperWrapper}>
-                <Button buttonaddmore type="button" onClick={openModal}>
+                <Button buttonaddmore={true} type="button" onClick={openModal}>
                   Додати відгук
                 </Button>
                 <Swiper
@@ -465,7 +465,7 @@ const HomePage = () => {
               <Link
                 className={styles.blog_Link}
                 to="/blog"
-                buttonAddMore
+                buttonaddmore={true}
                 type="button"
               >
                 Дивитися усі статті

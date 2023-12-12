@@ -1,6 +1,6 @@
 .button {
   width: 206px;
-  height: 16px;
+  height: 30px;
   border-radius: 5px;
 
   background: $admin-dark-blue;
@@ -11,7 +11,7 @@
   font-weight: 700;
 }
 
-.button_light{
+.button_light {
   color: $admin-dark-blue;
   background: $admin-white;
 }

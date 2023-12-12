@@ -15,7 +15,6 @@ const QualificationPage = () => {
   const [serteficatesPerPage, setSerteficatesPerPage] = useState(0);
   const { getDiplomas } = useQualificatioStore();
   const [diplomas, setDiplomas] = useState();
-  console.log('diplomas: ', diplomas);
 
   const { isLoading, setIsLoading, setLoaded } = useIsLoading();
   const isMaxAmount = serteficatesPerPage >= diplomas?.length - 1;
@@ -63,8 +62,11 @@ const QualificationPage = () => {
           <div className={styles.qualification_contentWrapper}>
             <ul className={styles.qualification_list}>
               {diplomas?.slice(0, serteficatesPerPage).map(diploma => (
-                <li key={diploma._id} className={styles.qualification_list_item}>
-                  <img src={`${baseUrl}${diploma.url}`} alt="" />
+                <li
+                  key={diploma._id}
+                  className={styles.qualification_list_item}
+                >
+                  <img src={diploma.image.url} alt="" />
                 </li>
               ))}
             </ul>

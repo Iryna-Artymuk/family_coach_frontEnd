@@ -5,5 +5,9 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["src", "src/helpers"]
+  "include": [
+    "src",
+    "src/helpers",
+    "src/pages/main/QualificationPage/QualificationPage.jsx"
+  ]
 }
