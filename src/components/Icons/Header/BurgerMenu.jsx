@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import Button from '../../Button/Button';
+import Button from '../../main/Button/Button';
 import styles from './Header.module.scss';
 import Navigation from './Navigation';
 import CloseIcon from '../Main/CloseIcon';

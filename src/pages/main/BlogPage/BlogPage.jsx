@@ -1,4 +1,4 @@
-import Container from '@/components/Container/Container';
+import Container from '@/components/main/Container/Container';
 
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';

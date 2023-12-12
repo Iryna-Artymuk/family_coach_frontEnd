@@ -6,8 +6,9 @@ import clsx from 'clsx';
 import styles from './Footer.module.scss';
 
 import Container from '../Container/Container';
-import Logo from '../Icons/Logo/Logo';
+import Logo from '../../Icons/Logo/Logo';
 import SocialList from '../SocialList/SocialList';
+
 
 const Footer = () => {
   const location = useLocation();

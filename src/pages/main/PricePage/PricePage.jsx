@@ -1,14 +1,14 @@
-import Container from '@/components/Container/Container';
+import Container from '@/components/main/Container/Container';
 
-import PriceCardAdult from '@/components/PriceCards/PriceCardAdult';
+import PriceCardAdult from '@/components/main/PriceCards/PriceCardAdult';
 import { priceDataAdult, priceDataKids, lectureData } from '@/data/priceData';
 import { useEffect, useRef, useState } from 'react';
 
 import styles from './PricePage.module.scss';
-import PriceCarKids from '@/components/PriceCards/PriceCardKids';
+import PriceCarKids from '@/components/main/PriceCards/PriceCardKids';
 import IconMore from '@/components/Icons/Main/IconMore';
 import IconLess from '@/components/Icons/Main/IconLess';
-import PriceCardLecture from '@/components/PriceCards/PriceCardLecture';
+import PriceCardLecture from '@/components/main/PriceCards/PriceCardLecture';
 
 const PricePage = () => {
   const [showAdultPrice, setShowAdultPrice] = useState(false);

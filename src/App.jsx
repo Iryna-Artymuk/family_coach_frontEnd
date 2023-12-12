@@ -2,7 +2,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 import HomePage from '@/pages/main/HomePage/HomePage';
 import BlogPage from '@/pages/main/BlogPage/BlogPage';
-import Layout from './components/layout/Layout';
+import Layout from './components/main/layout/Layout';
 import QualificationPage from './pages/main/QualificationPage/QualificationPage';
 import PricePage from './pages/main/PricePage/PricePage';
 import Article from './pages/main/Article/Article';
@@ -39,11 +39,10 @@ const App = () => {
           <Route path="blog" element={<BlogAdmin />} />
           <Route path="blog/add" element={<AddBlogPost />} />
           <Route path="blog/edit/:id" element={<EditBlogPost />} />
-          <Route path="qualification" element={<QualificationAdmin />} /> 
-           <Route path="price/adult" element={<AdultPriceAdmin />} />
-           <Route path="price/kids" element={<KidsPriceAdmin />} />
-           <Route path="price/lecture" element={<LecturePriceAdmin />} />
-          
+          <Route path="qualification" element={<QualificationAdmin />} />
+          <Route path="price/adult" element={<AdultPriceAdmin />} />
+          <Route path="price/kids" element={<KidsPriceAdmin />} />
+          <Route path="price/lecture" element={<LecturePriceAdmin />} />
         </Route>
       </Routes>
     </Router>

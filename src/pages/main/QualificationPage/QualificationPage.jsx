@@ -1,15 +1,24 @@
-import Container from '@/components/Container/Container';
+import Container from '@/components/main/Container/Container';
 
 import IconMore from '@/components/Icons/Main/IconMore';
-import { sertificatesData } from '@/data/sertificateData';
+
 import { useEffect, useState } from 'react';
 import { useMediaQuery } from 'react-responsive';
 
 import styles from './QualificationPage.module.scss';
+import Spinner from '@/ui/Spinner/Spinner';
+import useQualificatioStore from '@/store/qualificatioStore';
+import { useIsLoading } from '@/store/loadingStore';
+import { baseUrl } from '@/constants/apiUrl';
+
 const QualificationPage = () => {
   const [serteficatesPerPage, setSerteficatesPerPage] = useState(0);
+  const { getDiplomas } = useQualificatioStore();
+  const [diplomas, setDiplomas] = useState();
+  console.log('diplomas: ', diplomas);
 
-  const isMaxAmount = serteficatesPerPage >= sertificatesData.length - 1;
+  const { isLoading, setIsLoading, setLoaded } = useIsLoading();
+  const isMaxAmount = serteficatesPerPage >= diplomas?.length - 1;
   const isDesktop = useMediaQuery({ minWidth: 1240 });
   const isTablet = useMediaQuery({ minWidth: 768 });
 
@@ -17,10 +26,25 @@ const QualificationPage = () => {
 
   const viewMore = () =>
     setSerteficatesPerPage(prev => prev + serteficatesPerPage);
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        setIsLoading();
+        const result = await getDiplomas();
+
+        setDiplomas(result.data);
+        setLoaded();
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    fetchData();
+  }, [getDiplomas, setDiplomas, setIsLoading, setLoaded]);
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+
   useEffect(() => {
     if (isMobile) {
       setSerteficatesPerPage(4);
@@ -35,22 +59,26 @@ const QualificationPage = () => {
   return (
     <section className="qualification">
       <Container>
-        <div className={styles.qualification_contentWrapper}>
-          <ul className={styles.qualification_list}>
-            {sertificatesData.slice(0, serteficatesPerPage).map(item => (
-              <li key={item.id} className={styles.qualification_list_item}>
-                <img src={`${item.url}`} alt="" />
-              </li>
-            ))}
-          </ul>
+        {!isLoading ? (
+          <div className={styles.qualification_contentWrapper}>
+            <ul className={styles.qualification_list}>
+              {diplomas?.slice(0, serteficatesPerPage).map(diploma => (
+                <li key={diploma._id} className={styles.qualification_list_item}>
+                  <img src={`${baseUrl}${diploma.url}`} alt="" />
+                </li>
+              ))}
+            </ul>
 
-          {!isMaxAmount && (
-            <button className="buttonLoadMore" onClick={viewMore}>
-              Дивитися Більше
-              <IconMore />
-            </button>
-          )}
-        </div>
+            {!isMaxAmount && (
+              <button className="buttonLoadMore" onClick={viewMore}>
+                Дивитися Більше
+                <IconMore />
+              </button>
+            )}
+          </div>
+        ) : (
+          <Spinner />
+        )}
       </Container>
     </section>
   );

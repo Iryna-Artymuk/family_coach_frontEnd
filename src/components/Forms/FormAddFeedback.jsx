@@ -3,7 +3,7 @@ import * as Yup from 'yup';
 
 import { formatDate } from '@/helpers/formatDate';
 
-import Button from '../Button/Button';
+import Button from '../main/Button/Button';
 
 import styles from './Form.module.scss';
 export default function AddForm({ handleSubmitForm }) {

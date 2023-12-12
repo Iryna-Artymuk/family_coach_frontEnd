@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import styles from './Modal.module.scss';
 import CloseIcon from '@/components/Icons/Main/CloseIcon';
-import Button from '@/components/Button/Button';
+import Button from '@/components/main/Button/Button';
 import clsx from 'clsx';
 const Modal = ({ closeModal, children, type }) => {
   const closeOnBackdropClick = event => {

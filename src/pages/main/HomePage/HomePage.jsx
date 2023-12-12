@@ -9,10 +9,10 @@ import { useMediaQuery } from 'react-responsive';
 import feedbacks from '@/api/api';
 import styles from './HomePage.module.scss';
 
-import Container from '@/components/Container/Container';
-import Modal from '../../../components/Modal/Modal';
+import Container from '@/components/main/Container/Container';
+import Modal from '../../../components/main/Modal/Modal';
 import AddForm from '@/components/Forms/FormAddFeedback';
-import Button from '@/components/Button/Button';
+import Button from '@/components/main/Button/Button';
 import Arrow from '@/components/Icons/Main/Arrow';
 import FeedbackCard from '@/components/Swiper/FeedbackCard/FeedbackCard';
 import ArticleCard from '@/components/Swiper/ArticleCard/ArticleCard';

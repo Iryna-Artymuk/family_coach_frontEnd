@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
 
-import Button from '../../Button/Button';
+import Button from '../../main/Button/Button';
 import BurgerIcon from '../Main/BurgerIcon';
 import Logo from '../Logo/Logo';
-import Container from '@/components/Container/Container';
+import Container from '@/components/main/Container/Container';
 import BurgerMenu from './BurgerMenu';
 
 import styles from './Header.module.scss';
