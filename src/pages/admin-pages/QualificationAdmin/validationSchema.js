@@ -1,7 +1,7 @@
 import { formatBytes } from '@/helpers/formatBytes';
 import * as Yup from 'yup';
 
-const sizeLimit = 1024 * 1024 * 3;
+const sizeLimit = 1024 * 1024 * 2;
 
 const fileTypes = [
   'image/jpg',

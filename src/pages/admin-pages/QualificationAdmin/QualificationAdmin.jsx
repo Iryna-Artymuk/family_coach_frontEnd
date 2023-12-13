@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 
-import { baseUrl } from '@/constants/apiUrl';
 import sprite from '@/assets/icons/sprite-admin.svg';
 
 import { useIsLoading } from '@/store/loadingStore';
@@ -8,28 +7,25 @@ import useQualificatioStore from '@/store/qualificatioStore';
 
 import styles from './QualificationAdmin.module.scss';
 import Spinner from '@/ui/Spinner/Spinner';
-import Button from '@/components/admin/Button/Button';
+
 import { Field, Form, Formik } from 'formik';
 import FileInput from '../formik/FileInput/FileInput';
 import { diplomaImageValidation } from './validationSchema.js';
+import ButtonSubmit from '@/components/admin/SubmitButton/ButtonSubmit';
+
 const initialValues = {
   image: [],
 };
 const QualificationAdmin = () => {
   const { getDiplomas, deleteDiplomayId, addDiploma } = useQualificatioStore();
   const [diplomas, setDiplomas] = useState();
+  console.log('diplomas: ', diplomas);
   const { isLoading, setIsLoading, setLoaded } = useIsLoading();
-  const [base64img, setBase64img] = useState('');
-
   useEffect(() => {
     const fetchData = async () => {
       try {
-        setIsLoading();
         const result = await getDiplomas();
-        // console.log(' result : ', result.data);
-
         setDiplomas(result.data);
-        setLoaded();
       } catch (error) {
         console.log(error);
       }
@@ -59,33 +55,15 @@ const QualificationAdmin = () => {
     }
   };
 
-  const setFileToBase64 = file => {
-    const reader = new FileReader();
-    reader.readAsDataURL(file);
-    reader.onload = () => setBase64img(reader.result);
-  };
-  const onSubmit = async value => {
-    console.log('value : ', value);
+  const onSubmit = async values => {
+    const formData = new FormData();
+    console.log(values.image[0]);
+    formData.append('diplomaImg', values.image[0]);
     try {
       setIsLoading();
-      setFileToBase64(value.image[0]);
-      if (!base64img) return;
-      console.log('base64img: ', base64img);
-      const serverResp = await addDiploma(base64img);
-      console.log('submit');
-      console.log('serverResp: ', serverResp);
-      console.log('diplomas: ', diplomas);
+      await addDiploma(formData);
       setLoaded();
-      //   return;
-      // if (serverResp) {
-      //   setDiplomas(prev => [serverResp, ...prev]);
-      //   setLoaded();
-      // } else {
-      //   setLoaded();
-      //   return;
-      // }
     } catch (error) {
-      setLoaded();
       console.log(error);
     }
   };
@@ -103,11 +81,25 @@ const QualificationAdmin = () => {
               {formik => {
                 return (
                   <Form>
+                    {/* <ButtonSubmit
+                        nameButton="Додати диплом"
+                        isActive={formik.isValid}
+                        // isRight={true}
+                        handlerSubmitButton={onSubmit}
+                        isProcessing={isLoading}
+                      /> */}
+                    <button className={styles.button} type="submit">
+                      {' '}
+                      Додати диплом
+                    </button>
+
                     <div className={styles.layout}>
-                      <Field name="image" id="image" component={FileInput} />
-                    </div>
-                    <div className={styles.buttonAdd}>
-                      <Button type="submit">Додати диплом</Button>
+                      <Field
+                        name="image"
+                        id="image"
+                        type="file"
+                        component={FileInput}
+                      />
                     </div>
                   </Form>
                 );
