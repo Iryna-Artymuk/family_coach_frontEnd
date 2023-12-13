@@ -9,7 +9,7 @@ import styles from './QualificationPage.module.scss';
 import Spinner from '@/ui/Spinner/Spinner';
 import useQualificatioStore from '@/store/qualificatioStore';
 import { useIsLoading } from '@/store/loadingStore';
-import { baseUrl } from '@/constants/apiUrl';
+
 
 const QualificationPage = () => {
   const [serteficatesPerPage, setSerteficatesPerPage] = useState(0);
