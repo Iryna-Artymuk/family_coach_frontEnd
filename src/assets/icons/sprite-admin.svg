@@ -43,5 +43,9 @@
 <symbol id="icon-dot" viewBox="0 0 32 32">
 <path fill="#314385" style="fill: var(--color1, #314385)" d="M16 9.333c3.682 0 6.667 2.985 6.667 6.667s-2.985 6.667-6.667 6.667c-3.682 0-6.667-2.985-6.667-6.667s2.985-6.667 6.667-6.667z"></path>
 </symbol>
+
+<symbol id="icon-plus" viewBox="0 0 32 32">
+<path fill="none" stroke="#fcfbfb" style="stroke: var(--color1, #fcfbfb)" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="1.6471" d="M0.927 16.161l30.021-0.349M16.111 31.111l-0.347-30.248"></path>
+</symbol>
 </defs>
 </svg>

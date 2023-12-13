@@ -15,7 +15,7 @@ const useQualificatioStore = create((set, get) => ({
   },
 
   addDiploma: async data => {
-    // console.log('data : ', data);
+    console.log('data : ', data);
     const newDiploma = {
       diplomaImg: data,
     };

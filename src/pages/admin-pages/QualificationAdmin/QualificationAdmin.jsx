@@ -11,6 +11,7 @@ import Spinner from '@/ui/Spinner/Spinner';
 import Button from '@/components/admin/Button/Button';
 import { Field, Form, Formik } from 'formik';
 import FileInput from '../formik/FileInput/FileInput';
+import { diplomaImageValidation } from './validationSchema.js';
 const initialValues = {
   image: [],
 };
@@ -61,27 +62,28 @@ const QualificationAdmin = () => {
   const setFileToBase64 = file => {
     const reader = new FileReader();
     reader.readAsDataURL(file);
-    reader.onloadend = () => {
-      setBase64img(reader.result);
-    };
+    reader.onload = () => setBase64img(reader.result);
   };
   const onSubmit = async value => {
+    console.log('value : ', value);
     try {
-      console.log('submit');
       setIsLoading();
       setFileToBase64(value.image[0]);
-
       if (!base64img) return;
+      console.log('base64img: ', base64img);
       const serverResp = await addDiploma(base64img);
+      console.log('submit');
       console.log('serverResp: ', serverResp);
       console.log('diplomas: ', diplomas);
-      if (serverResp) {
-        setDiplomas(prev => [serverResp, ...prev]);
-        setLoaded();
-      } else {
-        setLoaded();
-        return;
-      }
+      setLoaded();
+      //   return;
+      // if (serverResp) {
+      //   setDiplomas(prev => [serverResp, ...prev]);
+      //   setLoaded();
+      // } else {
+      //   setLoaded();
+      //   return;
+      // }
     } catch (error) {
       setLoaded();
       console.log(error);
@@ -95,31 +97,17 @@ const QualificationAdmin = () => {
           <li className={styles.listItemAdd}>
             <Formik
               initialValues={initialValues}
-              // validationSchema={newsValidation}
+              validationSchema={diplomaImageValidation}
               onSubmit={onSubmit}
             >
               {formik => {
                 return (
                   <Form>
                     <div className={styles.layout}>
-                      <Field
-                        name="image"
-                        id="image"
-                        component={FileInput}
-                        label="Фото"
-                      />
+                      <Field name="image" id="image" component={FileInput} />
                     </div>
                     <div className={styles.buttonAdd}>
-                      <Button
-                        // nameButton=""
-                        // isActive={formik.isValid}
-                        // isRight={true}
-                        // handlerSubmitButton={onSubmit}
-                        // isProcessing={isProcessing}
-                        type="submit"
-                      >
-                        Додати диплом
-                      </Button>
+                      <Button type="submit">Додати диплом</Button>
                     </div>
                   </Form>
                 );

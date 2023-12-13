@@ -1,10 +1,9 @@
 import { useState, useEffect } from 'react';
 import Dropzone from 'react-dropzone';
-// import { AiOutlinePlus } from 'react-icons/ai';
+import sprite from '@/assets/icons/sprite-admin.svg';
 import styles from './FileInput.module.scss';
 
 const FileInput = ({
-  label,
   field,
   photo,
   form: { errors, setFieldValue },
@@ -38,9 +37,6 @@ const FileInput = ({
 
   return (
     <div className={styles.wrapper}>
-      <label htmlFor="dropzone" className={styles.inputLabel}>
-        {label}
-      </label>
       <Dropzone
         onDrop={onDrop}
         multiple={false}
@@ -60,7 +56,10 @@ const FileInput = ({
               ) : null}
               {!imagePreview && (
                 <div className={styles.innerWrapper}>
-                  {/* <AiOutlinePlus className={styles.icon} /> */}
+                  <svg className={styles.icon}>
+                    <use href={`${sprite}#${'icon-plus'}`} />
+                  </svg>
+
                   <p>Перетягніть або натисніть тут, щоб завантажити файл</p>
                 </div>
               )}

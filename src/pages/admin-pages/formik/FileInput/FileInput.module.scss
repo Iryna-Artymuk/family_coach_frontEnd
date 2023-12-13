@@ -5,15 +5,6 @@
   // align-items: flex-start;
   // flex-direction: column;
 
-  .inputLabel {
-    position: absolute;
-    top: 0;
-    left: 0;
-    color: $admin-light-gray;
-    font-size: 14px;
-    font-weight: 500;
-    font-family: 'Montserrat';
-  }
   .dropzone {
     display: flex;
     justify-content: center;
@@ -33,14 +24,13 @@
       flex-direction: column;
       text-align: center;
       .icon {
-        font-size: 2rem;
-        font-weight: bold;
+        width: 187px;
+        height: 187px;
         cursor: pointer;
-        color: gray;
+        fill: $admin-light-gray;
       }
       p {
-        width: 153px;
-        color: gray;
+        color: $admin-light-gray;
         font-size: 16px;
       }
     }
