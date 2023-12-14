@@ -58,7 +58,7 @@ const QualificationAdmin = () => {
   const onSubmit = async values => {
     const formData = new FormData();
     console.log(values.image[0]);
-    formData.append('diplomaImg', values.image[0]);
+    formData.append('file', values.image[0], 'diplomaImg');
     try {
       setIsLoading();
       await addDiploma(formData);
@@ -81,15 +81,7 @@ const QualificationAdmin = () => {
               {formik => {
                 return (
                   <Form>
-                    {/* <ButtonSubmit
-                        nameButton="Додати диплом"
-                        isActive={formik.isValid}
-                        // isRight={true}
-                        handlerSubmitButton={onSubmit}
-                        isProcessing={isLoading}
-                      /> */}
                     <button className={styles.button} type="submit">
-                      {' '}
                       Додати диплом
                     </button>
 
