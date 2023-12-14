@@ -2,7 +2,7 @@
   display: flex;
 
   width: 430px;
-  height: 320px;
+  height: 254px;
   gap: 20px;
   background: #e0e6fb;
   border-radius: 15px;
@@ -14,6 +14,7 @@
   gap: 24px;
 }
 .listItemAdd {
+  @extend%aligncenter;
   form {
     @extend%aligncenter;
     flex-direction: column;
@@ -24,15 +25,7 @@
   position: relative;
   width: 430px;
   height: 350px;
-  border-radius: 15px;
-
   overflow: hidden;
-
-  img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
 }
 
 .deleteIcon {

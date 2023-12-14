@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-
+  import { ToastContainer } from 'react-toastify';
 import HomePage from '@/pages/main/HomePage/HomePage';
 import BlogPage from '@/pages/main/BlogPage/BlogPage';
 import Layout from './components/main/layout/Layout';
@@ -20,32 +20,46 @@ import LecturePriceAdmin from './pages/admin-pages/Price/LecturePriceAdmin';
 
 const App = () => {
   return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route index element={<HomePage />} />
-          <Route path="/blog" element={<BlogPage />} />
-          <Route path="/blog/:articleId" element={<Article />} />
-          <Route path="/qualification" element={<QualificationPage />} />
-          <Route path="/price" element={<PricePage />} />
-          {/* <Route path="*" element={<Page404 />} />
-           */}
-        </Route>
+    <>
+      <ToastContainer
+        position="top-right"
+        autoClose={3000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+      />
+      <Router>
+        <Routes>
+          <Route path="/" element={<Layout />}>
+            <Route index element={<HomePage />} />
+            <Route path="/blog" element={<BlogPage />} />
+            <Route path="/blog/:articleId" element={<Article />} />
+            <Route path="/qualification" element={<QualificationPage />} />
+            <Route path="/price" element={<PricePage />} />
+            {/* <Route path="*" element={<Page404 />} />
+             */}
+          </Route>
 
-        <Route path="/admin" element={<AdminSharedLayout />}>
-          <Route index element={<AdminDashboard />} />
-          <Route path="feedback" element={<FeedbackAdmin />} />
-          <Route path="feedback/edit/:id" element={<EditFeedback />} />
-          <Route path="blog" element={<BlogAdmin />} />
-          <Route path="blog/add" element={<AddBlogPost />} />
-          <Route path="blog/edit/:id" element={<EditBlogPost />} />
-          <Route path="qualification" element={<QualificationAdmin />} />
-          <Route path="price/adult" element={<AdultPriceAdmin />} />
-          <Route path="price/kids" element={<KidsPriceAdmin />} />
-          <Route path="price/lecture" element={<LecturePriceAdmin />} />
-        </Route>
-      </Routes>
-    </Router>
+          <Route path="/admin" element={<AdminSharedLayout />}>
+            <Route index element={<AdminDashboard />} />
+            <Route path="feedback" element={<FeedbackAdmin />} />
+            <Route path="feedback/edit/:id" element={<EditFeedback />} />
+            <Route path="blog" element={<BlogAdmin />} />
+            <Route path="blog/add" element={<AddBlogPost />} />
+            <Route path="blog/edit/:id" element={<EditBlogPost />} />
+            <Route path="qualification" element={<QualificationAdmin />} />
+            <Route path="price/adult" element={<AdultPriceAdmin />} />
+            <Route path="price/kids" element={<KidsPriceAdmin />} />
+            <Route path="price/lecture" element={<LecturePriceAdmin />} />
+          </Route>
+        </Routes>
+      </Router>
+    </>
   );
 };
 

@@ -1,14 +1,23 @@
 import { useEffect, useState } from 'react';
 import FormData from 'form-data';
+import { Field, Form, Formik } from 'formik';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import {
+  AdvancedImage,
+  lazyload,
+  responsive,
+  placeholder,
+} from '@cloudinary/react';
+import { Cloudinary } from '@cloudinary/url-gen';
+import { Resize } from '@cloudinary/url-gen/actions/resize';
+import { byRadius } from '@cloudinary/url-gen/actions/roundCorners';
 import sprite from '@/assets/icons/sprite-admin.svg';
-
 import { useIsLoading } from '@/store/loadingStore';
 import useQualificatioStore from '@/store/qualificatioStore';
-
 import styles from './QualificationAdmin.module.scss';
 import Spinner from '@/ui/Spinner/Spinner';
 
-import { Field, Form, Formik } from 'formik';
 import FileInput from '../formik/FileInput/FileInput';
 import { diplomaImageValidation } from './validationSchema.js';
 
@@ -18,8 +27,17 @@ const initialValues = {
 const QualificationAdmin = () => {
   const { getDiplomas, deleteDiplomayId, addDiploma } = useQualificatioStore();
   const [diplomas, setDiplomas] = useState();
-
   const { isLoading, setIsLoading, setLoaded } = useIsLoading();
+
+  // Create a Cloudinary instance and set your cloud name.
+  const cld = new Cloudinary({
+    cloud: {
+      cloudName: 'dmzxbkd8p',
+    },
+  });
+
+  // cld.image returns a CloudinaryImage with the configuration set.
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -36,15 +54,19 @@ const QualificationAdmin = () => {
     try {
       setIsLoading();
       const result = await deleteDiplomayId(id);
-      console.log('result: ', result);
-      if (result) {
+
+      if (result.status === 'success') {
         const deletedDiploma = diplomas.find(diploma => diploma._id === id);
         const newDiplomasArr = diplomas.filter(
           diploma => diploma._id !== deletedDiploma._id
         );
         setDiplomas(newDiplomasArr);
+        toast.success('Ура, диплом видалений');
         setLoaded();
       } else {
+        if (result.status === 'error') {
+          toast.error('не вдалось видалити , запитай Іру');
+        }
         setLoaded();
         return;
       }
@@ -60,7 +82,20 @@ const QualificationAdmin = () => {
     formData.append('diplomaImg', values.image[0]);
     try {
       setIsLoading();
-      await addDiploma(formData);
+      const result = await addDiploma(formData);
+      if (result.status === 'success') {
+        setDiplomas(prev => [result.data, ...prev]);
+        toast.success('Ура, диплом доданий, давай ще ', {
+          position: 'top-right',
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: 'light',
+        });
+      }
       setLoaded();
     } catch (error) {
       console.log(error);
@@ -77,39 +112,54 @@ const QualificationAdmin = () => {
               validationSchema={diplomaImageValidation}
               onSubmit={onSubmit}
             >
-              {formik => {
-                return (
-                  <Form>
-                    <button className={styles.button} type="submit">
-                      Додати диплом
-                    </button>
+              <Form>
+                <button className={styles.button} type="submit">
+                  Додати диплом
+                </button>
 
-                    <div className={styles.layout}>
-                      <Field
-                        name="image"
-                        id="image"
-                        type="file"
-                        component={FileInput}
-                      />
-                    </div>
-                  </Form>
-                );
-              }}
+                <div className={styles.layout}>
+                  <Field
+                    name="image"
+                    id="image"
+                    type="file"
+                    component={FileInput}
+                  />
+                </div>
+              </Form>
             </Formik>
           </li>
-          {diplomas?.map(diploma => (
-            <div key={diploma._id} className={styles.listItem}>
-              <img src={diploma?.image.url} alt="" />
-              <div
-                className={styles.deleteIcon}
-                onClick={() => handelDelete(diploma._id)}
-              >
-                <svg>
-                  <use href={`${sprite}#${'icon-delete'}`} />
-                </svg>
-              </div>
-            </div>
-          ))}
+
+          {diplomas?.map(diploma => {
+            return (
+              <li key={diploma._id} className={styles.listItem}>
+                <AdvancedImage
+                  cldImg={cld
+                    .image(diploma?.image.public_id)
+                    .resize(Resize.scale().width(430).height(350))
+                    .roundCorners(byRadius(15))}
+                  plugins={
+                    ([
+                      lazyload({
+                        rootMargin: '10px 20px 10px 30px',
+                        threshold: 0.25,
+                      }),
+                    ],
+                    [responsive({ steps: 100 })],
+                    [placeholder({ mode: 'blur' })])
+                  }
+                />
+
+                <div
+                  className={styles.deleteIcon}
+                  onClick={() => handelDelete(diploma._id)}
+                >
+                  <svg>
+                    <use href={`${sprite}#${'icon-delete'}`} />
+                  </svg>
+                </div>
+              </li>
+            );
+          })}
         </ul>
       ) : (
         <Spinner />
