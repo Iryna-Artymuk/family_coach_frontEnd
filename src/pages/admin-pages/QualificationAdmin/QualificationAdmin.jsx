@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-
+import FormData from 'form-data';
 import sprite from '@/assets/icons/sprite-admin.svg';
 
 import { useIsLoading } from '@/store/loadingStore';
@@ -11,7 +11,6 @@ import Spinner from '@/ui/Spinner/Spinner';
 import { Field, Form, Formik } from 'formik';
 import FileInput from '../formik/FileInput/FileInput';
 import { diplomaImageValidation } from './validationSchema.js';
-import ButtonSubmit from '@/components/admin/SubmitButton/ButtonSubmit';
 
 const initialValues = {
   image: [],
@@ -19,7 +18,7 @@ const initialValues = {
 const QualificationAdmin = () => {
   const { getDiplomas, deleteDiplomayId, addDiploma } = useQualificatioStore();
   const [diplomas, setDiplomas] = useState();
-  console.log('diplomas: ', diplomas);
+
   const { isLoading, setIsLoading, setLoaded } = useIsLoading();
   useEffect(() => {
     const fetchData = async () => {
@@ -58,7 +57,7 @@ const QualificationAdmin = () => {
   const onSubmit = async values => {
     const formData = new FormData();
     console.log(values.image[0]);
-    formData.append('file', values.image[0], 'diplomaImg');
+    formData.append('diplomaImg', values.image[0]);
     try {
       setIsLoading();
       await addDiploma(formData);
