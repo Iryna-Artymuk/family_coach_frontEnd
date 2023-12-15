@@ -1,5 +1,13 @@
+import { Cloudinary } from '@cloudinary/url-gen';
+import { Resize } from '@cloudinary/url-gen/actions/resize';
+import { byRadius } from '@cloudinary/url-gen/actions/roundCorners';
+import {
+  AdvancedImage,
+  lazyload,
+  responsive,
+  placeholder,
+} from '@cloudinary/react';
 import Container from '@/components/main/Container/Container';
-
 import IconMore from '@/components/Icons/Main/IconMore';
 
 import { useEffect, useState } from 'react';
@@ -9,7 +17,6 @@ import styles from './QualificationPage.module.scss';
 import Spinner from '@/ui/Spinner/Spinner';
 import useQualificatioStore from '@/store/qualificatioStore';
 import { useIsLoading } from '@/store/loadingStore';
-
 
 const QualificationPage = () => {
   const [serteficatesPerPage, setSerteficatesPerPage] = useState(0);
@@ -22,7 +29,12 @@ const QualificationPage = () => {
   const isTablet = useMediaQuery({ minWidth: 768 });
 
   const isMobile = useMediaQuery({ maxWidth: 767 });
-
+  // Create a Cloudinary instance and set your cloud name.
+  const cld = new Cloudinary({
+    cloud: {
+      cloudName: 'dmzxbkd8p',
+    },
+  });
   const viewMore = () =>
     setSerteficatesPerPage(prev => prev + serteficatesPerPage);
   useEffect(() => {
@@ -66,7 +78,22 @@ const QualificationPage = () => {
                   key={diploma._id}
                   className={styles.qualification_list_item}
                 >
-                  <img src={diploma.image.url} alt="" />
+                  <AdvancedImage
+                    cldImg={cld
+                      .image(diploma?.image.public_id)
+                      // .resize(Resize.scale().width(430).height(350))
+                      .roundCorners(byRadius(15))}
+                    plugins={
+                      ([
+                        lazyload({
+                          rootMargin: '10px 20px 10px 30px',
+                          threshold: 0.25,
+                        }),
+                      ],
+                      [responsive({ steps: 100 })],
+                      [placeholder({ mode: 'blur' })])
+                    }
+                  />
                 </li>
               ))}
             </ul>

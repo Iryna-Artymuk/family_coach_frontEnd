@@ -29,7 +29,7 @@
 
 .buttonAddMore {
   position: absolute;
-  top: 0px;
+  top: 32px;
   right: 0;
   z-index: 100;
   // width: 120px;
@@ -42,7 +42,6 @@
   font-size: 12px;
   padding: 8.5px 19.5px;
   @media screen and (min-width: 768px) {
-   
     width: 241px;
     height: 42px;
     font-size: 16px;

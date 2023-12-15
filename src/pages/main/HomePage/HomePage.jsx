@@ -1,13 +1,10 @@
 import { useEffect, useRef, useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
-
+import { Link } from 'react-router-dom';
 import 'swiper/css';
 import 'swiper/css/effect-fade';
 
 import { useMediaQuery } from 'react-responsive';
-
-import feedbacks from '@/api/api';
-import styles from './HomePage.module.scss';
 
 import Container from '@/components/main/Container/Container';
 import Modal from '../../../components/main/Modal/Modal';
@@ -25,11 +22,15 @@ import heroPhoto from '@/assets/images/heroPhoto.jpg';
 import myPricepls from '@/assets/images/myPricepls.jpg';
 import whyMe from '@/assets/images/whyMe.jpg';
 
-import { Link } from 'react-router-dom';
-
+import styles from './HomePage.module.scss';
+import useFeedbackStore from '@/store/feedbackStore';
 const HomePage = () => {
   const [allfeedbacks, setAllfeedbacks] = useState([]);
-  // const [error, setError] = useState(null);
+  console.log('allfeedbacks: ', allfeedbacks);
+  const [feedbackStatus] = useState('approved');
+  const { getFeedbacks } = useFeedbackStore();
+  const [error, setError] = useState(null);
+
   const [isOpenModal, setIsOpenModal] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const swiperRef = useRef();
@@ -38,9 +39,7 @@ const HomePage = () => {
   const isTablet = useMediaQuery({ minWidth: 768 });
 
   const isMobile = useMediaQuery({ maxWidth: 767 });
-  // const swiperEl = document.querySelector('swiper-container');
-  // const buttonNext = document.querySelector('#buttonNext');
-  // const buttonPrev = document.querySelector('#buttonPrev');
+
   const closeModal = () => {
     setIsOpenModal(false);
     setIsSubmitted();
@@ -53,31 +52,31 @@ const HomePage = () => {
   }, []);
 
   const handleSubmitForm = async value => {
-    const newFeedback = await feedbacks.addFeedbacks(value);
-    console.log('newFeedback : ', newFeedback);
-    setAllfeedbacks(prev => [...prev, newFeedback]);
-    closeModal();
-    setIsSubmitted(!isSubmitted);
-    setTimeout(() => {
-      setIsSubmitted(false);
-    }, 1000);
+    // const newFeedback = await feedbacks.addFeedbacks(value);
+    // console.log('newFeedback : ', newFeedback);
+    // setAllfeedbacks(prev => [...prev, newFeedback]);
+    // closeModal();
+    // setIsSubmitted(!isSubmitted);
+    // setTimeout(() => {
+    //   setIsSubmitted(false);
+    // }, 1000);
   };
 
   useEffect(() => {
     const getAllFeedbacks = async () => {
       try {
-        const feedbackData = await feedbacks.getFeedbacks();
+        const result = await getFeedbacks(feedbackStatus);
 
-        setAllfeedbacks(feedbackData);
+        setAllfeedbacks(result.data);
       } catch (Error) {
-        // setError(Error.message);
+        setError(Error.message);
         console.log(Error.message);
       } finally {
         // setLoading(false);
       }
     };
     getAllFeedbacks();
-  }, []);
+  }, [feedbackStatus, getFeedbacks]);
 
   return (
     <>
@@ -377,12 +376,11 @@ const HomePage = () => {
         <Container>
           <div className={styles.feedBack_contentWrapper}>
             <h2 className={styles.title}>Відгуки</h2>
-
+            <Button buttonaddmore={true} type="button" onClick={openModal}>
+              Додати відгук
+            </Button>
             {allfeedbacks.length > 0 ? (
               <div className={styles.feedbakSwiperWrapper}>
-                <Button buttonaddmore={true} type="button" onClick={openModal}>
-                  Додати відгук
-                </Button>
                 <Swiper
                   onSwiper={swiper => {
                     swiperRef.current = swiper;
@@ -436,7 +434,7 @@ const HomePage = () => {
                 )}
               </div>
             ) : (
-              <p>Будьте перштм хто додасть відгук</p>
+              <p>Будьте першим, додайте відгук про мою роботу</p>
             )}
             {isOpenModal && (
               <Modal

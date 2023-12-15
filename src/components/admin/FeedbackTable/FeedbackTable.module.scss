@@ -1,0 +1,61 @@
+/* Create a 3-column grid layout */
+.wrapper {
+  width: 100%;
+  border-top: 1px solid $admin-gray;
+}
+.tableItem {
+  @extend%aligncenter;
+
+  padding: 10px 24px;
+  color: $admin-black;
+  font-size: 18px;
+  font-weight: 500;
+  border-right: 1px solid $admin-gray;
+  border-left: 1px solid $admin-gray;
+  border-bottom: 1px solid $admin-gray;
+}
+
+.headItem {
+  color: $admin-dark-blue;
+  font-size: 18px;
+  font-weight: 700;
+}
+.container {
+  display: flex;
+}
+
+.tableItem:nth-child(1) {
+  width: 230px;
+}
+.tableItem:nth-child(2) {
+  width: 300px;
+}
+.tableItem:nth-child(3) {
+  width: 220px;
+}
+.tableItem:nth-child(4) {
+  width: 96px;
+}
+.tableItem:nth-child(5) {
+  width: 60px;
+}
+.tableItem:nth-child(6) {
+  width: 96px;
+  svg {
+    path {
+      fill: red;
+    }
+  }
+}
+
+.notAprooved {
+  background: $admin-light-blue;
+}
+// .actions {
+//   display: flex;
+//   justify-content: space-between;
+//   .actionsItem {
+//     @extend%aligncenter;
+//     border-right: 1px solid $admin-gray;
+//   }
+// }

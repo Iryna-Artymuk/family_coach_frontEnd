@@ -600,6 +600,7 @@
 }
 
 .feedBack_contentWrapper {
+  position: relative;
   @extend%aligncenter;
   flex-direction: column;
   gap: 12px;
