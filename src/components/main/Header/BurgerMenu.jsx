@@ -1,8 +1,8 @@
 import clsx from 'clsx';
-import Button from '../../main/Button/Button';
+import Button from '../Button/Button';
 import styles from './Header.module.scss';
 import Navigation from './Navigation';
-import CloseIcon from '../Main/CloseIcon';
+import CloseIcon from '../../Icons/Main/CloseIcon';
 const BurgerMenu = ({ toggleBurgerMenu, showBurgerMenu }) => {
   return (
     <div

@@ -1,5 +1,4 @@
 import { Cloudinary } from '@cloudinary/url-gen';
-import { Resize } from '@cloudinary/url-gen/actions/resize';
 import { byRadius } from '@cloudinary/url-gen/actions/roundCorners';
 import {
   AdvancedImage,

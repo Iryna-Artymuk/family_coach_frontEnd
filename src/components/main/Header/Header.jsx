@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 
-import Button from '../../main/Button/Button';
-import BurgerIcon from '../Main/BurgerIcon';
-import Logo from '../Logo/Logo';
+import Button from '../Button/Button';
+import BurgerIcon from '../../Icons/Main/BurgerIcon';
+import Logo from '../../Icons/Logo/Logo';
 import Container from '@/components/main/Container/Container';
 import BurgerMenu from './BurgerMenu';
 

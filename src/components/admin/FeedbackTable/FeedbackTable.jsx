@@ -5,7 +5,7 @@ import { formatDate } from '@/helpers/formatDate';
 
 import sprite from '@/assets/icons/sprite-admin.svg';
 import style from './FeedbackTable.module.scss';
-const FeedbackTable = ({ data }) => {
+const FeedbackTable = ({ data, handelDelete }) => {
   // const { deletePost } = useNewsStore();
 
   const subString = str => {
@@ -16,15 +16,6 @@ const FeedbackTable = ({ data }) => {
       return 'Опубліковано';
     } else {
       return 'На розгляді';
-    }
-  };
-
-  const removePost = async id => {
-    try {
-      console.log('id ', id);
-      // await deletePost(id);
-    } catch (error) {
-      console.log(error);
     }
   };
 
@@ -63,7 +54,7 @@ const FeedbackTable = ({ data }) => {
           </div>
 
           <div className={style.tableItem}>
-            <button onClick={() => removePost(feedback._id)}>
+            <button onClick={() => handelDelete(feedback._id)}>
               <svg>
                 <use href={`${sprite}#icon-trash`} />
               </svg>

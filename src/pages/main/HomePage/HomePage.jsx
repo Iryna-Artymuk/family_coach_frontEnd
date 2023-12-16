@@ -5,7 +5,6 @@ import 'swiper/css';
 import 'swiper/css/effect-fade';
 
 import { useMediaQuery } from 'react-responsive';
-
 import Container from '@/components/main/Container/Container';
 import Modal from '../../../components/main/Modal/Modal';
 import AddForm from '@/components/Forms/FormAddFeedback';
@@ -24,14 +23,17 @@ import whyMe from '@/assets/images/whyMe.jpg';
 
 import styles from './HomePage.module.scss';
 import useFeedbackStore from '@/store/feedbackStore';
+
+import Spinner from '@/ui/Spinner/Spinner';
 const HomePage = () => {
   const [allfeedbacks, setAllfeedbacks] = useState([]);
   console.log('allfeedbacks: ', allfeedbacks);
   const [feedbackStatus] = useState('approved');
   const { getFeedbacks } = useFeedbackStore();
-  const [error, setError] = useState(null);
 
+  // const { isLoading, setIsLoading, setLoaded } = useIsLoading();
   const [isOpenModal, setIsOpenModal] = useState(false);
+  console.log('isOpenModal: ', isOpenModal);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const swiperRef = useRef();
   const swiperRef2 = useRef();
@@ -51,17 +53,6 @@ const HomePage = () => {
     window.scrollTo(0, 0);
   }, []);
 
-  const handleSubmitForm = async value => {
-    // const newFeedback = await feedbacks.addFeedbacks(value);
-    // console.log('newFeedback : ', newFeedback);
-    // setAllfeedbacks(prev => [...prev, newFeedback]);
-    // closeModal();
-    // setIsSubmitted(!isSubmitted);
-    // setTimeout(() => {
-    //   setIsSubmitted(false);
-    // }, 1000);
-  };
-
   useEffect(() => {
     const getAllFeedbacks = async () => {
       try {
@@ -69,7 +60,7 @@ const HomePage = () => {
 
         setAllfeedbacks(result.data);
       } catch (Error) {
-        setError(Error.message);
+        // setError(Error.message);
         console.log(Error.message);
       } finally {
         // setLoading(false);
@@ -408,7 +399,7 @@ const HomePage = () => {
                     return (
                       <SwiperSlide
                         className={styles.slideFeedback}
-                        key={feedback.id}
+                        key={feedback._id}
                       >
                         <FeedbackCard feedback={feedback} />
                       </SwiperSlide>
@@ -442,7 +433,11 @@ const HomePage = () => {
                 closeModal={closeModal}
                 isSubmitted={isSubmitted}
               >
-                <AddForm handleSubmitForm={handleSubmitForm} />
+                <AddForm
+                  setIsSubmitted={setIsSubmitted}
+                  isSubmitted={isSubmitted}
+                  closeModal={closeModal}
+                />
               </Modal>
             )}
             {isSubmitted && (

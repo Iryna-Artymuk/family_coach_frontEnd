@@ -85,16 +85,7 @@ const QualificationAdmin = () => {
       const result = await addDiploma(formData);
       if (result.status === 'success') {
         setDiplomas(prev => [result.data, ...prev]);
-        toast.success('Ура, диплом доданий, давай ще ', {
-          position: 'top-right',
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: 'light',
-        });
+        toast.success('Ура, диплом доданий, давай ще ');
       }
       setLoaded();
     } catch (error) {

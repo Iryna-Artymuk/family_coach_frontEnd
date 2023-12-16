@@ -13,23 +13,30 @@ const useFeedbackStore = create((set, get) => ({
     return result;
   },
 
-  // addDiploma: async formData => {
-  //   const response = await fetch(`${get().server}/qualification`, {
-  //     method: 'POST',
+  addFeedback: async data => {
+    const newFeedBack = {
+      name: data.name,
+      feedback: data.feedback,
+    };
 
-  //     body: formData,
-  //   });
-  //   const result = await response.json();
-  //   return result;
-  // },
+    const response = await fetch(`${get().server}/feedbacks`, {
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      method: 'POST',
+      body: JSON.stringify(newFeedBack),
+    });
+    const result = await response.json();
+    return result;
+  },
 
-  // deleteDiplomayId: async id => {
-  //   const response = await fetch(`${get().server}/qualification/${id}`, {
-  //     method: 'DELETE',
-  //   });
-  //   const result = await response.json();
-  //   return result;
-  // },
+  deleteFeedbackId: async id => {
+    const response = await fetch(`${get().server}/feedbacks/${id}`, {
+      method: 'DELETE',
+    });
+    const result = await response.json();
+    return result;
+  },
 }));
 
 export default useFeedbackStore;
