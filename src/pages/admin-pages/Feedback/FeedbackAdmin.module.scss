@@ -1,62 +1,25 @@
-// .tableWrappe {
-//   width: 996px;
-//   @extend%aligncenter;
-//   flex-direction: column;
-// }
+// edit feedback
 
-// .tableList {
-//   border: 1px solid #444;
-// }
-// .tableList_item {
-//   gap: 10px;
-// }
-// .tableList_item_content {
-//   display: grid;
-
-//   grid-template-columns: repeat(4, 1fr);
-//   p {
-//     border: 1px solid #444;
-//   }
-// }
-// .nameWrapper {
-//   display: grid;
-//   grid-template-columns: repeat(2, auto);
-
-//   p {
-//     border: 1px solid #444;
-//   }
-// }
-// .actionsWrapper {
-//   display: grid;
-//   grid-template-columns: repeat(2, auto);
-
-//   justify-content: flex-end;
-//   span {
-//     border: 1px solid #444;
-//   }
-// }
-
-tableWrappe {
-  width: 996px;
+.wrapper {
+  width: 400px;
   @extend%aligncenter;
   flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+  margin-top: 24px;
 }
-
-.tableList {
-  border: 1px solid #444;
+.content {
+  width: 400px;
+  border-radius: 10px;
+  border: 1px solid $admin-black;
+  padding: 10px 12px;
+  color: $admin-black;
+  font-size: 18px;
+  font-weight: 500;
 }
-.tableList_item {
-  width: 100%;
-}
-.tableList_item_content {
-  width: 100%;
-  display: flex;
-  justify-content: space-evenly;
-  border: 1px solid #444;
-  .feedbackText {
-    flex-grow: 2;
-  }
-  p {
-    flex-grow: 1;
-  }
+.label {
+  color: $admin-dark-blue;
+  font-size: 18px;
+  font-weight: 500;
+  margin-bottom: 10px;
 }

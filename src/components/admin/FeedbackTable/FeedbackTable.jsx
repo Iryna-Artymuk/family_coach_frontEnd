@@ -46,7 +46,7 @@ const FeedbackTable = ({ data, handelDelete }) => {
             {formatDate(feedback.createdAt)}
           </div>
           <div className={style.tableItem}>
-            <Link to={`edit/${feedback.id}`}>
+            <Link to={`edit/${feedback._id}`}>
               <svg>
                 <use href={`${sprite}#icon-edit`} />
               </svg>

@@ -1,14 +1,23 @@
 .button {
-  width: 206px;
-  height: 30px;
+  display: flex;
+  // width: 150px;
+  height: 40px;
+  padding: 12px 16px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
   border-radius: 5px;
-
-  background: $admin-dark-blue;
   color: $admin-white;
-
+  background: $admin-dark-blue;
   font-family: 'Montserrat';
   font-size: 16px;
   font-weight: 700;
+
+  &:hover {
+    background: $admin-light-blue;
+    color: $admin-dark-blue;
+  }
 }
 
 .button_light {
