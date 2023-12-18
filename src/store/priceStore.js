@@ -2,8 +2,8 @@ import { create } from 'zustand';
 
 const usePriceStore = create((set, get) => ({
   // server: import.meta.env.VITE_APP_API_URL,
-  // server: 'https://family-coach.onrender.com/api',
-  server: 'http://localhost:5000/api',
+  server: 'https://family-coach.onrender.com/api',
+  // server: 'http://localhost:5000/api',
   getPrices: async () => {
     const response = await fetch(`${get().server}/price`);
     if (!response.ok) {
