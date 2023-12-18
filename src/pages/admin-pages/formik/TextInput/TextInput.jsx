@@ -11,13 +11,13 @@ const TextInput = ({
   showCharacterCount,
 }) => {
   const isFieldTouched = touched[field.name];
-  const valueLength = field.value.length;
+  const valueLength = field.value?.length;
   const [isFocused, setIsFocused] = useState(false);
 
   useEffect(() => {
     if (!text) return;
-    setFieldValue('title', text);
-  }, [text, setFieldValue]);
+    setFieldValue(id, text);
+  }, [text, setFieldValue,id]);
 
   const handleFocus = () => {
     setIsFocused(true);
