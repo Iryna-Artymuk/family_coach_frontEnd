@@ -65,7 +65,7 @@ const QualificationAdmin = () => {
         setLoaded();
       } else {
         if (result.status === 'error') {
-          toast.error('не вдалось видалити , запитай Іру');
+          toast.error('ой, сталась помилка , служба підтрики 24/7 0666796604');
         }
         setLoaded();
         return;

@@ -354,7 +354,7 @@ const HomePage = () => {
                     </li>
                     <li className={styles.workAreas_subList_item}>
                       <p className={styles.workAreas_subList_itemText}>
-                        Депресія*
+                        Депресивні настрої
                       </p>
                     </li>
                   </ul>

@@ -1,7 +1,7 @@
 import Container from '@/components/main/Container/Container';
 
 import PriceCardAdult from '@/components/main/PriceCards/PriceCardAdult';
-import { priceDataAdult, priceDataKids, lectureData } from '@/data/priceData';
+
 import { useEffect, useRef, useState } from 'react';
 
 import styles from './PricePage.module.scss';
@@ -9,11 +9,19 @@ import PriceCarKids from '@/components/main/PriceCards/PriceCardKids';
 import IconMore from '@/components/Icons/Main/IconMore';
 import IconLess from '@/components/Icons/Main/IconLess';
 import PriceCardLecture from '@/components/main/PriceCards/PriceCardLecture';
+import usePriceStore from '@/store/priceStore';
+import { useIsLoading } from '@/store/loadingStore';
+import Spinner from '@/ui/Spinner/Spinner';
 
 const PricePage = () => {
   const [showAdultPrice, setShowAdultPrice] = useState(false);
   const [showKidsPrice, setShowKidsPrice] = useState(false);
   const [showVebinarPrice, setShowVebinarPrice] = useState(false);
+  const [adultPrices, setAdultPrices] = useState([]);
+  const [kidsPrices, setKidsPrices] = useState([]);
+  const [lecturePrices, setLecturePrices] = useState([]);
+  const { getPrices } = usePriceStore();
+  const { isLoading, setIsLoading, setLoaded } = useIsLoading();
   const listRef = useRef(null);
   const executeScroll = () =>
     listRef.current.scrollIntoView({
@@ -39,6 +47,25 @@ const PricePage = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        setIsLoading();
+        const result = await getPrices();
+
+        const { adultPrices, kidsPrices, lecturePrices } = result.data[0];
+        setAdultPrices(adultPrices);
+        setKidsPrices(kidsPrices);
+        setLecturePrices(lecturePrices);
+        setLoaded();
+      } catch (error) {
+        console.log(error);
+      } finally {
+        setLoaded();
+      }
+    };
+    fetchData();
+  }, [getPrices, setIsLoading, setLoaded]);
   return (
     <section>
       <Container>
@@ -62,7 +89,7 @@ const PricePage = () => {
               <li className={styles.list_item}>
                 <p className={styles.list_item_text}>
                   {' '}
-                  Працюю в інтегрованому підході
+                  Працюю в інтегративному підході
                 </p>
               </li>
             </ul>
@@ -90,8 +117,8 @@ const PricePage = () => {
               </li>
               <li className={styles.list_item}>
                 <p className={styles.list_item_text}>
-                  І вже лише 2га - наступні, клієнт разом з психологом формує 《
-                  Запит 》- те ,що клієнт хотів би отримати від роботи з
+                  І вже лише 2га - наступні, клієнт разом з психологом
+                  формує《Запит》- те ,що клієнт хотів би отримати від роботи з
                   психологом
                 </p>
               </li>
@@ -162,15 +189,18 @@ const PricePage = () => {
                 {showAdultPrice && <IconLess />}
               </button>
 
-              {showAdultPrice && (
-                <ul className={styles.priceList}>
-                  {priceDataAdult.map(priceData => (
-                    <li key={priceData.id}>
-                      <PriceCardAdult priceData={priceData} />
-                    </li>
-                  ))}
-                </ul>
-              )}
+              {showAdultPrice &&
+                (!isLoading ? (
+                  <ul className={styles.priceList}>
+                    {adultPrices.map(priceData => (
+                      <li key={priceData.id}>
+                        <PriceCardAdult priceData={priceData} />
+                      </li>
+                    ))}
+                  </ul>
+                ) : (
+                  <Spinner />
+                ))}
             </div>
             <div className={styles.priceContentWrapper}>
               <button
@@ -186,7 +216,7 @@ const PricePage = () => {
               </button>
               {showKidsPrice && (
                 <ul className={styles.priceList}>
-                  {priceDataKids.map(priceData => (
+                  {kidsPrices.map(priceData => (
                     <li key={priceData.id}>
                       <PriceCarKids priceData={priceData} />
                     </li>
@@ -210,7 +240,7 @@ const PricePage = () => {
 
               {showVebinarPrice && (
                 <ul className={styles.priceList}>
-                  {lectureData.map(priceData => (
+                  {lecturePrices.map(priceData => (
                     <li key={priceData.id}>
                       <PriceCardLecture priceData={priceData} />
                     </li>

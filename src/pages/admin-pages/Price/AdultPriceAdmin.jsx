@@ -1,11 +1,15 @@
+import { toast } from 'react-toastify';
+import { Field, Form, Formik } from 'formik';
+import { useEffect, useState } from 'react';
+
 import { useIsLoading } from '@/store/loadingStore';
 import usePriceStore from '@/store/priceStore';
 import Spinner from '@/ui/Spinner/Spinner';
-import { Field, Form, Formik } from 'formik';
-import { useEffect, useState } from 'react';
+
 import TextInput from '../formik/TextInput/TextInput';
+
+import sprite from '@/assets/icons/sprite-admin.svg';
 import styles from './Price.module.scss';
-import { toast } from 'react-toastify';
 
 const initialValues = {
   category: 'Дорослі',
@@ -16,7 +20,7 @@ const initialValues = {
   price: '',
 };
 const AdultPriceAdmin = () => {
-  const { getPrices, updatePrice } = usePriceStore();
+  const { getPrices, updatePrice, addPrice, deletePriceById } = usePriceStore();
   const [adultPrices, setAdultPrices] = useState([]);
   const { isLoading, setIsLoading, setLoaded } = useIsLoading();
 
@@ -27,7 +31,6 @@ const AdultPriceAdmin = () => {
         const result = await getPrices();
 
         const { adultPrices } = result.data[0];
-        console.log('adultPrices : ', adultPrices);
         setAdultPrices(adultPrices);
         setLoaded();
       } catch (error) {
@@ -45,13 +48,10 @@ const AdultPriceAdmin = () => {
       const result = await updatePrice(values, id);
       if (result.status === 'success') {
         toast.success('Ура, пакет оновлено');
-        setLoaded();
       } else {
         setLoaded();
         if (result.status === 'error') {
-          toast.error(
-            'не вдалось оновити пакет, зверніться в службу підтримки 0666796604'
-          );
+          toast.error('ой, сталась помилка , служба підтрики 24/7 0666796604');
         }
       }
       setLoaded();
@@ -59,6 +59,51 @@ const AdultPriceAdmin = () => {
       console.log(error);
     }
   };
+  const addOnSubmit = async (values, id) => {
+    try {
+      setIsLoading();
+      const result = await addPrice(values, id);
+      if (result.status === 'success') {
+        toast.success(`Ура, новий пакет${values.type} додано`);
+      } else {
+        setLoaded();
+        if (result.status === 'error') {
+          toast.error('не вдалось додати пакет, служба підтримки 0666796604');
+        }
+      }
+      setLoaded();
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  const handelDelete = async id => {
+    const category = 'Дорослі';
+    try {
+      setIsLoading();
+      const result = await deletePriceById(id, category);
+
+      if (result.status === 'success') {
+        const deletedDiploma = adultPrices.find(diploma => diploma._id === id);
+        const newPriceArr = adultPrices.filter(
+          diploma => diploma._id !== deletedDiploma._id
+        );
+        setAdultPrices(newPriceArr);
+        toast.success('Ура, пакет видалений');
+        setLoaded();
+      } else {
+        if (result.status === 'error') {
+          toast.error('ой, сталась помилка , служба підтрики 24/7 0666796604');
+        }
+        setLoaded();
+        return;
+      }
+    } catch (error) {
+      console.log(error);
+
+      setLoaded();
+    }
+  };
+
   return (
     <div>
       {isLoading && <Spinner />}
@@ -76,6 +121,14 @@ const AdultPriceAdmin = () => {
               >
                 <Form>
                   <div className={styles.layout}>
+                    <div
+                      className={styles.deleteIcon}
+                      onClick={() => handelDelete(price._id)}
+                    >
+                      <svg>
+                        <use href={`${sprite}#${'icon-cross'}`} />
+                      </svg>
+                    </div>
                     <Field
                       name="category"
                       id="category"
@@ -150,7 +203,7 @@ const AdultPriceAdmin = () => {
           <Formik
             initialValues={initialValues}
             // validationSchema={newsValidation}
-            // onSubmit={addOnSubmit}
+            onSubmit={addOnSubmit}
           >
             <Form>
               <div className={styles.layout}>

@@ -4,6 +4,7 @@
   gap: 40px;
 }
 .layout {
+  position: relative;
   @extend%aligncenter;
   flex-direction: column;
   gap: 24px;
@@ -33,4 +34,10 @@
     background: $admin-light-blue;
     color: $admin-dark-blue;
   }
+}
+
+.deleteIcon {
+  position: absolute;
+  top: 24px;
+  right: 24px;
 }
