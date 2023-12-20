@@ -49,7 +49,9 @@ const AdultPriceAdmin = () => {
       setIsLoading();
       const result = await updatePrice(values, id);
       if (result.status === 'success') {
-        toast.success('пакет оновлено побачити результат перезагрузіть сторінку');
+        toast.success(
+          'пакет оновлено побачити результат перезагрузіть сторінку'
+        );
       } else {
         setLoaded();
         if (result.status === 'error') {
@@ -85,12 +87,12 @@ const AdultPriceAdmin = () => {
       const result = await deletePriceById(id, category);
 
       if (result.status === 'success') {
-        const deletedDiploma = adultPrices.find(diploma => diploma._id === id);
+        const deletedPrice = adultPrices.find(price => price._id === id);
         const newPriceArr = adultPrices.filter(
-          diploma => diploma._id !== deletedDiploma._id
+          price => price._id !== deletedPrice._id
         );
         setAdultPrices(newPriceArr);
-        toast.success('Ура, пакет видалений');
+        toast.success('Ура, лекцію видалено');
         setLoaded();
       } else {
         if (result.status === 'error') {
