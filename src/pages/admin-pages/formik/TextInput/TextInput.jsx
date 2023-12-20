@@ -17,7 +17,7 @@ const TextInput = ({
   useEffect(() => {
     if (!text) return;
     setFieldValue(id, text);
-  }, [text, setFieldValue,id]);
+  }, [text, setFieldValue, id]);
 
   const handleFocus = () => {
     setIsFocused(true);
@@ -30,7 +30,7 @@ const TextInput = ({
   }, [isFieldTouched, valueLength]);
 
   const getBorderColor = () => {
-    if (valueLength > maxLength) {
+    if (valueLength > maxLength || errors?.[field.name]) {
       return styles.redBorder;
     }
     if (isFocused) {
@@ -70,13 +70,13 @@ const TextInput = ({
         onClick={() => setIsFocused(true)}
         {...field}
       />
+      <div className={styles.errorWrap}>
+        {errors?.[field.name] && isFieldTouched && (
+          <p className={styles.errorMessage}>{errors?.[field.name]}</p>
+        )}
+      </div>
       {showCharacterCount && (
         <div className={styles.commentsWrapper}>
-          <div className={styles.errorWrap}>
-            {errors?.[field.name] && isFieldTouched && (
-              <p className={styles.errorMessage}>{errors?.[field.name]}</p>
-            )}
-          </div>
           <p
             className={`${styles.counterMessage} ${
               valueLength > maxLength ? styles.redText : ''

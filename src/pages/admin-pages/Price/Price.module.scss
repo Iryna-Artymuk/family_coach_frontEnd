@@ -35,7 +35,13 @@
     color: $admin-dark-blue;
   }
 }
-
+.inActiveButton {
+  background: $admin-light-gray;
+  &:hover {
+    background: $admin-light-gray;
+    color: $admin-dark-blue;  
+  }
+}
 .deleteIcon {
   position: absolute;
   top: 24px;

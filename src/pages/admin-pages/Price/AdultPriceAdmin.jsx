@@ -10,6 +10,8 @@ import TextInput from '../formik/TextInput/TextInput';
 
 import sprite from '@/assets/icons/sprite-admin.svg';
 import styles from './Price.module.scss';
+import { adultPriceValidation } from './validationShemas/adultPriceValidationSchema';
+import clsx from 'clsx';
 
 const initialValues = {
   category: 'Дорослі',
@@ -92,7 +94,7 @@ const AdultPriceAdmin = () => {
         setLoaded();
       } else {
         if (result.status === 'error') {
-          toast.error('ой, сталась помилка , служба підтрики 24/7 0666796604');
+          toast.error(`ой, сталась помилка ,${result.message}`);
         }
         setLoaded();
         return;
@@ -114,21 +116,107 @@ const AdultPriceAdmin = () => {
               <Formik
                 key={index}
                 initialValues={initialValues}
-                // validationSchema={newsValidation}
+                validationSchema={adultPriceValidation}
                 onSubmit={value => {
                   updateOnSubmit(value, price._id);
                 }}
               >
+                {formik => {
+                  return (
+                    <Form>
+                      <div className={styles.layout}>
+                        <div
+                          className={styles.deleteIcon}
+                          onClick={() => handelDelete(price._id)}
+                        >
+                          <svg>
+                            <use href={`${sprite}#${'icon-cross'}`} />
+                          </svg>
+                        </div>
+                        <Field
+                          name="category"
+                          id="category"
+                          placeholder="category"
+                          component={TextInput}
+                          maxLength={20}
+                          showCharacterCount={true}
+                          text={price?.category}
+                          label="Категорія"
+                        />
+                        <Field
+                          name="type"
+                          id="type"
+                          placeholder="Тип"
+                          component={TextInput}
+                          maxLength={20}
+                          showCharacterCount={true}
+                          text={price?.type}
+                          label="Тип"
+                        />
+                        <Field
+                          name="amount"
+                          id="amount"
+                          placeholder="Кількість консультацій"
+                          component={TextInput}
+                          maxLength={100}
+                          showCharacterCount={true}
+                          text={price?.amount}
+                          label="Кількість консультацій"
+                        />
+                        <Field
+                          name="duration"
+                          id="duration"
+                          placeholder="Кількість консультацій"
+                          component={TextInput}
+                          maxLength={20}
+                          showCharacterCount={true}
+                          text={price?.duration}
+                          label="Тривалість(хв)"
+                        />
+                        <Field
+                          name="period"
+                          id="period"
+                          placeholder="Термін дії"
+                          component={TextInput}
+                          text={price?.period}
+                          label="Термін дії(днів)"
+                        />
+                        <Field
+                          name="price"
+                          id="price"
+                          placeholder="Ціна"
+                          component={TextInput}
+                          text={price?.price}
+                          label="Ціна(грн)"
+                        />
+
+                        <button
+                          className={clsx(
+                            styles.button,
+                            !formik.isValid && styles.inActiveButton
+                          )}
+                          type="submit"
+                          disabled={!formik.isValid}
+                        >
+                          Оновити пакет
+                        </button>
+                      </div>
+                    </Form>
+                  );
+                }}
+              </Formik>
+            );
+          })}
+
+          <Formik
+            initialValues={initialValues}
+            validationSchema={adultPriceValidation}
+            onSubmit={addOnSubmit}
+          >
+            {formik => {
+              return (
                 <Form>
                   <div className={styles.layout}>
-                    <div
-                      className={styles.deleteIcon}
-                      onClick={() => handelDelete(price._id)}
-                    >
-                      <svg>
-                        <use href={`${sprite}#${'icon-cross'}`} />
-                      </svg>
-                    </div>
                     <Field
                       name="category"
                       id="category"
@@ -136,17 +224,15 @@ const AdultPriceAdmin = () => {
                       component={TextInput}
                       maxLength={20}
                       showCharacterCount={true}
-                      text={price?.category}
                       label="Категорія"
                     />
                     <Field
                       name="type"
                       id="type"
-                      placeholder="Тип"
+                      // placeholder="Тип"
                       component={TextInput}
                       maxLength={20}
                       showCharacterCount={true}
-                      text={price?.type}
                       label="Тип"
                     />
                     <Field
@@ -154,9 +240,8 @@ const AdultPriceAdmin = () => {
                       id="amount"
                       placeholder="Кількість консультацій"
                       component={TextInput}
-                      maxLength={100}
+                      maxLength={50}
                       showCharacterCount={true}
-                      text={price?.amount}
                       label="Кількість консультацій"
                     />
                     <Field
@@ -164,9 +249,6 @@ const AdultPriceAdmin = () => {
                       id="duration"
                       placeholder="Кількість консультацій"
                       component={TextInput}
-                      maxLength={20}
-                      showCharacterCount={true}
-                      text={price?.duration}
                       label="Тривалість(хв)"
                     />
                     <Field
@@ -174,9 +256,6 @@ const AdultPriceAdmin = () => {
                       id="period"
                       placeholder="Термін дії"
                       component={TextInput}
-                      maxLength={20}
-                      showCharacterCount={true}
-                      text={price?.period}
                       label="Термін дії(днів)"
                     />
                     <Field
@@ -184,89 +263,23 @@ const AdultPriceAdmin = () => {
                       id="price"
                       placeholder="Ціна"
                       component={TextInput}
-                      maxLength={20}
-                      showCharacterCount={true}
-                      text={price?.price}
                       label="Ціна(грн)"
                     />
 
-                    <button className={styles.button} type="submit">
-                      {' '}
-                      Оновити пакет
+                    <button
+                      className={clsx(
+                        styles.button,
+                        !formik.isValid && styles.inActiveButton
+                      )}
+                      type="submit"
+                      disabled={!formik.isValid}
+                    >
+                      Додати новий пакет
                     </button>
                   </div>
                 </Form>
-              </Formik>
-            );
-          })}
-
-          <Formik
-            initialValues={initialValues}
-            // validationSchema={newsValidation}
-            onSubmit={addOnSubmit}
-          >
-            <Form>
-              <div className={styles.layout}>
-                <Field
-                  name="category"
-                  id="category"
-                  placeholder="category"
-                  component={TextInput}
-                  maxLength={20}
-                  showCharacterCount={true}
-                  label="Категорія"
-                />
-                <Field
-                  name="type"
-                  id="type"
-                  // placeholder="Тип"
-                  component={TextInput}
-                  maxLength={20}
-                  showCharacterCount={true}
-                  label="Тип"
-                />
-                <Field
-                  name="amount"
-                  id="amount"
-                  placeholder="Кількість консультацій"
-                  component={TextInput}
-                  maxLength={100}
-                  showCharacterCount={true}
-                  label="Кількість консультацій"
-                />
-                <Field
-                  name="duration"
-                  id="duration"
-                  placeholder="Кількість консультацій"
-                  component={TextInput}
-                  maxLength={20}
-                  showCharacterCount={true}
-                  label="Тривалість(хв)"
-                />
-                <Field
-                  name="period"
-                  id="period"
-                  placeholder="Термін дії"
-                  component={TextInput}
-                  maxLength={20}
-                  showCharacterCount={true}
-                  label="Термін дії(днів)"
-                />
-                <Field
-                  name="price"
-                  id="price"
-                  placeholder="Ціна"
-                  component={TextInput}
-                  maxLength={20}
-                  showCharacterCount={true}
-                  label="Ціна(грн)"
-                />
-
-                <button className={styles.button} type="submit">
-                  Додати новий пакет
-                </button>
-              </div>
-            </Form>
+              );
+            }}
           </Formik>
         </div>
       )}
