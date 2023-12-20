@@ -14,34 +14,7 @@
   background: var(--Gray-blue, #c3c6d3);
 }
 
-.button {
-  display: flex;
-  width: 273px;
-  padding: 14px 10px;
-  justify-content: center;
-  align-items: center;
-  background: $admin-dark-blue;
-  color: #fff;
-  font-family: Montserrat;
-  font-size: 15px;
-  font-style: normal;
-  font-weight: 600;
-  line-height: normal;
-  border-radius: 15px;
-  transition: background-color 0.3s ease;
 
-  &:hover {
-    background: $admin-light-blue;
-    color: $admin-dark-blue;
-  }
-}
-.inActiveButton {
-  background: $admin-light-gray;
-  &:hover {
-    background: $admin-light-gray;
-    color: $admin-dark-blue;  
-  }
-}
 .deleteIcon {
   position: absolute;
   top: 24px;

@@ -4,31 +4,25 @@
   padding: 14px 10px;
   justify-content: center;
   align-items: center;
-
+  background: $admin-dark-blue;
   color: #fff;
   font-family: Montserrat;
   font-size: 15px;
   font-style: normal;
   font-weight: 600;
   line-height: normal;
-
-  transition: background-color 0.3s ease;
-}
-
-.activeButton {
   border-radius: 15px;
-  border: 1px solid #0047ff;
-  background: $admin-dark-blue;
-}
+  transition: background-color 0.3s ease;
 
-.activeButton:hover {
-  border: 1px solid $admin-dark-blue;
-  background: $admin-light-blue;
-  color: $admin-dark-blue;
+  &:hover {
+    background: $admin-light-blue;
+    color: $admin-dark-blue;
+  }
 }
-
-.inactiveButton {
-  border-radius: 6px;
-  border: 1px solid #b7bfcc;
-  background: #b7bfcc;
+.inActiveButton {
+  background: $admin-light-gray;
+  &:hover {
+    background: $admin-light-gray;
+    color: $admin-dark-blue;
+  }
 }

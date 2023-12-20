@@ -19,6 +19,7 @@ import styles from './Price.module.scss';
 
 import clsx from 'clsx';
 import { lecturePriceValidationSchema } from './validationShemas/lecturePriceValidationSchema';
+import ButtonSubmit from '@/components/admin/SubmitButton/ButtonSubmit';
 
 const initialValues = {
   category: 'Лекції',
@@ -55,7 +56,7 @@ const LecturePriceAdmin = () => {
       const result = await updatePrice(values, id);
       if (result.status === 'success') {
         toast.success(
-          'пакет оновлено побачити результат перезагрузіть сторінку'
+          'успішно оновлено, щоб побачити результат перезагрузіть сторінку'
         );
       } else {
         setLoaded();
@@ -73,12 +74,12 @@ const LecturePriceAdmin = () => {
       setIsLoading();
       const result = await addPrice(values, id);
       if (result.status === 'success') {
-        toast.success(`Ура, новий пакет${values.type} додано`);
+        toast.success(`Ура, ${values.type} додано успішно `);
       } else {
         setLoaded();
         if (result.status === 'error') {
           toast.error(
-            `не вдалось додати пакет, ${result.message} служба підтримки 0666796604`
+            `ой, сталась помилка, ${result.message} служба підтримки 0666796604`
           );
         }
       }
@@ -101,7 +102,7 @@ const LecturePriceAdmin = () => {
           diploma => diploma._id !== deletedDiploma._id
         );
         setLecturePrices(newPriceArr);
-        toast.success('Ура, пакет видалений');
+        toast.success('Ура, успішно видалено');
         setLoaded();
       } else {
         if (result.status === 'error') {
@@ -185,16 +186,11 @@ const LecturePriceAdmin = () => {
                           label="Ціна(грн)"
                         />
 
-                        <button
-                          className={clsx(
-                            styles.button,
-                            !formik.isValid && styles.inActiveButton
-                          )}
-                          type="submit"
-                          disabled={!formik.isValid}
-                        >
-                          Оновити лекцію
-                        </button>
+                        <ButtonSubmit
+                          nameButton="Оновити лекцію"
+                          isActive={formik.isValid}
+                          handlerSubmitButton={formik.handleSubmit}
+                        />
                       </div>
                     </Form>
                   );
@@ -230,7 +226,6 @@ const LecturePriceAdmin = () => {
                       showCharacterCount={true}
                       label="Тип"
                     />
-
                     <Field
                       name="theme"
                       id="theme"
@@ -239,7 +234,6 @@ const LecturePriceAdmin = () => {
                       maxLength={100}
                       label="Тема лекції чи вебінару"
                     />
-
                     <Field
                       name="price"
                       id="price"
@@ -248,16 +242,11 @@ const LecturePriceAdmin = () => {
                       label="Ціна(грн)"
                     />
 
-                    <button
-                      className={clsx(
-                        styles.button,
-                        !formik.isValid && styles.inActiveButton
-                      )}
-                      type="submit"
-                      disabled={!formik.isValid}
-                    >
-                      Додати лекцію
-                    </button>
+                    <ButtonSubmit
+                      nameButton="Додати лекцію"
+                      isActive={formik.isValid}
+                      handlerSubmitButton={formik.handleSubmit}
+                    />
                   </div>
                 </Form>
               );

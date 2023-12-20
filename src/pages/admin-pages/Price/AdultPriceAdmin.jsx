@@ -11,7 +11,7 @@ import TextInput from '../formik/TextInput/TextInput';
 import sprite from '@/assets/icons/sprite-admin.svg';
 import styles from './Price.module.scss';
 import { adultPriceValidation } from './validationShemas/adultPriceValidationSchema';
-import clsx from 'clsx';
+import ButtonSubmit from '@/components/admin/SubmitButton/ButtonSubmit';
 
 const initialValues = {
   category: 'Дорослі',
@@ -50,12 +50,12 @@ const AdultPriceAdmin = () => {
       const result = await updatePrice(values, id);
       if (result.status === 'success') {
         toast.success(
-          'пакет оновлено побачити результат перезагрузіть сторінку'
+          'успішно оновлено, щоб побачити результат перезагрузіть сторінку'
         );
       } else {
         setLoaded();
         if (result.status === 'error') {
-          toast.error('ой, сталась помилка , служба підтрики 24/7 0666796604');
+          toast.error(`ой, сталась помилка, ${result.message} служба підтримки 0666796604`)
         }
       }
       setLoaded();
@@ -72,7 +72,9 @@ const AdultPriceAdmin = () => {
       } else {
         setLoaded();
         if (result.status === 'error') {
-          toast.error('не вдалось додати пакет, служба підтримки 0666796604');
+           toast.error(
+             `ой, сталась помилка, ${result.message} служба підтримки 0666796604`
+           );
         }
       }
       setLoaded();
@@ -92,11 +94,13 @@ const AdultPriceAdmin = () => {
           price => price._id !== deletedPrice._id
         );
         setAdultPrices(newPriceArr);
-        toast.success('Ура, лекцію видалено');
+        toast.success('Ура,  видалено успішно ');
         setLoaded();
       } else {
         if (result.status === 'error') {
-          toast.error(`ой, сталась помилка ,${result.message}`);
+         toast.error(
+           `ой, сталась помилка, ${result.message} служба підтримки 0666796604`
+         );
         }
         setLoaded();
         return;
@@ -192,16 +196,11 @@ const AdultPriceAdmin = () => {
                           label="Ціна(грн)"
                         />
 
-                        <button
-                          className={clsx(
-                            styles.button,
-                            !formik.isValid && styles.inActiveButton
-                          )}
-                          type="submit"
-                          disabled={!formik.isValid}
-                        >
-                          Оновити пакет
-                        </button>
+                        <ButtonSubmit
+                          nameButton="Оновити пакет"
+                          isActive={formik.isValid}
+                          handlerSubmitButton={formik.handleSubmit}
+                        />
                       </div>
                     </Form>
                   );
@@ -268,16 +267,11 @@ const AdultPriceAdmin = () => {
                       label="Ціна(грн)"
                     />
 
-                    <button
-                      className={clsx(
-                        styles.button,
-                        !formik.isValid && styles.inActiveButton
-                      )}
-                      type="submit"
-                      disabled={!formik.isValid}
-                    >
-                      Додати новий пакет
-                    </button>
+                    <ButtonSubmit
+                      nameButton="додати пакет"
+                      isActive={formik.isValid}
+                      handlerSubmitButton={formik.handleSubmit}
+                    />
                   </div>
                 </Form>
               );
