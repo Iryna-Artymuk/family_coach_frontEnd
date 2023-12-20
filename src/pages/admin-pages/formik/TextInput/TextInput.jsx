@@ -36,9 +36,9 @@ const TextInput = ({
     if (isFocused) {
       return styles.blueBorder;
     }
-    if (valueLength === 0 && isFieldTouched) {
-      return styles.redBorder;
-    }
+    // if (valueLength === 0) {
+    //   return styles.redBorder;
+    // }
     if (valueLength > 0 && !isFocused) {
       return styles.greenBorder;
     } else {

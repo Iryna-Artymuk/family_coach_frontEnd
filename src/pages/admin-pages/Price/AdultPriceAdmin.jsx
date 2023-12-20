@@ -49,7 +49,7 @@ const AdultPriceAdmin = () => {
       setIsLoading();
       const result = await updatePrice(values, id);
       if (result.status === 'success') {
-        toast.success('Ура, пакет оновлено');
+        toast.success('пакет оновлено побачити результат перезагрузіть сторінку');
       } else {
         setLoaded();
         if (result.status === 'error') {

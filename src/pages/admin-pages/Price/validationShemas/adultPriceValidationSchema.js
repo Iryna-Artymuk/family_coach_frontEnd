@@ -10,7 +10,7 @@ export const adultPriceValidation = Yup.object().shape({
     .max(20)
     .required('ERROR:Введіть назву   пакету')
     .matches(
-      /[ а - яА - ЯЁёЇїІіЄєҐґ.,;: !? -]+/g,
+      /[а-яА-ЯЁёЇїІіЄєҐґ0-9.,;:!?-]+/g,
       'Введіть назву літерами кирилиці'
     ),
   amount: Yup.string()
@@ -29,18 +29,14 @@ export const adultPriceValidation = Yup.object().shape({
   duration: Yup.string()
     .typeError(' ERROR: Тривалість консультації повинна бути числом')
     .matches(/^[0-9-]+$/, 'тривалість повинна бути числом ')
+    // .transform((_, val) => {
+    //   console.log('val: ', val);
+    // })
     .required('ERROR:Введіть тривалість консультації'),
 
-  period: Yup.number()
-    .typeError('ERROR:Термін дії  повиннен бути числом')
-    .test(
-      'Is positive?',
-      'ERROR: термін дії повинно бути число більше 0!',
-      value => value >= 0
-    )
-    .required(' ERROR:Введіть термін дії пакету')
-    .nullable(true),
-
+  period: Yup.string()
+    .typeError(' ERROR: Термін дії повинен бути числом')
+    .matches(/^[0-9-]+$/, 'Термін дії повинен бути числом '),
   price: Yup.number()
     .typeError(' ERROR:Ціна повинна бути числом')
     .test(
