@@ -4,6 +4,9 @@ import styles from './TextInput.module.scss';
 const TextInput = ({
   id,
   field,
+  nestedErrorText,
+  nestedError,
+
   text,
   label,
   form: { errors, handleBlur, touched, setFieldValue },
@@ -11,8 +14,12 @@ const TextInput = ({
   showCharacterCount,
 }) => {
   const isFieldTouched = touched[field.name];
+
   const valueLength = field.value?.length;
+
   const [isFocused, setIsFocused] = useState(false);
+
+
 
   useEffect(() => {
     if (!text) return;
@@ -30,17 +37,20 @@ const TextInput = ({
   }, [isFieldTouched, valueLength]);
 
   const getBorderColor = () => {
-    if (valueLength > maxLength || errors?.[field.name]) {
+    if (
+      valueLength > maxLength ||
+      errors?.[field.name] ||
+      valueLength === 0 ||
+      nestedError == true
+    ) {
       return styles.redBorder;
+    }
+
+    if ((valueLength > 0 && !isFocused) || nestedError == false) {
+      return styles.greenBorder;
     }
     if (isFocused) {
       return styles.blueBorder;
-    }
-    // if (valueLength === 0) {
-    //   return styles.redBorder;
-    // }
-    if (valueLength > 0 && !isFocused) {
-      return styles.greenBorder;
     } else {
       return styles.grayBorder;
     }
@@ -74,6 +84,7 @@ const TextInput = ({
         {errors?.[field.name] && isFieldTouched && (
           <p className={styles.errorMessage}>{errors?.[field.name]}</p>
         )}
+        <p className={styles.errorMessage}>{nestedError && nestedErrorText}</p>
       </div>
       {showCharacterCount && (
         <div className={styles.commentsWrapper}>

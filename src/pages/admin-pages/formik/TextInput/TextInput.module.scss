@@ -62,12 +62,12 @@
 }
 
 .blueBorder {
-  // border: 1px solid $admin-accent;
+  border: 1px solid $admin-dark-blue;
 }
 
-// .grayBorder {
-//   border: 1px solid $admin-input-outline;
-// }
+.grayBorder {
+  border: 1px solid $admin-light-gray;
+}
 
 .redText {
   color: $admin-red;
