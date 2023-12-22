@@ -25,8 +25,7 @@ import { useIsLoading } from '@/store/loadingStore';
 import { Resize } from '@cloudinary/url-gen/actions';
 const Article = () => {
   // const location = useLocation();
-  const { getPostById, getPosts } = useBlogStore();
-
+  const {  getPosts } = useBlogStore();
   const [posts, setPosts] = useState([]);
   const { isLoading, setIsLoading, setLoaded } = useIsLoading();
   const backLinkHref = '/blog';
@@ -51,7 +50,7 @@ const Article = () => {
       try {
         setIsLoading();
         const result = await getPosts();
-        console.log('result : ', result);
+      
 
         setPosts(result.data);
         setLoaded();

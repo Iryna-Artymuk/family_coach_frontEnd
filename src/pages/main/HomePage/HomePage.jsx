@@ -16,7 +16,7 @@ import ArticleCard from '@/components/Swiper/ArticleCard/ArticleCard';
 import SliderArrowNext from '@/components/Icons/Main/SliderArrowNext';
 import SliderArrowPrev from '@/components/Icons/Main/SliderArrowPrev';
 
-import { blogData } from '@/data/blogData.js';
+
 import heroPhoto from '@/assets/images/heroPhoto.jpg';
 import myPricepls from '@/assets/images/myPricepls.jpg';
 import whyMe from '@/assets/images/whyMe.jpg';
@@ -26,12 +26,15 @@ import useFeedbackStore from '@/store/feedbackStore';
 
 import Spinner from '@/ui/Spinner/Spinner';
 import { useIsLoading } from '@/store/loadingStore';
+import useBlogStore from '@/store/blogStore';
 const HomePage = () => {
   const [allfeedbacks, setAllfeedbacks] = useState([]);
   console.log('allfeedbacks: ', allfeedbacks);
   const [feedbackStatus] = useState('approved');
   const { getFeedbacks } = useFeedbackStore();
-
+  const { getPosts } = useBlogStore();
+  const [posts, setPosts] = useState([]);
+ 
   const { isLoading, setIsLoading, setLoaded } = useIsLoading();
   const [isOpenModal, setIsOpenModal] = useState(false);
 
@@ -58,7 +61,9 @@ const HomePage = () => {
     const getAllFeedbacks = async () => {
       try {
         setIsLoading();
-        const result = await getFeedbacks(feedbackStatus);
+        const result = await getFeedbacks( feedbackStatus );
+        const blogresult = await getPosts();
+        setPosts(blogresult.data);
         setAllfeedbacks(result.data);
         setLoaded();
       } catch (Error) {
@@ -509,7 +514,7 @@ const HomePage = () => {
                   },
                 }}
               >
-                {blogData.map(article => (
+                {posts.map(article => (
                   <SwiperSlide key={article.id}>
                     <ArticleCard article={article} />
                   </SwiperSlide>
