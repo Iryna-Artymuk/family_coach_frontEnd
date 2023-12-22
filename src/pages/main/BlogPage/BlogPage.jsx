@@ -1,25 +1,61 @@
+import { Cloudinary } from '@cloudinary/url-gen';
+import { byRadius } from '@cloudinary/url-gen/actions/roundCorners';
+import {
+  AdvancedImage,
+  lazyload,
+  responsive,
+  placeholder,
+} from '@cloudinary/react';
 import Container from '@/components/main/Container/Container';
 
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
-import { blogData } from '@/data/blogData.js';
 import styles from './BlogPage.module.scss';
 import { useMediaQuery } from 'react-responsive';
 import Arrow from '@/components/Icons/Main/Arrow';
 import IconMore from '@/components/Icons/Main/IconMore';
+import useBlogStore from '@/store/blogStore';
+import { useIsLoading } from '@/store/loadingStore';
 
 const BlogPage = () => {
-  const [articlePerPage, setArticlePerPage] = useState(0);
-  console.log('articlePerPage: ', articlePerPage);
+  const [posts, setPosts] = useState([]);
 
-  const isMaxAmount = articlePerPage >= blogData.length - 1;
+  const [articlePerPage, setArticlePerPage] = useState(0);
+  const { getPosts } = useBlogStore();
+
+  const { isLoading, setIsLoading, setLoaded } = useIsLoading();
+
+  const isMaxAmount = articlePerPage >= posts.length - 1;
   const isDesktop = useMediaQuery({ minWidth: 1240 });
   const isTablet = useMediaQuery({ minWidth: 768 });
 
   const isMobile = useMediaQuery({ maxWidth: 767 });
 
+  // Create a Cloudinary instance and set your cloud name.
+  const cld = new Cloudinary({
+    cloud: {
+      cloudName: 'dmzxbkd8p',
+    },
+  });
+
   const viewMore = () => setArticlePerPage(prev => prev + articlePerPage);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        setIsLoading();
+        const result = await getPosts();
+        console.log('result : ', result);
+
+        setPosts(result.data);
+        setLoaded();
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    fetchData();
+  }, [getPosts, setPosts, setIsLoading, setLoaded]);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -46,18 +82,29 @@ const BlogPage = () => {
 
           {isDesktop && (
             <ul className={styles.blog_list}>
-              {blogData.slice(0, articlePerPage).map(article => (
-                <li key={article.id} className={styles.blog_listItem}>
+              {posts.slice(0, articlePerPage).map(article => (
+                <li key={article._id} className={styles.blog_listItem}>
                   <Link
-                    to={`/blog/${article.id}`}
+                    to={`/blog/${article._id}`}
                     state={{ from: location.pathname }}
                   >
                     <div className={styles.blog_content}>
                       <div className={styles.blog_contentImgwrapper}>
-                        <img
-                          src={article.postImageUrl}
-                          alt=""
-                          className={styles.blog_contentImg}
+                        <AdvancedImage
+                          cldImg={cld
+                            .image(article.postImage.public_id)
+                            // .resize(Resize.scale().width(430).height(350))
+                            .roundCorners(byRadius(15))}
+                          plugins={
+                            ([
+                              lazyload({
+                                rootMargin: '10px 20px 10px 30px',
+                                threshold: 0.25,
+                              }),
+                            ],
+                            [responsive({ steps: 100 })],
+                            [placeholder({ mode: 'blur' })])
+                          }
                         />
                         <div className={styles.blog_contentOverlay}>
                           <p className={styles.blog_contentText}>
@@ -75,18 +122,18 @@ const BlogPage = () => {
           )}
           {!isDesktop && (
             <ul className={styles.blog_list}>
-              {blogData.slice(0, articlePerPage).map(article => (
-                <li key={article.id} className={styles.blog_listItem}>
+              {posts.slice(0, articlePerPage).map(article => (
+                <li key={article._id} className={styles.blog_listItem}>
                   <div className={styles.blog_content}>
                     <div className={styles.blog_contentImgwrapper}>
                       <img
-                        src={article.url}
-                        alt=""
+                        src={article.postImage}
+                        alt={article.title}
                         className={styles.blog_contentImg}
                       />
                       <Link
                         className={styles.blog_contentReadMore}
-                        to={`/blog/${article.id}`}
+                        to={`/blog/${article._id}`}
                         state={{ from: location.pathname }}
                       >
                         <span> Читати далі</span>

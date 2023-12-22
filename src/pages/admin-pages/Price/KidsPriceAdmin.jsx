@@ -5,12 +5,14 @@ import { useEffect, useState } from 'react';
 import { useIsLoading } from '@/store/loadingStore';
 import usePriceStore from '@/store/priceStore';
 
-import ButtonSubmit from '@/components/admin/SubmitButton/ButtonSubmit';
+
+
 import TextInput from '../formik/TextInput/TextInput';
 import Spinner from '@/ui/Spinner/Spinner';
 import sprite from '@/assets/icons/sprite-admin.svg';
 import styles from './Price.module.scss';
 import { kidsPriceValidationSchema } from './validationShemas/kidsPriceValidationSchema';
+import ButtonSubmit from '@/components/admin/SubmitButton/ButtonSubmit';
 
 const initialValues = {
   category: 'Діти',
@@ -265,9 +267,10 @@ const KidsPriceAdmin = () => {
                           )}
                         />
                         <ButtonSubmit
+                        type='submit'
                           nameButton="Оновити пакет"
                           isActive={formik.isValid}
-                          handlerSubmitButton={formik.handleSubmit}
+                       handlClick={formik.handleSubmit}
                         />
                       </div>
                     </Form>
@@ -376,7 +379,7 @@ const KidsPriceAdmin = () => {
                       component={TextInput}
                       label="Ціна разової консультації(грн)"
                       nestedErrorText={
-                        getIn(formik.touched, 'singleConsultation.price') &&
+                        getIn( formik.touched, 'singleConsultation.price' ) &&
                         getIn(formik.errors, 'singleConsultation.price')
                       }
                       nestedError={Boolean(
@@ -385,9 +388,10 @@ const KidsPriceAdmin = () => {
                       )}
                     />
                     <ButtonSubmit
+                    type='submit'
                       nameButton="додати пакет"
                       isActive={formik.isValid}
-                      handlerSubmitButton={formik.handleSubmit}
+                   handlClick={formik.handleSubmit}
                     />
                   </div>
                 </Form>

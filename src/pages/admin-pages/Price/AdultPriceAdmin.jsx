@@ -55,7 +55,9 @@ const AdultPriceAdmin = () => {
       } else {
         setLoaded();
         if (result.status === 'error') {
-          toast.error(`ой, сталась помилка, ${result.message} служба підтримки 0666796604`)
+          toast.error(
+            `ой, сталась помилка, ${result.message} служба підтримки 0666796604`
+          );
         }
       }
       setLoaded();
@@ -72,9 +74,9 @@ const AdultPriceAdmin = () => {
       } else {
         setLoaded();
         if (result.status === 'error') {
-           toast.error(
-             `ой, сталась помилка, ${result.message} служба підтримки 0666796604`
-           );
+          toast.error(
+            `ой, сталась помилка, ${result.message} служба підтримки 0666796604`
+          );
         }
       }
       setLoaded();
@@ -98,9 +100,9 @@ const AdultPriceAdmin = () => {
         setLoaded();
       } else {
         if (result.status === 'error') {
-         toast.error(
-           `ой, сталась помилка, ${result.message} служба підтримки 0666796604`
-         );
+          toast.error(
+            `ой, сталась помилка, ${result.message} служба підтримки 0666796604`
+          );
         }
         setLoaded();
         return;
@@ -197,9 +199,10 @@ const AdultPriceAdmin = () => {
                         />
 
                         <ButtonSubmit
+                          type="submit"
                           nameButton="Оновити пакет"
                           isActive={formik.isValid}
-                          handlerSubmitButton={formik.handleSubmit}
+                          handlClick={formik.handleSubmit}
                         />
                       </div>
                     </Form>
@@ -268,9 +271,10 @@ const AdultPriceAdmin = () => {
                     />
 
                     <ButtonSubmit
+                      type="submit"
                       nameButton="додати пакет"
                       isActive={formik.isValid}
-                      handlerSubmitButton={formik.handleSubmit}
+                      handlClick={formik.handleSubmit}
                     />
                   </div>
                 </Form>

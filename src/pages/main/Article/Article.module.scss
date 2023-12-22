@@ -13,6 +13,7 @@
   }
 }
 .article {
+  width: 100%;
   @extend%aligncenter;
   flex-direction: column;
   justify-content: flex-start;

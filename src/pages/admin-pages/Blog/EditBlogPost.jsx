@@ -1,5 +1,8 @@
+import { useParams } from 'react-router-dom';
+
 const EditBlogPost = () => {
-  return <div>EditBlogPost</div>;
+  const { id } = useParams();
+  return <div>EditBlogPost{console.log('id: ', id)}</div>;
 };
 
 export default EditBlogPost;

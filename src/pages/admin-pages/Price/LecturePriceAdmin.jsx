@@ -187,9 +187,10 @@ const LecturePriceAdmin = () => {
                         />
 
                         <ButtonSubmit
+                          type="submit"
+                          handlClick={formik.handleSubmit}
                           nameButton="Оновити лекцію"
                           isActive={formik.isValid}
-                          handlerSubmitButton={formik.handleSubmit}
                         />
                       </div>
                     </Form>
@@ -243,6 +244,8 @@ const LecturePriceAdmin = () => {
                     />
 
                     <ButtonSubmit
+                      type="submit"
+                      handlClick={formik.handleSubmit}
                       nameButton="Додати лекцію"
                       isActive={formik.isValid}
                       handlerSubmitButton={formik.handleSubmit}

@@ -1,0 +1,47 @@
+/* Create a 3-column grid layout */
+.wrapper {
+  @extend%aligncenter;
+  flex-direction: column;
+  gap: 24px;
+  align-items: flex-start;
+  width: 616px;
+  border-top: 1px solid $admin-gray;
+}
+.tableItem {
+  @extend%aligncenter;
+
+  padding: 10px 24px;
+  color: $admin-black;
+  font-size: 18px;
+  font-weight: 500;
+  border-right: 1px solid $admin-gray;
+  border-left: 1px solid $admin-gray;
+  border-bottom: 1px solid $admin-gray;
+}
+
+.headItem {
+  color: $admin-dark-blue;
+  font-size: 18px;
+  font-weight: 700;
+}
+.container {
+  display: flex;
+}
+
+.tableItem:nth-child(1) {
+  width: 370px;
+}
+.tableItem:nth-child(2) {
+  width: 96px;
+}
+.tableItem:nth-child(3) {
+  width: 60px;
+}
+.tableItem:nth-child(4) {
+  width: 90px;
+  svg {
+    path {
+      fill: red;
+    }
+  }
+}
