@@ -16,7 +16,6 @@ import ArticleCard from '@/components/Swiper/ArticleCard/ArticleCard';
 import SliderArrowNext from '@/components/Icons/Main/SliderArrowNext';
 import SliderArrowPrev from '@/components/Icons/Main/SliderArrowPrev';
 
-
 import heroPhoto from '@/assets/images/heroPhoto.jpg';
 import myPricepls from '@/assets/images/myPricepls.jpg';
 import whyMe from '@/assets/images/whyMe.jpg';
@@ -34,7 +33,7 @@ const HomePage = () => {
   const { getFeedbacks } = useFeedbackStore();
   const { getPosts } = useBlogStore();
   const [posts, setPosts] = useState([]);
- 
+
   const { isLoading, setIsLoading, setLoaded } = useIsLoading();
   const [isOpenModal, setIsOpenModal] = useState(false);
 
@@ -61,7 +60,7 @@ const HomePage = () => {
     const getAllFeedbacks = async () => {
       try {
         setIsLoading();
-        const result = await getFeedbacks( feedbackStatus );
+        const result = await getFeedbacks(feedbackStatus);
         const blogresult = await getPosts();
         setPosts(blogresult.data);
         setAllfeedbacks(result.data);
@@ -74,7 +73,7 @@ const HomePage = () => {
       }
     };
     getAllFeedbacks();
-  }, [feedbackStatus, getFeedbacks, setLoaded, setIsLoading]);
+  }, [feedbackStatus, getFeedbacks, getPosts, setLoaded, setIsLoading]);
 
   return (
     <>
@@ -371,7 +370,7 @@ const HomePage = () => {
       </section>
 
       <section className="feedBack" id="feedback">
-        {!isLoading ? (
+        {!isLoading && (
           <Container>
             <div className={styles.feedBack_contentWrapper}>
               <h2 className={styles.title}>Відгуки</h2>
@@ -455,74 +454,74 @@ const HomePage = () => {
               )}
             </div>
           </Container>
-        ) : (
-          <Spinner />
         )}
       </section>
 
       <section className="blog">
-        <Container>
-          <div className={styles.blog_contentWrapper}>
-            <h2 className={styles.title}>Cтатті</h2>
+        {!isLoading && (
+          <Container>
+            <div className={styles.blog_contentWrapper}>
+              <h2 className={styles.title}>Cтатті</h2>
 
-            <div className={styles.blog_swiperwrapper}>
-              <Link
-                className={styles.blog_Link}
-                to="/blog"
-                buttonaddmore={true}
-                type="button"
-              >
-                Дивитися усі статті
-              </Link>
-              {isDesktop && (
-                <>
-                  <button
-                    className={styles.buttonPrev}
-                    onClick={() => swiperRef2.current.slidePrev()}
-                  >
-                    <SliderArrowPrev />
-                  </button>
-                  <button
-                    className={styles.buttonNext}
-                    onClick={() => swiperRef2.current.slideNext()}
-                  >
-                    <SliderArrowNext />
-                  </button>{' '}
-                </>
-              )}
-              <Swiper
-                onSwiper={swiper => {
-                  swiperRef2.current = swiper;
-                }}
-                id="feedbackSwiper"
-                loop={true}
-                spaceBetween={12}
-                slidesPerView={1.2}
-                // centeredSlides={true}
-                breakpoints={{
-                  425: {
-                    slidesPerView: 1.5,
-                  },
-                  768: {
-                    slidesPerView: 2.5,
-                    spaceBetween: 12,
-                  },
+              <div className={styles.blog_swiperwrapper}>
+                <Link
+                  className={styles.blog_Link}
+                  to="/blog"
+                  buttonaddmore={true}
+                  type="button"
+                >
+                  Дивитися усі статті
+                </Link>
+                {isDesktop && (
+                  <>
+                    <button
+                      className={styles.buttonPrev}
+                      onClick={() => swiperRef2.current.slidePrev()}
+                    >
+                      <SliderArrowPrev />
+                    </button>
+                    <button
+                      className={styles.buttonNext}
+                      onClick={() => swiperRef2.current.slideNext()}
+                    >
+                      <SliderArrowNext />
+                    </button>{' '}
+                  </>
+                )}
+                <Swiper
+                  onSwiper={swiper => {
+                    swiperRef2.current = swiper;
+                  }}
+                  id="feedbackSwiper"
+                  loop={true}
+                  spaceBetween={12}
+                  slidesPerView={1.2}
+                  // centeredSlides={true}
+                  breakpoints={{
+                    425: {
+                      slidesPerView: 1.5,
+                    },
+                    768: {
+                      slidesPerView: 2.5,
+                      spaceBetween: 12,
+                    },
 
-                  1240: {
-                    slidesPerView: 3,
-                    spaceBetween: 27,
-                  },
-                }}
-              >
-                {posts.map(article => (
-                  <SwiperSlide key={article.id}>
-                    <ArticleCard article={article} />
-                  </SwiperSlide>
-                ))}
-              </Swiper>
+                    1240: {
+                      slidesPerView: 3,
+                      spaceBetween: 27,
+                    },
+                  }}
+                >
+                  {posts.map(article => (
+                    <SwiperSlide key={article.id}>
+                      <ArticleCard article={article} />
+                    </SwiperSlide>
+                  ))}
+                </Swiper>
+              </div>
             </div>
-          </div>
-        </Container>
+          </Container>
+        )}
       </section>
 
       {isDesktop && (

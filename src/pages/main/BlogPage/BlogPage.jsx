@@ -17,6 +17,7 @@ import Arrow from '@/components/Icons/Main/Arrow';
 import IconMore from '@/components/Icons/Main/IconMore';
 import useBlogStore from '@/store/blogStore';
 import { useIsLoading } from '@/store/loadingStore';
+import Spinner from '@/ui/Spinner/Spinner';
 
 const BlogPage = () => {
   const [posts, setPosts] = useState([]);
@@ -76,18 +77,55 @@ const BlogPage = () => {
 
   return (
     <section className={styles.blog}>
-      <Container>
-        <div className={styles.blog_wrapper}>
-          <h1 className="visuallyHidden">Блог Жанни Барищук</h1>
+      {!isLoading ? (
+        <Container>
+          <div className={styles.blog_wrapper}>
+            <h1 className="visuallyHidden">Блог Жанни Барищук</h1>
 
-          {isDesktop && (
-            <ul className={styles.blog_list}>
-              {posts.slice(0, articlePerPage).map(article => (
-                <li key={article._id} className={styles.blog_listItem}>
-                  <Link
-                    to={`/blog/${article._id}`}
-                    state={{ from: location.pathname }}
-                  >
+            {isDesktop && (
+              <ul className={styles.blog_list}>
+                {posts.slice(0, articlePerPage).map(article => (
+                  <li key={article._id} className={styles.blog_listItem}>
+                    <Link
+                      to={`/blog/${article._id}`}
+                      state={{ from: location.pathname }}
+                    >
+                      <div className={styles.blog_content}>
+                        <div className={styles.blog_contentImgwrapper}>
+                          <AdvancedImage
+                            cldImg={cld
+                              .image(article.postImage.public_id)
+                              // .resize(Resize.scale().width(430).height(350))
+                              .roundCorners(byRadius(15))}
+                            plugins={
+                              ([
+                                lazyload({
+                                  rootMargin: '10px 20px 10px 30px',
+                                  threshold: 0.25,
+                                }),
+                              ],
+                              [responsive({ steps: 100 })],
+                              [placeholder({ mode: 'blur' })])
+                            }
+                          />
+                          <div className={styles.blog_contentOverlay}>
+                            <p className={styles.blog_contentText}>
+                              {article.description}
+                            </p>
+                          </div>
+                        </div>
+
+                        <h2 className="title"> {article.title} </h2>
+                      </div>
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            )}
+            {!isDesktop && (
+              <ul className={styles.blog_list}>
+                {posts.slice(0, articlePerPage).map(article => (
+                  <li key={article._id} className={styles.blog_listItem}>
                     <div className={styles.blog_content}>
                       <div className={styles.blog_contentImgwrapper}>
                         <AdvancedImage
@@ -106,61 +144,39 @@ const BlogPage = () => {
                             [placeholder({ mode: 'blur' })])
                           }
                         />
-                        <div className={styles.blog_contentOverlay}>
-                          <p className={styles.blog_contentText}>
-                            {article.description}
-                          </p>
-                        </div>
+                        <Link
+                          className={styles.blog_contentReadMore}
+                          to={`/blog/${article._id}`}
+                          state={{ from: location.pathname }}
+                        >
+                          <span> Читати далі</span>
+                          <Arrow />
+                        </Link>
                       </div>
 
-                      <h2 className="title"> {article.title} </h2>
+                      <div className={styles.blog_contentTextWrapper}>
+                        <h2 className="title"> {article.title} </h2>
+                        <p className={styles.blog_contentText}>
+                          {article.description}
+                        </p>
+                      </div>
                     </div>
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          )}
-          {!isDesktop && (
-            <ul className={styles.blog_list}>
-              {posts.slice(0, articlePerPage).map(article => (
-                <li key={article._id} className={styles.blog_listItem}>
-                  <div className={styles.blog_content}>
-                    <div className={styles.blog_contentImgwrapper}>
-                      <img
-                        src={article.postImage}
-                        alt={article.title}
-                        className={styles.blog_contentImg}
-                      />
-                      <Link
-                        className={styles.blog_contentReadMore}
-                        to={`/blog/${article._id}`}
-                        state={{ from: location.pathname }}
-                      >
-                        <span> Читати далі</span>
-                        <Arrow />
-                      </Link>
-                    </div>
+                  </li>
+                ))}
+              </ul>
+            )}
 
-                    <div className={styles.blog_contentTextWrapper}>
-                      <h2 className="title"> {article.title} </h2>
-                      <p className={styles.blog_contentText}>
-                        {article.description}
-                      </p>
-                    </div>
-                  </div>
-                </li>
-              ))}
-            </ul>
-          )}
-
-          {!isMaxAmount && (
-            <button className="buttonLoadMore" onClick={viewMore}>
-              Дивитися Більше
-              <IconMore />
-            </button>
-          )}
-        </div>
-      </Container>
+            {!isMaxAmount && (
+              <button className="buttonLoadMore" onClick={viewMore}>
+                Дивитися Більше
+                <IconMore />
+              </button>
+            )}
+          </div>
+        </Container>
+      ) : (
+        <Spinner />
+      )}
     </section>
   );
 };
