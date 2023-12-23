@@ -26,7 +26,6 @@ const BlogAdmin = () => {
   }, [getPosts, setIsLoading, setLoaded]);
 
   const handelDelete = async id => {
-  
     try {
       setIsLoading();
       const result = await deletePostById(id);
@@ -35,11 +34,13 @@ const BlogAdmin = () => {
         const deletedPost = posts.find(post => post._id === id);
         const newPostsArr = posts.filter(post => post._id !== deletedPost._id);
         setPosts(newPostsArr);
-        toast.success('Ура, відгук  видалений');
+        toast.success('Стаття видалена успішно');
         setLoaded();
       } else {
         if (result.status === 'error') {
-          toast.error('не вдалось видалити , запитай Іру');
+          toast.error(
+            'не вдалось видалити, технічна служба підтримки 0666796604'
+          );
         }
         setLoaded();
         return;
