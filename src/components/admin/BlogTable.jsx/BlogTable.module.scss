@@ -17,6 +17,10 @@
   border-right: 1px solid $admin-gray;
   border-left: 1px solid $admin-gray;
   border-bottom: 1px solid $admin-gray;
+  svg {
+    width: 32px;
+    height: 32px;
+  }
 }
 
 .headItem {

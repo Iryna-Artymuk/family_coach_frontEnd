@@ -71,11 +71,13 @@ const TextArea = ({
       />
       {showCharacterCount && (
         <div className={styles.commentsWrapper}>
-          <div className={styles.errorWrap}>
-            {errors?.[field.name] && isFieldTouched && (
-              <p className={styles.errorMessage}>{errors?.[field.name]}</p>
-            )}
-          </div>
+          {errors?.[field.name] && (
+            <div className={styles.errorWrap}>
+              {errors?.[field.name] && isFieldTouched && (
+                <p className={styles.errorMessage}>{errors?.[field.name]}</p>
+              )}
+            </div>
+          )}
           <p
             className={`${styles.counterMessage} ${
               valueLength > maxLength ? styles.redText : ''

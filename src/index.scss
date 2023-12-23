@@ -104,7 +104,14 @@ input,
 textarea {
   outline: none;
 }
-svg {
-  width: 32px;
-  height: 32px;
+
+.quill {
+  width: 100%;
+}
+.ql-editor {
+  width: 100%;
+  min-height: 300px;
+}
+.ql-toolbar {
+  background-color: $admin-light-blue;
 }

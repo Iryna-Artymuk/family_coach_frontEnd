@@ -35,7 +35,7 @@ const AddBlogPost = () => {
       setIsLoading();
       const result = await addPost(formData);
       if (result.status === 'success') {
-        toast.success('Ура,нова розумна  додана, давай ще ');
+        toast.success('Пост доданий успішно ');
       }
       setLoaded();
     } catch (error) {
@@ -81,17 +81,17 @@ const AddBlogPost = () => {
                         showCharacterCount={true}
                         label="Заголовок"
                       />
-                      <Field
-                        name="description"
-                        id="description"
-                        placeholder="description"
-                        component={TextArea}
-                        maxLength={100}
-                        showCharacterCount={true}
-                        label="короткий опис"
-                      />
                     </div>
                   </div>
+                  <Field
+                    name="description"
+                    id="description"
+                    placeholder="description"
+                    component={TextArea}
+                    maxLength={100}
+                    showCharacterCount={true}
+                    label="короткий опис"
+                  />
                   <Field
                     name="post"
                     id="post"

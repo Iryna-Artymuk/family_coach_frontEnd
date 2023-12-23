@@ -14,9 +14,12 @@
   background: var(--Gray-blue, #c3c6d3);
 }
 
-
 .deleteIcon {
   position: absolute;
   top: 24px;
   right: 24px;
+  svg {
+    width: 32px;
+    height: 32px;
+  }
 }

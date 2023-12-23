@@ -1,20 +1,8 @@
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import styles from './TextEditor.module.scss';
-
-const TextEditor = ({
-  id,
-  field,
-  text,
-
-  form: { errors, handleBlur, touched, setFieldValue },
-}) => {
-  // const isFieldTouched = touched[field.name];
-
-  console.log(field.value);
-  console.log(field.name);
-
+const TextEditor = ({ id, field, text, label, form: { setFieldValue } }) => {
   useEffect(() => {
     if (!text) return;
     setFieldValue(id, text);
@@ -29,20 +17,38 @@ const TextEditor = ({
       [{ script: 'sub' }, { script: 'super' }],
       ['blockquote', 'code-block'],
       [{ list: 'ordered' }, { list: 'bullet' }],
-      [{ indent: '-1' }, { indent: '+1' }, { align: [] }],
-
+      // [{ indent: '-1' }, { indent: '+1' }, { align: [] }],
       ['clean'],
     ],
   };
 
+  const formats = [
+    'header',
+    'font',
+    'size',
+    'bold',
+    'italic',
+    'underline',
+    'strike',
+    'blockquote',
+    'list',
+    'bullet',
+    'indent',
+    'link',
+    'color',
+    'background',
+    'align',
+  ];
   return (
     <div className={styles.inputWrapper}>
+      <p className={styles.inputLabel}>{label}</p>
       <ReactQuill
         theme="snow"
         modules={modules}
         placeholder="починайте писати свої думки тут..."
         value={field.value}
         onChange={field.onChange(field.name)}
+        formats={formats}
       />
     </div>
   );
