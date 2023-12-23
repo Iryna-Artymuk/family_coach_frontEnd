@@ -105,7 +105,12 @@ const QualificationPage = () => {
             )}
           </div>
         ) : (
-          <Spinner />
+          <>
+            <h2 className="loadingText">
+              Зачекайте будь-ласка мої дипломи завантажуються...
+            </h2>
+            <Spinner />
+          </>
         )}
       </Container>
     </section>

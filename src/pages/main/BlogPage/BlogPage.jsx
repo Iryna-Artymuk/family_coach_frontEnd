@@ -175,7 +175,12 @@ const BlogPage = () => {
           </div>
         </Container>
       ) : (
-        <Spinner />
+        <>
+          <h2 className="loadingText">
+            Зачекайте будь-ласка мої статті завантажуються...
+          </h2>
+          <Spinner />
+        </>
       )}
     </section>
   );

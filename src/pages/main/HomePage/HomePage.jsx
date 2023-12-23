@@ -370,99 +370,108 @@ const HomePage = () => {
       </section>
 
       <section className="feedBack" id="feedback">
-        {!isLoading && (
-          <Container>
-            <div className={styles.feedBack_contentWrapper}>
-              <h2 className={styles.title}>Відгуки</h2>
-              <Button buttonaddmore={true} type="button" onClick={openModal}>
-                Додати відгук
-              </Button>
-              {allfeedbacks.length > 0 ? (
-                <div className={styles.feedbakSwiperWrapper}>
-                  <Swiper
-                    onSwiper={swiper => {
-                      swiperRef.current = swiper;
-                    }}
-                    loop={true}
-                    spaceBetween={12}
-                    slidesPerView={1.2}
-                    // centeredSlides={true}
-                    breakpoints={{
-                      425: {
-                        slidesPerView: 1.5,
-                      },
-                      768: {
-                        slidesPerView: 2.5,
-                        spaceBetween: 12,
-                      },
+        <Container>
+          <div className={styles.feedBack_contentWrapper}>
+            <h2 className={styles.title}>Відгуки</h2>
+            {!isLoading ? (
+              <>
+                <Button buttonaddmore={true} type="button" onClick={openModal}>
+                  Додати відгук
+                </Button>
+                {allfeedbacks.length > 0 ? (
+                  <div className={styles.feedbakSwiperWrapper}>
+                    <Swiper
+                      onSwiper={swiper => {
+                        swiperRef.current = swiper;
+                      }}
+                      loop={true}
+                      spaceBetween={12}
+                      slidesPerView={1.2}
+                      // centeredSlides={true}
+                      breakpoints={{
+                        425: {
+                          slidesPerView: 1.5,
+                        },
+                        768: {
+                          slidesPerView: 2.5,
+                          spaceBetween: 12,
+                        },
 
-                      1240: {
-                        slidesPerView: 3,
-                        spaceBetween: 40,
-                      },
-                    }}
-                  >
-                    {allfeedbacks?.map(feedback => {
-                      return (
-                        <SwiperSlide
-                          className={styles.slideFeedback}
-                          key={feedback._id}
+                        1240: {
+                          slidesPerView: 3,
+                          spaceBetween: 40,
+                        },
+                      }}
+                    >
+                      {allfeedbacks?.map(feedback => {
+                        return (
+                          <SwiperSlide
+                            className={styles.slideFeedback}
+                            key={feedback._id}
+                          >
+                            <FeedbackCard feedback={feedback} />
+                          </SwiperSlide>
+                        );
+                      })}
+                    </Swiper>
+
+                    {isDesktop && (
+                      <>
+                        <button
+                          className={styles.buttonPrev}
+                          onClick={() => swiperRef.current.slidePrev()}
                         >
-                          <FeedbackCard feedback={feedback} />
-                        </SwiperSlide>
-                      );
-                    })}
-                  </Swiper>
-
-                  {isDesktop && (
-                    <>
-                      <button
-                        className={styles.buttonPrev}
-                        onClick={() => swiperRef.current.slidePrev()}
-                      >
-                        <SliderArrowPrev />
-                      </button>
-                      <button
-                        className={styles.buttonNext}
-                        onClick={() => swiperRef.current.slideNext()}
-                      >
-                        <SliderArrowNext />
-                      </button>
-                    </>
-                  )}
-                </div>
-              ) : (
-                <p>Будьте першим, додайте відгук про мою роботу</p>
-              )}
-              {isOpenModal && (
-                <Modal
-                  type="modal"
-                  closeModal={closeModal}
+                          <SliderArrowPrev />
+                        </button>
+                        <button
+                          className={styles.buttonNext}
+                          onClick={() => swiperRef.current.slideNext()}
+                        >
+                          <SliderArrowNext />
+                        </button>
+                      </>
+                    )}
+                  </div>
+                ) : (
+                  <p>Будьте першим, додайте відгук про мою роботу</p>
+                )}
+              </>
+            ) : (
+              <>
+                {' '}
+                <h2 className="loadingText">
+                  Зачекайте будь-ласка статті завантажуються...
+                </h2>
+                <Spinner />
+              </>
+            )}
+            {isOpenModal && (
+              <Modal
+                type="modal"
+                closeModal={closeModal}
+                isSubmitted={isSubmitted}
+              >
+                <AddForm
+                  setIsSubmitted={setIsSubmitted}
                   isSubmitted={isSubmitted}
-                >
-                  <AddForm
-                    setIsSubmitted={setIsSubmitted}
-                    isSubmitted={isSubmitted}
-                    closeModal={closeModal}
-                  />
-                </Modal>
-              )}
-              {isSubmitted && (
-                <Modal type="thanksModal" closeModal={closeModal}>
-                  <div className={styles.thanksMessage}>Дякую за відгук</div>
-                </Modal>
-              )}
-            </div>
-          </Container>
-        )}
+                  closeModal={closeModal}
+                />
+              </Modal>
+            )}
+            {isSubmitted && (
+              <Modal type="thanksModal" closeModal={closeModal}>
+                <div className={styles.thanksMessage}>Дякую за відгук</div>
+              </Modal>
+            )}
+          </div>
+        </Container>
       </section>
 
       <section className="blog">
-        {!isLoading && (
-          <Container>
-            <div className={styles.blog_contentWrapper}>
-              <h2 className={styles.title}>Cтатті</h2>
-
+        <Container>
+          <div className={styles.blog_contentWrapper}>
+            <h2 className={styles.title}>Cтатті</h2>
+            {!isLoading ? (
               <div className={styles.blog_swiperwrapper}>
                 <Link
                   className={styles.blog_Link}
@@ -519,9 +528,17 @@ const HomePage = () => {
                   ))}
                 </Swiper>
               </div>
-            </div>
-          </Container>
-        )}
+            ) : (
+              <>
+                {' '}
+                <h2 className="loadingText">
+                  Зачекайте будь-ласка статті завантажуються...
+                </h2>
+                <Spinner />
+              </>
+            )}
+          </div>
+        </Container>
       </section>
 
       {isDesktop && (

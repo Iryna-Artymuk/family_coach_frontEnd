@@ -15,3 +15,20 @@
     font-size: 32px;
   }
 }
+
+.loadingText {
+  font-family: 'Script';
+  font-size: 14px;
+  font-style: italic;
+  text-align: center;
+  color: $red;
+  margin-bottom: 4px;
+  @include tablet {
+    font-size: 18px;
+    margin-bottom: 8px;
+  }
+  @include desktop {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+}
