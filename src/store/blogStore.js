@@ -20,17 +20,14 @@ const useBlogStore = create((set, get) => ({
     const result = await response.json();
     return result;
   },
-  // addPrice: async data => {
-  //   const response = await fetch(`${get().server}/price`, {
-  //     headers: {
-  //       'Content-Type': 'application/json',
-  //     },
-  //     method: 'POST',
-  //     body: JSON.stringify(data),
-  //   });
-  //   const result = await response.json();
-  //   return result;
-  // },
+  addPost: async formData => {
+    const response = await fetch(`${get().server}/blog`, {
+      method: 'POST',
+      body: formData,
+    });
+    const result = await response.json();
+    return result;
+  },
 
   // updatePrice: async (data, id) => {
   //   const response = await fetch(`${get().server}/price/${id}`, {

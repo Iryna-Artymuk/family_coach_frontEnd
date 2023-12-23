@@ -25,7 +25,7 @@ import { useIsLoading } from '@/store/loadingStore';
 import { Resize } from '@cloudinary/url-gen/actions';
 const Article = () => {
   // const location = useLocation();
-  const {  getPosts } = useBlogStore();
+  const { getPosts } = useBlogStore();
   const [posts, setPosts] = useState([]);
   const { isLoading, setIsLoading, setLoaded } = useIsLoading();
   const backLinkHref = '/blog';
@@ -50,7 +50,6 @@ const Article = () => {
       try {
         setIsLoading();
         const result = await getPosts();
-      
 
         setPosts(result.data);
         setLoaded();
@@ -79,7 +78,8 @@ const Article = () => {
               </Link>
               <div className={styles.articletextWrapper}>
                 <h1 className="title">{article?.title}</h1>
-                <p className={styles.article_text}>{article?.post}</p>
+                {/* <p className={styles.article_text}>{article?.post}</p> */}
+                <p dangerouslySetInnerHTML={{ __html: article?.post }} />
               </div>
 
               <div className={styles.article_info}>
