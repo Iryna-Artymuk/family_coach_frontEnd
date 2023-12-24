@@ -20,6 +20,7 @@ import FileInput from '../formik/FileInput/FileInput';
 import { diplomaImageValidation } from './validationSchema.js';
 import sprite from '@/assets/icons/sprite-admin.svg';
 import styles from './QualificationAdmin.module.scss';
+import ButtonSubmit from '@/components/admin/SubmitButton/ButtonSubmit';
 
 const initialValues = {
   image: [],
@@ -103,20 +104,27 @@ const QualificationAdmin = () => {
               validationSchema={diplomaImageValidation}
               onSubmit={onSubmit}
             >
-              <Form>
-                <button className={styles.button} type="submit">
-                  Додати диплом
-                </button>
+              {formik => {
+                return (
+                  <Form>
+                    <ButtonSubmit
+                      type="submit"
+                      nameButton="додати диплом"
+                      isActive={formik.isValid}
+                      handlClick={formik.handleSubmit}
+                    />
 
-                <div className={styles.layout}>
-                  <Field
-                    name="image"
-                    id="image"
-                    type="file"
-                    component={FileInput}
-                  />
-                </div>
-              </Form>
+                    <div className={styles.layout}>
+                      <Field
+                        name="image"
+                        id="image"
+                        type="file"
+                        component={FileInput}
+                      />
+                    </div>
+                  </Form>
+                );
+              }}
             </Formik>
           </li>
 

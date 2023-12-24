@@ -1,9 +1,15 @@
 .wrapper {
-  // position: relative;
-  // display: inline-flex;
-  // justify-content: center;
-  // align-items: flex-start;
-  // flex-direction: column;
+  position: relative;
+  width: 100%;
+  display: inline-flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+
+  @include desktop {
+    width: 430px;
+    height: 350px;
+  }
 
   .dropzone {
     display: flex;
@@ -11,13 +17,18 @@
     align-items: center;
     flex-direction: column;
     width: 430px;
-    height: 197px;
+    height: 350px;
     background: $admin-light-blue;
     border: 2px dashed $admin-dark-blue;
     margin: 0 auto;
-    margin-bottom: 0.5rem;
+
     border-radius: 15px;
     overflow: hidden;
+
+    @include desktop {
+      width: 430px;
+      height: 350px;
+    }
     .innerWrapper {
       display: flex;
       justify-content: space-evenly;
@@ -51,8 +62,10 @@
     }
   }
   .errorWrap {
-    width: 422px;
-    margin-bottom: 2rem;
+    position: absolute;
+    bottom: -15px;
+    left: 5px;
+    width: 100%;
   }
 
   .errorMessage {
@@ -63,4 +76,10 @@
 }
 .borderGreen {
   border: 2px dashed $admin-green;
+}
+.borderRed {
+  border: 2px dashed $admin-red;
+}
+.borderblue {
+  border: 2px dashed $admin-red;
 }

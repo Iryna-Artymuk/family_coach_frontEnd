@@ -14,7 +14,14 @@
 .wrapper {
   width: 100%;
   @extend%aligncenter;
+  flex-direction: column;
   justify-content: space-between;
   align-items: center;
   gap: 24px;
+  @include desktop {
+    flex-direction: row;
+  }
+}
+.inputsWrapper {
+  width: 100%;
 }

@@ -12,7 +12,6 @@ const FileInput = ({
   const [imagePreview, setImagePreview] = useState('');
   const fieldValue = field.value;
 
-
   useEffect(() => {
     if (!photo) return;
     setFieldValue('image', [new File([], photo, { type: 'for-url' })]);
@@ -47,32 +46,32 @@ const FileInput = ({
         {...props}
       >
         {({ getRootProps, getInputProps }) => (
-          <section>
-            <div className={styles.dropzone} {...getRootProps()}>
-              <input {...getInputProps()} />
-              {imagePreview ? (
-                <div className={styles.imagePreview}>
-                  <img src={imagePreview} />
-                </div>
-              ) : null}
-              {!imagePreview && (
-                <div className={styles.innerWrapper}>
-                  <svg className={styles.icon}>
-                    <use href={`${sprite}#${'icon-plus'}`} />
-                  </svg>
+          <div className={styles.dropzone} {...getRootProps()}>
+            <input {...getInputProps()} />
+            {imagePreview ? (
+              <div className={styles.imagePreview}>
+                <img src={imagePreview} />
+              </div>
+            ) : null}
+            {!imagePreview && (
+              <div className={styles.innerWrapper}>
+                <svg className={styles.icon}>
+                  <use href={`${sprite}#${'icon-plus'}`} />
+                </svg>
 
-                  <p>Перетягніть або натисніть тут, щоб завантажити файл</p>
-                </div>
-              )}
-            </div>
-          </section>
+                <p>Перетягніть або натисніть тут, щоб завантажити файл</p>
+              </div>
+            )}
+          </div>
         )}
       </Dropzone>
-      <div className={styles.errorWrap}>
-        {errors?.[field.name] && (
-          <p className={styles.errorMessage}>{errors?.[field.name]}</p>
+  
+      { errors?.[ field.name ] && (
+            <div className={styles.errorWrap}>
+          <p className={ styles.errorMessage }>{ errors?.[ field.name ] }</p>
+                </div>
         )}
-      </div>
+
     </div>
   );
 };

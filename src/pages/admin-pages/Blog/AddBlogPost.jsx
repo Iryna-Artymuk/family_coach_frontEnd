@@ -62,7 +62,7 @@ const AddBlogPost = () => {
                       type="file"
                       component={FileInput}
                     />
-                    <div>
+                    <div className={ styles.inputsWrapper }>
                       <Field
                         name="category"
                         id="category"
@@ -81,17 +81,18 @@ const AddBlogPost = () => {
                         showCharacterCount={true}
                         label="Заголовок"
                       />
+                      <Field
+                        name="description"
+                        id="description"
+                        placeholder="description"
+                        component={TextArea}
+                        maxLength={100}
+                        showCharacterCount={true}
+                        label="короткий опис"
+                      />
                     </div>
                   </div>
-                  <Field
-                    name="description"
-                    id="description"
-                    placeholder="description"
-                    component={TextArea}
-                    maxLength={100}
-                    showCharacterCount={true}
-                    label="короткий опис"
-                  />
+
                   <Field
                     name="post"
                     id="post"
