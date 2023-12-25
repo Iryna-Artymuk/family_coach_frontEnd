@@ -29,17 +29,28 @@ const useBlogStore = create((set, get) => ({
     return result;
   },
 
-  // updatePrice: async (data, id) => {
-  //   const response = await fetch(`${get().server}/price/${id}`, {
-  //     headers: {
-  //       'Content-Type': 'application/json',
-  //     },
-  //     method: 'PUT',
-  //     body: JSON.stringify(data),
-  //   });
-  //   const result = await response.json();
-  //   return result;
-  // },
+  updatePostText: async (data, id) => {
+    const response = await fetch(`${get().server}/blog/${id}`, {
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      method: 'PUT',
+      body: JSON.stringify(data),
+    });
+    const result = await response.json();
+    return result;
+  },
+  updatePostImage: async (data, id) => {
+    const response = await fetch(`${get().server}/price/${id}`, {
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      method: 'PUT',
+      body: JSON.stringify(data),
+    });
+    const result = await response.json();
+    return result;
+  },
   deletePostById: async id => {
     const response = await fetch(`${get().server}/blog/${id}`, {
       method: 'DELETE',

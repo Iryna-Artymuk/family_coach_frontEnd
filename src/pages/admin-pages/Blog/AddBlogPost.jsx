@@ -51,7 +51,7 @@ const AddBlogPost = () => {
       {!isLoading ? (
         <Formik
           initialValues={initialValues}
-          //validationSchema={blogPostValidation}
+          validationSchema={blogPostValidation}
           onSubmit={onSubmit}
         >
           {formik => {

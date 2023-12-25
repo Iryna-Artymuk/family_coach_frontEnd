@@ -6,7 +6,6 @@ const TextInput = ({
   field,
   nestedErrorText,
   nestedError,
-
   text,
   label,
   form: { errors, handleBlur, touched, setFieldValue },
@@ -23,7 +22,9 @@ const TextInput = ({
 
   useEffect(() => {
     if (!text) return;
-    setFieldValue(id, text);
+    console.log('text: ', text);
+    setFieldValue( id, text );
+    
   }, [text, setFieldValue, id]);
 
   const handleFocus = () => {

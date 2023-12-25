@@ -16,8 +16,8 @@ const TextArea = ({
 
   useEffect(() => {
     if (!text) return;
-    setFieldValue('text', text);
-  }, [text, setFieldValue]);
+    setFieldValue(id, text);
+  }, [text, setFieldValue, id]);
 
   const handleFocus = () => {
     setIsFocused(true);

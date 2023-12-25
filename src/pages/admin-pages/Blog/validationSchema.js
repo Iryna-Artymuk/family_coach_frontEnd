@@ -18,15 +18,10 @@ function isValidFileType(fileType) {
 
 export const blogPostValidation = Yup.object().shape({
   postImage: Yup.mixed()
-    .test(
-      'is-value',
-      'Додайте коректне зображення',
-      value =>
-      {
-        console.log('  value: ',   value);
-         return value && value.length > 0
-      }
-    )
+    .test('is-value', 'Додайте коректне зображення', value => {
+      console.log('  value: ', value);
+      return value && value.length > 0;
+    })
     .test('is-image-from-db', 'Додайте зображення', value => {
       value && value[0]?.size === 0 && value[0]?.type === 'for-url';
       return true;
@@ -40,7 +35,8 @@ export const blogPostValidation = Yup.object().shape({
       'is-valid-size',
       `Максимальний розмір зображення ${formatBytes(sizeLimit)}`,
       value => value && value[0]?.size <= sizeLimit
-    ),
+    )
+    .required('Додайте зображення'),
   сategory: Yup.string().oneOf(
     [
       'Саморозвиток',

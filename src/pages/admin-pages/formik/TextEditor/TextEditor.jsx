@@ -2,6 +2,7 @@ import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 import { useEffect } from 'react';
 import styles from './TextEditor.module.scss';
+
 const TextEditor = ({ id, field, text, label, form: { setFieldValue } }) => {
   useEffect(() => {
     if (!text) return;
@@ -15,11 +16,13 @@ const TextEditor = ({ id, field, text, label, form: { setFieldValue } }) => {
       ['bold', 'italic', 'underline', 'strike'],
       [{ color: [] }, { background: [] }],
       [{ script: 'sub' }, { script: 'super' }],
-      ['blockquote', 'code-block'],
+      ['blockquote'],
       [{ list: 'ordered' }, { list: 'bullet' }],
       [{ indent: '-1' }, { indent: '+1' }, { align: [] }],
-      ['link'],
-
+      ['link', 'image', 'video'],
+      // Add the font size and line height options to the toolbar
+      // [{ size: ['14px', '16px', '18px', '20px', '32px', '54px'] }],
+      // [{ lineHeight: ['1.0', '1.2', '1.5', '2.0'] }],
       ['clean'],
     ],
   };
@@ -40,6 +43,11 @@ const TextEditor = ({ id, field, text, label, form: { setFieldValue } }) => {
     'color',
     'background',
     'align',
+    'image',
+    'video',
+    // Add the size and lineHeight formats
+    // 'size',
+    // 'lineHeight',
   ];
   return (
     <div className={styles.inputWrapper}>
