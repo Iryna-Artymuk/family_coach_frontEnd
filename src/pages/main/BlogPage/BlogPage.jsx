@@ -19,7 +19,7 @@ import useBlogStore from '@/store/blogStore';
 import { useIsLoading } from '@/store/loadingStore';
 import Spinner from '@/ui/Spinner/Spinner';
 import { Resize } from '@cloudinary/url-gen/actions';
-
+import 'react-quill/dist/quill.snow.css';
 const BlogPage = () => {
   const [posts, setPosts] = useState([]);
 

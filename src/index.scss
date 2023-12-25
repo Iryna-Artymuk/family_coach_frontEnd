@@ -116,3 +116,7 @@ textarea {
 .ql-toolbar {
   background-color: $admin-light-blue;
 }
+.ql-container .ql-snow {
+  height: 300px;
+  overflow-y: auto;
+}

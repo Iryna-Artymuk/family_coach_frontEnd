@@ -12,18 +12,14 @@ const TextEditor = ({ id, field, text, label, form: { setFieldValue } }) => {
   const modules = {
     toolbar: [
       [{ font: [] }],
+      [{ size: ['small', 'large', 'huge'] }],
       [{ header: [1, 2, 3, 4, 5, 6, false] }],
       ['bold', 'italic', 'underline', 'strike'],
       [{ color: [] }, { background: [] }],
-      [{ script: 'sub' }, { script: 'super' }],
-      ['blockquote'],
       [{ list: 'ordered' }, { list: 'bullet' }],
       [{ indent: '-1' }, { indent: '+1' }, { align: [] }],
       ['link', 'image', 'video'],
       // Add the font size and line height options to the toolbar
-      // [{ size: ['14px', '16px', '18px', '20px', '32px', '54px'] }],
-      // [{ lineHeight: ['1.0', '1.2', '1.5', '2.0'] }],
-      ['clean'],
     ],
   };
 
@@ -35,7 +31,6 @@ const TextEditor = ({ id, field, text, label, form: { setFieldValue } }) => {
     'italic',
     'underline',
     'strike',
-    'blockquote',
     'list',
     'bullet',
     'indent',
@@ -45,9 +40,6 @@ const TextEditor = ({ id, field, text, label, form: { setFieldValue } }) => {
     'align',
     'image',
     'video',
-    // Add the size and lineHeight formats
-    // 'size',
-    // 'lineHeight',
   ];
   return (
     <div className={styles.inputWrapper}>

@@ -23,6 +23,7 @@ import { SwiperSlide, Swiper } from 'swiper/react';
 import useBlogStore from '@/store/blogStore';
 import { useIsLoading } from '@/store/loadingStore';
 import { Resize } from '@cloudinary/url-gen/actions';
+import 'react-quill/dist/quill.core.css';
 const Article = () => {
   // const location = useLocation();
   const { getPosts } = useBlogStore();
@@ -63,7 +64,7 @@ const Article = () => {
   useEffect(() => {
     // запит на бекенд по 1 статтю за id
     const findArticle = posts?.find(article => article._id === articleId);
-    console.log('findArticle : ', findArticle);
+
     setArticle(findArticle);
   }, [articleId, posts]);
 
@@ -72,14 +73,18 @@ const Article = () => {
       <section>
         <Container>
           <div className={styles.article_contentwrapper}>
-            <acticle className={styles.article}>
+            <article className={styles.article}>
               <Link className={styles.article_linkGoBack} to={backLinkHref}>
                 Повернутись до всіх статтей
               </Link>
               <div className={styles.articletextWrapper}>
                 <h1 className="title">{article?.title}</h1>
                 {/* <p className={styles.article_text}>{article?.post}</p> */}
-                <p dangerouslySetInnerHTML={{ __html: article?.post }} />
+                {/* <p dangerouslySetInnerHTML={{ __html: article?.post }} /> */}
+                <div
+                  className=" ql-editor"
+                  dangerouslySetInnerHTML={{ __html: article?.post }}
+                ></div>
               </div>
 
               <div className={styles.article_info}>
@@ -89,7 +94,7 @@ const Article = () => {
                 {/* <p className={styles.article_author}>{article.author}</p> */}
                 <p className={styles.article_author}>Жанна Барищук</p>
               </div>
-            </acticle>
+            </article>
           </div>
         </Container>
       </section>
@@ -137,7 +142,7 @@ const Article = () => {
                 }}
               >
                 {posts.map(article => (
-                  <SwiperSlide key={article.id}>
+                  <SwiperSlide key={article._id}>
                     <Link
                       to={`/blog/${article._id}`}
                       onClick={window.scrollTo(0, 0)}
