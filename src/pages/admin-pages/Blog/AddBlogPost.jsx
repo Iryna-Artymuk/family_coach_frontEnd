@@ -11,9 +11,10 @@ import TextArea from '../formik/TextArea/TextArea';
 import TextEditor from '../formik/TextEditor/TextEditor';
 
 import styles from './BlogAdmin.module.scss';
+import { blogPostValidation } from './validationSchema';
 const initialValues = {
   postImage: [],
-  category: 'Сімя',
+  category: 'Відносини',
   title: '',
   description: '',
   post: '',
@@ -23,9 +24,8 @@ const AddBlogPost = () => {
   const { addPost } = useBlogStore();
   const { isLoading, setIsLoading, setLoaded } = useIsLoading();
   const onSubmit = async values => {
-    console.log('values : ', values);
     const formData = new FormData();
-    formData.append('postImage', values.image[0]);
+    formData.append('postImage', values?.postImage[0]);
     formData.append('title', values.title);
     formData.append('description', values.description);
     formData.append('post', values.post);
@@ -36,6 +36,9 @@ const AddBlogPost = () => {
       const result = await addPost(formData);
       if (result.status === 'success') {
         toast.success('Пост доданий успішно ');
+      }
+      if (result.status === 'error') {
+        toast.error(`Помилка  ${result.message}`);
       }
       setLoaded();
     } catch (error) {
@@ -48,7 +51,7 @@ const AddBlogPost = () => {
       {!isLoading ? (
         <Formik
           initialValues={initialValues}
-          // validationSchema={diplomaImageValidation}
+          //validationSchema={blogPostValidation}
           onSubmit={onSubmit}
         >
           {formik => {
@@ -62,7 +65,7 @@ const AddBlogPost = () => {
                       type="file"
                       component={FileInput}
                     />
-                    <div className={ styles.inputsWrapper }>
+                    <div className={styles.inputsWrapper}>
                       <Field
                         name="category"
                         id="category"
@@ -86,7 +89,7 @@ const AddBlogPost = () => {
                         id="description"
                         placeholder="description"
                         component={TextArea}
-                        maxLength={100}
+                        maxLength={300}
                         showCharacterCount={true}
                         label="короткий опис"
                       />

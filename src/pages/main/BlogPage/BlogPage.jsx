@@ -18,6 +18,7 @@ import IconMore from '@/components/Icons/Main/IconMore';
 import useBlogStore from '@/store/blogStore';
 import { useIsLoading } from '@/store/loadingStore';
 import Spinner from '@/ui/Spinner/Spinner';
+import { Resize } from '@cloudinary/url-gen/actions';
 
 const BlogPage = () => {
   const [posts, setPosts] = useState([]);
@@ -95,7 +96,7 @@ const BlogPage = () => {
                           <AdvancedImage
                             cldImg={cld
                               .image(article.postImage.public_id)
-                              // .resize(Resize.scale().width(430).height(350))
+                              .resize(Resize.scale().width(430).height(350))
                               .roundCorners(byRadius(15))}
                             plugins={
                               ([
@@ -109,7 +110,7 @@ const BlogPage = () => {
                             }
                           />
                           <div className={styles.blog_contentOverlay}>
-                            <p className={styles.blog_contentText}>
+                            <p className={styles.blog_contentOverlayText}>
                               {article.description}
                             </p>
                           </div>
@@ -131,7 +132,7 @@ const BlogPage = () => {
                         <AdvancedImage
                           cldImg={cld
                             .image(article.postImage.public_id)
-                            // .resize(Resize.scale().width(430).height(350))
+                            .resize(Resize.scale().width(300).height(300))
                             .roundCorners(byRadius(15))}
                           plugins={
                             ([

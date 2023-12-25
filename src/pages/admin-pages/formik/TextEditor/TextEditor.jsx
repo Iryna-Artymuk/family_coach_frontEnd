@@ -17,7 +17,9 @@ const TextEditor = ({ id, field, text, label, form: { setFieldValue } }) => {
       [{ script: 'sub' }, { script: 'super' }],
       ['blockquote', 'code-block'],
       [{ list: 'ordered' }, { list: 'bullet' }],
-      // [{ indent: '-1' }, { indent: '+1' }, { align: [] }],
+      [{ indent: '-1' }, { indent: '+1' }, { align: [] }],
+      ['link'],
+
       ['clean'],
     ],
   };

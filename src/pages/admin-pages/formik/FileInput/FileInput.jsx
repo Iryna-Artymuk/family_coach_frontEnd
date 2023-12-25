@@ -6,16 +6,18 @@ import styles from './FileInput.module.scss';
 const FileInput = ({
   field,
   photo,
+  id,
   form: { errors, setFieldValue },
   ...props
 }) => {
   const [imagePreview, setImagePreview] = useState('');
   const fieldValue = field.value;
+  console.log('fieldValue: ', field.value);
 
   useEffect(() => {
     if (!photo) return;
-    setFieldValue('image', [new File([], photo, { type: 'for-url' })]);
-  }, [photo, setFieldValue]);
+    setFieldValue(id, [new File([], photo, { type: 'for-url' })]);
+  }, [photo, setFieldValue, id]);
 
   useEffect(() => {
     setImagePreview(fieldValue[0]?.name);
@@ -30,7 +32,7 @@ const FileInput = ({
   };
 
   const onDrop = async files => {
-    setFieldValue('image', files);
+    setFieldValue(id, files);
     const file = files[0];
     setFileToBase64(file);
   };
@@ -65,13 +67,12 @@ const FileInput = ({
           </div>
         )}
       </Dropzone>
-  
-      { errors?.[ field.name ] && (
-            <div className={styles.errorWrap}>
-          <p className={ styles.errorMessage }>{ errors?.[ field.name ] }</p>
-                </div>
-        )}
 
+      {errors?.[field.name] && (
+        <div className={styles.errorWrap}>
+          <p className={styles.errorMessage}>{errors?.[field.name]}</p>
+        </div>
+      )}
     </div>
   );
 };
