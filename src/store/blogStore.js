@@ -2,8 +2,8 @@ import { create } from 'zustand';
 
 const useBlogStore = create((set, get) => ({
   // server: import.meta.env.VITE_APP_API_URL,
-  server: 'https://family-coach.onrender.com/api',
-  //server: 'http://localhost:5000/api',
+  //server: 'https://family-coach.onrender.com/api',
+  server: 'http://localhost:5000/api',
   getPosts: async () => {
     const response = await fetch(`${get().server}/blog`);
     if (!response.ok) {

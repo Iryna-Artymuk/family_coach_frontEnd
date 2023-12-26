@@ -31,7 +31,7 @@ const AddBlogPost = () => {
     formData.append('title', values.title);
     formData.append('description', values.description);
     formData.append('post', values.post);
-    formData.append('category', values.category);
+    formData.append('postCategory', values.postCategory);
 
     try {
       setIsLoading();

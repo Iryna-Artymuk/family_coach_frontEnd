@@ -19,9 +19,10 @@ const SelectInput = ({
   const [isFocused, setIsFocused] = useState(false);
   const isFieldTouched = touched[field.name];
 
-  console.log('isFieldTouched: ', isFieldTouched);
-  console.log('errors: ', errors?.[field.name]);
-  console.log('field.value', field.value);
+  console.log('  field: ', field);
+  // console.log('isFieldTouched: ', isFieldTouched);
+  // console.log('errors: ', errors?.[field.name]);
+  // console.log('field.value', field.value);
 
   useEffect(() => {
     if (!text) return;
