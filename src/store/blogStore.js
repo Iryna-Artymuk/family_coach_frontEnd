@@ -2,8 +2,8 @@ import { create } from 'zustand';
 
 const useBlogStore = create((set, get) => ({
   // server: import.meta.env.VITE_APP_API_URL,
-  server: 'https://family-coach.onrender.com/api',
-  //server: 'http://localhost:5000/api',
+  //server: 'https://family-coach.onrender.com/api',
+  server: 'http://localhost:5000/api',
   getPosts: async () => {
     const response = await fetch(`${get().server}/blog`);
     if (!response.ok) {
@@ -40,13 +40,10 @@ const useBlogStore = create((set, get) => ({
     const result = await response.json();
     return result;
   },
-  updatePostImage: async (data, id) => {
-    const response = await fetch(`${get().server}/price/${id}`, {
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      method: 'PUT',
-      body: JSON.stringify(data),
+  updatePostImage: async (formData, id) => {
+    const response = await fetch(`${get().server}/blog/postImage/${id}`, {
+      method: 'PATCH',
+      body: formData,
     });
     const result = await response.json();
     return result;

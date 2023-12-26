@@ -20,14 +20,17 @@ const initialValues = {
   description: '',
   post: '',
 };
+const imageinitialValues = {
+  postImage: [],
+};
 
 const EditBlogPost = () => {
-  const { getPostById, updatePostText } = useBlogStore();
+  const { getPostById, updatePostText, updatePostImage } = useBlogStore();
   const { id } = useParams();
   const [post, setPost] = useState({});
   const navigate = useNavigate();
   const { isLoading, setIsLoading, setLoaded } = useIsLoading();
-  console.log(' isLoading: ', isLoading);
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -44,14 +47,6 @@ const EditBlogPost = () => {
     fetchData();
   }, [getPostById, id, setPost, setIsLoading, setLoaded]);
   const onSubmit = async values => {
-    // console.log('values: ', values);
-    // const formData = new FormData();
-
-    // formData.append('title', values.title);
-    // formData.append('description', values.description);
-    // formData.append('post', values.post);
-    // formData.append('category', values.category);
-
     try {
       setIsLoading();
       const result = await updatePostText(values, id);
@@ -71,9 +66,71 @@ const EditBlogPost = () => {
     }
     return;
   };
+  const onImageSubmit = async values => {
+    console.log('values: ', values);
+    const formData = new FormData();
+
+    formData.append('postImage', values.postImage[0]);
+
+    try {
+      setIsLoading();
+      const result = await updatePostImage(formData, id);
+      if (result.status === 'success') {
+        setLoaded();
+        toast.success(' Зображення оновлено успішно ');
+        navigate('/admin/blog');
+      }
+      if (result.status === 'error') {
+        setLoaded();
+        toast.error(`Помилка  ${result.message} служба підтримки 0666796604`);
+      }
+    } catch (error) {
+      setLoaded();
+      toast.error(`Помилка  ${error.message}`);
+      console.log(error);
+    }
+    return;
+  };
 
   return (
     <>
+      <>
+        {!isLoading ? (
+          <Formik
+            initialValues={imageinitialValues}
+            // validationSchema={blogPostImageValidation}
+            onSubmit={onImageSubmit}
+          >
+            {formik => {
+              return (
+                <Form>
+                  <div className={styles.layout}>
+                    <div className={styles.wrapper}>
+                      <Field
+                        name="postImage"
+                        id="postImage"
+                        type="file"
+                        component={FileInput}
+                        photo={post.postImage?.url}
+                      />
+                    </div>
+
+                    <ButtonSubmit
+                      type="submit"
+                      nameButton="Оновити зображення "
+                      isActive={formik.isValid}
+                      handlClick={formik.handleSubmit}
+                    />
+                  </div>
+                </Form>
+              );
+            }}
+          </Formik>
+        ) : (
+          <Spinner />
+        )}
+      </>
+
       {!isLoading ? (
         <Formik
           initialValues={initialValues}
