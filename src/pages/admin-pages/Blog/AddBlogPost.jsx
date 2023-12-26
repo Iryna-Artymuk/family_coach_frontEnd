@@ -7,17 +7,18 @@ import { toast } from 'react-toastify';
 import FileInput from '../formik/FileInput/FileInput';
 import TextInput from '../formik/TextInput/TextInput';
 import useBlogStore from '@/store/blogStore';
-import TextArea from '../formik/TextArea/TextArea';
+
 import TextEditor from '../formik/TextEditor/TextEditor';
 
 import styles from './BlogAdmin.module.scss';
-import { blogPostValidation } from './validationSchema';
+import { blogPostValidation } from './schemas/addPostValidationSchema';
+import TextArea from '../formik/TextArea/TextArea';
 const initialValues = {
   postImage: [],
-  category: 'Відносини',
+  category: '',
   title: '',
   description: '',
-  post: '',
+  postCategory: '',
 };
 
 const AddBlogPost = () => {
@@ -67,8 +68,8 @@ const AddBlogPost = () => {
                     />
                     <div className={styles.inputsWrapper}>
                       <Field
-                        name="category"
-                        id="category"
+                        name="postCategory"
+                        id="postCategory"
                         placeholder="category"
                         component={TextInput}
                         maxLength={50}

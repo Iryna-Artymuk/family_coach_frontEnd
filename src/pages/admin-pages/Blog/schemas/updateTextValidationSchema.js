@@ -1,7 +1,7 @@
 import * as Yup from 'yup';
 
 export const updatePostValidation = Yup.object().shape({
-  сategory: Yup.string().oneOf(
+  postCategory: Yup.string().oneOf(
     [
       'Саморозвиток',
       'Мотивація',

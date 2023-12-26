@@ -6,20 +6,21 @@ import {
   responsive,
   placeholder,
 } from '@cloudinary/react';
-import Container from '@/components/main/Container/Container';
+
+import 'react-quill/dist/quill.snow.css';
 
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-
-import styles from './BlogPage.module.scss';
 import { useMediaQuery } from 'react-responsive';
+
 import Arrow from '@/components/Icons/Main/Arrow';
 import IconMore from '@/components/Icons/Main/IconMore';
-import useBlogStore from '@/store/blogStore';
 import { useIsLoading } from '@/store/loadingStore';
+import useBlogStore from '@/store/blogStore';
+import styles from './BlogPage.module.scss';
+import Container from '@/components/main/Container/Container';
 import Spinner from '@/ui/Spinner/Spinner';
-import { Resize } from '@cloudinary/url-gen/actions';
-import 'react-quill/dist/quill.snow.css';
+
 const BlogPage = () => {
   const [posts, setPosts] = useState([]);
 
@@ -96,7 +97,6 @@ const BlogPage = () => {
                           <AdvancedImage
                             cldImg={cld
                               .image(article.postImage.public_id)
-                              .resize(Resize.scale().width(430).height(350))
                               .roundCorners(byRadius(15))}
                             plugins={
                               ([
@@ -132,7 +132,7 @@ const BlogPage = () => {
                         <AdvancedImage
                           cldImg={cld
                             .image(article.postImage.public_id)
-                            .resize(Resize.scale().width(300).height(300))
+
                             .roundCorners(byRadius(15))}
                           plugins={
                             ([
@@ -141,7 +141,7 @@ const BlogPage = () => {
                                 threshold: 0.25,
                               }),
                             ],
-                            [responsive({ steps: 100 })],
+                            // [responsive({ steps: 100 })],
                             [placeholder({ mode: 'blur' })])
                           }
                         />

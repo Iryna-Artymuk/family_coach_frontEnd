@@ -18,13 +18,10 @@ const TextInput = ({
 
   const [isFocused, setIsFocused] = useState(false);
 
-
-
   useEffect(() => {
     if (!text) return;
-    console.log('text: ', text);
-    setFieldValue( id, text );
-    
+
+    setFieldValue(id, text);
   }, [text, setFieldValue, id]);
 
   const handleFocus = () => {

@@ -37,7 +37,7 @@ export const blogPostValidation = Yup.object().shape({
       value => value && value[0]?.size <= sizeLimit
     )
     .required('Додайте зображення'),
-  сategory: Yup.string().oneOf(
+  postCategory: Yup.string().oneOf(
     [
       'Саморозвиток',
       'Мотивація',

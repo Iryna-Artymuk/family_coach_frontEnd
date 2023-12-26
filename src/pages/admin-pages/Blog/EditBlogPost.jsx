@@ -1,21 +1,25 @@
+import { useEffect, useState } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
 import FormData from 'form-data';
-import ButtonSubmit from '@/components/admin/SubmitButton/ButtonSubmit';
-import { useIsLoading } from '@/store/loadingStore';
-import Spinner from '@/ui/Spinner/Spinner';
 import { Field, Form, Formik } from 'formik';
 import { toast } from 'react-toastify';
+
 import FileInput from '../formik/FileInput/FileInput';
 import TextInput from '../formik/TextInput/TextInput';
 import useBlogStore from '@/store/blogStore';
-import TextArea from '../formik/TextArea/TextArea';
+
 import TextEditor from '../formik/TextEditor/TextEditor';
+import SelectInput from '../formik/SelectInput/SelectInput';
+import Spinner from '@/ui/Spinner/Spinner';
+import ButtonSubmit from '@/components/admin/SubmitButton/ButtonSubmit';
 import styles from './BlogAdmin.module.scss';
 
-import { useEffect, useState } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
-import { updatePostValidation } from './updateValidationSchema';
+import { useIsLoading } from '@/store/loadingStore';
+import { updatePostValidation } from './schemas/updateTextValidationSchema';
+import { blogPostImageValidation } from './schemas/udateImageValidationschema';
+import TextArea from '../formik/TextArea/TextArea';
 const initialValues = {
-  сategory: '',
+  postCategory: '',
   title: '',
   description: '',
   post: '',
@@ -36,6 +40,7 @@ const EditBlogPost = () => {
       try {
         setIsLoading();
         const result = await getPostById(id);
+        console.log('result : ', result);
 
         setPost(result);
         setLoaded();
@@ -94,26 +99,24 @@ const EditBlogPost = () => {
 
   return (
     <>
-      <>
-        {!isLoading ? (
+      {!isLoading ? (
+        <>
           <Formik
             initialValues={imageinitialValues}
-            // validationSchema={blogPostImageValidation}
+            validationSchema={blogPostImageValidation}
             onSubmit={onImageSubmit}
           >
             {formik => {
               return (
                 <Form>
                   <div className={styles.layout}>
-                    <div className={styles.wrapper}>
-                      <Field
-                        name="postImage"
-                        id="postImage"
-                        type="file"
-                        component={FileInput}
-                        photo={post.postImage?.url}
-                      />
-                    </div>
+                    <Field
+                      name="postImage"
+                      id="postImage"
+                      type="file"
+                      component={FileInput}
+                      photo={post.postImage?.url}
+                    />
 
                     <ButtonSubmit
                       type="submit"
@@ -126,75 +129,68 @@ const EditBlogPost = () => {
               );
             }}
           </Formik>
-        ) : (
-          <Spinner />
-        )}
-      </>
 
-      {!isLoading ? (
-        <Formik
-          initialValues={initialValues}
-          validationSchema={updatePostValidation}
-          onSubmit={onSubmit}
-        >
-          {formik => {
-            return (
-              <Form>
-                <div className={styles.layout}>
-                  <div className={styles.wrapper}>
-                    <div className={styles.inputsWrapper}>
-                      <Field
-                        name="сategory"
-                        id="сategory"
-                        placeholder="category"
-                        component={TextInput}
-                        maxLength={50}
-                        showCharacterCount={true}
-                        label="Категорія"
-                        text={post?.сategory}
-                      />
-                      <Field
-                        name="title"
-                        id="title"
-                        placeholder="title"
-                        component={TextInput}
-                        maxLength={50}
-                        showCharacterCount={true}
-                        label="Заголовок"
-                        text={post?.title}
-                      />
-                      <Field
-                        name="description"
-                        id="description"
-                        placeholder="description"
-                        component={TextArea}
-                        maxLength={300}
-                        showCharacterCount={true}
-                        label="короткий опис"
-                        text={post?.description}
-                      />
+          <Formik
+            initialValues={initialValues}
+            validationSchema={updatePostValidation}
+            onSubmit={onSubmit}
+          >
+            {formik => {
+              return (
+                <Form>
+                  <div className={styles.layout}>
+                    <div className={styles.wrapper}>
+                      <div className={styles.inputsWrapper}>
+                        <Field
+                          name="postCategory"
+                          id="postCategory"
+                          component={SelectInput}
+                          label="Категорія"
+                          text={post?.postCategory}
+                        />
+                        <Field
+                          name="title"
+                          id="title"
+                          placeholder="title"
+                          component={TextInput}
+                          maxLength={50}
+                          showCharacterCount={true}
+                          label="Заголовок"
+                          text={post?.title}
+                        />
+                        <Field
+                          name="description"
+                          id="description"
+                          placeholder="description"
+                          component={TextArea}
+                          maxLength={300}
+                          showCharacterCount={true}
+                          label="Опис"
+                          text={post?.description}
+                        />
+                      </div>
                     </div>
+
+                    <Field
+                      name="post"
+                      id="post"
+                      component={TextEditor}
+                      label="Стаття"
+                      text={post?.post}
+                    />
+
+                    <ButtonSubmit
+                      type="submit"
+                      nameButton=" Оновити"
+                      isActive={formik.isValid}
+                      handlClick={formik.handleSubmit}
+                    />
                   </div>
-
-                  <Field
-                    name="post"
-                    id="post"
-                    component={TextEditor}
-                    label="Стаття"
-                    text={post?.post}
-                  />
-
-                  <ButtonSubmit
-                    type="submit"
-                    nameButton=" Оновити"
-                    isActive={formik.isValid}
-                    handlClick={formik.handleSubmit}
-                  />
-                </div>
-              </Form>
-            );
-          }}
-        </Formik>
+                </Form>
+              );
+            }}
+          </Formik>
+        </>
       ) : (
         <Spinner />
       )}
