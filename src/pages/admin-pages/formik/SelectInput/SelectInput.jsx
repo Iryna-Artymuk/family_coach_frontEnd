@@ -16,16 +16,17 @@ const SelectInput = ({
   label,
   form: { errors, handleBlur, touched, setFieldValue },
 }) => {
+  const [isFocused, setIsFocused] = useState(false);
   const isFieldTouched = touched[field.name];
 
-  const [isFocused, setIsFocused] = useState(false);
+  console.log('isFieldTouched: ', isFieldTouched);
+  console.log('errors: ', errors?.[field.name]);
+  console.log('field.value', field.value);
 
   useEffect(() => {
     if (!text) return;
     setFieldValue(id, text);
   }, [text, setFieldValue, id]);
-
-  console.log('field.value', field.value);
 
   const defaultValue = options => {
     const value = options.find(item => item.value === field.value);
@@ -37,61 +38,51 @@ const SelectInput = ({
     }
   };
 
-  // const handleFocus = () => {
-  //   setIsFocused(true);
-  // };
+  const handleFocus = () => {
+    setIsFocused(true);
+  };
 
-  // useEffect(() => {
-  //   if (isFieldTouched && valueLength >= 0) {
-  //     setIsFocused(false);
-  //   }
-  //}, [isFieldTouched, valueLength]);
-
-  // const getBorderColor = () => {
-  //   if (valueLength > maxLength) {
-  //     return styles.redBorder;
-  //   }
-  //   if (isFocused) {
-  //     return styles.blueBorder;
-  //   }
-  //   if (valueLength === 0 && isFieldTouched) {
-  //     return styles.redBorder;
-  //   }
-  //   if (valueLength > 0 && !isFocused) {
-  //     return styles.greenBorder;
-  //   } else {
-  //     return styles.grayBorder;
-  //   }
-  // };
+  const getBorderColor = () => {
+    if (errors?.[field.name] && isFieldTouched) {
+      return '1px solid #bc0000';
+    }
+    if (!errors?.[field.name] && !isFocused) {
+      !errors?.[field.name] === true;
+      return '1px solid #00bc71';
+    }
+    if (isFocused) {
+      return '1px solid  blue';
+    } else {
+      return '1px solid  gray';
+    }
+  };
 
   return (
     <div className={styles.textAreaWrapper}>
       <label htmlFor={id} className={styles.inputLabel}>
         {label}
       </label>
-      {/* <textarea
-        id={id}
-        className={`${styles.textArea} ${getBorderColor()} ${getInputState()}`}
-        onFocus={handleFocus}
-        onBlur={handleBlur}
-        onClick={() => setIsFocused(true)}
-        {...field}
-      />  */}
 
       <Select
         id={id}
         options={options}
         value={defaultValue(options, text)}
-        onChange={value => setFieldValue(id, value.value)}
+        onChange={value => {
+          setFieldValue(id, value.value);
+          setIsFocused(false);
+        }}
+        onFocus={handleFocus}
+        onBlur={handleBlur}
         styles={{
           container: baseStyles => ({
             ...baseStyles,
             width: '100%',
+            // border: getBorderColor(),
           }),
           control: baseStyles => ({
             ...baseStyles,
             borderRadius: '15px',
-            border: '1px solid  #444',
+            border: getBorderColor(),
 
             color: '#000',
             fontFamily: 'Montserrat',
@@ -128,11 +119,9 @@ const SelectInput = ({
         })}
       />
 
-      {errors?.[field.name] && (
+      {errors && (
         <div>
-          {errors?.[field.name] && isFieldTouched && (
-            <p className={styles.errorMessage}>{errors?.[field.name]}</p>
-          )}
+          <p className={styles.errorMessage}>{errors?.[field.name]}</p>
         </div>
       )}
     </div>

@@ -13,6 +13,7 @@ import TextEditor from '../formik/TextEditor/TextEditor';
 import styles from './BlogAdmin.module.scss';
 import { blogPostValidation } from './schemas/addPostValidationSchema';
 import TextArea from '../formik/TextArea/TextArea';
+import SelectInput from '../formik/SelectInput/SelectInput';
 const initialValues = {
   postImage: [],
   category: '',
@@ -70,11 +71,8 @@ const AddBlogPost = () => {
                       <Field
                         name="postCategory"
                         id="postCategory"
-                        placeholder="category"
-                        component={TextInput}
-                        maxLength={50}
-                        showCharacterCount={true}
-                        label="Катеорія"
+                        component={SelectInput}
+                        label="Категорія"
                       />
                       <Field
                         name="title"

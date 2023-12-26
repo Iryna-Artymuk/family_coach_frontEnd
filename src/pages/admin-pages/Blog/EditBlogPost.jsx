@@ -72,7 +72,6 @@ const EditBlogPost = () => {
     return;
   };
   const onImageSubmit = async values => {
-    console.log('values: ', values);
     const formData = new FormData();
 
     formData.append('postImage', values.postImage[0]);
