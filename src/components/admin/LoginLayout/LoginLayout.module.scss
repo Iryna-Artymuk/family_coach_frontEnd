@@ -1,9 +1,6 @@
-.backgroundContainer{
-  display: flex;
+.backgroundContainer {
   width: 100vw;
   height: 100vh;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background: var(--admin-background, #F6F7FF);
+  @extend%aligncenter;
+  background: $admin-dark-blue;
 }

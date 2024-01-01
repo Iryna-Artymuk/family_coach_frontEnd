@@ -1,0 +1,11 @@
+.text {
+  width: 50vw;
+  color: $admin-white;
+  text-align: center;
+  font-weight: 700;
+}
+
+.contentWrapper {
+  width: 100%;
+  @extend%aligncenter;
+}
