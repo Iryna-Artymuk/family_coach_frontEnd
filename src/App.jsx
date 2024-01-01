@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-  import { ToastContainer } from 'react-toastify';
+import { ToastContainer } from 'react-toastify';
 import HomePage from '@/pages/main/HomePage/HomePage';
 import BlogPage from '@/pages/main/BlogPage/BlogPage';
 import Layout from './components/main/layout/Layout';
@@ -17,6 +17,9 @@ import QualificationAdmin from './pages/admin-pages/QualificationAdmin/Qualifica
 import AdultPriceAdmin from './pages/admin-pages/Price/AdultPriceAdmin';
 import KidsPriceAdmin from './pages/admin-pages/Price/KidsPriceAdmin';
 import LecturePriceAdmin from './pages/admin-pages/Price/LecturePriceAdmin';
+import LoginPage from './components/admin/loginPage/LoginPage';
+import LoginLayout from './components/admin/LoginLayout/LoginLayout';
+import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 
 const App = () => {
   return (
@@ -45,7 +48,29 @@ const App = () => {
              */}
           </Route>
 
-          <Route path="/admin" element={<AdminSharedLayout />}>
+          {/* login */}
+          <Route path="/login" element={<LoginLayout />}>
+            <Route index element={<LoginPage />} />
+            {/* <Route
+              path="password-recovery"
+              element={<PasswordRecoveryPage />}
+            />
+            <Route
+              path="password-recovery/:token"
+              element={<CompletePasswordRecoveryPage />}
+            />
+            <Route path="password-recovery-success" element={<SuccessPage />} /> */}
+          </Route>
+
+          {/* admin */}
+          <Route
+            path="/admin"
+            element={
+              <PrivateRoute redirectTo="/login">
+                <AdminSharedLayout />
+              </PrivateRoute>
+            }
+          >
             <Route index element={<AdminDashboard />} />
             <Route path="feedback" element={<FeedbackAdmin />} />
             <Route path="feedback/edit/:id" element={<EditFeedback />} />

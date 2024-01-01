@@ -21,6 +21,7 @@ import styles from './BlogPage.module.scss';
 import Container from '@/components/main/Container/Container';
 import Spinner from '@/ui/Spinner/Spinner';
 
+
 const BlogPage = () => {
   const [posts, setPosts] = useState([]);
 

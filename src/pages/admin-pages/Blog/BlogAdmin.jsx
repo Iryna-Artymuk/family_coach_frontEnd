@@ -6,7 +6,7 @@ import BlogTable from '@/components/admin/BlogTable.jsx/BlogTable';
 import Spinner from '@/ui/Spinner/Spinner';
 const BlogAdmin = () => {
   const { getPosts, deletePostById } = useBlogStore();
-  const [posts, setPosts, ] = useState([]);
+  const [posts, setPosts] = useState([]);
   const { isLoading, setIsLoading, setLoaded } = useIsLoading();
 
   useEffect(() => {

@@ -17,7 +17,6 @@ import TextInput from '../formik/TextInput/TextInput';
 import sprite from '@/assets/icons/sprite-admin.svg';
 import styles from './Price.module.scss';
 
-import clsx from 'clsx';
 import { lecturePriceValidationSchema } from './validationShemas/lecturePriceValidationSchema';
 import ButtonSubmit from '@/components/admin/SubmitButton/ButtonSubmit';
 

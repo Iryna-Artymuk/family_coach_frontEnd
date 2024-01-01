@@ -51,27 +51,39 @@ export default function AddForm({ setIsSubmitted, isSubmitted, closeModal }) {
       validationSchema={ValidationSchema}
       onSubmit={onSubmit}
     >
-      <Form className={styles.form}>
-        <h2 className={styles.formTitle}>Щоб додати відгук заповніть форму</h2>
-        <Field type="text" name="name" placeholder="Ваше імʼя" />
-        <ErrorMessage
-          className={styles.inputError}
-          name="  name"
-          component="div"
-        />
+      {formik => {
+        return (
+          <Form className={styles.form}>
+            <h2 className={styles.formTitle}>
+              Щоб додати відгук заповніть форму
+            </h2>
+            <Field type="text" name="name" placeholder="Ваше імʼя" />
+            <ErrorMessage
+              className={styles.inputError}
+              name="  name"
+              component="div"
+            />
+            <Field
+              as="textarea"
+              name="feedback"
+              placeholder="Залиште свій відгук"
+            />
+            <ErrorMessage
+              className={styles.inputError}
+              name="feedback"
+              component="div"
+            />
 
-        <Field
-          as="textarea"
-          name="feedback"
-          placeholder="Залиште свій відгук"
-        />
-        <ErrorMessage
-          className={styles.inputError}
-          name="feedback"
-          component="div"
-        />
-        <button type="submit">Додати відгук</button>
-      </Form>
+            <Button
+              formButton="true"
+              type="submit"
+              onClick={formik.handleSubmit}
+            >
+              Додати відгук
+            </Button>
+          </Form>
+        );
+      }}
     </Formik>
   );
 }

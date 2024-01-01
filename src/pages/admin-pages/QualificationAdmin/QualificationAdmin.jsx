@@ -12,15 +12,14 @@ import {
 import { Cloudinary } from '@cloudinary/url-gen';
 import { Resize } from '@cloudinary/url-gen/actions/resize';
 import { byRadius } from '@cloudinary/url-gen/actions/roundCorners';
-
-import { useIsLoading } from '@/store/loadingStore';
-import useQualificatioStore from '@/store/qualificatioStore';
+import sprite from '@/assets/icons/sprite-admin.svg';
 import Spinner from '@/ui/Spinner/Spinner';
 import FileInput from '../formik/FileInput/FileInput';
-import { diplomaImageValidation } from './validationSchema.js';
-import sprite from '@/assets/icons/sprite-admin.svg';
-import styles from './QualificationAdmin.module.scss';
 import ButtonSubmit from '@/components/admin/SubmitButton/ButtonSubmit';
+import { useIsLoading } from '@/store/loadingStore';
+import useQualificatioStore from '@/store/qualificatioStore';
+import { diplomaImageValidation } from './validationSchema.js';
+import styles from './QualificationAdmin.module.scss';
 
 const initialValues = {
   image: [],

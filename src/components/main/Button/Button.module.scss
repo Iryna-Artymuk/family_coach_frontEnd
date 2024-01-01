@@ -1,5 +1,7 @@
 .button {
   @extend%aligncenter;
+  background-color: $buttonBG;
+  color: $buttonTextColor;
 }
 
 .burgerButton {
@@ -42,6 +44,33 @@
   font-size: 12px;
   padding: 8.5px 19.5px;
   @media screen and (min-width: 768px) {
+    width: 241px;
+    height: 42px;
+    font-size: 16px;
+  }
+  &:hover,
+  &:focus {
+    background-color: $buttonBG;
+    color: $buttonTextColorHover;
+  }
+}
+
+.formButton {
+  width: 120px;
+  height: 32px;
+  @extend%aligncenter;
+  border-radius: 15px;
+  background-color: $buttonBG;
+  color: $buttonTextColor;
+  margin-left: auto;
+  font-size: 12px;
+  padding: 8.5px 19.5px;
+  @include tablet {
+    width: 239px;
+    height: 36px;
+    font-size: 16px;
+  }
+  @include desktop {
     width: 241px;
     height: 42px;
     font-size: 16px;

@@ -7,6 +7,7 @@ const Button = ({
   burgerButton,
   burgerMenuCloseButton,
   buttonaddmore,
+  formButton,
 }) => {
   return (
     <button
@@ -14,7 +15,8 @@ const Button = ({
         styles.button,
         burgerButton && styles.burgerButton,
         burgerMenuCloseButton && styles.burgerMenuCloseButton,
-        buttonaddmore && styles.buttonAddMore
+        buttonaddmore && styles.buttonAddMore,
+        formButton && styles.formButton
       )}
       type={type}
       onClick={onClick}

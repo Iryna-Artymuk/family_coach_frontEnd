@@ -28,7 +28,7 @@ import { useIsLoading } from '@/store/loadingStore';
 import useBlogStore from '@/store/blogStore';
 const HomePage = () => {
   const [allfeedbacks, setAllfeedbacks] = useState([]);
-  console.log('allfeedbacks: ', allfeedbacks);
+
   const [feedbackStatus] = useState('approved');
   const { getFeedbacks } = useFeedbackStore();
   const { getPosts } = useBlogStore();
@@ -375,7 +375,7 @@ const HomePage = () => {
             <h2 className={styles.title}>Відгуки</h2>
             {!isLoading ? (
               <>
-                <Button buttonaddmore={true} type="button" onClick={openModal}>
+                <Button buttonaddmore="true" type="button" onClick={openModal}>
                   Додати відгук
                 </Button>
                 {allfeedbacks.length > 0 ? (
@@ -476,7 +476,7 @@ const HomePage = () => {
                 <Link
                   className={styles.blog_Link}
                   to="/blog"
-                  buttonaddmore={true}
+                  // buttonaddmore={true}
                   type="button"
                 >
                   Дивитися усі статті
@@ -522,7 +522,7 @@ const HomePage = () => {
                   }}
                 >
                   {posts.map(article => (
-                    <SwiperSlide key={article.id}>
+                    <SwiperSlide key={article._id}>
                       <ArticleCard article={article} />
                     </SwiperSlide>
                   ))}

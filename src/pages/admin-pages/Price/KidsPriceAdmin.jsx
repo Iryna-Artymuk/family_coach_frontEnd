@@ -5,8 +5,6 @@ import { useEffect, useState } from 'react';
 import { useIsLoading } from '@/store/loadingStore';
 import usePriceStore from '@/store/priceStore';
 
-
-
 import TextInput from '../formik/TextInput/TextInput';
 import Spinner from '@/ui/Spinner/Spinner';
 import sprite from '@/assets/icons/sprite-admin.svg';
@@ -267,10 +265,10 @@ const KidsPriceAdmin = () => {
                           )}
                         />
                         <ButtonSubmit
-                        type='submit'
+                          type="submit"
                           nameButton="Оновити пакет"
                           isActive={formik.isValid}
-                       handlClick={formik.handleSubmit}
+                          handlClick={formik.handleSubmit}
                         />
                       </div>
                     </Form>
@@ -379,7 +377,7 @@ const KidsPriceAdmin = () => {
                       component={TextInput}
                       label="Ціна разової консультації(грн)"
                       nestedErrorText={
-                        getIn( formik.touched, 'singleConsultation.price' ) &&
+                        getIn(formik.touched, 'singleConsultation.price') &&
                         getIn(formik.errors, 'singleConsultation.price')
                       }
                       nestedError={Boolean(
@@ -388,10 +386,10 @@ const KidsPriceAdmin = () => {
                       )}
                     />
                     <ButtonSubmit
-                    type='submit'
+                      type="submit"
                       nameButton="додати пакет"
                       isActive={formik.isValid}
-                   handlClick={formik.handleSubmit}
+                      handlClick={formik.handleSubmit}
                     />
                   </div>
                 </Form>
