@@ -85,7 +85,7 @@ const PasswordInput = ({
         onClick={() => setIsFocused(true)}
         {...field}
       />
-      <button className={styles.icon} onClick={handleInputType}>
+      {/* <button className={styles.icon} onClick={handleInputType}>
         {inputType === 'password-hide' ? (
           <svg>
             <use href={`${sprite}#${'view-hide'}`} />
@@ -95,7 +95,7 @@ const PasswordInput = ({
             <use href={`${sprite}#${'view-show'}`} />
           </svg>
         )}
-      </button>
+      </button> */}
       <div className={styles.errorWrap}>
         {errors?.[field.name] && isFieldTouched && (
           <p className={styles.errorMessage}>{errors?.[field.name]}</p>

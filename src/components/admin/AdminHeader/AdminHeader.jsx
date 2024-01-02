@@ -3,7 +3,8 @@ import styles from './AdminHeader.module.scss';
 import useAuthStore from '@/store/authStore';
 import { useAuthorized } from '@/store/IsAuthorizedStore';
 import { toast } from 'react-toastify';
-const AdminHeader = () => {
+const AdminHeader = ({ currentUser }) => {
+  console.log('currentUser : ', currentUser);
   const { setUnAuthorized } = useAuthorized();
   const { logout } = useAuthStore();
   const checkAndRemoveKey = key => {
@@ -35,12 +36,19 @@ const AdminHeader = () => {
         <svg className={styles.logo}>
           <use href={`${sprite}#${'icon-logo'}`} />
         </svg>
-        <button onClick={handelLogout} className={styles.headerButton}>
-          Вихід
-          <svg>
-            <use href={`${sprite}#${'icon-logout'}`} />
-          </svg>
-        </button>
+        <div className={styles.userInfoWrapper}>
+          <div className={styles.userInfo}>
+            <p>Вітаю,{currentUser?.name}</p>
+            <img src={currentUser?.avatart} alt="" />
+          </div>
+
+          <button onClick={handelLogout} className={styles.headerButton}>
+            Вихід
+            <svg>
+              <use href={`${sprite}#${'icon-logout'}`} />
+            </svg>
+          </button>
+        </div>
       </div>
     </div>
   );

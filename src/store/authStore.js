@@ -3,8 +3,43 @@ import axios from '@/helpers/axios';
 
 const useAuthStore = create(set => ({
   loading: false,
-  error: null,
+  loginError: null,
+  currentUser: {},
 
+  getCurrentUser: async () => {
+    try {
+      set(() => {
+        return {
+          loading: true,
+        };
+      });
+      await axios
+        .get(`/auth/users/current`)
+        .then(response => {
+          console.log('response: ', response.data);
+          const user = response.data;
+
+          if (user) {
+            set(() => {
+              return {
+                currentUser: user,
+              };
+            });
+          }
+        })
+        .catch(error => {
+          set(() => {
+            return {
+              loading: false,
+              error: error,
+            };
+          });
+          console.error('Fetch error:', error);
+        });
+    } catch (error) {
+      console.error(error);
+    }
+  },
   login: async data => {
     try {
       const requestData = new URLSearchParams(data);
@@ -31,7 +66,7 @@ const useAuthStore = create(set => ({
           set(() => {
             return {
               loading: false,
-              error: error,
+              loginError: error,
             };
           });
           console.error('Fetch error:', error);
@@ -65,7 +100,7 @@ const useAuthStore = create(set => ({
       console.error(error);
     }
   },
-  logout: async()=> {
+  logout: async () => {
     try {
       set(() => {
         return {
@@ -73,8 +108,7 @@ const useAuthStore = create(set => ({
         };
       });
 
-   
-      const response = await axios.delete(`/auth/users/logout`, );
+      const response = await axios.delete(`/auth/users/logout`);
       set(() => {
         return {
           loading: false,

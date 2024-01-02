@@ -7,7 +7,6 @@ import { Link, Navigate } from 'react-router-dom';
 import useAuthStore from '@/store/authStore';
 import Spinner from '@/ui/Spinner/Spinner';
 import { useAuthorized } from '@/store/IsAuthorizedStore';
-import { useEffect } from 'react';
 
 const initialValues = {
   email: '',
@@ -17,7 +16,8 @@ const LoginPage = () => {
   const { setIsAuthorized } = useAuthorized();
   const { login } = useAuthStore();
   const isAuthorized = useAuthorized(state => state.isAuthorized);
-  const error = useAuthStore(state => state.error);
+  const loginError = useAuthStore(state => state.loginError);
+
   const loading = useAuthStore(state => state.loading);
   if (isAuthorized) return <Navigate to="/admin" />;
   const checkToken = key => {
@@ -34,7 +34,7 @@ const LoginPage = () => {
   const onSubmit = async values => {
     console.log('values: ', values);
     await login(values);
-    
+
     checkToken('family_coach_access_token');
   };
   return (
@@ -54,7 +54,9 @@ const LoginPage = () => {
 
                     <div className={styles.formWrapper}>
                       <div className={styles.errorText}>
-                        {error && <p>Невірна пошта або пароль</p>}
+                        {loginError && (
+                          <p>{loginError.response.data.message}</p>
+                        )}
                       </div>
                       <div className={styles.inputWrapper}>
                         <Field

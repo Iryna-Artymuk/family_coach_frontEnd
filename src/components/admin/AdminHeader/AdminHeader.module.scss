@@ -30,4 +30,27 @@
   font-family: 'Montserrat';
   font-size: 16px;
   font-weight: 700;
+  svg {
+    width: 24px;
+    height: 24px;
+  }
+}
+.userInfoWrapper {
+  @extend%aligncenter;
+  flex-direction: column;
+  gap: 10px;
+}
+.userInfo {
+  @extend%aligncenter;
+  gap: 10px;
+  color: $admin-light-blue;
+  font-size: 18px;
+  font-weight: 500;
+
+  img {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
 }
