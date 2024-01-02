@@ -1,17 +1,12 @@
 import { create } from 'zustand';
-
+import axios from '@/helpers/axios';
 const useFeedbackStore = create((set, get) => ({
-  // server: import.meta.env.VITE_APP_API_URL,
- 
-  server: 'https://family-coach.onrender.com/api',
-
   getFeedbacks: async feedbackStatus => {
-    const response = await fetch(`${get().server}/feedbacks/${feedbackStatus}`);
-    if (!response.ok) {
+    const response = await axios.get(`/feedbacks/${feedbackStatus}`);
+    if (response.status !== 200) {
       throw new Error(`HTTP error! Status: ${response.status}`);
     }
-    const result = await response.json();
-    return result;
+    return response.data;
   },
 
   addFeedback: async data => {
@@ -19,42 +14,24 @@ const useFeedbackStore = create((set, get) => ({
       name: data.name,
       feedback: data.feedback,
     };
-
-    const response = await fetch(`${get().server}/feedbacks`, {
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      method: 'POST',
-      body: JSON.stringify(newFeedBack),
-    });
-    const result = await response.json();
-    return result;
+    const response = await axios.post('/feedbacks', newFeedBack, {});
+    return response.data;
   },
 
   getFeedbackId: async id => {
-    const response = await fetch(`${get().server}/feedbacks/all/${id}`, {
-      method: 'GET',
-    });
-    const result = await response.json();
-    return result;
+    
+    const response = await axios.get(`/feedbacks/all/${id}`);
+    return response.data;
   },
   updateFeedbackStatus: async (id, data) => {
-    const response = await fetch(`${get().server}/feedbacks/${id}/status`, {
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      method: 'PATCH',
-      body: JSON.stringify(data),
-    });
-    const result = await response.json();
-    return result;
+   
+    const response = await axios.patch(`/feedbacks/${id}/status`, data);
+    return response.data;
   },
   deleteFeedbackId: async id => {
-    const response = await fetch(`${get().server}/feedbacks${id}`, {
-      method: 'DELETE',
-    });
-    const result = await response.json();
-    return result;
+   
+    const response = await axios.delete(`/feedbacks/${id}`);
+    return response.data;
   },
 }));
 

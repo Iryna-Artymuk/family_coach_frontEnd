@@ -2,12 +2,11 @@ import { create } from 'zustand';
 import axios from '@/helpers/axios';
 const useBlogStore = create(() => ({
   getPosts: async () => {
-   
+  
     const response = await axios.get(`/blog`);
     if (response.status !== 200) {
       throw new Error(`HTTP error! Status: ${response.status}`);
     }
-
     return response.data;
   },
 
