@@ -20,6 +20,7 @@ import LecturePriceAdmin from './pages/admin-pages/Price/LecturePriceAdmin';
 import LoginPage from './components/admin/loginPage/LoginPage';
 import LoginLayout from './components/admin/LoginLayout/LoginLayout';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';
+import ChangePasswordPage from './pages/admin-pages/ChangePasswordPageAdmin/ChangePasswordPage';
 
 const App = () => {
   return (
@@ -49,24 +50,21 @@ const App = () => {
           </Route>
 
           {/* login */}
-          <Route path="/login" element={<LoginLayout />}>
+          <Route path="/admin/login" element={<LoginLayout />}>
             <Route index element={<LoginPage />} />
+            <Route path="password" element={<ChangePasswordPage />} />
+
             {/* <Route
-              path="password-recovery"
-              element={<PasswordRecoveryPage />}
-            />
-            <Route
-              path="password-recovery/:token"
-              element={<CompletePasswordRecoveryPage />}
-            />
-            <Route path="password-recovery-success" element={<SuccessPage />} /> */}
+              path="password-recovery-success"
+              element={<SuccessPage />}
+            />{' '} */}
           </Route>
 
           {/* admin */}
           <Route
             path="/admin"
             element={
-              <PrivateRoute redirectTo="/login">
+              <PrivateRoute redirectTo="/admin/login">
                 <AdminSharedLayout />
               </PrivateRoute>
             }

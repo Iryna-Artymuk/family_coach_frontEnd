@@ -1,59 +1,38 @@
 import { create } from 'zustand';
-
-const useBlogStore = create((set, get) => ({
-  // server: import.meta.env.VITE_APP_API_URL,
-  server: 'https://family-coach.onrender.com/api',
-  //server: 'http://localhost:5000/api',
+import axios from '@/helpers/axios';
+const useBlogStore = create(() => ({
   getPosts: async () => {
-    const response = await fetch(`${get().server}/blog`);
-    if (!response.ok) {
+   
+    const response = await axios.get(`/blog`);
+    if (response.status !== 200) {
       throw new Error(`HTTP error! Status: ${response.status}`);
     }
-    const result = await response.json();
-    return result;
+
+    return response.data;
   },
 
   getPostById: async id => {
-    const response = await fetch(`${get().server}/blog/${id}`, {
-      method: 'GET',
-    });
-    const result = await response.json();
-    return result;
+    const response = await axios.get(`/blog/${id}`);
+    return response.data;
   },
   addPost: async formData => {
-    const response = await fetch(`${get().server}/blog`, {
-      method: 'POST',
-      body: formData,
-    });
-    const result = await response.json();
-    return result;
+    const response = await axios.post('/blog', formData, {});
+    return response.data;
   },
 
   updatePostText: async (data, id) => {
-    const response = await fetch(`${get().server}/blog/${id}`, {
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      method: 'PUT',
-      body: JSON.stringify(data),
-    });
-    const result = await response.json();
-    return result;
+    const response = await axios.put(`/blog/${id}`, data);
+    return response.data;
   },
   updatePostImage: async (formData, id) => {
-    const response = await fetch(`${get().server}/blog/postImage/${id}`, {
-      method: 'PATCH',
-      body: formData,
-    });
-    const result = await response.json();
-    return result;
+
+    const response = await axios.patch(`/blog/postImage/${id}`, formData, {});
+    return response.data;
   },
   deletePostById: async id => {
-    const response = await fetch(`${get().server}/blog/${id}`, {
-      method: 'DELETE',
-    });
-    const result = await response.json();
-    return result;
+  
+    const response = await axios.delete(`/blog/${id}`);
+    return response.data;
   },
 }));
 

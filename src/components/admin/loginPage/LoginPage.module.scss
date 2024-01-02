@@ -1,11 +1,45 @@
 .text {
-  width: 50vw;
-  color: $admin-white;
+  color: $admin-dark-blue;
   text-align: center;
   font-weight: 700;
 }
 
 .contentWrapper {
-  width: 100%;
   @extend%aligncenter;
+  width: 740px;
+  height: 540px;
+  border-radius: 30px;
+  background-color: $admin-white;
+}
+.layout {
+  width: 400px;
+  @extend%aligncenter;
+  flex-direction: column;
+  gap: 40px;
+  h2 {
+    color: $admin-dark-blue;
+    // font-family: ' Montserrat';
+    font-size: 32px;
+    font-weight: 700;
+  }
+}
+.formWrapper {
+  @extend%aligncenter;
+  flex-direction: column;
+  gap: 10px;
+}
+.forgotPassword {
+  color: $admin-dark-blue;
+  font-weight: 700;
+  align-self: flex-start;
+}
+.errorText {
+  color: $admin-red;
+  font-size: 18px;
+  font-weight: 500;
+}
+.inputWrapper {
+  @extend%aligncenter;
+  flex-direction: column;
+  gap: 32px;
 }
