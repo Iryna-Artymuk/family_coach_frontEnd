@@ -6,13 +6,13 @@
 
 .contentWrapper {
   @extend%aligncenter;
-  width: 740px;
+  max-width: 740px;
   height: 540px;
   border-radius: 30px;
   background-color: $admin-white;
 }
 .layout {
-  width: 400px;
+  max-width: 400px;
   @extend%aligncenter;
   flex-direction: column;
   gap: 40px;
