@@ -26,6 +26,11 @@ export const subMenuFooter = [
     link: 'user/changeInfo',
     iconClass: 'icon-dot',
   },
+  {
+    title: 'Реєстрація',
+    link: 'user/newAdmin',
+    iconClass: 'icon-dot',
+  },
 ];
 
 export const sideBarList = [

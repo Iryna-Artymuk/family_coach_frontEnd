@@ -23,6 +23,7 @@ import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 
 import ChangeAdminInfo from './pages/admin-pages/ChangeAdminInfo/ChangeAdminInfo';
 import ChangePasswordAdmin from './pages/admin-pages/ChangePasswordAdmin/ChangePasswordAdmin';
+import RegisterNewAdmin from './pages/admin-pages/RegisterNewAdmin/RegisterNewAdmin';
 
 const App = () => {
   return (
@@ -85,6 +86,7 @@ const App = () => {
               path="user/changePassword"
               element={<ChangePasswordAdmin />}
             />
+            <Route path="user/newAdmin" element={<RegisterNewAdmin />} />
           </Route>
         </Routes>
       </Router>
