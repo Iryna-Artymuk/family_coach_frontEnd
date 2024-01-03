@@ -1,4 +1,4 @@
-import { sideBarList } from './sideBarList';
+import { sideBarList } from '../../../../constants/sideBarList';
 
 import SideBarMenuItems from '../SideBarMenuItems/SideBarMenuItems';
 import styles from './SideBarMenuList.module.scss';
