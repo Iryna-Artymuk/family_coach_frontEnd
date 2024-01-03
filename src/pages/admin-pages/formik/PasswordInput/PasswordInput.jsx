@@ -18,6 +18,7 @@ const PasswordInput = ({
 
   const [isFocused, setIsFocused] = useState(false);
   const [inputType, setInputType] = useState('password-hide');
+  console.log('inputType: ', inputType);
   const handleInputType = e => {
     e.preventDefault();
     setInputType(prev =>
@@ -42,32 +43,16 @@ const PasswordInput = ({
   }, [isFieldTouched, valueLength]);
 
   const getBorderColor = () => {
-    if (
-      valueLength > maxLength ||
-      errors?.[field.name] ||
-      valueLength === 0 ||
-      nestedError == true
-    ) {
+    if (errors?.[field.name] && isFieldTouched) {
       return styles.redBorder;
     }
-
-    if ((valueLength > 0 && !isFocused) || nestedError == false) {
+    if (!errors?.[field.name] && !isFocused) {
       return styles.greenBorder;
     }
     if (isFocused) {
       return styles.blueBorder;
     } else {
       return styles.grayBorder;
-    }
-  };
-
-  const getInputState = () => {
-    if (valueLength > maxLength) {
-      return styles.error;
-    } else if (valueLength > 0 && !isFocused) {
-      return styles.entered;
-    } else {
-      return '';
     }
   };
 
@@ -79,7 +64,7 @@ const PasswordInput = ({
       <input
         id={id}
         type={inputType === 'password-hide' ? 'password' : 'text'}
-        className={`${styles.input} ${getBorderColor()} ${getInputState()}`}
+        className={`${styles.input} ${getBorderColor()}`}
         onFocus={handleFocus}
         onBlur={handleBlur}
         onClick={() => setIsFocused(true)}
@@ -102,17 +87,6 @@ const PasswordInput = ({
         )}
         <p className={styles.errorMessage}>{nestedError && nestedErrorText}</p>
       </div>
-      {showCharacterCount && (
-        <div className={styles.commentsWrapper}>
-          <p
-            className={`${styles.counterMessage} ${
-              valueLength > maxLength ? styles.redText : ''
-            }`}
-          >
-            {`${valueLength}/${maxLength}`}
-          </p>
-        </div>
-      )}
     </div>
   );
 };

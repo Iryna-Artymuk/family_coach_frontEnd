@@ -3,7 +3,7 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 15px;
 }
 .inputLabel {
   color: $admin-dark-blue;
@@ -11,7 +11,10 @@
   font-size: 20px;
   font-weight: 500;
 }
-
+input::-ms-reveal,
+input::-ms-clear {
+  display: none;
+}
 .input {
   @extend%aligncenter;
   width: 100%;
@@ -28,7 +31,7 @@
 }
 .icon {
   position: absolute;
-  top: 50%;
+  top: 57%;
   right: 0.6rem;
   font-size: 1.2rem;
 
@@ -43,27 +46,12 @@
   font-size: 16px;
   font-weight: 700;
 }
-.commentsWrapper {
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 10px;
-  align-self: stretch;
-}
 
-.counterMessage {
+.errorWrap {
   position: absolute;
-  top: 37px;
-  right: 12px;
-  color: $admin-light-gray;
-  font-family: 'Montserrat';
-  font-size: 24px;
-  font-weight: 500;
+  bottom: -15px;
+  left: 8px;
 }
-
-// .errorWrap {
-//   width: 422px;
-// }
 
 .errorMessage {
   color: $admin-red;

@@ -7,6 +7,7 @@ import { Link, Navigate } from 'react-router-dom';
 import useAuthStore from '@/store/authStore';
 import Spinner from '@/ui/Spinner/Spinner';
 import { useAuthorized } from '@/store/IsAuthorizedStore';
+import { loginValidationSchema } from './loginValidation';
 
 const initialValues = {
   email: '',
@@ -43,7 +44,7 @@ const LoginPage = () => {
         {!loading ? (
           <Formik
             initialValues={initialValues}
-            //   validationSchema={blogPostValidation}
+            validationSchema={loginValidationSchema}
             onSubmit={onSubmit}
           >
             {formik => {
