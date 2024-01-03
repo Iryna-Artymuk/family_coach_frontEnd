@@ -1,33 +1,25 @@
 import { create } from 'zustand';
-
-const useQualificatioStore = create((set, get) => ({
-  // server: import.meta.env.VITE_APP_API_URL,
-  server: 'https://family-coach.onrender.com/api',
+import axios from '@/helpers/axios';
+const useQualificatioStore = create(() => ({
   getDiplomas: async () => {
-    const response = await fetch(`${get().server}/qualification`);
-    if (!response.ok) {
+  
+    const response = await axios.get(`/qualification`);
+    if (response.status !== 200) {
       throw new Error(`HTTP error! Status: ${response.status}`);
     }
-    const result = await response.json();
-    return result;
+    return response.data;
   },
 
   addDiploma: async formData => {
-    const response = await fetch(`${get().server}/qualification`, {
-      method: 'POST',
-
-      body: formData,
-    });
-    const result = await response.json();
-    return result;
+   
+    const response = await axios.post('/qualification', formData, {});
+    return response.data;
   },
 
   deleteDiplomayId: async id => {
-    const response = await fetch(`${get().server}/qualification/${id}`, {
-      method: 'DELETE',
-    });
-    const result = await response.json();
-    return result;
+   
+    const response = await axios.delete(`qualification/${id}`);
+    return response.data;
   },
 }));
 

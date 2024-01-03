@@ -1,6 +1,7 @@
 .backgroundContainer {
   width: 100vw;
   height: 100vh;
+  padding: 10px;
   @extend%aligncenter;
   background: $admin-dark-blue;
 }

@@ -2,7 +2,7 @@
   @extend%aligncenter;
   gap: 8px;
   justify-content: flex-start;
-  width: 337px;
+  width: 100%;
   padding: 14px 16px;
 
   border-radius: 5px;
@@ -13,6 +13,9 @@
   svg {
     width: 32px;
     height: 32px;
+  }
+  @include desktop {
+    width: 337px;
   }
 }
 
