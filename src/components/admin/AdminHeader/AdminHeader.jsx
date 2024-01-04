@@ -4,7 +4,6 @@ import useAuthStore from '@/store/authStore';
 import { useAuthorized } from '@/store/IsAuthorizedStore';
 import { toast } from 'react-toastify';
 const AdminHeader = ({ currentUser }) => {
-  console.log('currentUser : ', currentUser);
   const { setUnAuthorized } = useAuthorized();
   const { logout } = useAuthStore();
   const checkAndRemoveKey = key => {
@@ -19,7 +18,7 @@ const AdminHeader = ({ currentUser }) => {
   };
   const handelLogout = async () => {
     const responce = await logout();
-    console.log('responce: ', responce);
+
     if (responce?.data.status === 'success') {
       checkAndRemoveKey('family_coach_access_token');
       setUnAuthorized();
@@ -39,7 +38,7 @@ const AdminHeader = ({ currentUser }) => {
         <div className={styles.userInfoWrapper}>
           <div className={styles.userInfo}>
             <p>Вітаю,{currentUser?.name}</p>
-            <img src={currentUser?.avatart} alt="" />
+            <img src={currentUser?.avatar?.url} alt="" />
           </div>
 
           <button onClick={handelLogout} className={styles.headerButton}>

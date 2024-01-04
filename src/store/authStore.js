@@ -23,6 +23,7 @@ const useAuthStore = create(set => ({
             set(() => {
               return {
                 currentUser: user,
+                loading: false,
               };
             });
           }
@@ -97,6 +98,44 @@ const useAuthStore = create(set => ({
       });
       return response;
     } catch (error) {
+      set(() => {
+        return {
+          loading: false,
+        };
+      });
+      console.error(error);
+    }
+  },
+  changeAvatar: async (formData, id) => {
+    try {
+      set(() => {
+        return {
+          loading: true,
+        };
+      });
+
+      const response = await axios.patch(
+        `/auth/users/avatar/${id}`,
+        formData,
+        {}
+      );
+      set(prevState => {
+        return {
+          currentUser: {
+            ...prevState.currentUser,
+            avatar: response.data.data.avatar,
+          },
+
+          loading: false,
+        };
+      });
+      return response;
+    } catch (error) {
+      set(() => {
+        return {
+          loading: false,
+        };
+      });
       console.error(error);
     }
   },
@@ -116,6 +155,11 @@ const useAuthStore = create(set => ({
       });
       return response;
     } catch (error) {
+      set(() => {
+        return {
+          loading: false,
+        };
+      });
       console.error(error);
     }
   },
