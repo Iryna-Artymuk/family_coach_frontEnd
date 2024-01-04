@@ -24,6 +24,7 @@ import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 import ChangeAdminInfo from './pages/admin-pages/ChangeAdminInfo/ChangeAdminInfo';
 import ChangePasswordAdmin from './pages/admin-pages/ChangePasswordAdmin/ChangePasswordAdmin';
 import RegisterNewAdmin from './pages/admin-pages/RegisterNewAdmin/RegisterNewAdmin';
+import Page404 from './pages/main/page_404/Page404';
 
 const App = () => {
   return (
@@ -48,10 +49,8 @@ const App = () => {
             <Route path="/blog/:articleId" element={<Article />} />
             <Route path="/qualification" element={<QualificationPage />} />
             <Route path="/price" element={<PricePage />} />
-            {/* <Route path="*" element={<Page404 />} />
-             */}
           </Route>
-
+          <Route path="*" element={<Page404 />} />
           {/* login */}
           <Route path="/admin/login" element={<LoginLayout />}>
             <Route index element={<LoginPage />} />
@@ -88,6 +87,7 @@ const App = () => {
             />
             <Route path="user/newAdmin" element={<RegisterNewAdmin />} />
           </Route>
+          <Route path="*" element={<Page404 />} />
         </Routes>
       </Router>
     </>

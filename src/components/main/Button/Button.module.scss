@@ -1,15 +1,32 @@
 .button {
+  min-width: 120px;
+  height: 32px;
   @extend%aligncenter;
+  border-radius: 15px;
   background-color: $buttonBG;
   color: $buttonTextColor;
+  margin-left: auto;
+  font-size: 12px;
+  padding: 8.5px 19.5px;
+  @media screen and (min-width: 768px) {
+    min-width: 241px;
+    height: 42px;
+    font-size: 16px;
+  }
+  &:hover,
+  &:focus {
+    background-color: $buttonBG;
+    color: $buttonTextColorHover;
+  }
 }
 
 .burgerButton {
   @extend%aligncenter;
 
-  width: 24px;
+  min-width: 24px;
   height: 24px;
   padding: 6px 3px;
+  padding: 0;
 }
 
 .burgerMenuCloseButton {
@@ -26,6 +43,8 @@
   @media screen and (min-width: 768px) {
     top: 32px;
     right: 32px;
+    min-width: 32px;
+    height: 32px;
   }
 }
 
@@ -34,25 +53,6 @@
   top: 32px;
   right: 0;
   z-index: 100;
-  // width: 120px;
-  height: 32px;
-  @extend%aligncenter;
-  border-radius: 15px;
-  background-color: $buttonBG;
-  color: $buttonTextColor;
-  margin-left: auto;
-  font-size: 12px;
-  padding: 8.5px 19.5px;
-  @media screen and (min-width: 768px) {
-    width: 241px;
-    height: 42px;
-    font-size: 16px;
-  }
-  &:hover,
-  &:focus {
-    background-color: $buttonBG;
-    color: $buttonTextColorHover;
-  }
 }
 
 .formButton {
