@@ -144,7 +144,7 @@ const useAuthStore = create(set => ({
         return {
           currentUser: {
             ...prevState.currentUser,
-            name: response.data.data.name,
+            name: response.data.name,
           },
 
           loading: false,
