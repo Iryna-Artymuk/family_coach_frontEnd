@@ -10,15 +10,13 @@ const PasswordInput = ({
   text,
   label,
   form: { errors, handleBlur, touched, setFieldValue },
-  maxLength,
-  showCharacterCount,
 }) => {
   const isFieldTouched = touched[field.name];
   const valueLength = field.value?.length;
 
   const [isFocused, setIsFocused] = useState(false);
   const [inputType, setInputType] = useState('password-hide');
-  console.log('inputType: ', inputType);
+
   const handleInputType = e => {
     e.preventDefault();
     setInputType(prev =>

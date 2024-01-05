@@ -5,7 +5,7 @@ const useAuthStore = create(set => ({
   loading: false,
   loginError: null,
   currentUser: {},
-
+  error: null,
   getCurrentUser: async () => {
     try {
       set(() => {
@@ -101,7 +101,7 @@ const useAuthStore = create(set => ({
     }
   },
 
-  changePassword: async data => {
+  changePassword: async (data, id) => {
     try {
       set(() => {
         return {
@@ -110,8 +110,8 @@ const useAuthStore = create(set => ({
       });
 
       const requestData = new URLSearchParams(data);
-      const response = await axios.post(
-        `/auth/change-password`,
+      const response = await axios.patch(
+        `/auth//users/password/${id}`,
         requestData,
         {}
       );
@@ -124,10 +124,10 @@ const useAuthStore = create(set => ({
     } catch (error) {
       set(() => {
         return {
+          error: error,
           loading: false,
         };
       });
-      console.error(error);
     }
   },
   changeInfo: async (data, id) => {

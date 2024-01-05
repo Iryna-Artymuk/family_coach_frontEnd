@@ -7,7 +7,11 @@ export const ButtonSubmit = ({ type, handlClick, nameButton, isActive }) => {
       type={type}
       // onClick={isActive ? handlerSubmitButton : null}
       onClick={handlClick}
-      className={clsx(styles.button, !isActive && styles.inActiveButton)}
+      className={clsx(
+        styles.button,
+        !isActive && styles.inActiveButton,
+        nameButton === 'додати диплом' && styles.addDiplomaButton
+      )}
     >
       {nameButton}
     </button>

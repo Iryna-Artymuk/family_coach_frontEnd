@@ -21,12 +21,12 @@ input::-ms-clear {
   height: 42px;
   padding: 10px 100px 10px 12px;
   border-radius: 10px;
-  // border: 1px solid import styles from './Price.module.scss';
+
   background: $admin-white;
 
   color: $admin-black;
   font-family: 'Montserrat';
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 600;
 }
 .icon {
@@ -47,11 +47,11 @@ input::-ms-clear {
   font-weight: 700;
 }
 
-.errorWrap {
-  position: absolute;
-  bottom: -15px;
-  left: 8px;
-}
+// .errorWrap {
+//   position: absolute;
+//   bottom: -15px;
+//   left: 8px;
+// }
 
 .errorMessage {
   color: $admin-red;

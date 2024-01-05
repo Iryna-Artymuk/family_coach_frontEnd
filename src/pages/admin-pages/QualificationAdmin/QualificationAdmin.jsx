@@ -97,7 +97,7 @@ const QualificationAdmin = () => {
     <div className={styles.list}>
       {!isLoading ? (
         <ul className={styles.list}>
-          <li className={styles.listItemAdd}>
+          <li className={styles.listItem}>
             <Formik
               initialValues={initialValues}
               validationSchema={diplomaImageValidation}
@@ -112,15 +112,12 @@ const QualificationAdmin = () => {
                       isActive={formik.isValid}
                       handlClick={formik.handleSubmit}
                     />
-
-                    <div className={styles.layout}>
-                      <Field
-                        name="image"
-                        id="image"
-                        type="file"
-                        component={FileInput}
-                      />
-                    </div>
+                    <Field
+                      name="image"
+                      id="image"
+                      type="file"
+                      component={FileInput}
+                    />
                   </Form>
                 );
               }}

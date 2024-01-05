@@ -22,7 +22,7 @@ const ChangeAdminInfo = () => {
   const currentUser = useAuthStore(state => state.currentUser);
   const loading = useAuthStore(state => state.loading);
   const error = useAuthStore(state => state.error);
-  console.log('error: ', error);
+  // console.log('error: ', error);
 
   const onSubmit = async values => {
     try {
@@ -33,16 +33,18 @@ const ChangeAdminInfo = () => {
     }
   };
   const onImageSubmit = async values => {
-    console.log('values: ', values);
     const formData = new FormData();
     formData.append('avatar', values.avatar[0]);
 
     try {
-      const result = await changeAvatar(formData, currentUser.id);
-      console.log('result: ', result);
-      //   if (result.status === 200) {
-      //     toast.success('Аватар оновлено успішно ');
-      //   }
+      const response = await changeAvatar(formData, currentUser.id);
+
+      if (response.status === 200) {
+        toast.success('Аватар оновлено успішно ');
+      }
+      if (!response?.status) {
+        toast.error(`Помилка  ${error?.response.data.message}`);
+      }
     } catch (error) {
       toast.error(`Помилка  ${error}`);
       console.log(error);

@@ -7,7 +7,6 @@ const fileTypes = [
   'image/jpg',
   'image/jpeg',
   'image/png',
-  'image/webp',
   'image/PNG',
   'for-url',
 ];
@@ -18,6 +17,7 @@ function isValidFileType(fileType) {
 
 export const diplomaImageValidation = Yup.object().shape({
   image: Yup.mixed()
+    .required()
     .test(
       'is-value',
       'Додайте коректне зображення',
@@ -27,10 +27,8 @@ export const diplomaImageValidation = Yup.object().shape({
       value && value[0]?.size === 0 && value[0]?.type === 'for-url';
       return true;
     })
-    .test(
-      'is-valid-type',
-      'Зображення має бути в форматі .jpg, .png або .webp',
-      value => isValidFileType(value && value[0]?.type)
+    .test('is-valid-type', 'Зображення має бути в форматі .jpg, .png ', value =>
+      isValidFileType(value && value[0]?.type)
     )
     .test(
       'is-valid-size',

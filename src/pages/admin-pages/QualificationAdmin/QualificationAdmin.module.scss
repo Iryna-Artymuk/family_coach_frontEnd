@@ -12,19 +12,17 @@
   flex-wrap: wrap;
   gap: 24px;
 }
-.listItemAdd {
-  @extend%aligncenter;
-  form {
-    @extend%aligncenter;
-    flex-direction: column;
-    gap: 20px;
-  }
-}
+
 .listItem {
   position: relative;
   width: 430px;
   height: 350px;
   overflow: hidden;
+  form {
+    width: 100%;
+    height: 100%;
+    position: relative;
+  }
 }
 
 .deleteIcon {
