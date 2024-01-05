@@ -6,54 +6,42 @@ import useAuthStore from '@/store/authStore';
 import { toast } from 'react-toastify';
 import { useEffect } from 'react';
 import ButtonSubmit from '@/components/admin/SubmitButton/ButtonSubmit';
-// const initialValues = {
-//   postCategory: '',
-//   title: '',
-//   description: '',
-//   post: '',
-// };
+import TextInput from '../formik/TextInput/TextInput';
+import ChangePassword from '../ChangePassword/ChangePassword';
+import { updateUserInfoSchema } from './updateUserInfoSchema';
+
+const userInitialValues = {
+  name: '',
+};
 const avatarInitialValues = {
   avatar: [],
 };
 const ChangeAdminInfo = () => {
-  const { changeAvatar } = useAuthStore();
+  const { changeAvatar, changeInfo } = useAuthStore();
   const currentUser = useAuthStore(state => state.currentUser);
   const loading = useAuthStore(state => state.loading);
   const error = useAuthStore(state => state.error);
   console.log('error: ', error);
 
-  //   const onSubmit = async values => {
-  //     try {
-  //       setIsLoading();
-  //       const result = await updatePostText(values, id);
-  //       if (result.status === 'success') {
-  //         setLoaded();
-  //         toast.success('Пост оновлений успішно ');
-  //         navigate('/admin/blog');
-  //       }
-  //       if (result.status === 'error') {
-  //         setLoaded();
-  //         toast.error(`Помилка  ${result.message}`);
-  //       }
-  //     } catch (error) {
-  //       setLoaded();
-  //       toast.error(`Помилка  ${error.message}`);
-  //       console.log(error);
-  //     }
-  //     return;
-  //   };
+  const onSubmit = async values => {
+    try {
+      console.log('values: ', values);
+      changeInfo(values, currentUser.id);
+    } catch (error) {
+      console.log('error : ', error);
+    }
+  };
   const onImageSubmit = async values => {
     console.log('values: ', values);
     const formData = new FormData();
-
     formData.append('avatar', values.avatar[0]);
 
     try {
       const result = await changeAvatar(formData, currentUser.id);
       console.log('result: ', result);
-      if (result.status === 200) {
-        toast.success('Аватар оновлено успішно ');
-      }
+      //   if (result.status === 200) {
+      //     toast.success('Аватар оновлено успішно ');
+      //   }
     } catch (error) {
       toast.error(`Помилка  ${error}`);
       console.log(error);
@@ -61,7 +49,7 @@ const ChangeAdminInfo = () => {
     return;
   };
   return (
-    <>
+    <div className={styles.layout}>
       {!loading ? (
         <>
           <Formik
@@ -72,7 +60,7 @@ const ChangeAdminInfo = () => {
             {formik => {
               return (
                 <Form>
-                  <div className={styles.layout}>
+                  <div className={styles.contentWrapper}>
                     <Field
                       name="avatar"
                       id="avatar"
@@ -93,55 +81,22 @@ const ChangeAdminInfo = () => {
             }}
           </Formik>
 
-          {/* <Formik
-            initialValues={initialValues}
-            validationSchema={updatePostValidation}
+          <Formik
+            initialValues={userInitialValues}
+            validationSchema={updateUserInfoSchema}
             onSubmit={onSubmit}
           >
             {formik => {
               return (
                 <Form>
-                  <div className={styles.layout}>
-                    <div className={styles.wrapper}>
-                      <div className={styles.inputsWrapper}>
-                        <Field
-                          name="postCategory"
-                          id="postCategory"
-                          component={SelectInput}
-                          label="Категорія"
-                          text={post?.postCategory}
-                        />
-                        <Field
-                          name="title"
-                          id="title"
-                          placeholder="title"
-                          component={TextInput}
-                          maxLength={50}
-                          showCharacterCount={true}
-                          label="Заголовок"
-                          text={post?.title}
-                        />
-                        <Field
-                          name="description"
-                          id="description"
-                          placeholder="description"
-                          component={TextArea}
-                          maxLength={300}
-                          showCharacterCount={true}
-                          label="Опис"
-                          text={post?.description}
-                        />
-                      </div>
-                    </div>
-
+                  <div className={styles.contentWrapper}>
                     <Field
-                      name="post"
-                      id="post"
-                      component={TextEditor}
-                      label="Стаття"
-                      text={post?.post}
+                      name="name"
+                      id="name"
+                      component={TextInput}
+                      label="Ім'я"
+                      text={currentUser?.name}
                     />
-
                     <ButtonSubmit
                       type="submit"
                       nameButton=" Оновити"
@@ -152,12 +107,13 @@ const ChangeAdminInfo = () => {
                 </Form>
               );
             }}
-          </Formik> */}
+          </Formik>
+          <ChangePassword />
         </>
       ) : (
         <Spinner />
       )}
-    </>
+    </div>
   );
 };
 

@@ -76,6 +76,30 @@ const useAuthStore = create(set => ({
       console.error(error);
     }
   },
+  logout: async () => {
+    try {
+      set(() => {
+        return {
+          loading: true,
+        };
+      });
+
+      const response = await axios.delete(`/auth/users/logout`);
+      set(() => {
+        return {
+          loading: false,
+        };
+      });
+      return response;
+    } catch (error) {
+      set(() => {
+        return {
+          loading: false,
+        };
+      });
+      console.error(error);
+    }
+  },
 
   changePassword: async data => {
     try {
@@ -93,6 +117,36 @@ const useAuthStore = create(set => ({
       );
       set(() => {
         return {
+          loading: false,
+        };
+      });
+      return response;
+    } catch (error) {
+      set(() => {
+        return {
+          loading: false,
+        };
+      });
+      console.error(error);
+    }
+  },
+  changeInfo: async (data, id) => {
+    try {
+      set(() => {
+        return {
+          loading: true,
+        };
+      });
+
+      const requestData = new URLSearchParams(data);
+      const response = await axios.patch(`/auth/users/${id}`, requestData, {});
+      set(prevState => {
+        return {
+          currentUser: {
+            ...prevState.currentUser,
+            name: response.data.data.name,
+          },
+
           loading: false,
         };
       });
@@ -126,30 +180,6 @@ const useAuthStore = create(set => ({
             avatar: response.data.data.avatar,
           },
 
-          loading: false,
-        };
-      });
-      return response;
-    } catch (error) {
-      set(() => {
-        return {
-          loading: false,
-        };
-      });
-      console.error(error);
-    }
-  },
-  logout: async () => {
-    try {
-      set(() => {
-        return {
-          loading: true,
-        };
-      });
-
-      const response = await axios.delete(`/auth/users/logout`);
-      set(() => {
-        return {
           loading: false,
         };
       });

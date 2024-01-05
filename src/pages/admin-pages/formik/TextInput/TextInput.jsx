@@ -34,25 +34,19 @@ const TextInput = ({
     }
   }, [isFieldTouched, valueLength]);
 
-  const getBorderColor = () => {
-    if (
-      valueLength > maxLength ||
-      errors?.[field.name] ||
-      valueLength === 0 ||
-      nestedError == true
-    ) {
-      return styles.redBorder;
-    }
-
-    if ((valueLength > 0 && !isFocused) || nestedError == false) {
-      return styles.greenBorder;
-    }
-    if (isFocused) {
-      return styles.blueBorder;
-    } else {
-      return styles.grayBorder;
-    }
-  };
+ const getBorderColor = () => {
+   if (errors?.[field.name] && isFieldTouched) {
+     return styles.redBorder;
+   }
+   if (!errors?.[field.name] && !isFocused) {
+     return styles.greenBorder;
+   }
+   if (isFocused) {
+     return styles.blueBorder;
+   } else {
+     return styles.grayBorder;
+   }
+ };
 
   const getInputState = () => {
     if (valueLength > maxLength) {

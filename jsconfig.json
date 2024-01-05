@@ -8,6 +8,7 @@
   "include": [
     "src",
     "src/helpers",
-    "src/pages/main/QualificationPage/QualificationPage.jsx"
+    "src/pages/main/QualificationPage/QualificationPage.jsx",
+    "SelectInput"
   ]
 }

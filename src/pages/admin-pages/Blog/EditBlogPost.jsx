@@ -9,7 +9,7 @@ import TextInput from '../formik/TextInput/TextInput';
 import useBlogStore from '@/store/blogStore';
 
 import TextEditor from '../formik/TextEditor/TextEditor';
-import SelectInput from '../formik/SelectInput/SelectInput';
+import SelectInput from '../../../../SelectInput/SelectInput';
 import Spinner from '@/ui/Spinner/Spinner';
 import ButtonSubmit from '@/components/admin/SubmitButton/ButtonSubmit';
 import styles from './BlogAdmin.module.scss';

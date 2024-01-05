@@ -17,11 +17,6 @@ export const sideBarSubMenuuList = [
 ];
 export const subMenuFooter = [
   {
-    title: 'Змінити пароль',
-    link: 'user/changePassword',
-    iconClass: 'icon-dot',
-  },
-  {
     title: 'Змінити дані',
     link: 'user/changeInfo',
     iconClass: 'icon-dot',

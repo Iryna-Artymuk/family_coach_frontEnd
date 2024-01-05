@@ -22,7 +22,7 @@ import LoginLayout from './components/admin/LoginLayout/LoginLayout';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 
 import ChangeAdminInfo from './pages/admin-pages/ChangeAdminInfo/ChangeAdminInfo';
-import ChangePasswordAdmin from './pages/admin-pages/ChangePasswordAdmin/ChangePasswordAdmin';
+
 import RegisterNewAdmin from './pages/admin-pages/RegisterNewAdmin/RegisterNewAdmin';
 import Page404 from './pages/main/page_404/Page404';
 
@@ -81,10 +81,7 @@ const App = () => {
             <Route path="price/kids" element={<KidsPriceAdmin />} />
             <Route path="price/lecture" element={<LecturePriceAdmin />} />
             <Route path="user/changeInfo" element={<ChangeAdminInfo />} />
-            <Route
-              path="user/changePassword"
-              element={<ChangePasswordAdmin />}
-            />
+          
             <Route path="user/newAdmin" element={<RegisterNewAdmin />} />
           </Route>
           <Route path="*" element={<Page404 />} />
