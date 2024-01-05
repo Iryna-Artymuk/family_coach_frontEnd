@@ -9,6 +9,7 @@ import ButtonSubmit from '@/components/admin/SubmitButton/ButtonSubmit';
 import TextInput from '../formik/TextInput/TextInput';
 import ChangePassword from '../ChangePassword/ChangePassword';
 import { updateUserInfoSchema } from './updateUserInfoSchema';
+import { avatarImageValidationSchema } from './avatarImageValidationSchema';
 
 const userInitialValues = {
   name: '',
@@ -54,7 +55,7 @@ const ChangeAdminInfo = () => {
         <>
           <Formik
             initialValues={avatarInitialValues}
-            // validationSchema={blogPostImageValidation}
+            validationSchema={avatarImageValidationSchema}
             onSubmit={onImageSubmit}
           >
             {formik => {
