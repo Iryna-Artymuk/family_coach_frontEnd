@@ -22,7 +22,7 @@ const ChangeAdminInfo = () => {
   const currentUser = useAuthStore(state => state.currentUser);
   const loading = useAuthStore(state => state.loading);
   const error = useAuthStore(state => state.error);
-  // console.log('error: ', error);
+  console.log('error: ', error);
 
   const onSubmit = async values => {
     try {
@@ -33,20 +33,22 @@ const ChangeAdminInfo = () => {
     }
   };
   const onImageSubmit = async values => {
+    // console.log(' values: ', values);
     const formData = new FormData();
     formData.append('avatar', values.avatar[0]);
 
     try {
       const response = await changeAvatar(formData, currentUser.id);
+      console.log('response: ', response);
 
       if (response.status === 200) {
         toast.success('Аватар оновлено успішно ');
       }
-      if (!response?.status) {
+      if (!response && error) {
         toast.error(`Помилка  ${error?.response.data.message}`);
       }
     } catch (error) {
-      toast.error(`Помилка  ${error}`);
+      // toast.error(`Помилка  ${error}`);
       console.log(error);
     }
     return;
@@ -69,7 +71,7 @@ const ChangeAdminInfo = () => {
                       id="avatar"
                       type="file"
                       component={FileInput}
-                      photo={currentUser.avatar?.url}
+                      // photo={currentUser.avatar?.url}
                     />
 
                     <ButtonSubmit

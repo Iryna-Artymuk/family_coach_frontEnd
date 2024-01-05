@@ -12,6 +12,7 @@ const FileInput = ({
 }) => {
   const [imagePreview, setImagePreview] = useState('');
   const fieldValue = field.value;
+ 
 
   useEffect(() => {
     if (!photo) return;

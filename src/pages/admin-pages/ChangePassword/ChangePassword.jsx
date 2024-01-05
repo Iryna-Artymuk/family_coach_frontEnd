@@ -18,7 +18,7 @@ const ChangePassword = () => {
   const { changePassword } = useAuthStore();
   const currentUser = useAuthStore(state => state.currentUser);
   const error = useAuthStore(state => state.error);
-  console.log(' error : ', error?.response.data.message);
+  // console.log(' error : ', error?.response.data.message);
   const PasswordSubmit = async values => {
     try {
       const response = await changePassword(values, currentUser.id);
@@ -46,7 +46,7 @@ const ChangePassword = () => {
           return (
             <Form>
               <div className={styles.contentWrapper}>
-                <div>
+                <div className={styles.inputWrapper}>
                   <Field
                     name="oldPassword"
                     id="oldPassword"

@@ -187,10 +187,10 @@ const useAuthStore = create(set => ({
     } catch (error) {
       set(() => {
         return {
+          error: error,
           loading: false,
         };
       });
-      console.error(error);
     }
   },
 }));
