@@ -18,7 +18,8 @@ import styles from './BlogAdmin.module.scss';
 
 import { useIsLoading } from '@/store/loadingStore';
 import { updatePostValidation } from './schemas/updateTextValidationSchema';
-import { blogPostImageValidation } from '../ChangeAdminInfo/avatarImageValidationSchema';
+import { blogPostImageSchema } from './schemas/blogPostImageValidation';
+
 const initialValues = {
   postCategory: '',
   title: '',
@@ -103,7 +104,7 @@ const EditBlogPost = () => {
         <>
           <Formik
             initialValues={imageinitialValues}
-            validationSchema={blogPostImageValidation}
+            validationSchema={blogPostImageSchema}
             onSubmit={onImageSubmit}
           >
             {formik => {
