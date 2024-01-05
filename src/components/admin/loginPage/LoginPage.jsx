@@ -74,9 +74,9 @@ const LoginPage = () => {
                           label="Пароль"
                         />
                       </div>
-                      <Link to="password" className={styles.forgotPassword}>
+                      {/* <Link to="password" className={styles.forgotPassword}>
                         Забули пароль?
-                      </Link>
+                      </Link> */}
                     </div>
 
                     <ButtonSubmit
