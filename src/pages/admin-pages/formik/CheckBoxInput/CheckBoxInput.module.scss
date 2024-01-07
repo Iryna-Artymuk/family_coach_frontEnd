@@ -1,0 +1,8 @@
+.checkBox {
+  @extend%aligncenter;
+  justify-content: flex-start;
+  gap: 10px;
+  color: $admin-dark-blue;
+  font-size: 18px;
+  font-weight: 500;
+}

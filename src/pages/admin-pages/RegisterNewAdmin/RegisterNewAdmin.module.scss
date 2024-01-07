@@ -1,10 +1,32 @@
 .layout {
-  @extend%aligncenter;
   width: 100%;
+  max-width: 50vw;
+  @extend%aligncenter;
   flex-direction: column;
-  h1 {
-    font-size: 48px;
+  gap: 40px;
+  h2 {
     color: $admin-dark-blue;
+    // font-family: ' Montserrat';
+    font-size: 32px;
+    font-weight: 700;
   }
-  //   background: var(--Gray-blue, #c3c6d3);
+  form {
+    width: 100%;
+  }
+}
+.inputWrapper {
+  @extend%aligncenter;
+  flex-direction: column;
+  gap: 10px;
+}
+.checkBoxWrapper {
+  width: 100%;
+  @extend%aligncenter;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+
+  color: $admin-dark-blue;
+  font-size: 20px;
+  font-weight: 500;
 }
