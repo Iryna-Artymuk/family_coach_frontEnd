@@ -27,6 +27,7 @@ const RegisterNewAdmin = () => {
   return (
     <>
       <div className={styles.layout}>
+        <h2>Реєстрація </h2>
         {!loading ? (
           <Formik
             initialValues={initialValues}
@@ -36,8 +37,6 @@ const RegisterNewAdmin = () => {
             {formik => {
               return (
                 <Form>
-                  <h2>Реєстрація </h2>
-
                   <div className={styles.inputWrapper}>
                     <Field
                       name="name"
@@ -72,9 +71,9 @@ const RegisterNewAdmin = () => {
                             value={option.value}
                           />
                         ))}
-                        <div className={styles.errorWrap}>
+                        <div>
                           {formik.errors?.roles && (
-                            <p className={styles.errorMessage}>
+                            <p className="errorMessage">
                               {formik.errors?.roles}
                             </p>
                           )}

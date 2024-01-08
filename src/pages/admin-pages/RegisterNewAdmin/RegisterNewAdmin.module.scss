@@ -6,7 +6,7 @@
   gap: 40px;
   h2 {
     color: $admin-dark-blue;
-    // font-family: ' Montserrat';
+    align-self: flex-start;
     font-size: 32px;
     font-weight: 700;
   }
@@ -17,6 +17,7 @@
 .inputWrapper {
   @extend%aligncenter;
   flex-direction: column;
+  align-items: flex-start;
   gap: 10px;
 }
 .checkBoxWrapper {
@@ -27,6 +28,6 @@
   gap: 10px;
 
   color: $admin-dark-blue;
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 500;
 }

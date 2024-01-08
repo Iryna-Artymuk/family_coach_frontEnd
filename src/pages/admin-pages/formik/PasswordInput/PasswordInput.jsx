@@ -62,6 +62,7 @@ const PasswordInput = ({
       <input
         id={id}
         type={inputType === 'password-hide' ? 'password' : 'text'}
+       
         className={`${styles.input} ${getBorderColor()}`}
         onFocus={handleFocus}
         onBlur={handleBlur}
