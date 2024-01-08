@@ -7,6 +7,7 @@ const useAuthStore = create(set => ({
   currentUser: {},
   error: null,
   getCurrentUser: async () => {
+    console.log(this);
     try {
       set(() => {
         return {
@@ -70,10 +71,37 @@ const useAuthStore = create(set => ({
               loginError: error,
             };
           });
-          console.error('Fetch error:', error);
         });
     } catch (error) {
       console.error(error);
+    }
+  },
+  register: async data => {
+    try {
+      // const requestData = new URLSearchParams(data);
+      // console.log(' requestData : ',  requestData );
+      set( () =>
+      {
+        return {
+          loading: true,
+        };
+      } );
+      const response = await axios.post( `/auth/users/register`, data, {} )
+      set( () =>
+      {
+        return {
+          loading: false,
+        };
+      } );
+      return response
+    } 
+     catch (error) {
+      set(() => {
+            return {
+              loading: false,
+              loginError: error,
+            };
+          });
     }
   },
   logout: async () => {

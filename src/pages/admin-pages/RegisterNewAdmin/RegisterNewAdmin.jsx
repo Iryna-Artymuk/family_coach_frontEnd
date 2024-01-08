@@ -9,20 +9,34 @@ import { userRoles } from '@/constants/userRoles';
 import { registerValidationSchema } from './registerValidation.js';
 import CheckBoxInput from '../formik/CheckBoxInput/CheckBoxInput';
 import Spinner from '@/ui/Spinner/Spinner';
+import { toast } from 'react-toastify';
+import { Navigate, useNavigate } from 'react-router-dom';
 const initialValues = {
   name: '',
   email: '',
   password: '',
-  roles: [],
+  userRoles: [],
 };
 const RegisterNewAdmin = () => {
-  // const { register } = useAuthStore();
-
+  const { register } = useAuthStore();
+  const error = useAuthStore(state => state.error);
   const loading = useAuthStore(state => state.loading);
-
+  const navigate = useNavigate();
   const onSubmit = async values => {
-    console.log('values: ', values);
-    // await login(values);
+    try {
+      const response = await register(values);
+
+      if (response?.status === 201) {
+        toast.success('Новий адмін доданий  успішно ');
+        navigate('/admin');
+      }
+      if (!response?.status && error) {
+        toast.error(`Помилка  ${error?.response.data.message}`);
+      }
+    } catch (error) {
+      toast.error(`Помилка  ${error?.response.data.message}`);
+      console.log(error);
+    }
   };
   return (
     <>
@@ -64,8 +78,8 @@ const RegisterNewAdmin = () => {
                         {userRoles.map(option => (
                           <Field
                             key={option.key}
-                            name="roles"
-                            id="roles"
+                            name="userRoles"
+                            id="userRoles"
                             component={CheckBoxInput}
                             label={option.label}
                             value={option.value}

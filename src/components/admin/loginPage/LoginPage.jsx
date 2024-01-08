@@ -3,7 +3,7 @@ import ButtonSubmit from '../SubmitButton/ButtonSubmit';
 import TextInput from '@/pages/admin-pages/formik/TextInput/TextInput';
 import { Field, Form, Formik } from 'formik';
 import PasswordInput from '@/pages/admin-pages/formik/PasswordInput/PasswordInput';
-import { Link, Navigate } from 'react-router-dom';
+import { Navigate } from 'react-router-dom';
 import useAuthStore from '@/store/authStore';
 import Spinner from '@/ui/Spinner/Spinner';
 import { useAuthorized } from '@/store/IsAuthorizedStore';
@@ -33,7 +33,6 @@ const LoginPage = () => {
   };
 
   const onSubmit = async values => {
-    console.log('values: ', values);
     await login(values);
 
     checkToken('family_coach_access_token');

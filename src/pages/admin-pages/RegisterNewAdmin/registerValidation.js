@@ -17,7 +17,7 @@ export const registerValidationSchema = Yup.object().shape({
       /^(?=.*[@#$%^&+=!])/,
       'Повинен містити хоча б  один спеціальний символ  @ # $ % ^ & + = !'
     ),
-  roles: Yup.array()
+  userRoles: Yup.array()
     .test('is-value', '   Оберіть посаду ', value => {
       return value && value.length > 0;
     })

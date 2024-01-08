@@ -18,12 +18,14 @@ const CheckBoxInput = ({
   };
   return (
     <div className={styles.checkBox}>
-      <input
-        type="checkbox"
-        onChange={handleChange}
-        checked={formikValue.indexOf(value) !== -1}
-      />
-      <span>{label}</span>
+      <label>
+        <input
+          type="checkbox"
+          onChange={handleChange}
+          checked={formikValue.indexOf(value) !== -1}
+        />
+        <span>{label}</span>
+      </label>
     </div>
   );
 };
