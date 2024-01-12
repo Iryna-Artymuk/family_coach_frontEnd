@@ -9,7 +9,7 @@ import {
 import { Link } from 'react-router-dom';
 import styles from '../ArticleCard/ArticleCard.module.scss';
 import Arrow from '@/components/Icons/Main/Arrow';
-import { Resize } from '@cloudinary/url-gen/actions';
+
 const ArticleCard = ({ article }) => {
   const cld = new Cloudinary({
     cloud: {
@@ -20,9 +20,10 @@ const ArticleCard = ({ article }) => {
     <div className={styles.articleWrapper}>
       <div className={styles.articleContentWrapper}>
         <AdvancedImage
+          className={styles.articleImg}
           cldImg={cld
             .image(article.postImage.public_id)
-            .resize(Resize.scale().width(350).height(350))
+
             .roundCorners(byRadius(15))}
           plugins={
             ([
