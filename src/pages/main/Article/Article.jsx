@@ -79,8 +79,7 @@ const Article = () => {
               </Link>
               <div className={styles.articletextWrapper}>
                 <h1 className="title">{article?.title}</h1>
-                {/* <p className={styles.article_text}>{article?.post}</p> */}
-                {/* <p dangerouslySetInnerHTML={{ __html: article?.post }} /> */}
+
                 <div
                   className=" ql-editor"
                   dangerouslySetInnerHTML={{ __html: article?.post }}
@@ -149,9 +148,10 @@ const Article = () => {
                     >
                       <div className={styles.swiper_content}>
                         <AdvancedImage
+                          className={styles.swiperImg}
                           cldImg={cld
                             .image(article.postImage.public_id)
-                            .resize(Resize.scale().width(349).height(245))
+                            // .resize(Resize.scale().width(349).height(245))
                             .roundCorners(byRadius(15))}
                           plugins={
                             ([
