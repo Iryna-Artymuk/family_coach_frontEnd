@@ -180,8 +180,8 @@ const HomePage = () => {
                   <ul className={styles.myPrinciples_List}>
                     <li className={styles.myPrinciples_List_Item}>
                       <p className={styles.myPrinciples_List_ItemText}>
-                        Тривалість консультації: діти від 4-х років 30-45 хв.,
-                        підлітки 45-50 хв., дорослі 50-70 хв.
+                        Тривалість консультації: діти від 4-х років – 30-45 хв.,
+                        підлітки – 45-50 хв., дорослі – 50-70 хв.
                       </p>
                     </li>
                     <li className={styles.myPrinciples_List_Item}>
@@ -233,8 +233,8 @@ const HomePage = () => {
                   <ul className={styles.myPrinciples_List1}>
                     <li className={styles.myPrinciples_List_Item}>
                       <p className={styles.myPrinciples_List_ItemText}>
-                        Тривалість консультації: діти від 4-х років 30-45 хв.,
-                        підлітки 45-50 хв., дорослі 50-70 хв.
+                        Тривалість консультації: діти від 4-х років – 30-45 хв.,
+                        підлітки – 45-50 хв., дорослі – 50-70 хв.
                       </p>
                     </li>
                     <li className={styles.myPrinciples_List_Item}>
