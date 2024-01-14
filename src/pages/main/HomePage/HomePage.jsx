@@ -86,7 +86,7 @@ const HomePage = () => {
         description="професійна психологічну підтримку для підлітків та дітей, допоможіть їм знайти сенс життя, покращити самооцінку та розуміти та керувати своїми емоціями навчіться любити до себе, будувати  здорові сімейні стосунки та виховати щасливих дітей"
         url=""
         article=""
-        image={`https://family-coach.vercel.app/${heroPhoto}`}
+        image={`https://family-coach.vercel.app${heroPhoto}`}
         fbAppId=""
       />
       <section id="about" className={styles.hero}>
