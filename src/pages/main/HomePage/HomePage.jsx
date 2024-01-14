@@ -26,6 +26,8 @@ import useFeedbackStore from '@/store/feedbackStore';
 import Spinner from '@/ui/Spinner/Spinner';
 import { useIsLoading } from '@/store/loadingStore';
 import useBlogStore from '@/store/blogStore';
+import { SEO } from '@/components/SEO/SEO';
+import { seoHomePage } from '@/constants/seoInfo';
 const HomePage = () => {
   const [allfeedbacks, setAllfeedbacks] = useState([]);
 
@@ -77,6 +79,14 @@ const HomePage = () => {
 
   return (
     <>
+      <SEO
+        title={seoHomePage.title}
+        description={seoHomePage.description}
+        url=""
+        article=""
+        image={`https://family-coach.vercel.app/${heroPhoto}`}
+        fbAppId=""
+      />
       <section id="about" className={styles.hero}>
         <Container>
           <div className={styles.contentWrapper}>
@@ -169,7 +179,6 @@ const HomePage = () => {
           </div>
         </Container>
       </section>
-
       <section className={styles.myPrinciples}>
         <Container>
           <div className={styles.myPrinciples_ContentWrapper}>
@@ -368,7 +377,6 @@ const HomePage = () => {
           </div>
         </Container>
       </section>
-
       <section className="feedBack" id="feedback">
         <Container>
           <div className={styles.feedBack_contentWrapper}>
@@ -466,7 +474,6 @@ const HomePage = () => {
           </div>
         </Container>
       </section>
-
       <section className="blog">
         <Container>
           <div className={styles.blog_contentWrapper}>
@@ -540,7 +547,6 @@ const HomePage = () => {
           </div>
         </Container>
       </section>
-
       {isDesktop && (
         <a
           className={styles.writemeLink}
