@@ -1,4 +1,4 @@
-import { Helmet } from 'react-helmet';
+import { Helmet } from 'react-helmet-async';
 
 const Seo = ({
   title,
@@ -10,36 +10,18 @@ const Seo = ({
   ogDescription,
 }) => {
   return (
-    <Helmet
-      title={title}
-      htmlAttributes={{ lang: 'uk' }}
-      meta={[
-        {
-          name: `description`,
-          content: description,
-        },
-        {
-          property: 'og:url',
-          content: ogUrl,
-        },
-        {
-          property: 'og:type',
-          content: ogArticle,
-        },
-        {
-          property: 'og:title',
-          content: ogTitle,
-        },
-        {
-          property: 'og:description',
-          content: ogDescription,
-        },
-        {
-          property: 'og:image',
-          content: ogImage,
-        },
-      ]}
-    />
+    <Helmet>
+      <title>{title}</title>
+      <meta name="description" content={description} />
+      {/* End standard metadata tags */}
+      {/* Facebook tags */}
+      {/* <meta property="og:type" content={type} /> */}
+      <meta property="og:title" content={ogTitle} />
+      <meta property="og:description" content={ogDescription} />
+      <meta property="og:image" content={ogImage} />
+      <meta property="og:url" content={ogUrl} />
+      <meta property="og:article" content={ogArticle} />
+    </Helmet>
   );
 };
 

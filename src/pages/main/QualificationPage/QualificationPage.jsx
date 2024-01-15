@@ -73,11 +73,11 @@ const QualificationPage = () => {
       <Seo
         title="Кваліфікація сімейного  психолога Жанни Барищук"
         description="Кваліфікація сімейного  психолога Жанни Барищук, дипломи, сертифікати, досягнення в галузі психології"
-        og_url="https://family-coach.vercel.app/qualification"
-        og_title="Ціна консультацій психолога"
-        og_description="Кваліфікація сімейного  психолога Жанни Барищук, дипломи, сертифікати, досягнення в галузі психології"
-        og_article="Кваліфікація сімейного  психолога Жанни Барищук, дипломи, сертифікати, досягнення в галузі психології"
-        og_image={`https://family-coach.vercel.app${heroPhoto}`}
+        ogUrl="https://family-coach.vercel.app/qualification"
+        ogTitle="Ціна консультацій психолога"
+        ogDescription="Кваліфікація сімейного  психолога Жанни Барищук, дипломи, сертифікати, досягнення в галузі психології"
+        ogArticle="Кваліфікація сімейного  психолога Жанни Барищук, дипломи, сертифікати, досягнення в галузі психології"
+        ogImage={`https://family-coach.vercel.app${heroPhoto}`}
       />
       <Container>
         {!isLoading ? (

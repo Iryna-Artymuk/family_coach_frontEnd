@@ -29,7 +29,7 @@ const Article = () => {
   // const location = useLocation();
   const { getPosts } = useBlogStore();
   const [posts, setPosts] = useState([]);
-  const { isLoading, setIsLoading, setLoaded } = useIsLoading();
+  const { setIsLoading, setLoaded } = useIsLoading();
   const backLinkHref = '/blog';
   const { articleId } = useParams();
   const [article, setArticle] = useState({});
@@ -75,11 +75,11 @@ const Article = () => {
         <Seo
           title={article?.title}
           description={article?.description}
-          og_url={`https://family-coach.vercel.app/blog/${article._id}`}
-          og_title="Ціна консультацій психолога"
-          og_description={article?.description}
-          og_article={article?.description}
-          og_image={article?.postImage.url}
+          ogUrl={`https://family-coach.vercel.app/blog/${article?._id}`}
+          ogTitle="Ціна консультацій психолога"
+          ogDescription={article?.description}
+          ogArticle={article?.description}
+          ogImage={article?.postImage?.url}
         />
         <Container>
           <div className={styles.article_contentwrapper}>

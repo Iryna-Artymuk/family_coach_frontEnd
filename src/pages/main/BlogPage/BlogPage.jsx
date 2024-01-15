@@ -84,11 +84,11 @@ const BlogPage = () => {
       <Seo
         title="Особистий блог психолога Жанни Барищук"
         description="статті  на тему мотивації саморозвитку виховання дітей та підлітків "
-        og_url="https://family-coach.vercel.app/blog"
-        og_title="Блог сучасної психологині  Жанни Барищу"
-        og_description="статті  на тему мотивації саморозвитку виховання дітей та підлітків "
-        og_article="статті  на тему мотивації саморозвитку виховання дітей та підлітків "
-        og_image={`https://family-coach.vercel.app${heroPhoto}`}
+        ogUrl="https://family-coach.vercel.app/blog"
+        ogTtitle="Блог сучасної психологині  Жанни Барищу"
+        ogDescription="статті  на тему мотивації саморозвитку виховання дітей та підлітків "
+        ogArticle="статті  на тему мотивації саморозвитку виховання дітей та підлітків "
+        ogImage={`https://family-coach.vercel.app${heroPhoto}`}
       />
       {!isLoading ? (
         <Container>

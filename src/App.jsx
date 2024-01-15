@@ -1,4 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { HelmetProvider } from 'react-helmet-async';
 import { ToastContainer } from 'react-toastify';
 import HomePage from '@/pages/main/HomePage/HomePage';
 import BlogPage from '@/pages/main/BlogPage/BlogPage';
@@ -25,10 +26,10 @@ import ChangeAdminInfo from './pages/admin-pages/ChangeAdminInfo/ChangeAdminInfo
 
 import RegisterNewAdmin from './pages/admin-pages/RegisterNewAdmin/RegisterNewAdmin';
 import Page404 from './pages/main/page_404/Page404';
-
+const helmetContext = {};
 const App = () => {
   return (
-    <>
+    <HelmetProvider context={helmetContext}>
       <ToastContainer
         position="top-right"
         autoClose={5000}
@@ -81,13 +82,13 @@ const App = () => {
             <Route path="price/kids" element={<KidsPriceAdmin />} />
             <Route path="price/lecture" element={<LecturePriceAdmin />} />
             <Route path="user/changeInfo" element={<ChangeAdminInfo />} />
-          
+
             <Route path="user/newAdmin" element={<RegisterNewAdmin />} />
           </Route>
           <Route path="*" element={<Page404 />} />
         </Routes>
       </Router>
-    </>
+    </HelmetProvider>
   );
 };
 
