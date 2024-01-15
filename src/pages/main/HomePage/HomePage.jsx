@@ -26,7 +26,7 @@ import useFeedbackStore from '@/store/feedbackStore';
 import Spinner from '@/ui/Spinner/Spinner';
 import { useIsLoading } from '@/store/loadingStore';
 import useBlogStore from '@/store/blogStore';
-import Seo from '@/components/Seo/Seo';
+import Seo from '@/components/seo/Seo';
 
 const HomePage = () => {
   const [allfeedbacks, setAllfeedbacks] = useState([]);
