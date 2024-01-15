@@ -26,8 +26,9 @@ import useFeedbackStore from '@/store/feedbackStore';
 import Spinner from '@/ui/Spinner/Spinner';
 import { useIsLoading } from '@/store/loadingStore';
 import useBlogStore from '@/store/blogStore';
-import { SEO } from '@/components/SEO/SEO';
-import { seoHomePage } from '@/constants/seoInfo';
+import Seo from '@/components/SEO/Seo';
+
+
 const HomePage = () => {
   const [allfeedbacks, setAllfeedbacks] = useState([]);
 
@@ -81,13 +82,14 @@ const HomePage = () => {
 
   return (
     <>
-      <SEO
+      <Seo
         title="Досвідчений сімейний психолог Жанна Барищук, психологічні консультації для  дорослих підлітків та дітей"
-        description="професійна психологічну підтримку для підлітків та дітей, допоможіть їм знайти сенс життя, покращити самооцінку та розуміти та керувати своїми емоціями навчіться любити до себе, будувати  здорові сімейні стосунки та виховати щасливих дітей"
-        url=""
-        article=""
-        image={`https://family-coach.vercel.app${heroPhoto}`}
-        fbAppId=""
+        description="професійна психологічна підтримка для дорослих, дітей та  підлітків , допомагаю  знайти сенс життя, покращити самооцінку, розуміти та керувати своїми емоціями, навчу любити до себе, будувати  здорові сімейні стосунки та виховати щасливих дітей"
+        og_url="https://family-coach.vercel.app/"
+        og_title="Cімейний психолог Жанна Барищук, психологічні консультації для  дорослих підлітків та дітей"
+        og_description="професійна психологічна підтримка для дорослих, дітей та  підлітків , допомагаю  знайти сенс життя, покращити самооцінку, розуміти та керувати своїми емоціями, навчу любити до себе, будувати  здорові сімейні стосунки та виховати щасливих дітей"
+        og_article="професійна психологічна підтримка для дорослих, дітей та  підлітків , допомагаю  знайти сенс життя, покращити самооцінку, розуміти та керувати своїми емоціями, навчу любити до себе, будувати  здорові сімейні стосунки та виховати щасливих дітей"
+        og_image={`https://family-coach.vercel.app${heroPhoto}`}
       />
       <section id="about" className={styles.hero}>
         <Container>

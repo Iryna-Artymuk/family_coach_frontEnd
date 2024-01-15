@@ -1,6 +1,14 @@
 import { Helmet } from 'react-helmet';
 
-export const SEO = ({ title, description, url, article, image, fbAppId }) => {
+const Seo = ({
+  title,
+  description,
+  og_url,
+  og_article,
+  og_image,
+  og_title,
+  og_description,
+}) => {
   return (
     <Helmet
       title={title}
@@ -12,29 +20,27 @@ export const SEO = ({ title, description, url, article, image, fbAppId }) => {
         },
         {
           property: 'og:url',
-          content: url,
+          content: og_url,
         },
         {
           property: 'og:type',
-          content: article,
+          content: og_article,
         },
         {
           property: 'og:title',
-          content: title,
+          content: og_title,
         },
         {
           property: 'og:description',
-          content: description,
+          content: og_description,
         },
         {
           property: 'og:image',
-          content: image,
-        },
-        {
-          property: 'fb:app_id',
-          content: fbAppId,
+          content: og_image,
         },
       ]}
     />
   );
 };
+
+export default Seo;

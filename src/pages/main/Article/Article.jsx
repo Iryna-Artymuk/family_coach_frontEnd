@@ -22,8 +22,9 @@ import { SwiperSlide, Swiper } from 'swiper/react';
 
 import useBlogStore from '@/store/blogStore';
 import { useIsLoading } from '@/store/loadingStore';
-import { Resize } from '@cloudinary/url-gen/actions';
+
 import 'react-quill/dist/quill.core.css';
+import Seo from '@/components/SEO/Seo';
 const Article = () => {
   // const location = useLocation();
   const { getPosts } = useBlogStore();
@@ -71,6 +72,15 @@ const Article = () => {
   return (
     <>
       <section>
+        <Seo
+          title={article?.title}
+          description={article?.description}
+          og_url={`https://family-coach.vercel.app/blog/${article._id}`}
+          og_title="Ціна консультацій психолога"
+          og_description={article?.description}
+          og_article={article?.description}
+          og_image={article?.postImage.url}
+        />
         <Container>
           <div className={styles.article_contentwrapper}>
             <article className={styles.article}>

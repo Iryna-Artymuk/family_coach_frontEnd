@@ -21,7 +21,8 @@ import styles from './BlogPage.module.scss';
 import Container from '@/components/main/Container/Container';
 import Spinner from '@/ui/Spinner/Spinner';
 
-
+import heroPhoto from '../../../../public/images/heroPhoto.jpg';
+import Seo from '@/components/SEO/Seo';
 const BlogPage = () => {
   const [posts, setPosts] = useState([]);
 
@@ -80,6 +81,15 @@ const BlogPage = () => {
 
   return (
     <section className={styles.blog}>
+      <Seo
+        title="Особистий блог психолога Жанни Барищук"
+        description="статті  на тему мотивації саморозвитку виховання дітей та підлітків "
+        og_url="https://family-coach.vercel.app/blog"
+        og_title="Блог сучасної психологині  Жанни Барищу"
+        og_description="статті  на тему мотивації саморозвитку виховання дітей та підлітків "
+        og_article="статті  на тему мотивації саморозвитку виховання дітей та підлітків "
+        og_image={`https://family-coach.vercel.app${heroPhoto}`}
+      />
       {!isLoading ? (
         <Container>
           <div className={styles.blog_wrapper}>
