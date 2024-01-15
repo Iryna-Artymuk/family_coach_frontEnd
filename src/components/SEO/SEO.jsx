@@ -3,11 +3,11 @@ import { Helmet } from 'react-helmet';
 const Seo = ({
   title,
   description,
-  og_url,
-  og_article,
-  og_image,
-  og_title,
-  og_description,
+  ogUrl,
+  ogArticle,
+  ogImage,
+  ogTitle,
+  ogDescription,
 }) => {
   return (
     <Helmet
@@ -20,23 +20,23 @@ const Seo = ({
         },
         {
           property: 'og:url',
-          content: og_url,
+          content: ogUrl,
         },
         {
           property: 'og:type',
-          content: og_article,
+          content: ogArticle,
         },
         {
           property: 'og:title',
-          content: og_title,
+          content: ogTitle,
         },
         {
           property: 'og:description',
-          content: og_description,
+          content: ogDescription,
         },
         {
           property: 'og:image',
-          content: og_image,
+          content: ogImage,
         },
       ]}
     />
