@@ -8,7 +8,7 @@ import IconMore from '@/components/Icons/Main/IconMore';
 import IconLess from '@/components/Icons/Main/IconLess';
 import PriceCardLecture from '@/components/main/PriceCards/PriceCardLecture';
 import Spinner from '@/ui/Spinner/Spinner';
-import Seo from '@/components/Seo/Seo';
+// import Seo from '@/components/Seo/Seo';
 
 import usePriceStore from '@/store/priceStore';
 import heroPhoto from '../../../../public/images/heroPhoto.jpg';
@@ -70,7 +70,7 @@ const PricePage = () => {
   }, [getPrices, setIsLoading, setLoaded]);
   return (
     <section>
-      <Seo
+      {/* <Seo
         title="Ціна консультацій психолога"
         description="З чого починається робота з психологом?
         Чому психолог не може допомогти за один сеанс?
@@ -90,7 +90,7 @@ const PricePage = () => {
         Далі перша - друга зустріч, разом з психологом клієнт формує скаргу- що хвилює клієнта, що не подобається, що клієнт хоче змінити
         І вже лише 2га - наступні, клієнт разом з психологом формує《Запит》- те ,що клієнт хотів би отримати від роботи з психологом"
         ogImage={`https://family-coach.vercel.app${heroPhoto}`}
-      />
+      /> */}
       <Container>
         <div className={styles.contentWrapper}>
           <h1 className="visuallyHidden">Ціна консультацій Жанни Барищук </h1>
