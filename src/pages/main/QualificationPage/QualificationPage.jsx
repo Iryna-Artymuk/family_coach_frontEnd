@@ -17,7 +17,7 @@ import heroPhoto from '../../../../public/images/heroPhoto.jpg';
 import useQualificatioStore from '@/store/qualificatioStore';
 import { useIsLoading } from '@/store/loadingStore';
 import Spinner from '@/ui/Spinner/Spinner';
-import Seo from '@/components/SEO/Seo';
+import Seo from '@/components/Seo/Seo';
 
 const QualificationPage = () => {
   const [serteficatesPerPage, setSerteficatesPerPage] = useState(0);

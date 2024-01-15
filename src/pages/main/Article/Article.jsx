@@ -24,7 +24,7 @@ import useBlogStore from '@/store/blogStore';
 import { useIsLoading } from '@/store/loadingStore';
 
 import 'react-quill/dist/quill.core.css';
-import Seo from '@/components/SEO/Seo';
+import Seo from '@/components/Seo/Seo';
 const Article = () => {
   // const location = useLocation();
   const { getPosts } = useBlogStore();
