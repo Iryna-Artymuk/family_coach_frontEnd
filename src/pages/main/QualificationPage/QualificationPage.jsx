@@ -19,6 +19,7 @@ import { useIsLoading } from '@/store/loadingStore';
 import Spinner from '@/ui/Spinner/Spinner';
 import Seo from '@/components/SEO/Seo';
 
+
 const QualificationPage = () => {
   const [serteficatesPerPage, setSerteficatesPerPage] = useState(0);
   const { getDiplomas } = useQualificatioStore();
