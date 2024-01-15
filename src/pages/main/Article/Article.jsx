@@ -34,7 +34,6 @@ const Article = () => {
   const backLinkHref = '/blog';
   const { articleId } = useParams();
   const [article, setArticle] = useState({});
-  console.log('article: ', article);
   const isDesktop = useMediaQuery({ minWidth: 1240 });
   const swiperRef = useRef();
 
