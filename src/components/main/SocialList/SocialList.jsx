@@ -6,7 +6,7 @@ import SocialMediaButtons from '@/components/main/SocialList/SocialMediaButtons'
 
 const SocialList = () => {
   return (
-    <div className={styles.shareList}>
+    <>
       Контакти
       <ul className={styles.socialList}>
         <li>
@@ -35,7 +35,7 @@ const SocialList = () => {
       </ul>
       {/*      
     <SocialMediaButtons url="https://family-coach.vercel.app/" /> */}
-    </div>
+    </>
   );
 };
 
