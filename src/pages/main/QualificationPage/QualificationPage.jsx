@@ -13,11 +13,11 @@ import { useEffect, useState } from 'react';
 import { useMediaQuery } from 'react-responsive';
 
 import styles from './QualificationPage.module.scss';
-import heroPhoto from '../../../../public/images/heroPhoto.jpg';
+// import heroPhoto from '../../../../public/images/heroPhoto.jpg';
 import useQualificatioStore from '@/store/qualificatioStore';
 import { useIsLoading } from '@/store/loadingStore';
 import Spinner from '@/ui/Spinner/Spinner';
-import Seo from '@/components/Seo/Seo';
+// import Seo from '@/components/Seo/Seo';
 
 const QualificationPage = () => {
   const [serteficatesPerPage, setSerteficatesPerPage] = useState(0);
@@ -70,7 +70,7 @@ const QualificationPage = () => {
   }, [isDesktop, isMobile, isTablet]);
   return (
     <section className="qualification">
-      <Seo
+      {/* <Seo
         title="Кваліфікація сімейного  психолога Жанни Барищук"
         description="Кваліфікація сімейного  психолога Жанни Барищук, дипломи, сертифікати, досягнення в галузі психології"
         ogUrl="https://family-coach.vercel.app/qualification"
@@ -78,7 +78,7 @@ const QualificationPage = () => {
         ogDescription="Кваліфікація сімейного  психолога Жанни Барищук, дипломи, сертифікати, досягнення в галузі психології"
         ogArticle="Кваліфікація сімейного  психолога Жанни Барищук, дипломи, сертифікати, досягнення в галузі психології"
         ogImage={`https://family-coach.vercel.app${heroPhoto}`}
-      />
+      /> */}
       <Container>
         {!isLoading ? (
           <div className={styles.qualification_contentWrapper}>
