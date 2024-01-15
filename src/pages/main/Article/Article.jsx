@@ -25,7 +25,8 @@ import { useIsLoading } from '@/store/loadingStore';
 
 import 'react-quill/dist/quill.core.css';
 import Seo from '@/components/seo/Seo';
-
+import SocialMediaButtons from '@/components/main/SocialList/SocialMediaButtons';
+import heroPhoto from '/images/heroPhoto.jpg';
 const Article = () => {
   // const location = useLocation();
   const { getPosts } = useBlogStore();
@@ -73,13 +74,13 @@ const Article = () => {
     <>
       <section>
         <Seo
-          title={article?.title}
-          description={article?.description}
+          title="Досвідчений сімейний психолог Жанна Барищук, психологічні консультації для  дорослих підлітків та дітей"
+          description="професійна психологічна підтримка для дорослих, дітей та  підлітків , допомагаю  знайти сенс життя, покращити самооцінку, розуміти та керувати своїми емоціями, навчу любити до себе, будувати  здорові сімейні стосунки та виховати щасливих дітей"
           ogUrl={`https://family-coach.vercel.app/blog/${article?._id}`}
-          ogTitle="Ціна консультацій психолога"
-          ogDescription={article?.description}
-          ogArticle={article?.description}
-          ogImage={article?.postImage?.url}
+          ogTitle="Cімейний психолог Жанна Барищук, психологічні консультації для  дорослих підлітків та дітей"
+          ogDescription="професійна психологічна підтримка для дорослих, дітей та  підлітків , допомагаю  знайти сенс життя, покращити самооцінку, розуміти та керувати своїми емоціями, навчу любити до себе, будувати  здорові сімейні стосунки та виховати щасливих дітей"
+          ogArticle="професійна психологічна підтримка для дорослих, дітей та  підлітків , допомагаю  знайти сенс життя, покращити самооцінку, розуміти та керувати своїми емоціями, навчу любити до себе, будувати  здорові сімейні стосунки та виховати щасливих дітей"
+          ogImage={`https://family-coach.vercel.app${heroPhoto}`}
         />
         <Container>
           <div className={styles.article_contentwrapper}>
@@ -102,6 +103,13 @@ const Article = () => {
                 </p>
                 {/* <p className={styles.article_author}>{article.author}</p> */}
                 <p className={styles.article_author}>Жанна Барищук</p>
+              </div>
+              <div className={styles.shareList}>
+                <SocialMediaButtons
+                  url={`https://family-coach.vercel.app/blog/${article?._id}`}
+                  title={article?.description}
+                  hashtag={`#${article?.postCategory}`}
+                />
               </div>
             </article>
           </div>

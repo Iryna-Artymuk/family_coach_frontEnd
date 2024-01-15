@@ -21,3 +21,15 @@
     }
   }
 }
+
+.shareList {
+  @extend%aligncenter;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.2;
+  letter-spacing: 0em;
+  color: #3c0000;
+}
