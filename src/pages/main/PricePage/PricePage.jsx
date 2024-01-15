@@ -15,6 +15,7 @@ import Spinner from '@/ui/Spinner/Spinner';
 
 import heroPhoto from '../../../../public/images/heroPhoto.jpg';
 import Seo from '@/components/Seo/Seo';
+
 const PricePage = () => {
   const [showAdultPrice, setShowAdultPrice] = useState(false);
   const [showKidsPrice, setShowKidsPrice] = useState(false);
