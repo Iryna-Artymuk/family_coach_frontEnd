@@ -7,7 +7,6 @@ import SocialMediaButtons from '@/components/main/SocialList/SocialMediaButtons'
 const SocialList = () => {
   return (
     <>
-      Контакти
       <ul className={styles.socialList}>
         <li>
           <a href="tel:+380672570144">
