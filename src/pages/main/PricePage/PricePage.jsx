@@ -12,8 +12,9 @@ import PriceCardLecture from '@/components/main/PriceCards/PriceCardLecture';
 import usePriceStore from '@/store/priceStore';
 import { useIsLoading } from '@/store/loadingStore';
 import Spinner from '@/ui/Spinner/Spinner';
-import Seo from '@/components/SEO/Seo';
+
 import heroPhoto from '../../../../public/images/heroPhoto.jpg';
+import Seo from '@/components/SEO/Seo';
 const PricePage = () => {
   const [showAdultPrice, setShowAdultPrice] = useState(false);
   const [showKidsPrice, setShowKidsPrice] = useState(false);
