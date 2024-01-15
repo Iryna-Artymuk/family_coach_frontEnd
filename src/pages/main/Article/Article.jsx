@@ -18,7 +18,7 @@ import { useMediaQuery } from 'react-responsive';
 
 import SliderArrowNext from '@/components/Icons/Main/SliderArrowNext';
 import SliderArrowPrev from '@/components/Icons/Main/SliderArrowPrev';
-import Seo from '@/components/Seo/Seo';
+// import Seo from '@/components/Seo/Seo';
 
 import useBlogStore from '@/store/blogStore';
 import { useIsLoading } from '@/store/loadingStore';
@@ -71,7 +71,7 @@ const Article = () => {
   return (
     <>
       <section>
-        <Seo
+        {/* <Seo
           title={article?.title}
           description={article?.description}
           ogUrl={`https://family-coach.vercel.app/blog/${article?._id}`}
@@ -79,7 +79,7 @@ const Article = () => {
           ogDescription={article?.description}
           ogArticle={article?.description}
           ogImage={article?.postImage?.url}
-        />
+        /> */}
         <Container>
           <div className={styles.article_contentwrapper}>
             <article className={styles.article}>
