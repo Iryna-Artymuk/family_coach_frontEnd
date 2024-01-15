@@ -26,10 +26,22 @@ import ChangeAdminInfo from './pages/admin-pages/ChangeAdminInfo/ChangeAdminInfo
 
 import RegisterNewAdmin from './pages/admin-pages/RegisterNewAdmin/RegisterNewAdmin';
 import Page404 from './pages/main/page_404/Page404';
+
+import heroPhoto from '/images/heroPhoto.jpg';
+import Seo from './components/seo/Seo';
 const helmetContext = {};
 const App = () => {
   return (
     <HelmetProvider context={helmetContext}>
+      <Seo
+        title="Досвідчений сімейний психолог Жанна Барищук, психологічні консультації для  дорослих підлітків та дітей"
+        description="професійна психологічна підтримка для дорослих, дітей та  підлітків , допомагаю  знайти сенс життя, покращити самооцінку, розуміти та керувати своїми емоціями, навчу любити до себе, будувати  здорові сімейні стосунки та виховати щасливих дітей"
+        ogUrl="https://family-coach.vercel.app/"
+        ogTitle="Cімейний психолог Жанна Барищук, психологічні консультації для  дорослих підлітків та дітей"
+        ogDescription="професійна психологічна підтримка для дорослих, дітей та  підлітків , допомагаю  знайти сенс життя, покращити самооцінку, розуміти та керувати своїми емоціями, навчу любити до себе, будувати  здорові сімейні стосунки та виховати щасливих дітей"
+        ogArticle="професійна психологічна підтримка для дорослих, дітей та  підлітків , допомагаю  знайти сенс життя, покращити самооцінку, розуміти та керувати своїми емоціями, навчу любити до себе, будувати  здорові сімейні стосунки та виховати щасливих дітей"
+        ogImage={`https://family-coach.vercel.app${heroPhoto}`}
+      />
       <ToastContainer
         position="top-right"
         autoClose={5000}
