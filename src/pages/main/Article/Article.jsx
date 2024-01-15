@@ -9,22 +9,21 @@ import {
 import Container from '@/components/main/Container/Container';
 
 import { useEffect, useRef, useState } from 'react';
+import styles from './Article.module.scss';
 import { useParams } from 'react-router-dom';
 import { Link } from 'react-router-dom';
-
-import styles from './Article.module.scss';
+import { SwiperSlide, Swiper } from 'swiper/react';
 import { formatDate } from '@/helpers/formatDate';
 import { useMediaQuery } from 'react-responsive';
 
 import SliderArrowNext from '@/components/Icons/Main/SliderArrowNext';
 import SliderArrowPrev from '@/components/Icons/Main/SliderArrowPrev';
-import { SwiperSlide, Swiper } from 'swiper/react';
+import Seo from '@/components/Seo/Seo';
 
 import useBlogStore from '@/store/blogStore';
 import { useIsLoading } from '@/store/loadingStore';
 
 import 'react-quill/dist/quill.core.css';
-import Seo from '@/components/Seo/Seo';
 
 const Article = () => {
   // const location = useLocation();
