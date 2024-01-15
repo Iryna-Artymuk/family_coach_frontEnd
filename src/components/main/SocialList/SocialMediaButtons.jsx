@@ -16,7 +16,7 @@ const SocialMediaButtons = ({ url, title, hashtag }) => {
       <div className={styles.socialList}>
         <FacebookShareButton
           url={url}
-          quote={'сімейний психолог Жанна Барищук'}
+          quotes={'сімейний психолог Жанна Барищук'}
           hashtag={hashtag}
         >
           <FacebookIcon size={24} round={true} />

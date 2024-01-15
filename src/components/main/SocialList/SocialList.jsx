@@ -33,9 +33,8 @@ const SocialList = () => {
           </a>
         </li>
       </ul>
-     
-    <SocialMediaButtons url="https://family-coach.vercel.app/" />
-     
+      {/*      
+    <SocialMediaButtons url="https://family-coach.vercel.app/" /> */}
     </div>
   );
 };
