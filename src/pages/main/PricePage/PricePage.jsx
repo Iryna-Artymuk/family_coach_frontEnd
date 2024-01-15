@@ -1,20 +1,19 @@
 import Container from '@/components/main/Container/Container';
 
-import PriceCardAdult from '@/components/main/PriceCards/PriceCardAdult';
-
 import { useEffect, useRef, useState } from 'react';
 
-import styles from './PricePage.module.scss';
+import PriceCardAdult from '@/components/main/PriceCards/PriceCardAdult';
 import PriceCarKids from '@/components/main/PriceCards/PriceCardKids';
 import IconMore from '@/components/Icons/Main/IconMore';
 import IconLess from '@/components/Icons/Main/IconLess';
 import PriceCardLecture from '@/components/main/PriceCards/PriceCardLecture';
-import usePriceStore from '@/store/priceStore';
-import { useIsLoading } from '@/store/loadingStore';
 import Spinner from '@/ui/Spinner/Spinner';
-
-import heroPhoto from '../../../../public/images/heroPhoto.jpg';
 import Seo from '@/components/Seo/Seo';
+
+import usePriceStore from '@/store/priceStore';
+import heroPhoto from '../../../../public/images/heroPhoto.jpg';
+import { useIsLoading } from '@/store/loadingStore';
+import styles from './PricePage.module.scss';
 
 const PricePage = () => {
   const [showAdultPrice, setShowAdultPrice] = useState(false);
