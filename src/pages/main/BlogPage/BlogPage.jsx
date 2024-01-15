@@ -21,8 +21,9 @@ import styles from './BlogPage.module.scss';
 import Container from '@/components/main/Container/Container';
 import Spinner from '@/ui/Spinner/Spinner';
 
-import heroPhoto from '../../../../public/images/heroPhoto.jpg';
-import Seo from '@/components/Seo/Seo';
+import heroPhoto from '/images/heroPhoto.jpg';
+import Seo from '@/components/seo/Seo';
+
 const BlogPage = () => {
   const [posts, setPosts] = useState([]);
 

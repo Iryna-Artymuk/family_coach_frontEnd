@@ -16,7 +16,7 @@ import ArticleCard from '@/components/Swiper/ArticleCard/ArticleCard';
 import SliderArrowNext from '@/components/Icons/Main/SliderArrowNext';
 import SliderArrowPrev from '@/components/Icons/Main/SliderArrowPrev';
 
-import heroPhoto from '../../../../public/images/heroPhoto.jpg';
+import heroPhoto from '/images/heroPhoto.jpg';
 import myPricepls from '@/assets/images/myPricepls.jpg';
 import whyMe from '@/assets/images/whyMe.jpg';
 

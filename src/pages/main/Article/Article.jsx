@@ -24,6 +24,7 @@ import useBlogStore from '@/store/blogStore';
 import { useIsLoading } from '@/store/loadingStore';
 
 import 'react-quill/dist/quill.core.css';
+import Seo from '@/components/seo/Seo';
 
 const Article = () => {
   // const location = useLocation();
@@ -71,7 +72,7 @@ const Article = () => {
   return (
     <>
       <section>
-        {/* <Seo
+        <Seo
           title={article?.title}
           description={article?.description}
           ogUrl={`https://family-coach.vercel.app/blog/${article?._id}`}
@@ -79,7 +80,7 @@ const Article = () => {
           ogDescription={article?.description}
           ogArticle={article?.description}
           ogImage={article?.postImage?.url}
-        /> */}
+        />
         <Container>
           <div className={styles.article_contentwrapper}>
             <article className={styles.article}>
