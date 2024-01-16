@@ -2,7 +2,6 @@ import Phone from '@/components/Icons/Main/Phone';
 import styles from './SocialList.module.scss';
 import Instagram from '@/components/Icons/Main/Instagram';
 import Telegram from '@/components/Icons/Main/Telegram';
-import SocialMediaButtons from '@/components/main/SocialList/SocialMediaButtons';
 
 const SocialList = () => {
   return (
@@ -32,8 +31,6 @@ const SocialList = () => {
           </a>
         </li>
       </ul>
-      {/*      
-    <SocialMediaButtons url="https://family-coach.vercel.app/" /> */}
     </>
   );
 };

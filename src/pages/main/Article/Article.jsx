@@ -25,8 +25,7 @@ import { useIsLoading } from '@/store/loadingStore';
 
 import 'react-quill/dist/quill.core.css';
 import Seo from '@/components/seo/Seo';
-import SocialMediaButtons from '@/components/main/SocialList/SocialMediaButtons';
-import heroPhoto from '/images/heroPhoto.jpg';
+
 const Article = () => {
   // const location = useLocation();
   const { getPosts } = useBlogStore();
@@ -75,10 +74,12 @@ const Article = () => {
       <section>
         <Seo
           title={article?.title}
+          description={article?.description}
+          type="article"
           ogUrl={`https://family-coach.vercel.app/blog/${article?._id}`}
-          ogTitle="Cімейний психолог Жанна Барищук, психологічні консультації для  дорослих підлітків та дітей"
+          ogTitle={article?.title}
           ogDescription={article?.description}
-          ogImage={`https://family-coach.vercel.app${heroPhoto}`}
+          ogImage={article?.postImage?.url}
         />
         <Container>
           <div className={styles.article_contentwrapper}>
@@ -99,15 +100,8 @@ const Article = () => {
                 <p className={styles.article_date}>
                   {formatDate(article?.createdAt)}
                 </p>
-                {/* <p className={styles.article_author}>{article.author}</p> */}
+
                 <p className={styles.article_author}>Жанна Барищук</p>
-              </div>
-              <div className={styles.shareList}>
-                {/* <SocialMediaButtons
-                  url={`https://family-coach.vercel.app/blog/${article?._id}`}
-                  title={article?.description}
-                  hashtag={`#${article?.postCategory}`}
-                /> */}
               </div>
             </article>
           </div>

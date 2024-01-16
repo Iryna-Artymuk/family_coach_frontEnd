@@ -26,7 +26,6 @@ import useFeedbackStore from '@/store/feedbackStore';
 import Spinner from '@/ui/Spinner/Spinner';
 import { useIsLoading } from '@/store/loadingStore';
 import useBlogStore from '@/store/blogStore';
-import Seo from '@/components/seo/Seo';
 
 const HomePage = () => {
   const [allfeedbacks, setAllfeedbacks] = useState([]);
@@ -55,8 +54,6 @@ const HomePage = () => {
     setIsOpenModal(true);
   };
   useEffect(() => {
-    document.title =
-      'Досвідчений сімейний психолог Жанна Барищук, психологічні консультації для  дорослих підлітків та дітей';
     window.scrollTo(0, 0);
   }, []);
 
@@ -81,15 +78,6 @@ const HomePage = () => {
 
   return (
     <>
-      <Seo
-        title="Досвідчений сімейний психолог Жанна Барищук, психологічні консультації для  дорослих підлітків та дітей"
-        description="професійна психологічна підтримка для дорослих, дітей та  підлітків , допомагаю  знайти сенс життя, покращити самооцінку, розуміти та керувати своїми емоціями, навчу любити до себе, будувати  здорові сімейні стосунки та виховати щасливих дітей"
-        ogUrl="https://family-coach.vercel.app/"
-        ogTitle="Cімейний психолог Жанна Барищук, психологічні консультації для  дорослих підлітків та дітей"
-        ogDescription="професійна психологічна підтримка для дорослих, дітей та  підлітків , допомагаю  знайти сенс життя, покращити самооцінку, розуміти та керувати своїми емоціями, навчу любити до себе, будувати  здорові сімейні стосунки та виховати щасливих дітей"
-        ogArticle="професійна психологічна підтримка для дорослих, дітей та  підлітків , допомагаю  знайти сенс життя, покращити самооцінку, розуміти та керувати своїми емоціями, навчу любити до себе, будувати  здорові сімейні стосунки та виховати щасливих дітей"
-        ogImage={`https://family-coach.vercel.app${heroPhoto}`}
-      />
       <section id="about" className={styles.hero}>
         <Container>
           <div className={styles.contentWrapper}>
