@@ -1,7 +1,7 @@
 import sprite from '@/assets/icons/sprite-admin.svg';
 import styles from './SideBarMenuItems.module.scss';
 import { NavLink } from 'react-router-dom';
-import { sideBarSubMenuuList } from '../../../../constants/sideBarList.js';
+
 import { useState } from 'react';
 const SideBarMenuItems = ({ title, link, iconClass, subMenu }) => {
   const [isOpen, setIsOpen] = useState(false);
