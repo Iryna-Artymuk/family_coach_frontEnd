@@ -8,7 +8,9 @@ const PrivateRoute = ({ children, redirectTo = 'admin/login' }) => {
   // Get the value of the key from local storage
   const value = localStorage.getItem('family_coach_access_token');
   const existsToken = value !== null;
+  console.log('existsToken: ', existsToken);
   const existsUser = Object.keys(currentUser).length > 0;
+  console.log('existsUser: ', existsUser);
 
   return isAuthorized || existsUser || existsToken ? (
     <>{children}</>
