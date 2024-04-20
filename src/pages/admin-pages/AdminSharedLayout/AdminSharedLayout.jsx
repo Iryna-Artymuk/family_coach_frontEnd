@@ -23,17 +23,17 @@ const AdminSharedLayout = () => {
 
   console.log('error: ', error);
   if (error) {
-    navigate('/login');
+    <Navigate to="/admin/login" replace />;
   }
   useEffect(() => {
     try {
       getCurrentUser();
       if (!exists) {
         setUnAuthorized();
-        navigate('/login');
+        <Navigate to="/admin/login" replace />;
       }
     } catch (error) {
-      navigate('/login');
+      <Navigate to="/admin/login" replace />;
       console.log(error);
     }
   }, [getCurrentUser, exists, navigate, setUnAuthorized]);

@@ -9,6 +9,7 @@
     "src",
     "src/helpers",
     "src/pages/main/QualificationPage/QualificationPage.jsx",
-    "SelectInput"
+    "SelectInput",
+    "AdminDashboard"
   ]
 }

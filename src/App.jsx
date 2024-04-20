@@ -8,7 +8,7 @@ import QualificationPage from './pages/main/QualificationPage/QualificationPage'
 import PricePage from './pages/main/PricePage/PricePage';
 import Article from './pages/main/Article/Article';
 import AdminSharedLayout from './pages/admin-pages/AdminSharedLayout/AdminSharedLayout';
-import AdminDashboard from './components/admin/AdminDashboard/AdminDashboard';
+import AdminDashboard from '../AdminDashboard/AdminDashboard';
 import FeedbackAdmin from './pages/admin-pages/Feedback/FeedbackAdmin';
 import EditFeedback from './pages/admin-pages/Feedback/EditFeedback';
 import BlogAdmin from './pages/admin-pages/Blog/BlogAdmin';
@@ -26,8 +26,6 @@ import ChangeAdminInfo from './pages/admin-pages/ChangeAdminInfo/ChangeAdminInfo
 
 import RegisterNewAdmin from './pages/admin-pages/RegisterNewAdmin/RegisterNewAdmin';
 import Page404 from './pages/main/page_404/Page404';
-
-
 
 const App = () => {
   return (
