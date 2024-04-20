@@ -60,7 +60,7 @@ const BlogAdmin = () => {
       <Link to={`add`}>
         <ButtonSubmit
           type="button"
-          nameButton="додати статтю"
+          nameButton="написати нову  статтю"
           isActive={true}
         />
       </Link>

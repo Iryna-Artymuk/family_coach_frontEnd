@@ -26,15 +26,15 @@ const AdminSharedLayout = () => {
     try {
       getCurrentUser();
 
-      console.log(' currentUser.name: ', currentUser.name);
       if (!exists) {
         setUnAuthorized();
         navigate('admin/login');
       }
     } catch (error) {
+      navigate('admin/login');
       console.log(error);
     }
-  }, [getCurrentUser]);
+  }, [getCurrentUser, exists, navigate, setUnAuthorized]);
   return (
     <>
       <main className={styles.mainWrapper}>
