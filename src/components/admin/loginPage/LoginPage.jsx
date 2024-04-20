@@ -20,7 +20,9 @@ const LoginPage = () => {
   const loginError = useAuthStore(state => state.loginError);
 
   const loading = useAuthStore(state => state.loading);
-  if (isAuthorized) return <Navigate to="/admin" />;
+  const currentUser = useAuthStore(state => state.currentUser);
+  const existUser = Object.keys(currentUser).length > 0;
+  if (isAuthorized && existUser) return <Navigate to="/admin" />;
   const checkToken = key => {
     // Get the value of the key from local storage
     const value = localStorage.getItem(key);

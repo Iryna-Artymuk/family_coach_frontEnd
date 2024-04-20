@@ -16,10 +16,8 @@ const PrivateRoute = ({ children, redirectTo = 'admin/login' }) => {
   const isAuthorized = useAuthorized(state => state.isAuthorized);
 
   const currentUser = useAuthStore(state => state.currentUser);
-  console.log('currentUser : ', currentUser);
-
   const existUser = Object.keys(currentUser).length > 0;
-  console.log('existUser : ', existUser);
+  
   useEffect(() => {
     try {
       getCurrentUser();
