@@ -44,13 +44,7 @@ const BlogTable = ({ data, handelDelete }) => {
         ))}
       </div>
 
-      <Link to={`add`}>
-        <ButtonSubmit
-          type="button"
-          nameButton="додати статтю"
-          isActive={true}
-        />
-      </Link>
+    
     </div>
   );
 };

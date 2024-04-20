@@ -4,6 +4,8 @@ import { useIsLoading } from '@/store/loadingStore';
 import useBlogStore from '@/store/blogStore';
 import BlogTable from '@/components/admin/BlogTable.jsx/BlogTable';
 import Spinner from '@/ui/Spinner/Spinner';
+import ButtonSubmit from '@/components/admin/SubmitButton/ButtonSubmit';
+import { Link } from 'react-router-dom';
 const BlogAdmin = () => {
   const { getPosts, deletePostById } = useBlogStore();
   const [posts, setPosts] = useState([]);
@@ -55,6 +57,13 @@ const BlogAdmin = () => {
       {posts.length > 0 && (
         <BlogTable handelDelete={handelDelete} data={posts} />
       )}
+      <Link to={`add`}>
+        <ButtonSubmit
+          type="button"
+          nameButton="додати статтю"
+          isActive={true}
+        />
+      </Link>
     </div>
   );
 };
