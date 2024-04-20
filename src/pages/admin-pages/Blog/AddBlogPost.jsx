@@ -22,8 +22,9 @@ const initialValues = {
 };
 
 const AddBlogPost = () => {
-  const { addPost } = useBlogStore();
+  const { addPost, error } = useBlogStore();
   const { isLoading, setIsLoading, setLoaded } = useIsLoading();
+  console.log('isLoading: ', isLoading);
   const onSubmit = async values => {
     const formData = new FormData();
     formData.append('postImage', values?.postImage[0]);
@@ -35,20 +36,22 @@ const AddBlogPost = () => {
     try {
       setIsLoading();
       const result = await addPost(formData);
-      if (result.status === 'success') {
+      if (result?.status === 'success') {
         toast.success('Пост доданий успішно ');
       }
-      if (result.status === 'error') {
+      if (result?.status === 'error' || error) {
         toast.error(`Помилка  ${result.message}`);
       }
       setLoaded();
     } catch (error) {
+      setLoaded();
       console.log(error);
     }
   };
 
   return (
     <>
+      {error && <p> {error.message}</p>}
       {!isLoading ? (
         <Formik
           initialValues={initialValues}

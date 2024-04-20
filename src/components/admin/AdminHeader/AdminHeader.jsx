@@ -3,26 +3,19 @@ import styles from './AdminHeader.module.scss';
 import useAuthStore from '@/store/authStore';
 import { useAuthorized } from '@/store/IsAuthorizedStore';
 import { toast } from 'react-toastify';
+import { checkAndRemoveKey } from '@/helpers/removeKey';
 const AdminHeader = ({ currentUser }) => {
   const { setUnAuthorized } = useAuthorized();
   const { logout } = useAuthStore();
-  const checkAndRemoveKey = key => {
-    // Get the value of the key from local storage
-    const value = localStorage.getItem(key);
-    // Check if the value is not null
-    const exists = value !== null;
-    // If the key exists, remove it
-    if (exists) {
-      localStorage.removeItem(key);
-    }
-  };
+
   const handelLogout = async () => {
     const responce = await logout();
 
     if (responce?.data.status === 'success') {
       checkAndRemoveKey('family_coach_access_token');
       setUnAuthorized();
-      toast.success('До побачення ');
+      toast.success( 'До побачення ' );
+      
     } else if (responce?.data.status === 'error') {
       toast.error(`Помилка  ${responce?.data.message}`);
     } else {

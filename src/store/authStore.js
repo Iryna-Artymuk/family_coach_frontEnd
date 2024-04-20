@@ -7,7 +7,6 @@ const useAuthStore = create(set => ({
   currentUser: {},
   error: null,
   getCurrentUser: async () => {
-    console.log(this);
     try {
       set(() => {
         return {
@@ -17,8 +16,8 @@ const useAuthStore = create(set => ({
       await axios
         .get(`/auth/users/current`)
         .then(response => {
-          console.log('response: ', response.data);
           const user = response.data;
+          console.log('user: ', user);
 
           if (user) {
             set(() => {
@@ -36,7 +35,7 @@ const useAuthStore = create(set => ({
               error: error,
             };
           });
-          console.error('Fetch error:', error);
+          console.error(' user fetch error:', error);
         });
     } catch (error) {
       console.error(error);
@@ -54,6 +53,7 @@ const useAuthStore = create(set => ({
         .post(`/auth/users/login`, requestData, {})
         .then(response => {
           const token = response.data.token;
+          console.log('token: ', token);
 
           if (token) {
             set(() => {
@@ -73,35 +73,32 @@ const useAuthStore = create(set => ({
           });
         });
     } catch (error) {
-      console.error(error);
+      console.log(' login error: ', error);
     }
   },
   register: async data => {
     try {
       // const requestData = new URLSearchParams(data);
       // console.log(' requestData : ',  requestData );
-      set( () =>
-      {
+      set(() => {
         return {
           loading: true,
         };
-      } );
-      const response = await axios.post( `/auth/users/register`, data, {} )
-      set( () =>
-      {
+      });
+      const response = await axios.post(`/auth/users/register`, data, {});
+      set(() => {
         return {
           loading: false,
         };
-      } );
-      return response
-    } 
-     catch (error) {
+      });
+      return response;
+    } catch (error) {
       set(() => {
-            return {
-              loading: false,
-              loginError: error,
-            };
-          });
+        return {
+          loading: false,
+          loginError: error,
+        };
+      });
     }
   },
   logout: async () => {

@@ -465,79 +465,81 @@ const HomePage = () => {
           </div>
         </Container>
       </section>
-      <section className="blog">
-        <Container>
-          <div className={styles.blog_contentWrapper}>
-            <h2 className={styles.title}>Cтатті</h2>
-            {!isLoading ? (
-              <div className={styles.blog_swiperwrapper}>
-                <Link
-                  className={styles.blog_Link}
-                  to="/blog"
-                  // buttonaddmore={true}
-                  type="button"
-                >
-                  Дивитися усі статті
-                </Link>
-                {isDesktop && (
-                  <>
-                    <button
-                      className={styles.buttonPrev}
-                      onClick={() => swiperRef2.current.slidePrev()}
-                    >
-                      <SliderArrowPrev />
-                    </button>
-                    <button
-                      className={styles.buttonNext}
-                      onClick={() => swiperRef2.current.slideNext()}
-                    >
-                      <SliderArrowNext />
-                    </button>{' '}
-                  </>
-                )}
-                <Swiper
-                  onSwiper={swiper => {
-                    swiperRef2.current = swiper;
-                  }}
-                  id="feedbackSwiper"
-                  loop={true}
-                  spaceBetween={12}
-                  slidesPerView={1.2}
-                  // centeredSlides={true}
-                  breakpoints={{
-                    425: {
-                      slidesPerView: 1.5,
-                    },
-                    768: {
-                      slidesPerView: 2.5,
-                      spaceBetween: 12,
-                    },
+      {posts > 0 && (
+        <section className="blog">
+          <Container>
+            <div className={styles.blog_contentWrapper}>
+              <h2 className={styles.title}>Cтатті</h2>
+              {!isLoading ? (
+                <div className={styles.blog_swiperwrapper}>
+                  <Link
+                    className={styles.blog_Link}
+                    to="/blog"
+                    // buttonaddmore={true}
+                    type="button"
+                  >
+                    Дивитися усі статті
+                  </Link>
+                  {isDesktop && (
+                    <>
+                      <button
+                        className={styles.buttonPrev}
+                        onClick={() => swiperRef2.current.slidePrev()}
+                      >
+                        <SliderArrowPrev />
+                      </button>
+                      <button
+                        className={styles.buttonNext}
+                        onClick={() => swiperRef2.current.slideNext()}
+                      >
+                        <SliderArrowNext />
+                      </button>{' '}
+                    </>
+                  )}
+                  <Swiper
+                    onSwiper={swiper => {
+                      swiperRef2.current = swiper;
+                    }}
+                    id="feedbackSwiper"
+                    loop={true}
+                    spaceBetween={12}
+                    slidesPerView={1.2}
+                    // centeredSlides={true}
+                    breakpoints={{
+                      425: {
+                        slidesPerView: 1.5,
+                      },
+                      768: {
+                        slidesPerView: 2.5,
+                        spaceBetween: 12,
+                      },
 
-                    1240: {
-                      slidesPerView: 3,
-                      spaceBetween: 27,
-                    },
-                  }}
-                >
-                  {posts.map(article => (
-                    <SwiperSlide key={article._id}>
-                      <ArticleCard article={article} />
-                    </SwiperSlide>
-                  ))}
-                </Swiper>
-              </div>
-            ) : (
-              <>
-                {' '}
-                <h2 className="loadingText">
-                  Зачекайте будь-ласка статті завантажуються...
-                </h2>
-                <Spinner />
-              </>
-            )}
-          </div>
-        </Container>
-      </section>
+                      1240: {
+                        slidesPerView: 3,
+                        spaceBetween: 27,
+                      },
+                    }}
+                  >
+                    {posts.map(article => (
+                      <SwiperSlide key={article._id}>
+                        <ArticleCard article={article} />
+                      </SwiperSlide>
+                    ))}
+                  </Swiper>
+                </div>
+              ) : (
+                <>
+                  {' '}
+                  <h2 className="loadingText">
+                    Зачекайте будь-ласка статті завантажуються...
+                  </h2>
+                  <Spinner />
+                </>
+              )}
+            </div>
+          </Container>
+        </section>
+      )}
       {isDesktop && (
         <a
           className={styles.writemeLink}

@@ -4,6 +4,7 @@ import { Navigate } from 'react-router-dom';
 const PrivateRoute = ({ children, redirectTo = 'admin/login' }) => {
   const isAuthorized = useAuthorized(state => state.isAuthorized);
 
+
   return isAuthorized ? <>{children}</> : <Navigate to={redirectTo} replace />;
 };
 
