@@ -25,7 +25,6 @@ const AdminSharedLayout = () => {
   useEffect(() => {
     try {
       getCurrentUser();
-
       if (!exists) {
         setUnAuthorized();
         navigate('admin/login');

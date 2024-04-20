@@ -5,7 +5,7 @@ import { formatDate } from '@/helpers/formatDate';
 
 import sprite from '@/assets/icons/sprite-admin.svg';
 import style from './BlogTable.module.scss';
-import ButtonSubmit from '../SubmitButton/ButtonSubmit';
+
 const BlogTable = ({ data, handelDelete }) => {
   // const { deletePost } = useNewsStore();
 
@@ -43,8 +43,6 @@ const BlogTable = ({ data, handelDelete }) => {
           </div>
         ))}
       </div>
-
-    
     </div>
   );
 };
