@@ -22,7 +22,7 @@ const AdminSharedLayout = () => {
   // Check if the value is not null
   const exists = value !== null;
   if (error) {
-    navigate('/login');
+    navigate('admin/login');
   }
   useEffect(() => {
     try {
