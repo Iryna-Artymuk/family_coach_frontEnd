@@ -45,6 +45,7 @@ const AddBlogPost = () => {
       setLoaded();
     } catch (error) {
       setLoaded();
+      toast.error(`Помилка  ${error.message}`);
       console.log(error);
     }
   };

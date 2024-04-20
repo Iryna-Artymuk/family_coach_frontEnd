@@ -6,7 +6,7 @@ const useAuthStore = create(set => ({
   loginError: null,
   currentUser: {},
   error: null,
-  currentUserError:null,
+
   getCurrentUser: async () => {
     try {
       set(() => {
@@ -33,7 +33,7 @@ const useAuthStore = create(set => ({
           set(() => {
             return {
               loading: false,
-              currentUserError: error,
+              error: error,
             };
           });
           console.error('  current user fetch error:', error);

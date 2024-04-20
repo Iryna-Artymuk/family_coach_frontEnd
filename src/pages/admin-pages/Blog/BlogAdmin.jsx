@@ -47,6 +47,7 @@ const BlogAdmin = () => {
         return;
       }
     } catch (error) {
+      toast.error(`Помилка  ${error.message}`);
       console.log(error);
       setLoaded();
     }
