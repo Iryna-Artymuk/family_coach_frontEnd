@@ -21,10 +21,6 @@ const AdminSharedLayout = () => {
   const exists = value !== null;
   // Check if the value is not null
 
-  console.log('error: ', error);
-  if (error) {
-    <Navigate to="/admin/login" replace />;
-  }
   useEffect(() => {
     try {
       getCurrentUser();
@@ -46,7 +42,7 @@ const AdminSharedLayout = () => {
           {!loading ? (
             <Suspense fallback={<div>Loading...</div>}>
               <div className={styles.rightContent}>
-                <Outlet />
+                {error ? <Navigate to="/admin/login" replace /> : <Outlet />}
               </div>
             </Suspense>
           ) : (
