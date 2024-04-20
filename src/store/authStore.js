@@ -35,7 +35,7 @@ const useAuthStore = create(set => ({
               error: error,
             };
           });
-          console.error(' user fetch error:', error);
+          console.error('  current user fetch error:', error);
         });
     } catch (error) {
       console.error(error);
