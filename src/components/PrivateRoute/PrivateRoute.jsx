@@ -12,7 +12,7 @@ const PrivateRoute = ({ children, redirectTo = 'admin/login' }) => {
   const existsUser = Object.keys(currentUser).length > 0;
   console.log('existsUser: ', existsUser);
 
-  return isAuthorized || existsUser || existsToken ? (
+  return isAuthorized && existsUser && existsToken ? (
     <>{children}</>
   ) : (
     <Navigate to={redirectTo} replace />
