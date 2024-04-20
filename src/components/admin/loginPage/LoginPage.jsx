@@ -8,6 +8,7 @@ import useAuthStore from '@/store/authStore';
 import Spinner from '@/ui/Spinner/Spinner';
 import { useAuthorized } from '@/store/IsAuthorizedStore';
 import { loginValidationSchema } from './loginValidation';
+import { useEffect } from 'react';
 
 const initialValues = {
   email: '',
@@ -18,11 +19,20 @@ const LoginPage = () => {
   const { login } = useAuthStore();
   const isAuthorized = useAuthorized(state => state.isAuthorized);
   const loginError = useAuthStore(state => state.loginError);
-
+  const { getCurrentUser } = useAuthStore();
   const loading = useAuthStore(state => state.loading);
   const currentUser = useAuthStore(state => state.currentUser);
   const existUser = Object.keys(currentUser).length > 0;
+  useEffect(() => {
+    try {
+      getCurrentUser();
+    } catch (error) {
+      console.log(error);
+    }
+  }, [getCurrentUser]);
   if (isAuthorized && existUser) return <Navigate to="/admin" />;
+  console.log('isAuthorized: ', isAuthorized);
+  console.log('existUser: ', existUser);
   const checkToken = key => {
     // Get the value of the key from local storage
     const value = localStorage.getItem(key);
