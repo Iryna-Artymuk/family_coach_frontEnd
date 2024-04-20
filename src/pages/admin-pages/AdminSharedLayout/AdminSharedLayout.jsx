@@ -18,21 +18,22 @@ const AdminSharedLayout = () => {
   const navigate = useNavigate();
   // Get the value of the key from local storage
   const value = localStorage.getItem('family_coach_access_token');
-
-  // Check if the value is not null
   const exists = value !== null;
+  // Check if the value is not null
+
+  console.log('error: ', error);
   if (error) {
-    navigate('admin/login');
+    navigate('/login');
   }
   useEffect(() => {
     try {
       getCurrentUser();
       if (!exists) {
         setUnAuthorized();
-        navigate('admin/login');
+        navigate('/login');
       }
     } catch (error) {
-      navigate('admin/login');
+      navigate('/login');
       console.log(error);
     }
   }, [getCurrentUser, exists, navigate, setUnAuthorized]);
